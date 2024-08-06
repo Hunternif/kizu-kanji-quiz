@@ -8,13 +8,14 @@ import { Panel } from '../components/Panel';
 import { firebaseAuth } from '../firebase';
 import { GoogleLogin } from './lobby-screens/login-components/GoogleLogin';
 import { GuestLogin } from './lobby-screens/login-components/GuestLogin';
+import { GameTitle } from './lobby-screens/login-components/GameTitle';
 
 export function WelcomePage() {
   const [error, setError] = useState(null);
   const [user, loading] = useAuthState(firebaseAuth);
   return (
     <CenteredLayout outerClassName="welcome-screen">
-      <h1>Kizu Kanji Quiz!</h1>
+      <GameTitle />
       <ErrorModal error={error} setError={setError} />
       <ErrorContext.Provider value={{ error, setError }}>
         <Panel className="login-card">

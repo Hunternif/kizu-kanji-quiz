@@ -1,9 +1,32 @@
+@use './colors.scss';
+
+.game-title {
+  text-align: center;
+  h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 0;
+    color: colors.$gray-5;
+  }
+  h2 {
+    margin-top: 0.25em;
+    font-weight: 800;
+    color: rgba(colors.$accent, 50%);
+  }
+  margin-bottom: 2em;
+}
+
 .login-card {
+  margin: auto;
+  width: fit-content;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 1em;
   .game-button {
-    width: 12rem;
+    width: 11rem;
   }
 }
