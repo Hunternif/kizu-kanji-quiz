@@ -1,9 +1,11 @@
 /*------------------------- Theme colors -------------------------*/
 $gray-0: #eeeeee;
-$gray-1: #978aa5;
-$gray-2: #8e749c;
-$gray-3:#64516e ;
-$gray-4: #534c5f;
+$gray-1: #e7d5e9;
+$gray-2: #cabcda;
+$gray-3: #978aa5;
+$gray-4: #8e749c;
+$gray-5:#64516e ;
+$gray-6: #534c5f;
 
 $accent: #fc8181;
 $bg: $gray-0;
@@ -13,12 +15,12 @@ $error-red: #e64949;
 
 $like: $accent;
 
-$button-bg: $gray-2;
+$button-bg: $gray-4;
 $button-text: $bg;
 $button-bg-hover: lighten($button-bg, 10%);
 $button-accent-text: #fff;
 $button-accent-bg-hover: lighten($accent, 10%);
-$button-light-bg: $gray-1;
+$button-light-bg: $gray-3;
 $button-lighter-bg: color-mix(in srgb, $bg 50%, $button-light-bg);
 
 /*--------------------- Background gradients ---------------------*/
@@ -26,11 +28,12 @@ $button-lighter-bg: color-mix(in srgb, $bg 50%, $button-light-bg);
 /*----------------------------- Cards ----------------------------*/
 
 /*------------------------- Form controls ------------------------*/
-$control-bg: $gray-3;
+$control-bg: $gray-5;
 $control-bg-focus: darken($control-bg, 10%);
 $control-border: transparent;
 $control-border-focus: #fff;
 
 /*------------------- "Panels" (modals & cards) ------------------*/
 $modal-bg: #fff;
-$tooltip-bg: color-mix(in srgb, $bg 70%, $gray-1);
+$panel-bg: #fff;
+$tooltip-bg: color-mix(in srgb, $bg 70%, $gray-3);
