@@ -62,25 +62,11 @@
     max-width: 95vw;
   }
 
-  // Special sizing for the large "settings" modal:
-  &.game-settings-modal {
-    min-width: 25rem;
-    max-width: 90vw;
-    width: 60rem;
-    @media (max-width: 50rem) {
-      min-width: 20rem;
-      width: 30rem;
-      max-width: 95vw;
+  &.error-modal {
+    .modal-title {
+      color: colors.$error-red;
     }
-    header {
-      text-align: center;
-    }
-  }
-
-  &.profile-modal {
-    .player-name {
-      margin-top: 0.5em;
-    }
+    border: 2px solid colors.$error-red;
   }
 }
 .modal-body {
