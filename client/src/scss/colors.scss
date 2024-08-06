@@ -2,7 +2,7 @@
 $gray-0: #eeeeee;
 $gray-1: #e7d5e9;
 $gray-2: #cabcda;
-$gray-3: #978aa5;
+$gray-3: #ab9abd;
 $gray-4: #8e749c;
 $gray-5:#64516e ;
 $gray-6: #534c5f;
@@ -16,22 +16,28 @@ $error-red: #e64949;
 $like: $accent;
 
 $button-bg: $gray-4;
-$button-text: $bg;
+$button-text: #fff;
 $button-bg-hover: lighten($button-bg, 10%);
 $button-accent-text: #fff;
 $button-accent-bg-hover: lighten($accent, 10%);
 $button-light-bg: $gray-3;
 $button-lighter-bg: color-mix(in srgb, $bg 50%, $button-light-bg);
+$button-secondary-bg: $gray-2;
+$button-secondary-bg-hover: $gray-2;
+$button-secondary-text: $gray-3;
+$button-secondary-text-hover: #fff;
 
 /*--------------------- Background gradients ---------------------*/
 
 /*----------------------------- Cards ----------------------------*/
 
 /*------------------------- Form controls ------------------------*/
-$control-bg: $gray-5;
-$control-bg-focus: darken($control-bg, 10%);
+$control-bg: $gray-0;
+$control-bg-focus: lighten($gray-0, 2%);
+$control-text: $gray-6;
+$control-text-focus: #fff;
 $control-border: transparent;
-$control-border-focus: #fff;
+$control-border-focus: $gray-2;
 
 /*------------------- "Panels" (modals & cards) ------------------*/
 $modal-bg: #fff;

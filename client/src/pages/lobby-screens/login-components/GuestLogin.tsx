@@ -1,15 +1,14 @@
-import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { signInAnonymously } from 'firebase/auth';
 import { useContext } from 'react';
 import { GameButton } from '../../../components/Buttons';
 import { ErrorContext } from '../../../components/ErrorContext';
 import { firebaseAuth } from '../../../firebase';
 
-export function GoogleLogin() {
+export function GuestLogin() {
   const { setError } = useContext(ErrorContext);
-  async function signInWithGoogle() {
+  async function signIn() {
     try {
-      const provider = new GoogleAuthProvider();
-      const cred = await signInWithPopup(firebaseAuth, provider);
+      const cred = await signInAnonymously(firebaseAuth);
       // TODO: create local user data
       // await getOrCreateCAAUser(
       //   cred.user.uid,
@@ -20,6 +19,8 @@ export function GoogleLogin() {
     }
   }
   return (
-    <GameButton onClick={signInWithGoogle}>Sign in with Google</GameButton>
+    <GameButton secondary onClick={signIn}>
+      Sign in as guest
+    </GameButton>
   );
 }

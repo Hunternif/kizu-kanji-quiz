@@ -1,0 +1,9 @@
+.login-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1em;
+  .game-button {
+    width: 12rem;
+  }
+}

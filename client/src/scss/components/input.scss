@@ -1,4 +1,5 @@
 @use "../colors.scss";
+@use "../sizes.scss";
 
 /*------------------------- Input component ------------------------*/
 /* Copied from Bootstrap and modified */
@@ -6,14 +7,17 @@ input.control {
   display: block;
   padding: 0.375rem 0.75rem;
   line-height: 1.5;
-  color: colors.$text;
+  color: colors.$control-text;
   appearance: none;
   background-color: colors.$control-bg;
   background-clip: padding-box;
   border: 2px solid colors.$control-border;
-  border-radius: var(--bs-border-radius);
+  border-radius: sizes.$input-border-radius;
+  font-family: inherit;
+  font-size: inherit;
   &:focus,
   &:focus-visible {
+    // color: colors.$control-text-focus;
     background-color: colors.$control-bg-focus;
     border-color: colors.$control-border-focus;
     outline: 0;

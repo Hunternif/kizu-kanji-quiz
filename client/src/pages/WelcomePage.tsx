@@ -4,9 +4,10 @@ import { ErrorContext } from '../components/ErrorContext';
 import { ErrorModal } from '../components/ErrorModal';
 import { CenteredLayout } from '../components/layout/CenteredLayout';
 import { LoadingSpinner } from '../components/LoadingSpinner';
+import { Panel } from '../components/Panel';
 import { firebaseAuth } from '../firebase';
 import { GoogleLogin } from './lobby-screens/login-components/GoogleLogin';
-import { Panel } from '../components/Panel';
+import { GuestLogin } from './lobby-screens/login-components/GuestLogin';
 
 export function WelcomePage() {
   const [error, setError] = useState(null);
@@ -16,11 +17,14 @@ export function WelcomePage() {
       <h1>Kizu Kanji Quiz!</h1>
       <ErrorModal error={error} setError={setError} />
       <ErrorContext.Provider value={{ error, setError }}>
-        <Panel>
+        <Panel className="login-card">
           {loading ? (
             <LoadingSpinner />
           ) : user?.isAnonymous === false ? null : ( // <HomeScreen />
-            <GoogleLogin />
+            <>
+              <GoogleLogin />
+              <GuestLogin />
+            </>
           )}
         </Panel>
       </ErrorContext.Provider>
