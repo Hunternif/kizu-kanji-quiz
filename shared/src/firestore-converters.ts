@@ -110,6 +110,9 @@ export const turnConverter: FConverter<GameTurn> = {
       {
         time_created: FTimestamp.fromDate(turn.time_created),
         phase_start_time: FTimestamp.fromDate(turn.phase_start_time),
+        next_phase_time: turn.next_phase_time
+          ? FTimestamp.fromDate(turn.next_phase_time)
+          : null,
         question: mapFromEntry(turn.question),
         choices: turn.choices?.map(mapFromEntry),
       },
@@ -119,10 +122,13 @@ export const turnConverter: FConverter<GameTurn> = {
     const data = snapshot.data();
     const time_created =
       (data.time_created as FTimestamp | null)?.toDate() ?? new Date();
+    const next_phase_time =
+      (data.next_phase_time as FTimestamp | null)?.toDate() ?? null;
     const ret = new GameTurn(
       snapshot.id,
       data.ordinal,
       time_created,
+      next_phase_time,
       mapToEntry(data.question),
       data.question_mode,
       data.answer_mode,

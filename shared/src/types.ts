@@ -131,7 +131,7 @@ export class PlayerInLobby {
 export class GameTurn {
   public phase: TurnPhase = 'new';
   /** Time when the last phase bagan. */
-  phase_start_time: Date = this.time_created;
+  public phase_start_time: Date = this.time_created;
 
   /** Maps player UID to what cards they played in this turn.
    * Must be fetched separately from a Firebase subcollection.
@@ -144,6 +144,10 @@ export class GameTurn {
     /** Turn's ordinal number: 1, 2, 3, ... */
     public ordinal: number,
     public time_created: Date,
+    /** Time when it should automatically advance to the next phase.
+     * In Firebase, running a timer is expensive, so we will rely on users
+     * to ping the server after time has elapsed. */
+    public next_phase_time: Date | null,
     public question: GameEntry,
     public question_mode: QuestionMode,
     public answer_mode: AnswerMode,
