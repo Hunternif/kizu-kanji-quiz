@@ -1,30 +1,30 @@
 /*------------------------- Theme colors -------------------------*/
 $gray-0: #eeeeee;
-$gray-1: #e7d5e9;
-$gray-2: #cabcda;
-$gray-3: #ab9abd;
-$gray-4: #8e749c;
-$gray-5:#64516e ;
+$gray-1: #e7e3e7;
+$gray-2: #d9d7db;
+$gray-3: #bab6be;
+$gray-4: #948f97;
+$gray-5:#666169 ;
 $gray-6: #534c5f;
 
-$accent: #fc8181;
+$accent: #b173da;
 $bg: $gray-0;
-$text: #5a5a5a;
+$text: $gray-5;
 
 $error-red: #e64949;
 
 $like: $accent;
 
-$button-bg: $gray-4;
+$button-bg: $gray-5;
 $button-text: #fff;
 $button-bg-hover: lighten($button-bg, 10%);
 $button-accent-text: #fff;
 $button-accent-bg-hover: lighten($accent, 10%);
 $button-light-bg: $gray-3;
 $button-lighter-bg: color-mix(in srgb, $bg 50%, $button-light-bg);
-$button-secondary-bg: $gray-2;
-$button-secondary-bg-hover: $gray-2;
-$button-secondary-text: $gray-3;
+$button-secondary-bg: $gray-3;
+$button-secondary-bg-hover: $gray-3;
+$button-secondary-text: $gray-4;
 $button-secondary-text-hover: #fff;
 
 /*--------------------- Background gradients ---------------------*/
