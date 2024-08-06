@@ -30,7 +30,7 @@
   flex-direction: column;
   justify-content: center;
   gap: 1em;
-  .game-button {
+  > .game-button {
     width: 13rem;
   }
   .google-login .icon-left {
