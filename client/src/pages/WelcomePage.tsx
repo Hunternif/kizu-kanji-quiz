@@ -6,29 +6,38 @@ import { CenteredLayout } from '../components/layout/CenteredLayout';
 import { LoadingSpinner } from '../components/LoadingSpinner';
 import { Panel } from '../components/Panel';
 import { firebaseAuth } from '../firebase';
+import { HomeScreen } from './lobby-screens/HomeScreen';
+import { GameTitle } from './lobby-screens/login-components/GameTitle';
 import { GoogleLogin } from './lobby-screens/login-components/GoogleLogin';
 import { GuestLogin } from './lobby-screens/login-components/GuestLogin';
-import { GameTitle } from './lobby-screens/login-components/GameTitle';
 
 export function WelcomePage() {
   const [error, setError] = useState(null);
   const [user, loading] = useAuthState(firebaseAuth);
   return (
-    <CenteredLayout outerClassName="welcome-screen">
-      <GameTitle />
+    <>
       <ErrorModal error={error} setError={setError} />
       <ErrorContext.Provider value={{ error, setError }}>
-        <Panel className="login-card">
-          {loading ? (
-            <LoadingSpinner />
-          ) : user?.isAnonymous === false ? null : ( // <HomeScreen />
-            <>
-              <GoogleLogin />
-              <GuestLogin />
-            </>
-          )}
-        </Panel>
+        {loading ? (
+          <LoadingSpinner />
+        ) : user?.isAnonymous === false ? (
+          <HomeScreen />
+        ) : (
+          <LoginPanel />
+        )}
       </ErrorContext.Provider>
+    </>
+  );
+}
+
+function LoginPanel() {
+  return (
+    <CenteredLayout outerClassName="welcome-screen">
+      <GameTitle />
+      <Panel className="login-card">
+        <GoogleLogin />
+        <GuestLogin />
+      </Panel>
     </CenteredLayout>
   );
 }
