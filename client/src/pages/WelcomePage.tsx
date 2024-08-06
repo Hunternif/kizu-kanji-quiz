@@ -14,29 +14,42 @@ import { GuestLogin } from './lobby-screens/login-components/GuestLogin';
 export function WelcomePage() {
   const [error, setError] = useState(null);
   const [user, loading] = useAuthState(firebaseAuth);
+  const [guestApproved, setGuestApproved] = useState(false);
+  const loginApproved =
+    user != null && (user.isAnonymous === false || guestApproved);
   return (
     <>
       <ErrorModal error={error} setError={setError} />
       <ErrorContext.Provider value={{ error, setError }}>
         {loading ? (
           <LoadingSpinner />
-        ) : user?.isAnonymous === false ? (
+        ) : loginApproved ? (
           <HomeScreen />
         ) : (
-          <LoginPanel />
+          <LoginPanel
+            isLoggedInAsGuest={user?.isAnonymous}
+            onGuestLogin={() => setGuestApproved(true)}
+          />
         )}
       </ErrorContext.Provider>
     </>
   );
 }
 
-function LoginPanel() {
+type LoginPanelProps = {
+  isLoggedInAsGuest?: boolean;
+  onGuestLogin: () => void;
+};
+function LoginPanel({ isLoggedInAsGuest, onGuestLogin }: LoginPanelProps) {
   return (
     <CenteredLayout outerClassName="welcome-screen">
       <GameTitle />
       <Panel className="login-card">
         <GoogleLogin />
-        <GuestLogin />
+        <GuestLogin
+          onLogin={onGuestLogin}
+          text={isLoggedInAsGuest ? 'Continue as guest' : 'Sign in as guest'}
+        />
       </Panel>
     </CenteredLayout>
   );
