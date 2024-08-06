@@ -1,13 +1,33 @@
-/*--------------------------- Accents ----------------------------*/
-/** Gold star, primary button etc */
-
 /*------------------------- Theme colors -------------------------*/
+$accent: #fc8181;
 $bg: #eeeeee;
+$second: #978aa5;
+$third: #64516e;
+$fourth: #534c5f;
+$text: #333;
+
+$error-red: #e64949;
+
+$like: $accent;
+
+$button-bg: $third;
+$button-text: $bg;
+$button-bg-hover: lighten($button-bg, 30%);
+$button-accent-text: #fff;
+$button-accent-bg-hover: lighten($accent, 30%);
+$button-light-bg: $second;
+$button-lighter-bg: color-mix(in srgb, $bg 50%, $button-light-bg);
 
 /*--------------------- Background gradients ---------------------*/
 
 /*----------------------------- Cards ----------------------------*/
 
 /*------------------------- Form controls ------------------------*/
+$control-bg: $fourth;
+$control-bg-focus: darken($control-bg, 50%);
+$control-border: transparent;
+$control-border-focus: #fff;
 
 /*------------------- "Panels" (modals & cards) ------------------*/
+$modal-bg: color-mix(in srgb, $bg 50%, $second);
+$tooltip-bg: $modal-bg;

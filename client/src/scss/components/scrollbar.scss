@@ -1,0 +1,30 @@
+@use "../colors.scss";
+
+/*------------------------ Scrollbar component -----------------------*/
+
+.miniscrollbar {
+  scrollbar-gutter: stable;
+  &.miniscrollbar-auto {
+    scrollbar-gutter: auto;
+  }
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  &::-webkit-scrollbar-track {
+    background: 0 0;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 4px;
+  }
+  &::-webkit-scrollbar-corner {
+    background: transparent;
+}
+  &.miniscrollbar-dark::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.6);
+  }
+  &.miniscrollbar-light::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.5);
+  }
+}
