@@ -37,3 +37,16 @@
     color: #ffdfb0;
   }
 }
+
+.home-card {
+  margin: auto;
+  width: fit-content;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5em;
+  > .game-button {
+    width: 7rem;
+  }
+}

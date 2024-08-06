@@ -2,8 +2,11 @@ import { useState } from 'react';
 import { GameButton } from '../../../components/Buttons';
 import { useErrorContext } from '../../../components/ErrorContext';
 import { firebaseAuth } from '../../../firebase';
+import { ControlProps } from '../../../components/FormControls';
 
-export function SignOutButton() {
+interface Props extends ControlProps {}
+
+export function SignOutButton(props: Props) {
   const { setError } = useErrorContext();
   const [signingOut, setSigningOut] = useState(false);
 
@@ -20,7 +23,7 @@ export function SignOutButton() {
   }
 
   return (
-    <GameButton onClick={handleClick} loading={signingOut}>
+    <GameButton {...props} onClick={handleClick} loading={signingOut}>
       Sign Out
     </GameButton>
   );
