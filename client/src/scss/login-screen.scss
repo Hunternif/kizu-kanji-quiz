@@ -20,13 +20,16 @@
 
 .login-card {
   margin: auto;
-  width: fit-content;
+  width: 18rem;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 1em;
   .game-button {
-    width: 11rem;
+    width: 13rem;
+  }
+  .google-login .icon-left {
+    color: #ffdfb0;
   }
 }

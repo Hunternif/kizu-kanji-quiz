@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { GameButton } from '../../../components/Buttons';
 import { ErrorContext } from '../../../components/ErrorContext';
 import { firebaseAuth } from '../../../firebase';
+import { IconGoogle } from '../../../components/Icons';
 
 export function GoogleLogin() {
   const { setError } = useContext(ErrorContext);
@@ -20,6 +21,12 @@ export function GoogleLogin() {
     }
   }
   return (
-    <GameButton onClick={signInWithGoogle}>Sign in with Google</GameButton>
+    <GameButton
+      className="google-login"
+      iconLeft={<IconGoogle />}
+      onClick={signInWithGoogle}
+    >
+      Sign in with Google
+    </GameButton>
   );
 }
