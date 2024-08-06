@@ -2,6 +2,95 @@ rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
+    function isLoggedIn() {
+      return request.auth != null;
+    }
+
+    function userIsAdmin() {
+      let user = get(/databases/$(database)/documents/users/$(request.auth.uid));
+      return user != null && user.data.is_admin == true;
+    }
+
+    // Current user is a player in the lobby, and is not banned.
+    function userIsPlayer(lobby) {
+      let player = get(/databases/$(database)/documents/lobbies/$(lobby)/players/$(request.auth.uid));
+      return player != null && player.data.status != "banned";
+    }
+    // Allows only "players", not "spectators".
+    function userIsActivePlayer(lobby) {
+      return userIsPlayer(lobby) && get(/databases/$(database)/documents/lobbies/$(lobby)/players/$(request.auth.uid)).data.role == "player";
+    }
+    function userIsCreator(lobby) {
+      return get(/databases/$(database)/documents/lobbies/$(lobby)).data.creator_uid == request.auth.uid;
+    }
+    function userIsInLobby(lobby) {
+      return userIsPlayer(lobby) || userIsCreator(lobby);
+    }
+
+    // Don't allow changing player data for these fields:
+    function fieldsUnchanged(fields) {
+      return !request.resource.data.diff(resource.data).affectedKeys()
+              .hasAny(fields);
+    }
+
+    // Don't allow changing anything if you're banned
+    function userIsNotKicked(lobby, userID) {
+      let doc = get(/databases/$(database)/documents/lobbies/$(lobby)/players/$(userID));
+      return doc == null || doc.data['status'] != "banned";
+    }
+
+    function isTurnPhase(lobby, turn, phase) {
+      return get(/databases/$(database)/documents/lobbies/$(lobby)/turns/$(turn)).data.phase == phase;
+    }
+
+    match /lobbies/{lobby} {
+      // Anyone can read basic lobby data:
+    	allow read: if isLoggedIn();
+      // Lobby creator can change lobby settings:
+      allow update: if isLoggedIn() && userIsCreator(lobby);
+
+      match /{path=**} {
+        // But only players can read internal data: turns, players, etc.
+        allow read: if isLoggedIn() && (userIsAdmin() || userIsInLobby(lobby));
+      }
+      
+      match /players/{userID} {
+        // Allow kicking players if you are creator:
+        allow write: if isLoggedIn() && userIsCreator(lobby); 
+        // Allow reading and updating your own info.
+        // Don't allow creating or deleting, to preserve history.
+        allow read: if isLoggedIn() && request.auth.uid == userID;
+        allow update: if isLoggedIn() && request.auth.uid == userID
+                      && fieldsUnchanged(['role', 'wins'])
+                      && userIsNotKicked(lobby, userID);
+      }
+
+      match /turns/{turn} {
+        match /player_responses/{userID} {
+          // Allow players to submit as many times as needed:
+          allow create, update: if isLoggedIn() && request.auth.uid == userID
+                                && userIsActivePlayer(lobby)
+                                // Only allow submitting responses during 'answering' phase:
+                                && isTurnPhase(lobby, turn, 'answering');
+          allow delete: if isLoggedIn() && request.auth.uid == userID
+                        && isTurnPhase(lobby, turn, 'answering');
+        }
+      }
+    }
+    
+    match /users/{userID} {
+      allow read, write: if userIsAdmin();
+      // allow reading only your own info when you are logged in.
+      // also allow deleting your own info:
+      allow read, delete: if isLoggedIn() && request.auth.uid == userID;
+      // allow creating & changing your data, except admin fields:
+      allow create: if isLoggedIn() && request.auth.uid == userID
+                    && request.resource.data['uid'] == userID
+                    && request.resource.data['is_admin'] == false;
+      allow write: if isLoggedIn() && request.auth.uid == userID
+                   && fieldsUnchanged(['uid', 'is_admin']);
+    }
+
     match /{document=**} {
       allow read, write: if false;
     }
