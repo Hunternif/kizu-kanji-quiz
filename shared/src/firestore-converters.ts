@@ -156,11 +156,11 @@ export const playerResponseConverter: FConverter<PlayerResponse> = {
 };
 
 export const userConverter: FConverter<QuizUser> = {
-  toFirestore: (user: QuizUser) => copyFields(user),
+  toFirestore: (user: QuizUser) => copyFields(user, ['uid']),
   fromFirestore: (snapshot: FDocSnapshot) => {
     const data = snapshot.data();
     return new QuizUser(
-      data.uid,
+      snapshot.id,
       data.email,
       data.name,
       data.is_admin ?? false,

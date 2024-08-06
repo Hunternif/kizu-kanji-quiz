@@ -1,9 +1,11 @@
 import { signInAnonymously } from 'firebase/auth';
 import { useContext, useState } from 'react';
+import { getOrCreateQuizUser } from '../../../api/users-api';
 import { GameButton } from '../../../components/Buttons';
+import { ConfirmModal } from '../../../components/ConfirmModal';
 import { ErrorContext } from '../../../components/ErrorContext';
 import { firebaseAuth } from '../../../firebase';
-import { ConfirmModal } from '../../../components/ConfirmModal';
+import { RNG } from '../../../shared/rng';
 
 type Props = {
   text?: string;
@@ -26,11 +28,10 @@ export function GuestLogin({ text, onLogin }: Props) {
   async function doSignIn() {
     try {
       const cred = await signInAnonymously(firebaseAuth);
-      // TODO: create local user data
-      // await getOrCreateCAAUser(
-      //   cred.user.uid,
-      //   cred.user.displayName ?? 'New user',
-      // );
+      await getOrCreateQuizUser(
+        cred.user.uid,
+        cred.user.displayName ?? randomGuestName(),
+      );
       onLogin();
     } catch (e) {
       setError(e);
@@ -56,4 +57,9 @@ export function GuestLogin({ text, onLogin }: Props) {
       </GameButton>
     </>
   );
+}
+
+/** Creates a random nickname in the format "Guest1234" */
+function randomGuestName() {
+  return `Guest${RNG.fromTimestamp().randomInt() % 10000}`;
 }

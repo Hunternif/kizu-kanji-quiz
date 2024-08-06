@@ -146,7 +146,7 @@ export class GameTurn {
     public time_created: Date,
     /** Time when it should automatically advance to the next phase.
      * In Firebase, running a timer is expensive, so we will rely on users
-     * to ping the server after time has elapsed. */
+     * to ping the server after time has elapsed - by submitting an empty response. */
     public next_phase_time: Date | null,
     public question: GameEntry,
     public question_mode: QuestionMode,

@@ -4,6 +4,7 @@ import { GameButton } from '../../../components/Buttons';
 import { ErrorContext } from '../../../components/ErrorContext';
 import { firebaseAuth } from '../../../firebase';
 import { IconGoogle } from '../../../components/Icons';
+import { getOrCreateQuizUser } from '../../../api/users-api';
 
 export function GoogleLogin() {
   const { setError } = useContext(ErrorContext);
@@ -11,11 +12,10 @@ export function GoogleLogin() {
     try {
       const provider = new GoogleAuthProvider();
       const cred = await signInWithPopup(firebaseAuth, provider);
-      // TODO: create local user data
-      // await getOrCreateCAAUser(
-      //   cred.user.uid,
-      //   cred.user.displayName ?? 'New user',
-      // );
+      await getOrCreateQuizUser(
+        cred.user.uid,
+        cred.user.displayName ?? 'New user',
+      );
     } catch (e) {
       setError(e);
     }

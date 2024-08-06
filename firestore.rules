@@ -85,10 +85,9 @@ service cloud.firestore {
       allow read, delete: if isLoggedIn() && request.auth.uid == userID;
       // allow creating & changing your data, except admin fields:
       allow create: if isLoggedIn() && request.auth.uid == userID
-                    && request.resource.data['uid'] == userID
                     && request.resource.data['is_admin'] == false;
       allow write: if isLoggedIn() && request.auth.uid == userID
-                   && fieldsUnchanged(['uid', 'is_admin']);
+                   && fieldsUnchanged(['is_admin']);
     }
 
     match /{document=**} {
