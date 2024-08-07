@@ -68,7 +68,7 @@ function mapToEntry(data: any): GameEntry {
   const meanings = new Map<Language, string[]>();
   // TODO: make this type-safe:
   // See https://stackoverflow.com/questions/36836011/checking-validity-of-string-literal-union-type-at-runtime
-  for (const key in data.meaning) {
+  for (const key of Object.keys(data.meaning)) {
     meanings.set(key as Language, data.meaning[key]);
   }
   return new GameEntry(
@@ -178,7 +178,7 @@ export const userStatsConverter: FConverter<UserStats> = {
   fromFirestore: (snapshot: FDocSnapshot) => {
     const data = snapshot.data();
     const statData = new Map<string, EntryStats>();
-    for (const key in data.data) {
+    for (const key of Object.keys(data.data)) {
       const val = data.data[key];
       statData.set(
         key,
