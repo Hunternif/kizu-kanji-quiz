@@ -3,7 +3,10 @@ import {
   collection,
   doc,
   getDoc,
+  getDocs,
+  query,
   updateDoc,
+  where,
 } from 'firebase/firestore';
 import { firestore } from '../../firebase';
 import { lobbyConverter } from '../../shared/firestore-converters';
@@ -48,4 +51,17 @@ export async function updateLobby(
   } else {
     await updateDoc(ref, data);
   }
+}
+
+/** Returns a list of lobby IDs where this user is a player. */
+export async function findPlayerLobbies(userID: string): Promise<string[]> {
+  return (
+    await getDocs(
+      query(
+        lobbiesRef,
+        where('status', '!=', 'ended'),
+        where('player_ids', 'array-contains', userID),
+      ),
+    )
+  ).docs.map((d) => d.id);
 }

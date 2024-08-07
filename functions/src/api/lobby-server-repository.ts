@@ -124,3 +124,13 @@ export async function getOnlinePlayers(
     (p) => p.role === 'player' && p.status === 'online',
   );
 }
+
+/** Returns a list of lobby IDs where this user is a player. */
+export async function findPlayerLobbies(userID: string): Promise<string[]> {
+  return (
+    await lobbiesRef
+      .where('status', '!=', 'ended')
+      .where('player_ids', 'array-contains', userID)
+      .get()
+  ).docs.map((d) => d.id);
+}

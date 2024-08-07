@@ -12,6 +12,7 @@ import { assertExhaustive, stringComparator } from '../shared/utils';
 import { assertNotAnonymous } from './auth-api';
 import {
   countPlayers,
+  findPlayerLobbies,
   getLobby,
   getOnlinePlayers,
   getPlayer,
@@ -23,7 +24,7 @@ import {
   updatePlayer,
 } from './lobby-server-repository';
 import { createNewTurn } from './turn-server-api';
-import { getOrCreateQuizUser, getQuizUser } from './user-server-api';
+import { getOrCreateQuizUser } from './user-server-api';
 
 /**
  * Creates a new lobby from this player, returns it.
@@ -251,10 +252,8 @@ export async function cleanUpPlayer(lobbyID: string, player: PlayerInLobby) {
 /** Called when a player loses connection, or closes the browser.
  * An automatic trigger will call the cleanup logic after this. */
 export async function setPlayerOffline(userID: string) {
-  const quizUser = await getQuizUser(userID);
-  // TODO: find player lobbies
-  const lobbyID = null;
-  if (lobbyID) {
+  const lobbyIDs = await findPlayerLobbies(userID);
+  for (const lobbyID of lobbyIDs) {
     const player = await getPlayer(lobbyID, userID);
     if (player) {
       player.status = 'left';
