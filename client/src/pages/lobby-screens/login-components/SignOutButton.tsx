@@ -1,29 +1,15 @@
-import { useState } from 'react';
 import { GameButton } from '../../../components/Buttons';
-import { useErrorContext } from '../../../components/ErrorContext';
-import { firebaseAuth } from '../../../firebase';
 import { ControlProps } from '../../../components/FormControls';
+import { firebaseAuth } from '../../../firebase';
+import { useHandler } from '../../../hooks/data-hooks';
 
 interface Props extends ControlProps {}
 
 export function SignOutButton(props: Props) {
-  const { setError } = useErrorContext();
-  const [signingOut, setSigningOut] = useState(false);
-
-  async function handleClick() {
-    //TODO: handle sign out in API
-    try {
-      setSigningOut(true);
-      await firebaseAuth.signOut();
-    } catch (e: any) {
-      setError(e);
-    } finally {
-      setSigningOut(false);
-    }
-  }
+  const [handleSignOut, signingOut] = useHandler(() => firebaseAuth.signOut());
 
   return (
-    <GameButton {...props} onClick={handleClick} loading={signingOut}>
+    <GameButton {...props} onClick={handleSignOut} loading={signingOut}>
       Sign Out
     </GameButton>
   );

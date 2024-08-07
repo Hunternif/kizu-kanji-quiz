@@ -5,12 +5,13 @@ import {
   serverTimestamp,
   set,
 } from 'firebase/database';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { AuthStateHook, useAuthState } from 'react-firebase-hooks/auth';
+import { useDocumentData } from 'react-firebase-hooks/firestore';
+import { getQuizUserRef } from '../api/users-api';
 import { useErrorContext } from '../components/ErrorContext';
 import { database, firebaseAuth } from '../firebase';
 import { DBPresenceToWrite, QuizUser } from '../shared/types';
-import { getQuizUser } from '../api/users-api';
 
 const isOfflineForDB: DBPresenceToWrite = {
   state: 'offline',
@@ -60,31 +61,18 @@ export function useAuthWithPresence(): AuthStateHook {
   return [user, loading, error];
 }
 
-export function useQuizUser(): [user: QuizUser | null, loading: boolean] {
-  const [user, loadingFirebaseUser, userError] = useAuthState(firebaseAuth);
-  const [quizUser, setQuizUser] = useState<QuizUser | null>(null);
-  const [loadingQuizUser, setLoadingQuizUser] = useState(false);
+export function useQuizUser(): [user: QuizUser | undefined, loading: boolean] {
+  const [fbUser, loadingFBUser, userError] = useAuthState(firebaseAuth);
+  const [quizUser, loadingQuizUser, quizError] = useDocumentData(
+    getQuizUserRef(fbUser?.uid ?? '@@missing_uid'),
+  );
   const { setError } = useErrorContext();
   if (userError) {
     setError(userError);
   }
-
-  async function fetchQuizUser(uid: string) {
-    try {
-      setLoadingQuizUser(true);
-      setQuizUser(await getQuizUser(uid));
-    } catch (e: any) {
-      setError(e);
-    } finally {
-      setLoadingQuizUser(false);
-    }
+  if (quizError) {
+    setError(quizError);
   }
 
-  useEffect(() => {
-    if (user) {
-      fetchQuizUser(user.uid);
-    }
-  }, [user]);
-
-  return [quizUser, loadingFirebaseUser || loadingQuizUser];
+  return [quizUser, loadingFBUser || loadingQuizUser];
 }

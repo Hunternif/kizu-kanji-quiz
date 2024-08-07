@@ -10,6 +10,7 @@ import {
   useCollectionData,
   useDocumentData,
 } from 'react-firebase-hooks/firestore';
+import { useErrorContext } from '../components/ErrorContext';
 
 export type FirestoreCollectionDataHook<T> = [
   value: T[] | undefined,
@@ -103,4 +104,27 @@ export function useMarkedData<T>(): [
     [markedData],
   );
   return [markedData, markItem, unmarkItem];
+}
+
+/**
+ * Convenience hook to run async handler on a button click,
+ * with error handling and loading state.
+ */
+export function useHandler(
+  callback: () => Promise<void>,
+): [handler: () => void, loading: boolean] {
+  const { setError } = useErrorContext();
+  const [loading, setLoading] = useState(false);
+
+  async function handler() {
+    try {
+      setLoading(true);
+      await callback();
+    } catch (e: any) {
+      setError(e);
+    } finally {
+      setLoading(false);
+    }
+  }
+  return [handler, loading];
 }
