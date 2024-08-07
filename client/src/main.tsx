@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom/client'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { WelcomePage } from './pages/WelcomePage';
 import { ErrorPage } from './pages/ErrorPage';
+import { lobbyLoader, LobbyPage } from './pages/LobbyPage';
 
 
 const router = createBrowserRouter([
@@ -12,6 +13,12 @@ const router = createBrowserRouter([
     path: "/",
     element: <WelcomePage />,
     errorElement: <ErrorPage />,
+  },
+  {
+    path: "/:lobbyID",
+    element: <LobbyPage />,
+    errorElement: <ErrorPage />,
+    loader: lobbyLoader,
   },
 ]);
 

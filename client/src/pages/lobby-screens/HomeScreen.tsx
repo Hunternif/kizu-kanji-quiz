@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { createLobbyAndJoin } from '../../api/lobby/lobby-join-api';
 import { GameButton } from '../../components/Buttons';
 import { CenteredLayout } from '../../components/layout/CenteredLayout';
@@ -9,8 +10,10 @@ import { SignOutButton } from './login-components/SignOutButton';
 
 export function HomeScreen() {
   const [quizUser] = useQuizUser();
+  const navigate = useNavigate();
   const [handleNewGame, loadingNewGame] = useHandler(async () => {
-    await createLobbyAndJoin();
+    const lobbyID = await createLobbyAndJoin();
+    navigate(`/${lobbyID}`);
   });
 
   return (
