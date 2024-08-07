@@ -8,23 +8,25 @@
 
 export class GameLobby {
   /** Null only during creation. Should be UTC time. */
-  time_created?: Date;
+  public time_created?: Date;
 
+  /** Set of players' uids, to enable lobby search. */
+  public player_ids: Set<string> = new Set();
   /* Must be fetched separately from a Firebase subcollection. */
   players: Array<PlayerInLobby> = [];
   /** The last "turn" is the current state of the game board.
    * Must be fetched separately from a Firebase subcollection. */
   turns: Array<GameTurn> = [];
   /** ID of the most recent turn. */
-  current_turn_id?: string;
+  public current_turn_id?: string;
 
   /** List of test groups selected for this lobby */
-  test_groups: Set<TestGroup> = new Set();
+  public test_groups: Set<TestGroup> = new Set();
   /** Questions remaining in the deck. */
-  questions: Array<GameEntry> = [];
+  public questions: Array<GameEntry> = [];
 
   /** ID of the next lobby, created as a copy of this lobby. */
-  next_lobby_id?: string;
+  public next_lobby_id?: string;
 
   constructor(
     public id: string,

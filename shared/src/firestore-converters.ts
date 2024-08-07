@@ -36,6 +36,7 @@ export const lobbyConverter: FConverter<GameLobby> = {
           : fServerTimestamp(), // set new time when creating a new lobby
         test_groups: Array.from(lobby.test_groups),
         questions: lobby.questions.map(mapFromEntry),
+        player_ids: Array.from(lobby.player_ids),
       },
       ['id', 'players', 'turns'],
     );
@@ -55,6 +56,7 @@ export const lobbyConverter: FConverter<GameLobby> = {
     ret.time_created = (data.time_created as FTimestamp | null)?.toDate();
     ret.test_groups = new Set<TestGroup>(data.test_groups ?? []);
     ret.questions = (data.questions ?? []).map(mapToEntry);
+    ret.player_ids = new Set<string>(data.player_ids ?? []);
     ret.next_lobby_id = data.next_lobby_id;
     return ret;
   },

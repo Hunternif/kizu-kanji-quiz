@@ -104,6 +104,8 @@ export async function addPlayer(
     }
     const player = new PlayerInLobby(userID, quizUser.name, role, 'online', 0);
     transaction.set(playerRef, player);
+    lobby.player_ids.add(player.uid);
+    await updateLobby(lobby, transaction);
     logger.info(
       `User ${quizUser.name} (${userID}) joined lobby ${lobby.id} as ${role}`,
     );
@@ -302,6 +304,8 @@ export async function createLobbyAsCopy(
   const newPlayersRef = getPlayersRef(newLobby.id);
   // If tracking users' lobbies, could update it here.
   await Promise.all(newPlayers.map((p) => newPlayersRef.doc(p.uid).set(p)));
+  newPlayers.forEach((p) => newLobby.player_ids.add(p.uid));
+  await updateLobby(newLobby);
   logger.info(
     `Copied players from lobby ${oldLobby.id} to lobby ${newLobby.id}`,
   );
