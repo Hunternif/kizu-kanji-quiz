@@ -4,22 +4,25 @@ $gray-1: #e7e3e7;
 $gray-2: #d9d7db;
 $gray-3: #bab6be;
 $gray-4: #948f97;
-$gray-5:#615966 ;
+$gray-5: #615966;
 $gray-6: #534c5f;
 
-$accent: #b173da;
+$accent-pink: #b173da;
+$accent-blue: #8973da;
 $bg: $gray-0;
 $text: $gray-5;
+$hint: $gray-3;
 
 $error-red: #e64949;
 
-$like: $accent;
+$like: $accent-pink;
 
 $button-bg: $gray-5;
 $button-text: #fff;
 $button-bg-hover: lighten($button-bg, 10%);
 $button-accent-text: #fff;
-$button-accent-bg-hover: lighten($accent, 10%);
+$button-accent-bg: $accent-blue;
+$button-accent-bg-hover: lighten($button-accent-bg, 10%);
 $button-light-bg: $gray-3;
 $button-lighter-bg: color-mix(in srgb, $bg 50%, $button-light-bg);
 $button-secondary-bg: $gray-3;
@@ -29,15 +32,20 @@ $button-secondary-text-hover: #fff;
 
 /*--------------------- Background gradients ---------------------*/
 
+$lobby-bg: $gray-0;
+$lobby-player-list-bg: $gray-0;
+
 /*----------------------------- Cards ----------------------------*/
 
 /*------------------------- Form controls ------------------------*/
 $control-bg: $gray-0;
-$control-bg-focus: lighten($gray-0, 2%);
+$control-bg-focus: lighten($gray-0, 5%);
 $control-text: $gray-6;
 $control-text-focus: #fff;
-$control-border: transparent;
-$control-border-focus: $gray-2;
+$control-border: $gray-2;
+$control-border-focus: $gray-4;
+$checkbox-border: $gray-3;
+$checkbox-bg: transparent;
 
 /*------------------- "Panels" (modals & cards) ------------------*/
 $modal-bg: #fff;

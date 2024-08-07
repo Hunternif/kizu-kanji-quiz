@@ -65,7 +65,7 @@ export function LobbySettingsPanel(props: Props) {
         />
         <FormItem
           label="Allow join mid-game"
-          hint="If a new person joins after the game has started, they will automatically become a player and will receive cards."
+          hint="If a new person joins after the game has started, they will automatically become a player."
           control={<AllowJoinMidGameControl {...props} />}
         />
         <FormItem
@@ -74,8 +74,8 @@ export function LobbySettingsPanel(props: Props) {
           control={<LobbyControlControl {...props} />}
         />
         <FormItem
-          label="Freeze card stats"
-          hint="Card statistics will not be updated during this game. Use this for test games."
+          label="Freeze stats"
+          hint="Statistics will not be updated during this game. Use this for test games."
           control={<FreezeStatsControl {...props} />}
         />
       </div>

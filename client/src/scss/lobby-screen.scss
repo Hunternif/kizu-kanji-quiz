@@ -1,0 +1,182 @@
+@use 'colors.scss';
+
+/*=========================== Lobby screen ===========================*/
+
+.new-lobby-screen {
+  background-color: colors.$lobby-bg;
+}
+.new-lobby-sidebar {
+  /* position needs to be set to put drop shadow in front of sticky table header */
+  position: relative;
+  z-index: 2;
+  background-color: colors.$lobby-player-list-bg;
+  > footer {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 0 1em;
+  }
+}
+
+.player-list-column {
+  flex: 0 0 auto;
+  width: 33.33%;
+  @media (min-width: 768px) {
+    width: 25%;
+  }
+  @media (min-width: 1200px) {
+    width: 16.66%;
+  }
+}
+
+.new-lobby-main-content {
+  padding: 0 0.5em;
+  header {
+    text-align: center;
+    &.lobby-settings {
+      position: sticky;
+      z-index: 1;
+      bottom: 0;
+      top: 0;
+    }
+  }
+  .content {
+    max-width: 50em;
+    padding: 0;
+    margin: 0 auto;
+    overflow: visible; // This allows us to see box-shadows on padding.
+  }
+  footer {
+    margin: 2em 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+    gap: 1em;
+    // Mobile:
+    @media (max-width: 25rem) {
+      margin-bottom: 0.5em;
+      margin-top: 1em;
+    }
+  }
+  .link-copied-popup {
+    color: colors.$text;
+    position: absolute;
+    bottom: 100%;
+    padding-bottom: 0.3em;
+    width: 100%;
+    left: 0;
+  }
+}
+
+.lobby-settings-container header {
+  padding-bottom: 1em;
+}
+.lobby-settings-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 3em;
+  row-gap: 0.5em;
+  padding: 0.5em 1em;
+  @media (max-width: 60rem) {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em 2em;
+  }
+  @media (max-width: 600px) {
+    padding: 0.5em 1em;
+  }
+}
+.lobby-settings-form-item {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  // column-gap: 0.75em; // this is bugged, ignores parent grid gap
+  align-items: baseline;
+  min-height: 2.5em;
+  &.disabled {
+    opacity: 0.5;
+  }
+  .label-container {
+    .label {
+      display: inline-flex;
+      justify-content: end;
+      gap: 0.4em;
+      margin-right: 0.75em;
+      margin-bottom: 0.25em;
+      .hint-icon {
+        color: colors.$hint;
+        opacity: 0.5;
+        cursor: pointer;
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+    .hint {
+      font-size: small;
+      font-weight: 400;
+    }
+  }
+  .checkbox {
+    margin-top: 0.5em; // aligns it with other form inputs
+  }
+  .control {
+    max-width: 12em;
+  }
+}
+
+/*------------------------- Player list in lobby -------------------------*/
+.player-card {
+  margin: 0.5em 0;
+  padding: 0.2em 0.8em;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  &.empty {
+    background-color: transparent;
+    span {
+      opacity: 0.4;
+    }
+  }
+  &.me-card {
+    font-weight: 800;
+  }
+  span.player-name {
+    // flex-grow: 1;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .left-icon {
+    margin-top: -0.1em;
+    padding-right: 0.5em;
+  }
+  .right-group {
+    display: flex;
+    gap: 0.4em;
+  }
+  .right-icon {
+    // margin-left: auto;
+    margin-right: -0.2em;
+    margin-top: -0.1em;
+    padding-left: 0.2em;
+  }
+  .kick-button {
+    @extend .x-circle-button;
+    width: 24px;
+    height: 24px;
+    background-color: colors.$text;
+    margin-right: -0.4em;
+    opacity: 0.7;
+  }
+}
+.player-list-header {
+  text-align: center;
+}
+.spectator-list-header {
+  text-align: center;
+  position: sticky;
+  bottom: 0;
+}

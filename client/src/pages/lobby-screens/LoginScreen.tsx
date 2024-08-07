@@ -21,7 +21,7 @@ export function LoginScreen({ isLoggedInAsGuest, onLogin }: LoginPanelProps) {
   return (
     <CenteredLayout outerClassName="welcome-screen">
       <GameTitle />
-      <Panel className="login-card">
+      <Panel flex className="login-card">
         <GoogleLogin onLogin={() => handleLogin('google')} />
         <GuestLogin
           onLogin={() => handleLogin('guest')}

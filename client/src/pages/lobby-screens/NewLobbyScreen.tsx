@@ -19,6 +19,7 @@ import { GameLobby, PlayerInLobby } from '../../shared/types';
 import { LobbyCreationReadOnly } from './lobby-components/LobbyCreationReadOnly';
 import { LobbyCreatorControls } from './lobby-components/LobbyCreatorControls';
 import { LobbyPlayerList } from './lobby-components/LobbyPlayerList';
+import { Col } from '../../components/layout/Col';
 
 interface Props {
   lobby: GameLobby;
@@ -86,12 +87,12 @@ export function NewLobbyScreen(props: Props) {
 function BigScreenLobby(props: Props) {
   return (
     <RowLayout>
-      <div className='player-list-column' xs="4" md="3" xl="2">
+      <Col className='player-list-column'>
         <PlayerListSidebar {...props} />
-      </div>
-      <div className='main-content-column'>
+      </Col>
+      <Col className='main-content-column'>
         <MainContent {...props} />
-      </div>
+      </Col>
     </RowLayout>
   );
 }

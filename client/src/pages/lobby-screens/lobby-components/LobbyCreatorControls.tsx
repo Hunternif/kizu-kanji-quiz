@@ -11,6 +11,7 @@ import { ScrollContainer } from '../../../components/layout/ScrollContainer';
 import { GameLobby } from '../../../shared/types';
 import { LobbySettingsPanel } from './LobbySettingsPanel';
 import { TestGroupSelector } from './TestGroupSelector';
+import { Panel } from '../../../components/Panel';
 
 interface Props {
   user: User;
@@ -52,10 +53,12 @@ export function LobbyCreatorControls(props: Props) {
       </header>
       <ScrollContainer scrollLight className="content">
         <TestGroupSelector {...props} />
-        <LobbySettingsPanel
-          settings={lobby.settings}
-          onChange={handleSettingsChange}
-        />
+        <Panel>
+          <LobbySettingsPanel
+            settings={lobby.settings}
+            onChange={handleSettingsChange}
+          />
+        </Panel>
       </ScrollContainer>
       <footer>
         <GameButton

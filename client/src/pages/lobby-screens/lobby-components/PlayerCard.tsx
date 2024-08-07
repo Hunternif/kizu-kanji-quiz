@@ -11,7 +11,6 @@ interface PlayerProps {
   player: PlayerInLobby;
   isMe?: boolean;
   isCreator?: boolean;
-  isJudge?: boolean;
   canKick?: boolean;
 }
 
@@ -24,7 +23,6 @@ export function PlayerCard({
   player,
   isMe,
   isCreator,
-  isJudge,
   canKick,
 }: PlayerProps) {
   const { setError } = useContext(ErrorContext);
@@ -33,7 +31,6 @@ export function PlayerCard({
 
   const classes = ['player-card'];
   if (isMe) classes.push('me-card');
-  if (isJudge) classes.push('judge-card');
   if (isCreator) classes.push('creator-card');
 
   async function executeKick(action: KickAction) {
@@ -78,9 +75,9 @@ export function PlayerCard({
 
       <div className={classes.join(' ')}>
         {/* Avator goes here */}
+        {isCreator && <Twemoji className="left-icon">👑</Twemoji>}
         <span className="player-name">{player.name}</span>
         <span className="right-group">
-          {isJudge && <Twemoji className="right-icon">👑</Twemoji>}
           {player.status === 'banned' ? (
             <Twemoji className="right-icon">💀</Twemoji>
           ) : (
@@ -102,7 +99,6 @@ export function PlayerCard({
 export function EmptyPlayerCard() {
   return (
     <div className="player-card empty">
-      <div className="avatar inline-avatar empty-avatar" />
       <span>Empty</span>
     </div>
   );

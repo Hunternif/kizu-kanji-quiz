@@ -8,7 +8,14 @@
   box-shadow: 0 2px 8px rgba(colors.$gray-5, 20%);
   min-width: 16em;
   min-height: 11em;
-  display: flex;
-  align-items: center;
-  gap: 1em;
+  &.panel-flex {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+  }
+  header h1,
+  h2,
+  h3 {
+    margin-top: 0.5em;
+  }
 }

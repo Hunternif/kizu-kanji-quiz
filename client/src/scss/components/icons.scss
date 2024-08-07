@@ -3,13 +3,17 @@
 /*--------------------------------- Icons ---------------------------------*/
 // SVG icons often need adjustment to appear nicely on the text line.
 
+svg {
+  vertical-align: middle;
+}
+
 .heart-icon {
   color: colors.$like;
   margin-bottom: -0.15em;
   margin-right: -0.15em;
 }
 .star-icon-inline {
-  color: colors.$accent;
+  color: colors.$accent-pink;
   margin-bottom: 0.2em;
 }
 .heart-icon-inline {
@@ -51,5 +55,12 @@
   margin-bottom: 0.3em;
 }
 .icon-google {
-  color: colors.$accent;
+  color: colors.$accent-pink;
+}
+
+.twemoji {
+  display: inline-block;
+  width: auto;
+  height: 1em;
+  vertical-align: -0.2em;
 }

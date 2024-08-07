@@ -19,7 +19,7 @@ export function HomeScreen() {
   return (
     <CenteredLayout outerClassName="home-screen">
       <GameTitle />
-      <Panel className="home-card">
+      <Panel flex className="home-card">
         <span>Welcome, {quizUser?.name}</span>
         <GameButton onClick={handleNewGame} loading={loadingNewGame}>
           New game
