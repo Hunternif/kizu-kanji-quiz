@@ -1,0 +1,55 @@
+@use '../colors.scss';
+
+.test-group-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+
+  .group-section {
+    .group-section-title {
+      margin-bottom: 0.25em;
+    } 
+    .group-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 0.5em;
+
+      .group-button {
+        border-radius: 0.4em;
+        background-color: colors.$test-group-bg;
+        padding: 0.25em 0.5em;
+        cursor: pointer;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        min-width: 7rem;
+        min-height: 3.5rem;
+
+        &.selected {
+          background-color: colors.$test-group-selected-bg;
+          color: colors.$test-group-selected-text;
+        }
+        &:hover {
+          background-color: colors.$test-group-hover-bg;
+          color: colors.$test-group-selected-text;
+        }
+
+        .group-label {
+          font-weight: 600;
+        }
+        &.big .group-label {
+          font-size: 1.4rem;
+        }
+        .group-sublabel {
+          font-size: 0.9em;
+          font-weight: 300;
+        }
+      }
+    }
+  }
+}

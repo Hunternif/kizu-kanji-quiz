@@ -125,6 +125,10 @@
   .control {
     max-width: 12em;
   }
+  select:disabled {
+    // Show full-opacity options for read-only mode:
+    opacity: 1;
+  }
 }
 
 /*------------------------- Player list in lobby -------------------------*/

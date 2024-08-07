@@ -7,8 +7,10 @@ $gray-4: #948f97;
 $gray-5: #615966;
 $gray-6: #534c5f;
 
+$accent-gold: #ffdfb0;
 $accent-pink: #b173da;
-$accent-blue: #8973da;
+$accent-purple: #8973da;
+$accent-blue: #6a88eb;
 $bg: $gray-0;
 $text: $gray-5;
 $hint: $gray-3;
@@ -21,7 +23,7 @@ $button-bg: $gray-5;
 $button-text: #fff;
 $button-bg-hover: lighten($button-bg, 10%);
 $button-accent-text: #fff;
-$button-accent-bg: $accent-blue;
+$button-accent-bg: $accent-purple;
 $button-accent-bg-hover: lighten($button-accent-bg, 10%);
 $button-light-bg: $gray-3;
 $button-lighter-bg: color-mix(in srgb, $bg 50%, $button-light-bg);
@@ -36,6 +38,10 @@ $lobby-bg: $gray-0;
 $lobby-player-list-bg: $gray-0;
 
 /*----------------------------- Cards ----------------------------*/
+$test-group-bg: $gray-0;
+$test-group-hover-bg: color-mix(in srgb, $accent-blue 15%, $gray-0);
+$test-group-selected-bg: color-mix(in srgb, $accent-blue 50%, $gray-0);
+$test-group-selected-text: color-mix(in srgb, darken($accent-blue, 10%) 30%, $gray-6);
 
 /*------------------------- Form controls ------------------------*/
 $control-bg: $gray-0;

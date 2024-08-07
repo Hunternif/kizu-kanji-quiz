@@ -104,8 +104,9 @@ export type Language = 'english'; // | 'russian';
 // "anyone" includes spectators
 export type LobbyControl = 'creator' | 'players' | 'anyone';
 
-export type HiraganaGroup = 'hiragana' | 'hiragana_tuples';
-export type KatakanaGroup = 'katakana' | 'katakana_tuples';
+export type HiraganaGroup = 'hiragana' | 'hiragana_digraphs';
+export type KatakanaGroup = 'katakana' | 'katakana_digraphs';
+export type KanaGroup = HiraganaGroup | KatakanaGroup;
 export type KanjiGrade =
   | 'kanji_grade_1'
   | 'kanji_grade_2'
@@ -113,7 +114,7 @@ export type KanjiGrade =
   | 'kanji_grade_4'
   | 'kanji_grade_5'
   | 'kanji_grade_6'
-  | 'kanji_grade_s';
+  | 'kanji_grade_S';
 export type KanjiJlptLevel =
   | 'kanji_jlpt_1'
   | 'kanji_jlpt_2'
