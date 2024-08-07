@@ -13,9 +13,10 @@ import { ErrorModal } from '../components/ErrorModal';
 import { LoadingSpinner } from '../components/LoadingSpinner';
 import { useAuthWithPresence } from '../hooks/auth-hooks';
 import { useHandler } from '../hooks/data-hooks';
+import { PlayerInLobby } from '../shared/types';
 import { assertExhaustive } from '../shared/utils';
 import { LoginScreen } from './lobby-screens/LoginScreen';
-import { PlayerInLobby } from '../shared/types';
+import { NewLobbyScreen } from './lobby-screens/NewLobbyScreen';
 
 interface LoaderParams {
   params: any;
@@ -102,8 +103,7 @@ function JoinedLobbyScreen({ lobbyID, user }: LoggedInJoinedProps) {
   if (!lobby || !players) throw new Error(`Failed to load lobby ${lobbyID}`);
   switch (lobby.status) {
     case 'new':
-      return <span>This is the New Lobby screen</span>;
-    // return <NewLobbyScreen lobby={lobby} user={user} players={players} />;
+      return <NewLobbyScreen lobby={lobby} user={user} players={players} />;
     case 'in_progress':
       return <span>This is the Game screen</span>;
     // return <GameScreen lobby={lobby} user={user} players={players} />;
