@@ -2,14 +2,11 @@ import { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { ErrorContext } from '../components/ErrorContext';
 import { ErrorModal } from '../components/ErrorModal';
-import { CenteredLayout } from '../components/layout/CenteredLayout';
 import { LoadingSpinner } from '../components/LoadingSpinner';
-import { Panel } from '../components/Panel';
 import { firebaseAuth } from '../firebase';
 import { HomeScreen } from './lobby-screens/HomeScreen';
-import { GameTitle } from './lobby-screens/login-components/GameTitle';
-import { GoogleLogin } from './lobby-screens/login-components/GoogleLogin';
-import { GuestLogin } from './lobby-screens/login-components/GuestLogin';
+import { LoginMode, LoginScreen } from './lobby-screens/LoginScreen';
+import { assertExhaustive } from '../shared/utils';
 
 export function WelcomePage() {
   const [error, setError] = useState(null);
@@ -17,6 +14,19 @@ export function WelcomePage() {
   const [guestApproved, setGuestApproved] = useState(false);
   const loginApproved =
     user != null && (user.isAnonymous === false || guestApproved);
+
+  function handleLogin(mode: LoginMode) {
+    switch (mode) {
+      case 'google':
+        break;
+      case 'guest':
+        setGuestApproved(true);
+        break;
+      default:
+        assertExhaustive(mode);
+    }
+  }
+
   return (
     <>
       <ErrorModal error={error} setError={setError} />
@@ -26,31 +36,12 @@ export function WelcomePage() {
         ) : loginApproved ? (
           <HomeScreen />
         ) : (
-          <LoginPanel
+          <LoginScreen
             isLoggedInAsGuest={user?.isAnonymous}
-            onGuestLogin={() => setGuestApproved(true)}
+            onLogin={handleLogin}
           />
         )}
       </ErrorContext.Provider>
     </>
-  );
-}
-
-type LoginPanelProps = {
-  isLoggedInAsGuest?: boolean;
-  onGuestLogin: () => void;
-};
-function LoginPanel({ isLoggedInAsGuest, onGuestLogin }: LoginPanelProps) {
-  return (
-    <CenteredLayout outerClassName="welcome-screen">
-      <GameTitle />
-      <Panel className="login-card">
-        <GoogleLogin />
-        <GuestLogin
-          onLogin={onGuestLogin}
-          text={isLoggedInAsGuest ? 'Continue as guest' : 'Sign in as guest'}
-        />
-      </Panel>
-    </CenteredLayout>
   );
 }

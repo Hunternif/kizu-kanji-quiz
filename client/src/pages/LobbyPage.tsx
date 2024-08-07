@@ -11,6 +11,9 @@ import { ErrorModal } from '../components/ErrorModal';
 import { LoadingSpinner } from '../components/LoadingSpinner';
 import { useAuthWithPresence } from '../hooks/auth-hooks';
 import { assertExhaustive } from '../shared/utils';
+import { LoginScreen } from './lobby-screens/LoginScreen';
+import { useHandler } from '../hooks/data-hooks';
+import { joinLobby } from '../api/lobby/lobby-join-api';
 
 interface LoaderParams {
   params: any;
@@ -39,11 +42,15 @@ function LobbyPageThrows() {
   // Users who are sent the link will need to log in first.
   const [user, loadingUser] = useAuthWithPresence();
   const lobbyID = useLoaderData() as string;
+  const [handleLogin, joining] = useHandler(() => joinLobby(lobbyID));
+
   if (loadingUser) return <LoadingSpinner delay text="Logging in..." />;
+
   if (!user) {
-    return <span>You need to log in first!</span>;
-    // TODO: return <LoginForm existingLobbyID={lobbyID} />;
+    return <LoginScreen onLogin={handleLogin} />;
   }
+  if (joining) return <LoadingSpinner text="Joining lobby..." />;
+  
   return <LoggedInLobbyScreen user={user} lobbyID={lobbyID} />;
 }
 

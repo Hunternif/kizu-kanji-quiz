@@ -23,7 +23,7 @@ export function LoadingSpinner({
     <Spinner inline style={{ width: '1em', height: '1em' }} />
   ) : (
     <CenteredLayout innerStyle={{ textAlign: 'center', ...style }}>
-      {text && <h5 style={{ marginBottom: '1em' }}>{text}</h5>}
+      {text && <div style={{ marginBottom: '1em' }}>{text}</div>}
       <Spinner />
     </CenteredLayout>
   );

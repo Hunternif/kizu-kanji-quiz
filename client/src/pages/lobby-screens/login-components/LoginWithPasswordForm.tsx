@@ -18,7 +18,7 @@ const buttonStyle: CSSProperties = {
   width: 'calc(50% - 0.5rem)',
 };
 
-export function LoginForm() {
+export function LoginWithPasswordForm() {
   return (
     <form style={formStyle}>
       <TextInput onChange={async () => {}} placeholder="Login"></TextInput>

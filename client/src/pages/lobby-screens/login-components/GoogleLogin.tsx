@@ -6,7 +6,12 @@ import { firebaseAuth } from '../../../firebase';
 import { IconGoogle } from '../../../components/Icons';
 import { getOrCreateQuizUser } from '../../../api/users-api';
 
-export function GoogleLogin() {
+type Props = {
+  text?: string;
+  onLogin: () => void;
+};
+
+export function GoogleLogin({ text, onLogin }: Props) {
   const { setError } = useContext(ErrorContext);
   async function signInWithGoogle() {
     try {
@@ -14,8 +19,9 @@ export function GoogleLogin() {
       const cred = await signInWithPopup(firebaseAuth, provider);
       await getOrCreateQuizUser(
         cred.user.uid,
-        cred.user.displayName ?? 'New user',
+        cred.user.displayName ?? 'New Google user',
       );
+      onLogin();
     } catch (e) {
       setError(e);
     }
@@ -26,7 +32,7 @@ export function GoogleLogin() {
       iconLeft={<IconGoogle />}
       onClick={signInWithGoogle}
     >
-      Sign in with Google
+      {text ?? 'Sign in with Google'}
     </GameButton>
   );
 }
