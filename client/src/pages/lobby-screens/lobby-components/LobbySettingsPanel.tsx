@@ -9,7 +9,11 @@ import {
   IconChevronDownInline,
   IconQuestionInline,
 } from '../../../components/Icons';
-import { LobbySettings } from '../../../shared/types';
+import {
+  getValidAnswerModes,
+  getValidQuestionModes,
+} from '../../../shared/mode-utils';
+import { AnswerMode, LobbySettings, QuestionMode } from '../../../shared/types';
 
 interface Props {
   settings: LobbySettings;
@@ -33,6 +37,21 @@ export function LobbySettingsPanel(props: Props) {
           label="Maximum players"
           hint="When this number is reached, other players can only spectate."
           control={<MaxPlayersControl {...props} />}
+        />
+        <FormItem
+          label="Game mode"
+          hint="Describes what the overall game mode looks like, question and answer."
+          control={<GameModeControl {...props} />}
+        />
+        <FormItem
+          label="Question mode"
+          hint="What the question will look like."
+          control={<QuestionModeControl {...props} />}
+        />
+        <FormItem
+          label="Answer mode"
+          hint="What the players' answers will look like."
+          control={<AnswerModeControl {...props} />}
         />
         <FormItem
           label="Choices"
@@ -76,6 +95,77 @@ function MaxPlayersControl({ settings, readOnly, onChange }: Props) {
         settings.max_players = newValue;
         if (onChange) await onChange(settings);
       }}
+    />
+  );
+}
+
+function GameModeControl({ settings, readOnly, onChange }: Props) {
+  return (
+    <SelectInput
+      disabled={readOnly}
+      value={settings.game_mode}
+      onChange={async (newValue) => {
+        settings.game_mode = newValue;
+        settings.question_mode = getValidQuestionModes(newValue)[0];
+        settings.answer_mode = getValidAnswerModes(newValue)[0];
+        if (onChange) await onChange(settings);
+      }}
+      options={[
+        ['writing_to_reading', 'あ ⇢ reading'],
+        ['reading_to_writing', 'Reading ⇢ あ'],
+        ['writing_to_meaning', '家 ⇢ meaning'],
+        ['meaning_to_writing', 'Meaning ⇢ 家'],
+      ]}
+    />
+  );
+}
+
+function QuestionModeControl({ settings, readOnly, onChange }: Props) {
+  const options: Array<[QuestionMode, string]> = [
+    ['kanji', '漢字'],
+    ['hiragana', 'ひらがな'],
+    ['romaji', 'Romaji'],
+    ['meaning', 'Meaning'],
+  ];
+  const validQuestionModes = new Set(getValidQuestionModes(settings.game_mode));
+  const validOptions = options.filter(([key, _]) =>
+    validQuestionModes.has(key),
+  );
+  return (
+    <SelectInput
+      disabled={readOnly}
+      value={settings.question_mode}
+      onChange={async (newValue) => {
+        settings.question_mode = newValue;
+        if (onChange) await onChange(settings);
+      }}
+      options={validOptions}
+    />
+  );
+}
+
+function AnswerModeControl({ settings, readOnly, onChange }: Props) {
+  const options: Array<[AnswerMode, string]> = [
+    ['choose_kanji', 'Choose 漢字'],
+    ['draw_kanji', 'Draw 漢字'],
+    ['choose_hiragana', 'Choose ひらがな'],
+    ['draw_hiragana', 'Draw ひらがな'],
+    ['choose_romaji', 'Choose romaji'],
+    ['choose_meaning', 'Choose meaning'],
+    ['type_romaji', 'Type romaji'],
+    ['type_meaning', 'Type meaning'],
+  ];
+  const validAnswerModes = new Set(getValidAnswerModes(settings.game_mode));
+  const validOptions = options.filter(([key, _]) => validAnswerModes.has(key));
+  return (
+    <SelectInput
+      disabled={readOnly}
+      value={settings.answer_mode}
+      onChange={async (newValue) => {
+        settings.answer_mode = newValue;
+        if (onChange) await onChange(settings);
+      }}
+      options={validOptions}
     />
   );
 }

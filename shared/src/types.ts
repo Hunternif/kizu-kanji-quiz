@@ -38,11 +38,12 @@ export class GameLobby {
 
 export interface LobbySettings {
   max_players: number;
+  game_mode: GameMode;
   question_mode: QuestionMode;
   answer_mode: AnswerMode;
   num_choices: number;
   /** Answers are accepted for this number of seconds. */
-  turn_seconds: number;
+  question_timer_sec: number;
   /** If true, players can join after the game has started. */
   allow_join_mid_game: boolean;
   /** If true, card statistics will not be updated. */
@@ -54,10 +55,11 @@ export interface LobbySettings {
 export function defaultLobbySettings(): LobbySettings {
   return {
     max_players: 20,
+    game_mode: 'writing_to_reading',
     question_mode: 'kanji',
     answer_mode: 'choose_romaji',
     num_choices: 4,
-    turn_seconds: 5,
+    question_timer_sec: 5,
     allow_join_mid_game: true,
     freeze_stats: false,
     lobby_control: 'players',
@@ -79,7 +81,15 @@ export class GameEntry {
   ) {}
 }
 
+/** Overall game mode */
+export type GameMode =
+  | 'writing_to_reading'
+  | 'reading_to_writing'
+  | 'writing_to_meaning'
+  | 'meaning_to_writing';
+/** What is shown on the question */
 export type QuestionMode = 'kanji' | 'hiragana' | 'romaji' | 'meaning';
+/** What is shown on the answers */
 export type AnswerMode =
   | 'choose_kanji'
   | 'choose_hiragana'
@@ -87,6 +97,7 @@ export type AnswerMode =
   | 'choose_meaning'
   | 'type_romaji'
   | 'type_meaning'
+  | 'draw_hiragana'
   | 'draw_kanji';
 /** Meaning is rendered in this language */
 export type Language = 'english'; // | 'russian';
