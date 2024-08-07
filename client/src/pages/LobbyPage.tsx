@@ -1,19 +1,21 @@
 import { User } from 'firebase/auth';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import {
   useLobby,
   usePlayerInLobby,
   usePlayers,
 } from '../api/lobby/lobby-hooks';
+import { joinLobby } from '../api/lobby/lobby-join-api';
+import { updatePlayer } from '../api/lobby/lobby-player-api';
 import { ErrorContext, useErrorContext } from '../components/ErrorContext';
 import { ErrorModal } from '../components/ErrorModal';
 import { LoadingSpinner } from '../components/LoadingSpinner';
 import { useAuthWithPresence } from '../hooks/auth-hooks';
+import { useHandler } from '../hooks/data-hooks';
 import { assertExhaustive } from '../shared/utils';
 import { LoginScreen } from './lobby-screens/LoginScreen';
-import { useHandler } from '../hooks/data-hooks';
-import { joinLobby } from '../api/lobby/lobby-join-api';
+import { PlayerInLobby } from '../shared/types';
 
 interface LoaderParams {
   params: any;
@@ -50,7 +52,7 @@ function LobbyPageThrows() {
     return <LoginScreen onLogin={handleLogin} />;
   }
   if (joining) return <LoadingSpinner text="Joining lobby..." />;
-  
+
   return <LoggedInLobbyScreen user={user} lobbyID={lobbyID} />;
 }
 
@@ -62,6 +64,20 @@ interface LoggedInProps {
 /** User logged in, but not necessarily joined the lobby. */
 function LoggedInLobbyScreen({ lobbyID, user }: LoggedInProps) {
   const [player, loadingPlayer] = usePlayerInLobby(lobbyID, user);
+
+  async function rejoin(player: PlayerInLobby) {
+    // I previously left, re-join:
+    player.status = 'online';
+    await updatePlayer(lobbyID, player);
+  }
+
+  useEffect(() => {
+    // I previously left, re-join:
+    if (player?.status === 'left') {
+      rejoin(player);
+    }
+  }, [player?.status]);
+
   if (loadingPlayer) return <LoadingSpinner delay text="Loading user..." />;
   // Maybe offer to change user's name before joining:
   return <JoinedLobbyScreen user={user} lobbyID={lobbyID} />;
