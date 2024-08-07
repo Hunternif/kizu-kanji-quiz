@@ -142,13 +142,19 @@ export const turnConverter: FConverter<GameTurn> = {
 };
 
 export const playerResponseConverter: FConverter<PlayerResponse> = {
-  toFirestore: (pdata: PlayerResponse) => copyFields(pdata),
+  toFirestore: (pdata: PlayerResponse) =>
+    copyFields2(pdata, {
+      time_submitted: pdata.time_submitted
+        ? FTimestamp.fromDate(pdata.time_submitted)
+        : fServerTimestamp(),
+    }),
   fromFirestore: (snapshot: FDocSnapshot) => {
     const data = snapshot.data();
     const player_uid = snapshot.id;
     return new PlayerResponse(
       player_uid,
       data.player_name,
+      (data.time_submitted as FTimestamp | null)?.toDate() ?? null,
       data.answer_entry_id,
       data.answer_typed,
     );

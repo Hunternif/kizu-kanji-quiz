@@ -161,6 +161,8 @@ export class PlayerResponse {
   constructor(
     public player_uid: string,
     public player_name: string, // Copied from 'Players' for convenience.
+    /** Should be populated by the server! */
+    public time_submitted: Date | null,
     /** Answer to a multiple-choice question. */
     public answer_entry_id?: string,
     public answer_typed?: string,
