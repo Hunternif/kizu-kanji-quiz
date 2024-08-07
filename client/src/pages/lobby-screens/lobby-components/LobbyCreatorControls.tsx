@@ -48,11 +48,13 @@ export function LobbyCreatorControls(props: Props) {
   if (starting) return <LoadingSpinner text="Starting..." delay />;
   return (
     <>
-      <header>
-        <h3>Select questions</h3>
-      </header>
-      <ScrollContainer scrollLight className="content">
-        <TestGroupSelector {...props} />
+      <ScrollContainer scrollDark className="content">
+        <Panel>
+          <header>
+            <h3>Select questions</h3>
+          </header>
+          <TestGroupSelector {...props} />
+        </Panel>
         <Panel>
           <LobbySettingsPanel
             settings={lobby.settings}

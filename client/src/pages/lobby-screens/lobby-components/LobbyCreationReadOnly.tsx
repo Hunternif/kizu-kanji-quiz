@@ -7,6 +7,7 @@ import { ScrollContainer } from '../../../components/layout/ScrollContainer';
 import { GameLobby } from '../../../shared/types';
 import { LobbySettingsPanel } from './LobbySettingsPanel';
 import { TestGroupSelector } from './TestGroupSelector';
+import { Panel } from '../../../components/Panel';
 
 interface Props {
   user: User;
@@ -25,10 +26,10 @@ export function LobbyCreationReadOnly(props: Props) {
 
   return (
     <>
-      <header>
-        <h3>Questions</h3>
-      </header>
-      <ScrollContainer scrollLight className="content">
+      <ScrollContainer scrollDark className="content">
+        <header>
+          <h3>Questions</h3>
+        </header>
         <TestGroupSelector readOnly {...props} />
         <LobbySettingsPanel settings={lobby.settings} readOnly />
       </ScrollContainer>

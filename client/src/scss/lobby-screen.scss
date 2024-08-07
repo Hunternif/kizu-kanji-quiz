@@ -30,21 +30,25 @@
 }
 
 .new-lobby-main-content {
-  padding: 0 0.5em;
   header {
     text-align: center;
-    &.lobby-settings {
+  }
+  .panel {
+    margin: 0.5em; // shows box-shadow on the sides
+    min-height: unset; // Prevents resizing
+    // Sticky headers:
+    header {
       position: sticky;
       z-index: 1;
       bottom: 0;
       top: 0;
+      background-color: colors.$panel-bg;
     }
   }
   .content {
     max-width: 50em;
     padding: 0;
     margin: 0 auto;
-    overflow: visible; // This allows us to see box-shadows on padding.
   }
   footer {
     margin: 2em 0;
@@ -70,9 +74,6 @@
   }
 }
 
-.lobby-settings-container header {
-  padding-bottom: 1em;
-}
 .lobby-settings-form {
   display: grid;
   grid-template-columns: 1fr 1fr;
