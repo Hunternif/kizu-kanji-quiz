@@ -69,6 +69,7 @@ export class GameEntry {
     public id: string,
     /** For hiragana, this is the same as reading_hiragana. */
     public writing: string,
+    // TODO: multiple readings: onyomi, kunyomi, variants
     public reading_hiragana: string,
     public reading_romaji: string,
     /** Maps language to a list of different meanings. */
@@ -88,7 +89,7 @@ export type AnswerMode =
 /** Meaning is rendered in this language */
 export type Language = 'english'; // | 'russian';
 // "anyone" includes spectators
-export type LobbyControl = 'creator' | 'creator_or_czar' | 'players' | 'anyone';
+export type LobbyControl = 'creator' | 'players' | 'anyone';
 
 export type HiraganaGroup = 'hiragana' | 'hiragana_tuples';
 export type KatakanaGroup = 'katakana' | 'katakana_tuples';
@@ -176,6 +177,9 @@ export type PlayerStatus = 'online' | 'left' | 'banned';
 export type TurnPhase = 'new' | 'answering' | 'reveal' | 'complete';
 
 export type LobbyStatus = 'new' | 'in_progress' | 'ended';
+
+/** "kick" is re-joinable, "ban" is forever. */
+export type KickAction = 'kick' | 'ban';
 
 /**
  * User data stored in the database.
