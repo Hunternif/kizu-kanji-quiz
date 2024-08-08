@@ -42,7 +42,7 @@ export function QuestionScreen() {
           <Choice
             key={c.id}
             text={c.reading_romaji}
-            readOnly={isSpectator}
+            readOnly={isSpectator || turn.phase !== 'answering'}
             selected={response?.answer_entry_id === c.id}
             onClick={() => handleSelect(c)}
           />
