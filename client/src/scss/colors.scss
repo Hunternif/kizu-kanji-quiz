@@ -66,6 +66,9 @@ $choice-selected-text: color-mix(
 );
 $choice-selected-bg: color-mix(in srgb, $accent-blue 50%, $choice-bg);
 
+$timer-bg: $gray-2;
+$timer-bar: $accent-blue;
+
 /*------------------------- Form controls ------------------------*/
 $control-bg: $gray-0;
 $control-bg-focus: lighten($gray-0, 5%);

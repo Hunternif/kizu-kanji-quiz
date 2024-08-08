@@ -1,9 +1,10 @@
 import { submitPlayerResponse } from '../../api/turn/turn-response-api';
 import { CenteredLayout } from '../../components/layout/CenteredLayout';
-import { useHandler, useHandler1 } from '../../hooks/data-hooks';
+import { useHandler1 } from '../../hooks/data-hooks';
 import { GameEntry } from '../../shared/types';
 import { useGameContext } from './game-components/GameContext';
 import { JapText } from './game-components/JapText';
+import { TimerBar } from './game-components/TimerBar';
 
 /** Game screen with a question and multiple choices of answers. */
 export function QuestionScreen() {
@@ -16,7 +17,15 @@ export function QuestionScreen() {
 
   return (
     <CenteredLayout innerClassName="question-screen">
-      <QuestionCard text={turn.question.writing} />
+      <div className="question-group">
+        {turn.next_phase_time && (
+          <TimerBar
+            startTime={turn.phase_start_time}
+            endTime={turn.next_phase_time}
+          />
+        )}
+        <QuestionCard text={turn.question.writing} />
+      </div>
       <div className="choices">
         {turn.choices?.map((c) => (
           <Choice
