@@ -1,5 +1,5 @@
 import { User } from 'firebase/auth';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import {
   useLobby,
@@ -44,14 +44,12 @@ function LobbyPageThrows() {
   // Users who are sent the link will need to log in first.
   const [user, loadingUser] = useAuthWithPresence();
   const lobbyID = useLoaderData() as string;
-  const [handleLogin, joining] = useHandler(() => joinLobby(lobbyID));
 
   if (loadingUser) return <LoadingSpinner delay text="Logging in..." />;
 
   if (!user) {
-    return <LoginScreen onLogin={handleLogin} />;
+    return <LoginScreen />;
   }
-  if (joining) return <LoadingSpinner text="Joining lobby..." />;
 
   return <LoggedInLobbyScreen user={user} lobbyID={lobbyID} />;
 }
@@ -64,9 +62,19 @@ interface LoggedInProps {
 /** User logged in, but not necessarily joined the lobby. */
 function LoggedInLobbyScreen({ lobbyID, user }: LoggedInProps) {
   const [player, loadingPlayer] = usePlayerInLobby(lobbyID, user);
+  const [join, joining] = useHandler(() => joinLobby(lobbyID));
+
+  useEffect(() => {
+    if (!loadingPlayer && !player) {
+      join();
+    }
+  }, [loadingPlayer, player?.uid]);
 
   if (loadingPlayer) {
     return <LoadingSpinner delay text="Loading user..." />;
+  }
+  if (joining) {
+    return <LoadingSpinner text="Joining lobby..." />;
   }
   if (player?.status === 'left') {
     return <RejoinScreen player={player} lobbyID={lobbyID} />;
