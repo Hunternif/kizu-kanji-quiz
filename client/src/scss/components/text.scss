@@ -1,6 +1,13 @@
 // Common text styles
 @use "../colors.scss";
 
+// Special font for rendering Japanese characters on cards:
+.jap-text.jp {
+  font-family: "Sawarabi Mincho", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 a {
   font-weight: 500;
   /* color: #646cff; */
