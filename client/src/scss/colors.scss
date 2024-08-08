@@ -35,11 +35,10 @@ $button-secondary-text-hover: #fff;
 $kick-button: color-mix(in srgb, $error-red, $text);
 
 /*--------------------- Background gradients ---------------------*/
-
 $lobby-bg: $gray-0;
 $lobby-player-list-bg: $gray-0;
 
-/*----------------------------- Cards ----------------------------*/
+/*-------------------------- Test Groups --------------------------*/
 $test-group-bg: $gray-0;
 $test-group-hover-bg: color-mix(in srgb, $accent-blue 10%, $test-group-bg);
 $test-group-selected-bg: color-mix(in srgb, $accent-blue 35%, $test-group-bg);
@@ -53,6 +52,19 @@ $test-group-selected-text: color-mix(
   darken($accent-blue, 20%) 30%,
   $gray-6
 );
+
+/*------------------------ Question Cards ------------------------*/
+$q-green: #508349;
+$question-bg: $q-green;
+$question-text: #fff;
+
+$choice-bg: #fff;
+$choice-selected-text: color-mix(
+  in srgb,
+  darken($accent-blue, 20%) 30%,
+  $gray-6
+);
+$choice-selected-bg: color-mix(in srgb, $accent-blue 50%, $choice-bg);
 
 /*------------------------- Form controls ------------------------*/
 $control-bg: $gray-0;
