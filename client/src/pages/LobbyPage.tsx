@@ -13,6 +13,7 @@ import { LoadingSpinner } from '../components/LoadingSpinner';
 import { useAuthWithPresence } from '../hooks/auth-hooks';
 import { useHandler } from '../hooks/data-hooks';
 import { assertExhaustive } from '../shared/utils';
+import { EndgameScreen } from './lobby-screens/EndgameScreen';
 import { GameScreen } from './lobby-screens/GameScreen';
 import { LoginScreen } from './lobby-screens/LoginScreen';
 import { NewLobbyScreen } from './lobby-screens/NewLobbyScreen';
@@ -108,8 +109,7 @@ function JoinedLobbyScreen({ lobbyID, user }: LoggedInJoinedProps) {
     case 'in_progress':
       return <GameScreen lobby={lobby} user={user} players={players} />;
     case 'ended':
-      return <span>This is the Scoreboard screen</span>;
-    // return <ScoreboardScreen lobby={lobby} user={user} players={players} />;
+      return <EndgameScreen lobby={lobby} user={user} players={players} />;
     default:
       assertExhaustive(lobby.status);
   }

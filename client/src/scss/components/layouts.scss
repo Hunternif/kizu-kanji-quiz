@@ -34,6 +34,13 @@
   flex: 1 0 0%;
 }
 
+.layout-vertical-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1em;
+}
+
 
 .layout-game {
   // Centered on the page:

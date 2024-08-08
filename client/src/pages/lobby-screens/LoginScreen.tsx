@@ -1,4 +1,5 @@
 import { CenteredLayout } from '../../components/layout/CenteredLayout';
+import { VerticalGroup } from '../../components/layout/VerticalGroup';
 import { Panel } from '../../components/Panel';
 import { GameTitle } from './login-components/GameTitle';
 import { GoogleLogin } from './login-components/GoogleLogin';
@@ -22,11 +23,13 @@ export function LoginScreen({ isLoggedInAsGuest, onLogin }: LoginPanelProps) {
     <CenteredLayout outerClassName="welcome-screen">
       <GameTitle />
       <Panel flex className="login-card">
-        <GoogleLogin onLogin={() => handleLogin('google')} />
-        <GuestLogin
-          onLogin={() => handleLogin('guest')}
-          text={isLoggedInAsGuest ? 'Continue as guest' : 'Sign in as guest'}
-        />
+        <VerticalGroup>
+          <GoogleLogin onLogin={() => handleLogin('google')} />
+          <GuestLogin
+            onLogin={() => handleLogin('guest')}
+            text={isLoggedInAsGuest ? 'Continue as guest' : 'Sign in as guest'}
+          />
+        </VerticalGroup>
       </Panel>
     </CenteredLayout>
   );

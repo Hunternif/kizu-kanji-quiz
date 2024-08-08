@@ -26,13 +26,6 @@
   margin: auto;
   width: 18rem;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 1em;
-  > .game-button {
-    width: 13rem;
-  }
   .google-login .icon-left {
     color: colors.$accent-gold;
   }
