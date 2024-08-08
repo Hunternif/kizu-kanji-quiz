@@ -1,4 +1,4 @@
-import { detectJapanese } from '../../../api/text-utils';
+import { detectJapanese } from '../../../shared/text-utils';
 
 interface Props extends React.HTMLAttributes<HTMLElement> {
   text: string;
