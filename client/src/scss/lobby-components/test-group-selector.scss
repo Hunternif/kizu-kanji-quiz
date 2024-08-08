@@ -39,7 +39,13 @@
             font-weight: 500;
           }
         }
-        &:not(.readonly) {
+        &.disabled {
+          opacity: 0.5;
+          .group-label, .group-sublabel {
+            opacity: 0.7;
+          }
+        }
+        &:not(.readonly):not(.disabled) {
           cursor: pointer;
           &:hover {
             &.selected {
