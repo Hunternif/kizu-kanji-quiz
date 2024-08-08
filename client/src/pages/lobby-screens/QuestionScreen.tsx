@@ -26,13 +26,15 @@ export function QuestionScreen() {
     <CenteredLayout innerClassName="question-screen">
       <div className="question-group">
         {turn.phase}
-        {turn.next_phase_time && (
-          <TimerBar
-            startTime={turn.phase_start_time}
-            endTime={turn.next_phase_time}
-            onClear={handleTimeEnd}
-          />
-        )}
+        <div className="timebar-container">
+          {turn.next_phase_time && (
+            <TimerBar
+              startTime={turn.phase_start_time}
+              endTime={turn.next_phase_time}
+              onClear={handleTimeEnd}
+            />
+          )}
+        </div>
         <QuestionCard text={turn.question.writing} />
       </div>
       <div className="choices">

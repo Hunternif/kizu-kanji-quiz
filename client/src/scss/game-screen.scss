@@ -5,13 +5,17 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  .timebar-container {
+    height: 0.5rem;
+    margin-bottom: 1rem;
+  }
 }
 
 .question-card {
   width: 20rem;
   height: 20rem;
   font-size: 10rem;
-  margin-top: 1rem;
   margin-bottom: 2rem;
 
   color: colors.$question-text;
