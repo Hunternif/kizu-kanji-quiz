@@ -80,10 +80,10 @@ export function NewLobbyScreen(props: Props) {
 function BigScreenLobby(props: Props) {
   return (
     <RowLayout>
-      <Col className='player-list-column'>
+      <Col className="player-list-column">
         <PlayerListSidebar {...props} />
       </Col>
-      <Col className='main-content-column'>
+      <Col className="main-content-column">
         <MainContent {...props} />
       </Col>
     </RowLayout>
@@ -159,7 +159,7 @@ function PlayerListSidebar({ lobby, user, players }: Props) {
     (p) => p.role === 'player' && p.status !== 'left',
   );
   const spectators = players.filter(
-    (p) => p.role === 'spectator' && p.status !== 'left',
+    (p) => p.role === 'spectator' && p.status === 'online',
   );
   const player = players.find((p) => p.uid === user.uid)!;
   const isCreator = player.uid === lobby.creator_uid;

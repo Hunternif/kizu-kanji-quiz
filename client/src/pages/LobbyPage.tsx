@@ -1,5 +1,5 @@
 import { User } from 'firebase/auth';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import {
   useLobby,
@@ -7,16 +7,15 @@ import {
   usePlayers,
 } from '../api/lobby/lobby-hooks';
 import { joinLobby } from '../api/lobby/lobby-join-api';
-import { updatePlayer } from '../api/lobby/lobby-player-api';
 import { ErrorContext, useErrorContext } from '../components/ErrorContext';
 import { ErrorModal } from '../components/ErrorModal';
 import { LoadingSpinner } from '../components/LoadingSpinner';
 import { useAuthWithPresence } from '../hooks/auth-hooks';
 import { useHandler } from '../hooks/data-hooks';
-import { PlayerInLobby } from '../shared/types';
 import { assertExhaustive } from '../shared/utils';
 import { LoginScreen } from './lobby-screens/LoginScreen';
 import { NewLobbyScreen } from './lobby-screens/NewLobbyScreen';
+import { RejoinScreen } from './lobby-screens/RejoinScreen';
 
 interface LoaderParams {
   params: any;
@@ -66,20 +65,12 @@ interface LoggedInProps {
 function LoggedInLobbyScreen({ lobbyID, user }: LoggedInProps) {
   const [player, loadingPlayer] = usePlayerInLobby(lobbyID, user);
 
-  async function rejoin(player: PlayerInLobby) {
-    // I previously left, re-join:
-    player.status = 'online';
-    await updatePlayer(lobbyID, player);
+  if (loadingPlayer) {
+    return <LoadingSpinner delay text="Loading user..." />;
   }
-
-  useEffect(() => {
-    // I previously left, re-join:
-    if (player?.status === 'left') {
-      rejoin(player);
-    }
-  }, [player?.status]);
-
-  if (loadingPlayer) return <LoadingSpinner delay text="Loading user..." />;
+  if (player?.status === 'left') {
+    return <RejoinScreen player={player} lobbyID={lobbyID} />;
+  }
   // Maybe offer to change user's name before joining:
   return <JoinedLobbyScreen user={user} lobbyID={lobbyID} />;
 }
