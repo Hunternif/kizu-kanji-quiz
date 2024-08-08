@@ -71,6 +71,7 @@ export class GameEntry {
   constructor(
     /** Can be the same as writing */
     public id: string,
+    public random_index: number,
     /** For hiragana, this is the same as reading_hiragana. */
     public writing: string,
     // TODO: multiple readings: onyomi, kunyomi, variants

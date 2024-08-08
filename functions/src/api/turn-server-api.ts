@@ -18,6 +18,7 @@ import {
 
 const dummyEntry = new GameEntry(
   'test_entry',
+  0,
   'Test?',
   'this is hiragana',
   'this is romaji',

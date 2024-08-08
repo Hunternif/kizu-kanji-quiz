@@ -1,4 +1,5 @@
 import { open } from 'node:fs/promises';
+import { RNG } from '../shared/rng';
 import { GameEntry, TestGroup } from '../shared/types';
 import { assertExhaustive } from '../shared/utils';
 
@@ -30,15 +31,21 @@ export async function getEntries(group: TestGroup): Promise<Array<GameEntry>> {
   }
 }
 
-/** Prepares entries for game, e.g. randomly sorts them */
+/** Prepares entries for game, e.g. randomly sorts them. */
 export async function getEntriesForGame(
   groups: Iterable<TestGroup>,
 ): Promise<Array<GameEntry>> {
   const ret = new Array<GameEntry>();
   for (const group of groups) {
+    const rng = RNG.fromStrSeedWithTimestamp(group);
     const entries = await getEntries(group);
+    for (const entry of entries) {
+      entry.random_index = rng.randomInt();
+    }
     ret.push(...entries);
   }
+  // Sort high to low, highest "random index" goes first:
+  ret.sort((a, b) => b.random_index - a.random_index);
   return ret;
 }
 
@@ -52,6 +59,7 @@ export async function getHiraganaEntries(): Promise<Array<GameEntry>> {
       entries.push(
         new GameEntry(
           kana,
+          0,
           kana,
           kana,
           reading,

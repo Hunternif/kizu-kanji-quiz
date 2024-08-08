@@ -75,6 +75,7 @@ function mapToEntry(data: any): GameEntry {
   }
   return new GameEntry(
     data.id,
+    data.random_index,
     data.writing,
     data.reading_hiragana,
     data.reading_romaji,
