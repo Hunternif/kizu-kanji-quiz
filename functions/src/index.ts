@@ -13,7 +13,10 @@ import { startLobbyHandler } from './functions/lobby/startLobby';
 import { updateLobbySettingsHandler } from './functions/lobby/updateLobbySettings';
 import { createOnLobbyStatusChangeHandler } from './triggers/onLobbyStatusChange';
 import { createOnPlayerStatusChangeHandler } from './triggers/onPlayerStatusChange';
-import { createResponseChangeHandler } from './triggers/onResponseChange';
+import {
+  createResponseChangeHandler,
+  createResponseCreateHandler,
+} from './triggers/onResponseChange';
 import { createOnUserPresenceChangeHandler } from './triggers/onUserPresenceChange';
 
 setGlobalOptions({
@@ -66,3 +69,6 @@ export const onUserPresenceChange = createOnUserPresenceChangeHandler();
  * 2. Logs player responses into stats (only after the 'answering' phase)
  */
 export const onResponseChange = createResponseChangeHandler();
+
+/** Same as onResponseChange */
+export const onResponseCreate = createResponseCreateHandler();

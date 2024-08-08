@@ -47,6 +47,7 @@ export function TimerBar({ startTime, endTime, pctValue, onClear }: Props) {
         setPercent(newValue);
         if (newValue >= 100) {
           if (onClear && !calledClear) {
+            // console.log(`Cleared timer! ${new Date()}`);
             onClear();
             setCalledClear(true);
           }
@@ -54,7 +55,13 @@ export function TimerBar({ startTime, endTime, pctValue, onClear }: Props) {
         }
       }, 50);
     }
+    return stopTimer;
   }, [startTime, endTime, pctValue, calledClear, onClear]);
+
+  useEffect(() => {
+    // Reset when start time changes:
+    setCalledClear(false);
+  }, [startTime]);
 
   const barClasses = ['bar'];
   if (pctValue === undefined && percent < 100) {

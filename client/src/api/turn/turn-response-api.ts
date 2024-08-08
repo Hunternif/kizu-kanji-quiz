@@ -82,7 +82,7 @@ export async function pingResponse(
 ) {
   // Micro-optimization: only do this for lobby creator,
   // so there is only 1 extra document update.
-  if (lobby.creator_uid === player.uid) {
+  if (lobby.creator_uid === player.uid && turn.next_phase_time != null) {
     const ref = doc(getPlayerResponsesRef(lobby.id, turn.id), player.uid);
     const response = await getDoc(ref);
     if (response.exists()) {

@@ -3,7 +3,7 @@ import {
   submitPlayerResponse,
 } from '../../api/turn/turn-response-api';
 import { CenteredLayout } from '../../components/layout/CenteredLayout';
-import { useHandler1 } from '../../hooks/data-hooks';
+import { useHandler, useHandler1 } from '../../hooks/data-hooks';
 import { GameEntry } from '../../shared/types';
 import { useGameContext } from './game-components/GameContext';
 import { JapText } from './game-components/JapText';
@@ -18,13 +18,14 @@ export function QuestionScreen() {
     await submitPlayerResponse(lobby, turn, player, entry.id);
   });
 
-  async function handleTimeEnd() {
+  const [handleTimeEnd] = useHandler(async () => {
     await pingResponse(lobby, turn, player);
-  }
+  });
 
   return (
     <CenteredLayout innerClassName="question-screen">
       <div className="question-group">
+        {turn.phase}
         {turn.next_phase_time && (
           <TimerBar
             startTime={turn.phase_start_time}
