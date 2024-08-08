@@ -8,6 +8,7 @@ import { GameLobby } from '../../../shared/types';
 import { LobbySettingsPanel } from './LobbySettingsPanel';
 import { TestGroupSelector } from './TestGroupSelector';
 import { Panel } from '../../../components/Panel';
+import { LoadingSpinner } from '../../../components/LoadingSpinner';
 
 interface Props {
   user: User;
@@ -24,6 +25,9 @@ export function LobbyCreationReadOnly(props: Props) {
     setShowLink(true);
   }
 
+  if (lobby.status === 'starting') {
+    return <LoadingSpinner text="Starting..." />;
+  }
   return (
     <>
       <ScrollContainer scrollDark className="content">
@@ -34,7 +38,7 @@ export function LobbyCreationReadOnly(props: Props) {
           <TestGroupSelector readOnly {...props} />
         </Panel>
         <Panel>
-        <LobbySettingsPanel settings={lobby.settings} readOnly />
+          <LobbySettingsPanel settings={lobby.settings} readOnly />
         </Panel>
       </ScrollContainer>
       <footer>

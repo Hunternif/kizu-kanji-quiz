@@ -190,7 +190,7 @@ export type PlayerStatus = 'online' | 'left' | 'banned';
 
 export type TurnPhase = 'new' | 'answering' | 'reveal' | 'complete';
 
-export type LobbyStatus = 'new' | 'in_progress' | 'ended';
+export type LobbyStatus = 'new' | 'starting' | 'in_progress' | 'ended';
 
 /** "kick" is re-joinable, "ban" is forever. */
 export type KickAction = 'kick' | 'ban';

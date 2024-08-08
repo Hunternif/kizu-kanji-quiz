@@ -103,6 +103,7 @@ function JoinedLobbyScreen({ lobbyID, user }: LoggedInJoinedProps) {
   if (!lobby || !players) throw new Error(`Failed to load lobby ${lobbyID}`);
   switch (lobby.status) {
     case 'new':
+    case 'starting':
       return <NewLobbyScreen lobby={lobby} user={user} players={players} />;
     case 'in_progress':
       return <span>This is the Game screen</span>;
