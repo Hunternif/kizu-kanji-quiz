@@ -26,6 +26,7 @@ import {
 } from './lobby-server-repository';
 import { createNewTurn } from './turn-server-api';
 import { getOrCreateQuizUser } from './user-server-api';
+import { isChoiceAnswer } from '../shared/mode-utils';
 
 /**
  * Creates a new lobby from this player, returns it.
@@ -185,8 +186,11 @@ export async function startLobby(lobby: GameLobby) {
 async function validateGameSettings(lobby: GameLobby) {
   const settings = lobby.settings;
   const defaults = defaultLobbySettings();
+  if (isChoiceAnswer(settings.answer_mode) && settings.num_choices < 2) {
+    settings.num_choices = 2;
+  }
   // Maybe validate that question and answer mode should not match?
-  // await updateLobby(lobby);
+  await updateLobby(lobby);
 }
 
 /**

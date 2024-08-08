@@ -48,3 +48,22 @@ export function getValidAnswerModes(gameMode: GameMode): AnswerMode[] {
   }
   return validAnswerModes;
 }
+
+/** Returns true if the answer mode is a multiple-choice question. */
+export function isChoiceAnswer(mode: AnswerMode) {
+  switch (mode) {
+    case 'choose_kanji':
+    case 'choose_hiragana':
+    case 'choose_romaji':
+    case 'choose_meaning':
+      return true;
+    case 'type_romaji':
+    case 'type_meaning':
+    case 'draw_hiragana':
+    case 'draw_kanji':
+      return false;
+    default:
+      assertExhaustive(mode);
+      return false;
+  }
+}

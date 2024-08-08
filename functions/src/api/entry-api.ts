@@ -1,4 +1,5 @@
 import { open } from 'node:fs/promises';
+import { isChoiceAnswer } from '../shared/mode-utils';
 import { RNG } from '../shared/rng';
 import { GameEntry, GameLobby, TestGroup } from '../shared/types';
 import { assertExhaustive } from '../shared/utils';
@@ -71,14 +72,50 @@ export async function getHiraganaEntries(): Promise<Array<GameEntry>> {
   return entries;
 }
 
-/** Returns a new question and removes it from the list of questions.
- * If no more questions, returns null. */
-export function selectQuestion(lobby: GameLobby): GameEntry | null {
+/**
+ * Returns a new question and removes it from the list of questions.
+ * If no more questions, returns null.
+ *
+ * Also provides a multiple choices, if applicable.
+ * The choices include the true answer.
+ */
+export function selectQuestion(
+  lobby: GameLobby,
+  rng: RNG = RNG.fromStrSeedWithTimestamp('choices'),
+): {
+  question: GameEntry | null;
+  choices?: GameEntry[];
+} {
   // Assuming that the list of questions is already sorted in order.
   if (lobby.used_question_count >= lobby.questions.length) {
-    return null;
+    return { question: null };
   }
-  const entry = lobby.questions[lobby.used_question_count];
+  const question = lobby.questions[lobby.used_question_count];
   lobby.used_question_count++;
-  return entry;
+  // Could potentially return the next N answers, instead of random ones.
+  let choices;
+  if (isChoiceAnswer(lobby.settings.answer_mode)) {
+    const choiceSet = new Set<GameEntry>([question]);
+    choices = new Array<GameEntry>();
+    const targetCount = Math.max(
+      2,
+      Math.min(lobby.settings.num_choices, lobby.questions.length),
+    );
+    // Count retries to prevent an infinite loop:
+    let retryCounter = 0;
+    while (choiceSet.size < targetCount) {
+      const i = rng.randomIntClamped(0, lobby.questions.length - 1);
+      const choice = lobby.questions[i];
+      if (choiceSet.has(choice)) {
+        retryCounter++;
+        if (retryCounter >= 20) break;
+      } else {
+        choiceSet.add(choice);
+      }
+    }
+    // Shuffle choices so that the answer is at a random spot.
+    choices = [...choiceSet];
+    rng.shuffleArray(choices);
+  }
+  return { question, choices };
 }

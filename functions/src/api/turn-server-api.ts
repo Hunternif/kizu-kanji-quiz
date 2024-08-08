@@ -35,14 +35,13 @@ export async function createNewTurn(lobby: GameLobby): Promise<GameTurn> {
   const lastTurn = await getLastTurn(lobby);
   const newOrdinal = lastTurn ? lastTurn.ordinal + 1 : 1;
   const id = 'turn_' + String(newOrdinal).padStart(2, '0');
-  const question = selectQuestion(lobby);
+  const { question, choices } = selectQuestion(lobby);
   if (!question) {
     throw new HttpsError(
       'failed-precondition',
       `No more questions in lobby ${lobby.id}`,
     );
   }
-  const choices = [dummyEntry, dummyEntry, dummyEntry, dummyEntry];
   const newTurn = new GameTurn(
     id,
     newOrdinal,
