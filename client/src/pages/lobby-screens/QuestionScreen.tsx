@@ -1,16 +1,31 @@
+import { submitPlayerResponse } from '../../api/turn/turn-response-api';
 import { CenteredLayout } from '../../components/layout/CenteredLayout';
+import { useHandler, useHandler1 } from '../../hooks/data-hooks';
+import { GameEntry } from '../../shared/types';
 import { useGameContext } from './game-components/GameContext';
 import { JapText } from './game-components/JapText';
 
 /** Game screen with a question and multiple choices of answers. */
 export function QuestionScreen() {
-  const { turn, isSpectator } = useGameContext();
+  const { lobby, turn, player, isSpectator, responses } = useGameContext();
+  const response = responses.find((r) => r.player_uid === player.uid);
+
+  const [handleSelect] = useHandler1(async (entry: GameEntry) => {
+    await submitPlayerResponse(lobby, turn, player, entry.id);
+  });
+
   return (
     <CenteredLayout innerClassName="question-screen">
       <QuestionCard text={turn.question.writing} />
       <div className="choices">
         {turn.choices?.map((c) => (
-          <Choice key={c.id} text={c.reading_romaji} readOnly={isSpectator} />
+          <Choice
+            key={c.id}
+            text={c.reading_romaji}
+            readOnly={isSpectator}
+            selected={response?.answer_entry_id === c.id}
+            onClick={() => handleSelect(c)}
+          />
         ))}
       </div>
     </CenteredLayout>
@@ -35,16 +50,24 @@ interface ChoiceProps {
   text: string;
   selected?: boolean;
   readOnly?: boolean;
+  onClick?: () => void;
 }
 
 /** Choice card. Players click on it to select their answer. */
-function Choice({ text, selected, readOnly }: ChoiceProps) {
+function Choice({ text, selected, readOnly, onClick }: ChoiceProps) {
   const classes = ['choice-card'];
   if (selected) classes.push('selected');
   if (readOnly) classes.push('readonly');
   if (!readOnly) classes.push('hoverable-card');
   return (
-    <div className={classes.join(' ')}>
+    <div
+      className={classes.join(' ')}
+      onClick={() => {
+        if (onClick && !readOnly) {
+          onClick();
+        }
+      }}
+    >
       <JapText text={text} />
     </div>
   );

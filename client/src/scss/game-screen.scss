@@ -51,7 +51,7 @@
   &.selected {
     background-color: colors.$choice-selected-bg;
     color: colors.$choice-selected-text;
-    font-weight: 700;
+    font-weight: 600;
   }
   &:not(.readonly) {
     cursor: pointer;
@@ -69,8 +69,10 @@
   transition-duration: 50ms;
   &:hover {
     transform: scaleX(1.03) scaleY(1.03);
-    box-shadow: 0 3px 10px rgba(colors.$gray-6, 25%);
     cursor: pointer;
+    &:not(.selected) {
+      box-shadow: 0 3px 10px rgba(colors.$gray-6, 25%);
+    }
   }
   &.selected {
     transform: scaleX(1.05) scaleY(1.05);

@@ -83,7 +83,7 @@ function mapToEntry(data: any): GameEntry {
   );
 }
 function mapFromEntry(entry: GameEntry): any {
-  return copyFields2(entry, { meaning: mapToObject(entry.meaning) }, ['id']);
+  return copyFields2(entry, { meaning: mapToObject(entry.meaning) }, []);
 }
 
 export const playerConverter: FConverter<PlayerInLobby> = {
