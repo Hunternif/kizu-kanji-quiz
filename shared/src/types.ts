@@ -22,8 +22,12 @@ export class GameLobby {
 
   /** List of test groups selected for this lobby */
   public test_groups: Set<TestGroup> = new Set();
-  /** Questions remaining in the deck. */
+  /** Questions remaining in the deck.
+   * Should not be modified! Current question is tracked via index. */
+  // TODO: move this to a separate document.
   public questions: Array<GameEntry> = [];
+  /** Number of the current question. */
+  public used_question_count: number = 0;
 
   /** ID of the next lobby, created as a copy of this lobby. */
   public next_lobby_id?: string;

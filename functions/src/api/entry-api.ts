@@ -1,6 +1,6 @@
 import { open } from 'node:fs/promises';
 import { RNG } from '../shared/rng';
-import { GameEntry, TestGroup } from '../shared/types';
+import { GameEntry, GameLobby, TestGroup } from '../shared/types';
 import { assertExhaustive } from '../shared/utils';
 
 /** Provides gama data for the each test group. */
@@ -69,4 +69,16 @@ export async function getHiraganaEntries(): Promise<Array<GameEntry>> {
     }
   }
   return entries;
+}
+
+/** Returns a new question and removes it from the list of questions.
+ * If no more questions, returns null. */
+export function selectQuestion(lobby: GameLobby): GameEntry | null {
+  // Assuming that the list of questions is already sorted in order.
+  if (lobby.used_question_count >= lobby.questions.length) {
+    return null;
+  }
+  const entry = lobby.questions[lobby.used_question_count];
+  lobby.used_question_count++;
+  return entry;
 }

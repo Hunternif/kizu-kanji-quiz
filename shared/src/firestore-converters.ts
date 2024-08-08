@@ -1,8 +1,8 @@
 import {
   FConverter,
   FDocSnapshot,
-  FTimestamp,
   fServerTimestamp,
+  FTimestamp,
 } from '../firestore-adapter';
 import {
   defaultLobbySettings,
@@ -22,8 +22,7 @@ import {
   copyFields,
   copyFields2,
   mapToObject,
-  objectToMap,
-  removeUndefined,
+  removeUndefined
 } from './utils';
 
 export const lobbyConverter: FConverter<GameLobby> = {
@@ -56,6 +55,7 @@ export const lobbyConverter: FConverter<GameLobby> = {
     ret.time_created = (data.time_created as FTimestamp | null)?.toDate();
     ret.test_groups = new Set<TestGroup>(data.test_groups ?? []);
     ret.questions = (data.questions ?? []).map(mapToEntry);
+    ret.used_question_count = data.used_question_count ?? 0;
     ret.player_ids = new Set<string>(data.player_ids ?? []);
     ret.next_lobby_id = data.next_lobby_id;
     return ret;

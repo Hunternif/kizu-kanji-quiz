@@ -8,6 +8,7 @@ import {
   GameTurn,
   PlayerResponse,
 } from '../shared/types';
+import { selectQuestion } from './entry-api';
 import { getPlayerThrows, updateLobby } from './lobby-server-repository';
 import {
   getLastTurn,
@@ -34,7 +35,7 @@ export async function createNewTurn(lobby: GameLobby): Promise<GameTurn> {
   const lastTurn = await getLastTurn(lobby);
   const newOrdinal = lastTurn ? lastTurn.ordinal + 1 : 1;
   const id = 'turn_' + String(newOrdinal).padStart(2, '0');
-  const question = lobby.questions.shift();
+  const question = selectQuestion(lobby);
   if (!question) {
     throw new HttpsError(
       'failed-precondition',
