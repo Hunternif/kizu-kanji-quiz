@@ -36,6 +36,7 @@ export function QuestionScreen() {
   return (
     <CenteredLayout innerClassName={rootClasses.join(' ')}>
       <div className="question-group">
+        <div className='result-text'>{isCorrect ? 'Correct!' : isIncorrect ? 'Incorrect' : null}</div>
         <div className="timebar-container">
           {turn.next_phase_time && (
             <TimerBar
