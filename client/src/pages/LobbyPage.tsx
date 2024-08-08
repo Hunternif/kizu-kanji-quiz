@@ -13,6 +13,7 @@ import { LoadingSpinner } from '../components/LoadingSpinner';
 import { useAuthWithPresence } from '../hooks/auth-hooks';
 import { useHandler } from '../hooks/data-hooks';
 import { assertExhaustive } from '../shared/utils';
+import { GameScreen } from './lobby-screens/GameScreen';
 import { LoginScreen } from './lobby-screens/LoginScreen';
 import { NewLobbyScreen } from './lobby-screens/NewLobbyScreen';
 import { RejoinScreen } from './lobby-screens/RejoinScreen';
@@ -105,8 +106,7 @@ function JoinedLobbyScreen({ lobbyID, user }: LoggedInJoinedProps) {
     case 'starting':
       return <NewLobbyScreen lobby={lobby} user={user} players={players} />;
     case 'in_progress':
-      return <span>This is the Game screen</span>;
-    // return <GameScreen lobby={lobby} user={user} players={players} />;
+      return <GameScreen lobby={lobby} user={user} players={players} />;
     case 'ended':
       return <span>This is the Scoreboard screen</span>;
     // return <ScoreboardScreen lobby={lobby} user={user} players={players} />;
