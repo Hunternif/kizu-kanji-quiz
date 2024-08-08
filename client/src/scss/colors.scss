@@ -17,6 +17,8 @@ $hint: $gray-3;
 
 $error-red: #e64949;
 
+$gold: #ffc90f; // From CAA
+
 $like: $accent-pink;
 
 $button-bg: $gray-5;
@@ -53,9 +55,10 @@ $test-group-selected-text: color-mix(
   $gray-6
 );
 
-/*------------------------ Question Cards ------------------------*/
+/*--------------------- Question & Answer Cards ---------------------*/
 $q-green: #508349;
 $question-bg: $q-green;
+$question-bg-reveal: color-mix(in srgb, $q-green 30%, $gray-4);
 $question-text: #fff;
 
 $choice-bg: #fff;
@@ -65,6 +68,26 @@ $choice-selected-text: color-mix(
   $gray-6
 );
 $choice-selected-bg: color-mix(in srgb, $accent-blue 50%, $choice-bg);
+
+// Gold glow on the correct answer:
+$answer-gold: $gold;
+$correct-green: #7fca6d;
+$incorrect-red: $error-red;
+
+$choice-answer-text: color-mix(in srgb, #d45f00 40%, $text);
+$choice-answer-glow: rgba($answer-gold, 70%);
+$choice-answer-gradient: linear-gradient(to bottom, rgba($answer-gold, 30%), #fff);
+$choice-answer-bg: $answer-gold;//color-mix(in srgb, $answer-gold 90%, $accent-pink);
+
+$choice-correct-text: #fff;//color-mix(in srgb, $correct-green 50%, $text);
+$choice-correct-gradient: linear-gradient(to bottom, lighten($correct-green, 30%), lighten($gold, 45%));
+$choice-correct-glow: $correct-green;
+$choice-correct-bg: $correct-green;
+
+$choice-incorrect-text: #fff;//color-mix(in srgb, $incorrect-red 50%, $text);
+$choice-incorrect-gradient: linear-gradient(to bottom, lighten($incorrect-red, 50%), lighten($gold, 45%));
+$choice-incorrect-glow: $incorrect-red;
+$choice-incorrect-bg: color-mix(in srgb, $incorrect-red 70%, $gray-4);
 
 $timer-bg: $gray-2;
 $timer-bar: $accent-blue;

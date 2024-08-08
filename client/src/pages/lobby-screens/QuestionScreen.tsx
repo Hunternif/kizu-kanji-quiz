@@ -22,8 +22,11 @@ export function QuestionScreen() {
     await pingResponse(lobby, turn, player);
   });
 
+  const rootClasses = ['question-screen'];
+  rootClasses.push(`phase-${turn.phase}`);
+
   return (
-    <CenteredLayout innerClassName="question-screen">
+    <CenteredLayout innerClassName={rootClasses.join(' ')}>
       <div className="question-group">
         {turn.phase}
         <div className="timebar-container">
@@ -43,7 +46,9 @@ export function QuestionScreen() {
             key={c.id}
             text={c.reading_romaji}
             readOnly={isSpectator || turn.phase !== 'answering'}
+            answer={c.id === turn.question.id}
             selected={response?.answer_entry_id === c.id}
+            reveal={turn.phase === 'reveal'}
             onClick={() => handleSelect(c)}
           />
         ))}
@@ -69,14 +74,27 @@ function QuestionCard({ text }: QuestionProps) {
 interface ChoiceProps {
   text: string;
   selected?: boolean;
+  answer?: boolean;
+  /** Should reveal answer? */
+  reveal?: boolean;
   readOnly?: boolean;
   onClick?: () => void;
 }
 
 /** Choice card. Players click on it to select their answer. */
-function Choice({ text, selected, readOnly, onClick }: ChoiceProps) {
+function Choice({
+  text,
+  selected,
+  answer,
+  reveal,
+  readOnly,
+  onClick,
+}: ChoiceProps) {
   const classes = ['choice-card'];
   if (selected) classes.push('selected');
+  if (reveal && answer) classes.push('answer');
+  if (reveal && selected && answer) classes.push('correct');
+  if (reveal && selected && !answer) classes.push('incorrect');
   if (readOnly) classes.push('readonly');
   if (!readOnly) classes.push('hoverable-card');
   return (
