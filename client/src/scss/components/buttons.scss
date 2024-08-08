@@ -24,7 +24,8 @@ button:not(:disabled) {
   text-align: center;
   align-items: center;
   &.centered {
-    .icon-left, .icon-right {
+    .icon-left,
+    .icon-right {
       width: 1em;
     }
   }
@@ -176,5 +177,20 @@ button.start-button {
   cursor: pointer;
   &:hover {
     mask-image: url(../assets/icons/x_circle_filled.svg);
+  }
+}
+
+.small-x-button {
+  cursor: pointer;
+  opacity: 0.7;
+  text-align: center;
+  &:hover {
+    opacity: 1;
+  }
+  &::after {
+    content: '⨯';
+    font-weight: 500;
+    width: 1em;
+    height: 1em;
   }
 }

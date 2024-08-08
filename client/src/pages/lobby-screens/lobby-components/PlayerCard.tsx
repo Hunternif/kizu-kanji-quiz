@@ -5,6 +5,7 @@ import { ErrorContext } from '../../../components/ErrorContext';
 import { Modal, ModalBody, ModalFooter } from '../../../components/Modal';
 import { Twemoji } from '../../../components/Twemoji';
 import { GameLobby, KickAction, PlayerInLobby } from '../../../shared/types';
+import { IconX } from '../../../components/Icons';
 
 interface PlayerProps {
   lobby: GameLobby;
@@ -56,7 +57,9 @@ export function PlayerCard({
   return (
     <>
       <Modal show={showKickModal} onHide={() => setShowKickModal(false)}>
-        <ModalBody loading={kicking}>Kick {player.name} out?</ModalBody>
+        <ModalBody loadingText="Kicking..." loading={kicking}>
+          Kick {player.name} out?
+        </ModalBody>
         <ModalFooter>
           <GameButton onClick={handleBan} accent disabled={kicking}>
             Ban
@@ -76,19 +79,19 @@ export function PlayerCard({
       <div className={classes.join(' ')}>
         {/* Avator goes here */}
         {isCreator && <Twemoji className="left-icon">👑</Twemoji>}
+        {player.status === 'banned' && (
+          <Twemoji className="left-icon">💀</Twemoji>
+        )}
         <span className="player-name">{player.name}</span>
         <span className="right-group">
-          {player.status === 'banned' ? (
-            <Twemoji className="right-icon">💀</Twemoji>
-          ) : (
-            canKick &&
-            !isMe && (
-              <span
-                className="right-icon kick-button"
-                title="Kick player"
-                onClick={() => setShowKickModal(true)}
-              />
-            )
+          {canKick && !isMe && (
+            <span
+              className="right-icon kick-button"
+              title="Kick player"
+              onClick={() => setShowKickModal(true)}
+            >
+              <IconX />
+            </span>
           )}
         </span>
       </div>

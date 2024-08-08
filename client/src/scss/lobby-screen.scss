@@ -172,20 +172,21 @@
   .right-group {
     display: flex;
     gap: 0.4em;
+    margin-left: 0.2em;
   }
   .right-icon {
     // margin-left: auto;
-    margin-right: -0.2em;
     margin-top: -0.1em;
-    padding-left: 0.2em;
   }
   .kick-button {
-    @extend .x-circle-button;
-    width: 24px;
-    height: 24px;
-    background-color: colors.$text;
-    margin-right: -0.4em;
-    opacity: 0.7;
+    width: 20px;
+    height: 20px;
+    color: colors.$kick-button;
+    opacity: 0.5;
+    &:hover {
+      opacity: 1;
+    }
+    cursor: pointer;
   }
 }
 .player-list-header {
