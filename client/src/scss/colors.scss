@@ -10,7 +10,7 @@ $gray-6: #534c5f;
 $accent-gold: #ffdfb0;
 $accent-pink: #b173da;
 $accent-purple: #8973da;
-$accent-blue: #6a88eb;
+$accent-blue: #7998ff;
 $bg: $gray-0;
 $text: $gray-5;
 $hint: $gray-3;
@@ -23,9 +23,9 @@ $button-bg: $gray-5;
 $button-text: #fff;
 $button-bg-hover: lighten($button-bg, 10%);
 $button-accent-text: #fff;
-$button-accent-bg: $accent-purple;
+$button-accent-bg: $accent-blue;
 $button-accent-bg-hover: lighten($button-accent-bg, 10%);
-$button-light-bg: $gray-3;
+$button-light-bg: $gray-4;
 $button-lighter-bg: color-mix(in srgb, $bg 50%, $button-light-bg);
 $button-secondary-bg: $gray-3;
 $button-secondary-bg-hover: $gray-3;
@@ -39,9 +39,18 @@ $lobby-player-list-bg: $gray-0;
 
 /*----------------------------- Cards ----------------------------*/
 $test-group-bg: $gray-0;
-$test-group-hover-bg: color-mix(in srgb, $accent-blue 15%, $gray-0);
-$test-group-selected-bg: color-mix(in srgb, $accent-blue 50%, $gray-0);
-$test-group-selected-text: color-mix(in srgb, darken($accent-blue, 10%) 30%, $gray-6);
+$test-group-hover-bg: color-mix(in srgb, $accent-blue 10%, $test-group-bg);
+$test-group-selected-bg: color-mix(in srgb, $accent-blue 35%, $test-group-bg);
+$test-group-selected-hover-bg: color-mix(
+  in srgb,
+  $test-group-selected-bg 70%,
+  $gray-0
+);
+$test-group-selected-text: color-mix(
+  in srgb,
+  darken($accent-blue, 20%) 30%,
+  $gray-6
+);
 
 /*------------------------- Form controls ------------------------*/
 $control-bg: $gray-0;
@@ -49,7 +58,7 @@ $control-bg-focus: lighten($gray-0, 5%);
 $control-text: $gray-6;
 $control-text-focus: #fff;
 $control-border: $gray-2;
-$control-border-focus: $gray-4;
+$control-border-focus: $accent-blue;
 $checkbox-border: $gray-3;
 $checkbox-bg: transparent;
 

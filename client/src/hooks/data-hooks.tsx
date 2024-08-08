@@ -128,3 +128,50 @@ export function useHandler(
   }
   return [handler, loading];
 }
+
+/**
+ * Convenience hook to run async handler on a button click,
+ * with error handling and loading state. With 1 argument.
+ */
+export function useHandler1<T>(
+  callback: (arg1: T) => Promise<void>,
+): [handler: (arg1: T) => void, loading: boolean] {
+  const { setError } = useErrorContext();
+  const [loading, setLoading] = useState(false);
+
+  async function handler(arg1: T) {
+    try {
+      setLoading(true);
+      await callback(arg1);
+    } catch (e: any) {
+      setError(e);
+    } finally {
+      setLoading(false);
+    }
+  }
+  return [handler, loading];
+}
+
+
+/**
+ * Convenience hook to run async handler on a button click,
+ * with error handling and loading state. With 2 arguments.
+ */
+export function useHandler2<T, U>(
+  callback: (arg1: T, arg2: U) => Promise<void>,
+): [handler: (arg1: T, arg2: U) => void, loading: boolean] {
+  const { setError } = useErrorContext();
+  const [loading, setLoading] = useState(false);
+
+  async function handler(arg1: T, arg2: U) {
+    try {
+      setLoading(true);
+      await callback(arg1, arg2);
+    } catch (e: any) {
+      setError(e);
+    } finally {
+      setLoading(false);
+    }
+  }
+  return [handler, loading];
+}

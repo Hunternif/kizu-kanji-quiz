@@ -6,6 +6,8 @@ import {
   KanjiJlptLevel,
   TestGroup,
 } from '../../../shared/types';
+import { useHandler2 } from '../../../hooks/data-hooks';
+import { updateLobby } from '../../../api/lobby/lobby-repository';
 
 interface SelectorProps {
   user: User;
@@ -13,7 +15,7 @@ interface SelectorProps {
   readOnly?: boolean;
 }
 
-export function TestGroupSelector({ readOnly }: SelectorProps) {
+export function TestGroupSelector({ lobby, readOnly }: SelectorProps) {
   const kanaGroups: Array<[KanaGroup, string, string]> = [
     ['hiragana', 'あ', '73 Hiragana'],
     ['hiragana_digraphs', 'きゃ', '33 Hiragana digraphs'],
@@ -21,70 +23,92 @@ export function TestGroupSelector({ readOnly }: SelectorProps) {
     ['katakana_digraphs', 'キャ', '33 Katakana digraphs'],
   ];
   const kanjiJlptGroups: Array<[KanjiJlptLevel, string, string]> = [
-    ['kanji_jlpt_5', 'N5', '79 kanji'],
-    ['kanji_jlpt_4', 'N4', '166 kanji'],
-    ['kanji_jlpt_3', 'N3', '367 kanji'],
-    ['kanji_jlpt_2', 'N2', '367 kanji'],
-    ['kanji_jlpt_1', 'N1', '990 kanji'],
+    ['kanji_jlpt_5', 'N5', '79 Kanji'],
+    ['kanji_jlpt_4', 'N4', '166 Kanji'],
+    ['kanji_jlpt_3', 'N3', '367 Kanji'],
+    ['kanji_jlpt_2', 'N2', '367 Kanji'],
+    ['kanji_jlpt_1', 'N1', '990 Kanji'],
   ];
   const kanjiGradeGroups: Array<[KanjiGrade, string, string]> = [
-    ['kanji_grade_1', 'Grade 1', '80 kanji'],
-    ['kanji_grade_2', 'Grade 2', '160 kanji'],
-    ['kanji_grade_3', 'Grade 3', '200 kanji'],
-    ['kanji_grade_4', 'Grade 4', '202 kanji'],
-    ['kanji_grade_5', 'Grade 5', '193 kanji'],
-    ['kanji_grade_6', 'Grade 6', '191 kanji'],
+    ['kanji_grade_1', 'Grade 1', '80 Kanji'],
+    ['kanji_grade_2', 'Grade 2', '160 Kanji'],
+    ['kanji_grade_3', 'Grade 3', '200 Kanji'],
+    ['kanji_grade_4', 'Grade 4', '202 Kanji'],
+    ['kanji_grade_5', 'Grade 5', '193 Kanji'],
+    ['kanji_grade_6', 'Grade 6', '191 Kanji'],
     ['kanji_grade_S', 'Secondary school', '1110 kanji'],
   ];
+
+  const [toggleHandler] = useHandler2(
+    async (value: TestGroup, selected: boolean) => {
+      if (selected) lobby.test_groups.add(value);
+      else lobby.test_groups.delete(value);
+      await updateLobby(lobby);
+    },
+  );
   return (
     <div className="test-group-selector">
-      <GroupSection title="Hiragana & Katakana">
-        {kanaGroups.map(([val, label, sub]) => (
-          <Group
-            key={val}
-            big
-            value={val}
-            label={label}
-            sublabel={sub}
-            readonly={readOnly}
-          />
-        ))}
-      </GroupSection>
-      <GroupSection title="Kanji: Japanese Language Proficiency Test">
-        {kanjiJlptGroups.map(([val, label, sub]) => (
-          <Group
-            key={val}
-            big
-            value={val}
-            label={label}
-            sublabel={sub}
-            readonly={readOnly}
-          />
-        ))}
-      </GroupSection>
-      <GroupSection title="Kanji: Primary school">
-        {kanjiGradeGroups.map(([val, label, sub]) => (
-          <Group
-            key={val}
-            value={val}
-            label={label}
-            sublabel={sub}
-            readonly={readOnly}
-          />
-        ))}
-      </GroupSection>
+      <GroupSection
+        big
+        title="Hiragana & Katakana"
+        lobby={lobby}
+        groups={kanaGroups}
+        readOnly={readOnly}
+        onToggle={toggleHandler}
+      />
+      <GroupSection
+        big
+        title="Kanji: Japanese Language Proficiency Test"
+        lobby={lobby}
+        groups={kanjiJlptGroups}
+        readOnly={readOnly}
+        onToggle={toggleHandler}
+      />
+      <GroupSection
+        title="Kanji: Primary school"
+        lobby={lobby}
+        groups={kanjiGradeGroups}
+        readOnly={readOnly}
+        onToggle={toggleHandler}
+      />
     </div>
   );
 }
 
 interface SectionProps extends React.HTMLAttributes<HTMLElement> {
   title: string;
+  groups: Array<[value: TestGroup, label: string, sublabel: string]>;
+  lobby: GameLobby;
+  big?: boolean; // Makes the label big
+  readOnly?: boolean;
+  onToggle?: (value: TestGroup, selected: boolean) => void;
 }
-function GroupSection({ title, ...props }: SectionProps) {
+function GroupSection({
+  title,
+  groups,
+  lobby,
+  big,
+  readOnly,
+  onToggle,
+  ...props
+}: SectionProps) {
   return (
     <div className="group-section">
       <div className="group-section-title">{title}</div>
-      <div className="group-container" {...props} />
+      <div className="group-container" {...props}>
+        {groups.map(([value, label, sub]) => (
+          <Group
+            key={value}
+            value={value}
+            label={label}
+            big={big}
+            sublabel={sub}
+            selected={lobby.test_groups.has(value)}
+            onToggle={onToggle}
+            readonly={readOnly}
+          />
+        ))}
+      </div>
     </div>
   );
 }
@@ -117,7 +141,11 @@ function Group({
   return (
     <div
       className={classes.join(' ')}
-      onClick={() => (onToggle ? onToggle(value, !selected) : null)}
+      onClick={() => {
+        if (onToggle && !readonly && !disabled) {
+          onToggle(value, !selected);
+        }
+      }}
     >
       <span className="group-label">{label}</span>
       {sublabel && <span className="group-sublabel">{sublabel}</span>}

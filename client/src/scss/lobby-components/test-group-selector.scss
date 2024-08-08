@@ -32,10 +32,20 @@
         &.selected {
           background-color: colors.$test-group-selected-bg;
           color: colors.$test-group-selected-text;
+          .group-label {
+            font-weight: 700;
+          }
+          .group-sublabel {
+            font-weight: 500;
+          }
         }
         &:not(.readonly) {
           cursor: pointer;
           &:hover {
+            &.selected {
+              background-color: colors.$test-group-selected-hover-bg;
+              color: colors.$test-group-selected-text;
+            }
             background-color: colors.$test-group-hover-bg;
             color: colors.$test-group-selected-text;
           }
