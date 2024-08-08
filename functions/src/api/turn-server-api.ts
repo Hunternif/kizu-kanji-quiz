@@ -1,5 +1,6 @@
 // Server APIs for game turns, when the game is in progress.
 
+import { HttpsError } from 'firebase-functions/v2/https';
 import { RNG } from '../shared/rng';
 import {
   GameEntry,
@@ -31,10 +32,15 @@ const dummyEntry = new GameEntry(
 export async function createNewTurn(lobby: GameLobby): Promise<GameTurn> {
   // TODO: use transaction to ensure only one turn is created.
   const lastTurn = await getLastTurn(lobby);
-  // TODO: select new question, set next phase time.
   const newOrdinal = lastTurn ? lastTurn.ordinal + 1 : 1;
   const id = 'turn_' + String(newOrdinal).padStart(2, '0');
-  const question = dummyEntry;
+  const question = lobby.questions.shift();
+  if (!question) {
+    throw new HttpsError(
+      'failed-precondition',
+      `No more questions in lobby ${lobby.id}`,
+    );
+  }
   const choices = [dummyEntry, dummyEntry, dummyEntry, dummyEntry];
   const newTurn = new GameTurn(
     id,
@@ -45,6 +51,10 @@ export async function createNewTurn(lobby: GameLobby): Promise<GameTurn> {
     lobby.settings.question_mode,
     lobby.settings.answer_mode,
     choices,
+  );
+  newTurn.phase = 'answering';
+  newTurn.next_phase_time = new Date(
+    newTurn.time_created.getTime() + lobby.settings.question_timer_sec * 1000,
   );
   await getTurnsRef(lobby.id).doc(id).set(newTurn);
   lobby.current_turn_id = newTurn.id;
