@@ -35,14 +35,6 @@ const sidebarStyle: CSSProperties = {
   height: '100%',
 };
 
-const contentStyle: CSSProperties = {
-  paddingTop: '1em',
-  paddingBottom: '1em',
-  display: 'flex',
-  flexDirection: 'column',
-  height: '100%',
-};
-
 const scrollableColumnStyle: CSSProperties = {
   overflowY: 'auto',
   paddingLeft: '1em',
@@ -64,6 +56,7 @@ const overlaySidebarStyle: CSSProperties = {
 
 const smallHeaderStyle: CSSProperties = {
   height: '3em',
+  marginLeft: '0.5em',
   marginTop: '0.5em',
   position: 'absolute',
   display: 'flex',
@@ -145,7 +138,7 @@ function MainContent(props: Props) {
   const { lobby, user } = props;
   const isCreator = lobby.creator_uid === user.uid;
   return (
-    <div style={contentStyle} className="new-lobby-main-content">
+    <div className="new-lobby-main-content">
       {isCreator ? (
         <LobbyCreatorControls {...props} />
       ) : (

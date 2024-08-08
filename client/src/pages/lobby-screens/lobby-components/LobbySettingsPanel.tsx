@@ -59,7 +59,7 @@ export function LobbySettingsPanel(props: Props) {
           control={<ChoicesControl {...props} />}
         />
         <FormItem
-          label="Next question after [sec]"
+          label="Question timer [sec]"
           hint="Next question starts after this amount of time (in seconds). 0 to disable."
           control={<QuestionTimerControl {...props} />}
         />
@@ -111,10 +111,10 @@ function GameModeControl({ settings, readOnly, onChange }: Props) {
         if (onChange) await onChange(settings);
       }}
       options={[
-        ['writing_to_reading', 'あ ⇢ reading'],
-        ['reading_to_writing', 'Reading ⇢ あ'],
-        ['writing_to_meaning', '家 ⇢ meaning'],
-        ['meaning_to_writing', 'Meaning ⇢ 家'],
+        ['writing_to_reading', '字 ⇢ reading'],
+        ['reading_to_writing', 'Reading ⇢ 字'],
+        ['writing_to_meaning', '字 ⇢ meaning'],
+        ['meaning_to_writing', 'Meaning ⇢ 字'],
       ]}
     />
   );
@@ -146,10 +146,10 @@ function QuestionModeControl({ settings, readOnly, onChange }: Props) {
 
 function AnswerModeControl({ settings, readOnly, onChange }: Props) {
   const options: Array<[AnswerMode, string]> = [
-    ['choose_kanji', 'Choose 漢字'],
-    ['draw_kanji', 'Draw 漢字'],
-    ['choose_hiragana', 'Choose ひらがな'],
-    ['draw_hiragana', 'Draw ひらがな'],
+    ['choose_kanji', 'Choose kanji'],
+    ['draw_kanji', 'Draw kanji'],
+    ['choose_hiragana', 'Choose hiragana'],
+    ['draw_hiragana', 'Draw hiragana'],
     ['choose_romaji', 'Choose romaji'],
     ['choose_meaning', 'Choose meaning'],
     ['type_romaji', 'Type romaji'],
