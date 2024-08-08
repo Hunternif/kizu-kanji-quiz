@@ -1,4 +1,7 @@
-import { submitPlayerResponse } from '../../api/turn/turn-response-api';
+import {
+  pingResponse,
+  submitPlayerResponse,
+} from '../../api/turn/turn-response-api';
 import { CenteredLayout } from '../../components/layout/CenteredLayout';
 import { useHandler1 } from '../../hooks/data-hooks';
 import { GameEntry } from '../../shared/types';
@@ -15,6 +18,10 @@ export function QuestionScreen() {
     await submitPlayerResponse(lobby, turn, player, entry.id);
   });
 
+  async function handleTimeEnd() {
+    await pingResponse(lobby, turn, player);
+  }
+
   return (
     <CenteredLayout innerClassName="question-screen">
       <div className="question-group">
@@ -22,6 +29,7 @@ export function QuestionScreen() {
           <TimerBar
             startTime={turn.phase_start_time}
             endTime={turn.next_phase_time}
+            onClear={handleTimeEnd}
           />
         )}
         <QuestionCard text={turn.question.writing} />

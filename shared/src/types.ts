@@ -186,6 +186,8 @@ export class PlayerResponse {
     /** Answer to a multiple-choice question. */
     public answer_entry_id?: string,
     public answer_typed?: string,
+    /** Used to ping the server after the turn ends. */
+    public time_updated?: Date,
   ) {}
 }
 

@@ -109,6 +109,7 @@ export function useMarkedData<T>(): [
 /**
  * Convenience hook to run async handler on a button click,
  * with error handling and loading state.
+ * WARNING: parameters passed here are saved in the closure!
  */
 export function useHandler(
   callback: () => Promise<void>,
@@ -132,6 +133,7 @@ export function useHandler(
 /**
  * Convenience hook to run async handler on a button click,
  * with error handling and loading state. With 1 argument.
+ * WARNING: parameters passed here are saved in the closure!
  */
 export function useHandler1<T>(
   callback: (arg1: T) => Promise<void>,
@@ -156,6 +158,7 @@ export function useHandler1<T>(
 /**
  * Convenience hook to run async handler on a button click,
  * with error handling and loading state. With 2 arguments.
+ * WARNING: parameters passed here are saved in the closure!
  */
 export function useHandler2<T, U>(
   callback: (arg1: T, arg2: U) => Promise<void>,

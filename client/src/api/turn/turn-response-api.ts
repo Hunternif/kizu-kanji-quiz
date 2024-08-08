@@ -2,8 +2,10 @@ import {
   collection,
   deleteDoc,
   doc,
+  getDoc,
   getDocs,
   setDoc,
+  updateDoc,
 } from 'firebase/firestore';
 import { playerResponseConverter } from '../../shared/firestore-converters';
 import {
@@ -66,4 +68,28 @@ export async function getAllPlayerResponses(
   return (await getDocs(getPlayerResponsesRef(lobbyID, turnID))).docs.map((d) =>
     d.data(),
   );
+}
+
+/**
+ * Special function called at the end of the timer.
+ * By updating the response, we notify Firebase that the turn has ended.
+ * If the player has not responded, then an empty response is submitted.
+ */
+export async function pingResponse(
+  lobby: GameLobby,
+  turn: GameTurn,
+  player: PlayerInLobby,
+) {
+  // Micro-optimization: only do this for lobby creator,
+  // so there is only 1 extra document update.
+  if (lobby.creator_uid === player.uid) {
+    const ref = doc(getPlayerResponsesRef(lobby.id, turn.id), player.uid);
+    const response = await getDoc(ref);
+    if (response.exists()) {
+      await updateDoc(ref, { time_updated: new Date() });
+    } else {
+      const emptyResponse = new PlayerResponse(player.uid, player.name, null);
+      await setDoc(ref, emptyResponse);
+    }
+  }
 }

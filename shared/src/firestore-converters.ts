@@ -18,12 +18,7 @@ import {
   TestGroup,
   UserStats,
 } from './types';
-import {
-  copyFields,
-  copyFields2,
-  mapToObject,
-  removeUndefined
-} from './utils';
+import { copyFields, copyFields2, mapToObject, removeUndefined } from './utils';
 
 export const lobbyConverter: FConverter<GameLobby> = {
   toFirestore: (lobby: GameLobby) => {
@@ -150,6 +145,8 @@ export const playerResponseConverter: FConverter<PlayerResponse> = {
       time_submitted: pdata.time_submitted
         ? FTimestamp.fromDate(pdata.time_submitted)
         : fServerTimestamp(),
+      time_updated:
+        pdata.time_updated && FTimestamp.fromDate(pdata.time_updated),
     }),
   fromFirestore: (snapshot: FDocSnapshot) => {
     const data = snapshot.data();
@@ -160,6 +157,7 @@ export const playerResponseConverter: FConverter<PlayerResponse> = {
       (data.time_submitted as FTimestamp | null)?.toDate() ?? null,
       data.answer_entry_id,
       data.answer_typed,
+      (data.time_updated as FTimestamp | undefined)?.toDate(),
     );
   },
 };

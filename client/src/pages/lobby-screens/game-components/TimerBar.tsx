@@ -29,14 +29,10 @@ export function TimerBar({ startTime, endTime, pctValue, onClear }: Props) {
   const [percent, setPercent] = useState(
     pctValue ?? calculateElapsedPercent(startTime, endTime),
   );
+  const [calledClear, setCalledClear] = useState(false);
 
   useEffect(() => {
     let interval: NodeJS.Timeout | null = null;
-
-    function reset() {
-      stopTimer();
-      setPercent(0);
-    }
 
     function stopTimer() {
       if (interval) {
@@ -46,17 +42,19 @@ export function TimerBar({ startTime, endTime, pctValue, onClear }: Props) {
     }
 
     if (pctValue === undefined) {
-      reset();
       interval = setInterval(() => {
         const newValue = calculateElapsedPercent(startTime, endTime);
         setPercent(newValue);
         if (newValue >= 100) {
-          if (onClear) onClear();
+          if (onClear && !calledClear) {
+            onClear();
+            setCalledClear(true);
+          }
           stopTimer();
         }
       }, 50);
     }
-  }, [startTime, endTime, pctValue, onClear]);
+  }, [startTime, endTime, pctValue, calledClear, onClear]);
 
   const barClasses = ['bar'];
   if (pctValue === undefined && percent < 100) {
