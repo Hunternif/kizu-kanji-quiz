@@ -13,6 +13,7 @@ import { startLobbyHandler } from './functions/lobby/startLobby';
 import { updateLobbySettingsHandler } from './functions/lobby/updateLobbySettings';
 import { createOnLobbyStatusChangeHandler } from './triggers/onLobbyStatusChange';
 import { createOnPlayerStatusChangeHandler } from './triggers/onPlayerStatusChange';
+import { createResponseChangeHandler } from './triggers/onResponseChange';
 import { createOnUserPresenceChangeHandler } from './triggers/onUserPresenceChange';
 
 setGlobalOptions({
@@ -59,9 +60,9 @@ export const onLobbyStatusChange = createOnLobbyStatusChangeHandler();
 /** Monitors user presence. */
 export const onUserPresenceChange = createOnUserPresenceChangeHandler();
 
-//TODO: onResponseChange
 /**
  * Monitors player responses and runs logic:
  * 1. advance turn phase.
  * 2. Logs player responses into stats (only after the 'answering' phase)
  */
+export const onResponseChange = createResponseChangeHandler();
