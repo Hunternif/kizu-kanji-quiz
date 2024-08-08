@@ -20,6 +20,7 @@ import {
   setPlayerResponse,
   updateTurn,
 } from './turn-server-repository';
+import { endLobby, shouldEndLobby } from './lobby-server-api';
 
 const dummyEntry = new GameEntry(
   'test_entry',
@@ -143,7 +144,11 @@ export async function tryAdvanceTurn(lobbyID: string, turn: GameTurn) {
         break;
       case 'reveal':
         await completeTurn(lobby, turn);
-        await createNewTurn(lobby, turn);
+        if (shouldEndLobby(lobby)) {
+          await endLobby(lobby);
+        } else {
+          await createNewTurn(lobby, turn);
+        }
       case 'complete':
         break;
       default:

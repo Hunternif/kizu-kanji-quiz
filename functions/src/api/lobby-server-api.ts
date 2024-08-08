@@ -2,6 +2,7 @@ import * as logger from 'firebase-functions/logger';
 import { HttpsError } from 'firebase-functions/v2/https';
 import firebaseConfig from '../firebase-config.json';
 import { firestore } from '../firebase-server';
+import { isChoiceAnswer } from '../shared/mode-utils';
 import {
   GameLobby,
   PlayerInLobby,
@@ -26,7 +27,6 @@ import {
 } from './lobby-server-repository';
 import { createNewTurn } from './turn-server-api';
 import { getOrCreateQuizUser } from './user-server-api';
-import { isChoiceAnswer } from '../shared/mode-utils';
 
 /**
  * Creates a new lobby from this player, returns it.
@@ -327,4 +327,12 @@ export async function createLobbyAsCopy(
   oldLobby.next_lobby_id = newLobby.id;
   await updateLobby(oldLobby);
   return newLobby;
+}
+
+/** Checks end-game conditions */
+export function shouldEndLobby(lobby: GameLobby) {
+  if (lobby.used_question_count >= lobby.questions.length) {
+    return true;
+  }
+  return false;
 }
