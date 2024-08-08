@@ -27,11 +27,15 @@ export function LobbyCreationReadOnly(props: Props) {
   return (
     <>
       <ScrollContainer scrollDark className="content">
-        <header>
-          <h3>Questions</h3>
-        </header>
-        <TestGroupSelector readOnly {...props} />
+        <Panel>
+          <header>
+            <h3>Questions</h3>
+          </header>
+          <TestGroupSelector readOnly {...props} />
+        </Panel>
+        <Panel>
         <LobbySettingsPanel settings={lobby.settings} readOnly />
+        </Panel>
       </ScrollContainer>
       <footer>
         <GameButton

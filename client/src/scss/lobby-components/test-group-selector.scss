@@ -8,7 +8,7 @@
   .group-section {
     .group-section-title {
       margin-bottom: 0.25em;
-    } 
+    }
     .group-container {
       display: flex;
       flex-wrap: wrap;
@@ -19,7 +19,6 @@
         border-radius: 0.4em;
         background-color: colors.$test-group-bg;
         padding: 0.25em 0.5em;
-        cursor: pointer;
 
         display: flex;
         flex-direction: column;
@@ -34,9 +33,12 @@
           background-color: colors.$test-group-selected-bg;
           color: colors.$test-group-selected-text;
         }
-        &:hover {
-          background-color: colors.$test-group-hover-bg;
-          color: colors.$test-group-selected-text;
+        &:not(.readonly) {
+          cursor: pointer;
+          &:hover {
+            background-color: colors.$test-group-hover-bg;
+            color: colors.$test-group-selected-text;
+          }
         }
 
         .group-label {

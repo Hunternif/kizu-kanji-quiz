@@ -13,7 +13,7 @@ interface SelectorProps {
   readOnly?: boolean;
 }
 
-export function TestGroupSelector(props: SelectorProps) {
+export function TestGroupSelector({ readOnly }: SelectorProps) {
   const kanaGroups: Array<[KanaGroup, string, string]> = [
     ['hiragana', 'あ', '73 Hiragana'],
     ['hiragana_digraphs', 'きゃ', '33 Hiragana digraphs'],
@@ -40,17 +40,37 @@ export function TestGroupSelector(props: SelectorProps) {
     <div className="test-group-selector">
       <GroupSection title="Hiragana & Katakana">
         {kanaGroups.map(([val, label, sub]) => (
-          <Group key={val} big value={val} label={label} sublabel={sub} />
+          <Group
+            key={val}
+            big
+            value={val}
+            label={label}
+            sublabel={sub}
+            readonly={readOnly}
+          />
         ))}
       </GroupSection>
       <GroupSection title="Kanji: Japanese Language Proficiency Test">
         {kanjiJlptGroups.map(([val, label, sub]) => (
-          <Group key={val} big value={val} label={label} sublabel={sub} />
+          <Group
+            key={val}
+            big
+            value={val}
+            label={label}
+            sublabel={sub}
+            readonly={readOnly}
+          />
         ))}
       </GroupSection>
       <GroupSection title="Kanji: Primary school">
         {kanjiGradeGroups.map(([val, label, sub]) => (
-          <Group key={val} value={val} label={label} sublabel={sub} />
+          <Group
+            key={val}
+            value={val}
+            label={label}
+            sublabel={sub}
+            readonly={readOnly}
+          />
         ))}
       </GroupSection>
     </div>
@@ -75,6 +95,8 @@ interface GroupProps {
   big?: boolean;
   sublabel?: string;
   selected?: boolean;
+  disabled?: boolean;
+  readonly?: boolean;
   onToggle?: (value: TestGroup, selected: boolean) => void;
 }
 function Group({
@@ -83,10 +105,14 @@ function Group({
   big,
   sublabel,
   selected,
+  disabled,
+  readonly,
   onToggle,
 }: GroupProps) {
   const classes = ['group-button'];
-  classes.push(selected ? 'selected' : 'unselected');
+  if (selected) classes.push('selected');
+  if (disabled) classes.push('disabled');
+  if (readonly) classes.push('readonly');
   if (big) classes.push('big');
   return (
     <div
