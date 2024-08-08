@@ -57,8 +57,8 @@ $test-group-selected-text: color-mix(
 
 /*--------------------- Question & Answer Cards ---------------------*/
 $q-green: #508349;
-$question-bg: $q-green;
-$question-bg-reveal: color-mix(in srgb, $q-green 30%, $gray-4);
+$question-bg: color-mix(in srgb, $q-green 50%, $gray-6);
+$question-bg-reveal: color-mix(in srgb, $q-green 40%, $gray-4);
 $question-text: #fff;
 
 $choice-bg: #fff;
