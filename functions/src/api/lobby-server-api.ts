@@ -10,6 +10,7 @@ import {
 } from '../shared/types';
 import { assertExhaustive, stringComparator } from '../shared/utils';
 import { assertNotAnonymous } from './auth-api';
+import { getEntriesForGame } from './entry-api';
 import {
   countPlayers,
   findPlayerLobbies,
@@ -190,12 +191,11 @@ async function validateGameSettings(lobby: GameLobby) {
 
 /**
  * Copies game entries from all added test groups into the lobby.
- * Copies full card content because the deck could be edited or deleted in the future.
- * Also calculates initial tag counts.
+ * Copies full content because the data could be edited or deleted in the future.
+ * Calculating initial tag counts could go here too.
  */
 async function copyEntriesToLobby(lobby: GameLobby): Promise<void> {
-  // TODO: copy game entries
-  // Copy all decks in sequence:
+  lobby.questions = await getEntriesForGame(lobby.test_groups);
 }
 
 /** Sets lobby status to "ended", and performs any cleanup */
