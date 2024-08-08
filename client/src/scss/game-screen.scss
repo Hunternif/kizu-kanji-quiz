@@ -12,9 +12,17 @@
   }
   &.phase-reveal {
     .question-card {
-      // opacity: 0.7;
       background-color: colors.$question-bg-reveal;
     }
+  }
+  &.skipped .timer-bar .bar {
+    background-color: colors.$choice-answer-bg;
+  }
+  &.correct .timer-bar .bar {
+    background-color: colors.$choice-correct-bg;
+  }
+  &.incorrect .timer-bar .bar {
+    background-color: colors.$choice-incorrect-bg;
   }
 }
 

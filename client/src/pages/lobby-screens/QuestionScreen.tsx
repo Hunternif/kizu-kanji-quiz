@@ -22,13 +22,20 @@ export function QuestionScreen() {
     await pingResponse(lobby, turn, player);
   });
 
+  const isReveal = turn.phase === 'reveal';
+  const isSkipped = isReveal && response?.answer_entry_id == null;
+  const isCorrect = isReveal && turn.question.id === response?.answer_entry_id;
+  const isIncorrect = isReveal && !isSkipped && !isCorrect;
+
   const rootClasses = ['question-screen'];
   rootClasses.push(`phase-${turn.phase}`);
+  if (isSkipped) rootClasses.push('skipped');
+  else if (isCorrect) rootClasses.push('correct');
+  else if (isIncorrect) rootClasses.push('incorrect');
 
   return (
     <CenteredLayout innerClassName={rootClasses.join(' ')}>
       <div className="question-group">
-        {turn.phase}
         <div className="timebar-container">
           {turn.next_phase_time && (
             <TimerBar

@@ -64,7 +64,8 @@ export function TimerBar({ startTime, endTime, pctValue, onClear }: Props) {
   }, [startTime]);
 
   const barClasses = ['bar'];
-  if (pctValue === undefined && percent < 100) {
+  /** Extra thresholds to prevent the bar from sliding backward on reset. */
+  if (pctValue === undefined && percent > 5 && percent < 95) {
     barClasses.push('moving');
   }
 
