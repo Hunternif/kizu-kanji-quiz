@@ -15,26 +15,26 @@ interface SelectorProps {
 
 export function TestGroupSelector(props: SelectorProps) {
   const kanaGroups: Array<[KanaGroup, string, string]> = [
-    ['hiragana', 'あ', 'Hiragana'],
-    ['hiragana_digraphs', 'きゃ', 'Hiragana digraphs'],
-    ['katakana', 'カ', 'Katakana'],
-    ['katakana_digraphs', 'キャ', 'Katakana digraphs'],
+    ['hiragana', 'あ', '73 Hiragana'],
+    ['hiragana_digraphs', 'きゃ', '33 Hiragana digraphs'],
+    ['katakana', 'カ', '74 Katakana'],
+    ['katakana_digraphs', 'キャ', '33 Katakana digraphs'],
   ];
-  const kanjiJlptGroups: Array<[KanjiJlptLevel, string]> = [
-    ['kanji_jlpt_5', 'N5'],
-    ['kanji_jlpt_4', 'N4'],
-    ['kanji_jlpt_3', 'N3'],
-    ['kanji_jlpt_2', 'N2'],
-    ['kanji_jlpt_1', 'N1'],
+  const kanjiJlptGroups: Array<[KanjiJlptLevel, string, string]> = [
+    ['kanji_jlpt_5', 'N5', '79 kanji'],
+    ['kanji_jlpt_4', 'N4', '166 kanji'],
+    ['kanji_jlpt_3', 'N3', '367 kanji'],
+    ['kanji_jlpt_2', 'N2', '367 kanji'],
+    ['kanji_jlpt_1', 'N1', '990 kanji'],
   ];
-  const kanjiGradeGroups: Array<[KanjiGrade, string]> = [
-    ['kanji_grade_1', 'Grade 1'],
-    ['kanji_grade_2', 'Grade 2'],
-    ['kanji_grade_3', 'Grade 3'],
-    ['kanji_grade_4', 'Grade 4'],
-    ['kanji_grade_5', 'Grade 5'],
-    ['kanji_grade_6', 'Grade 6'],
-    ['kanji_grade_S', 'Secondary school'],
+  const kanjiGradeGroups: Array<[KanjiGrade, string, string]> = [
+    ['kanji_grade_1', 'Grade 1', '80 kanji'],
+    ['kanji_grade_2', 'Grade 2', '160 kanji'],
+    ['kanji_grade_3', 'Grade 3', '200 kanji'],
+    ['kanji_grade_4', 'Grade 4', '202 kanji'],
+    ['kanji_grade_5', 'Grade 5', '193 kanji'],
+    ['kanji_grade_6', 'Grade 6', '191 kanji'],
+    ['kanji_grade_S', 'Secondary school', '1110 kanji'],
   ];
   return (
     <div className="test-group-selector">
@@ -44,13 +44,13 @@ export function TestGroupSelector(props: SelectorProps) {
         ))}
       </GroupSection>
       <GroupSection title="Kanji: Japanese Language Proficiency Test">
-        {kanjiJlptGroups.map(([val, label]) => (
-          <Group key={val} big value={val} label={label} />
+        {kanjiJlptGroups.map(([val, label, sub]) => (
+          <Group key={val} big value={val} label={label} sublabel={sub} />
         ))}
       </GroupSection>
       <GroupSection title="Kanji: Primary school">
-        {kanjiGradeGroups.map(([val, label]) => (
-          <Group key={val} value={val} label={label} />
+        {kanjiGradeGroups.map(([val, label, sub]) => (
+          <Group key={val} value={val} label={label} sublabel={sub} />
         ))}
       </GroupSection>
     </div>
