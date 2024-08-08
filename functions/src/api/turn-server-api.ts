@@ -9,6 +9,7 @@ import {
 } from '../shared/types';
 import { assertExhaustive } from '../shared/utils';
 import { selectQuestion } from './entry-api';
+import { endLobby, shouldEndLobby } from './lobby-server-api';
 import {
   getLobby,
   getPlayerThrows,
@@ -20,7 +21,6 @@ import {
   setPlayerResponse,
   updateTurn,
 } from './turn-server-repository';
-import { endLobby, shouldEndLobby } from './lobby-server-api';
 
 const dummyEntry = new GameEntry(
   'test_entry',
@@ -133,7 +133,7 @@ export async function completeTurn(lobby: GameLobby, turn: GameTurn) {
 export async function tryAdvanceTurn(lobbyID: string, turn: GameTurn) {
   // TODO: if all responses have been submitted, reduce timer to a small value.
   const now = new Date();
-  let shouldAdvance =
+  const shouldAdvance =
     turn.next_phase_time && now.getTime() >= turn.next_phase_time.getTime();
   if (shouldAdvance) {
     const lobby = await getLobby(lobbyID);
@@ -149,6 +149,7 @@ export async function tryAdvanceTurn(lobbyID: string, turn: GameTurn) {
         } else {
           await createNewTurn(lobby, turn);
         }
+        break;
       case 'complete':
         break;
       default:

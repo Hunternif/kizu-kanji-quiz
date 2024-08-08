@@ -26,7 +26,7 @@ test('select question and choices', () => {
   lobby.settings.answer_mode = 'choose_hiragana';
   lobby.settings.num_choices = 3;
   expect(lobby.used_question_count).toBe(0);
-  
+
   const { question: q1, choices: ch1 } = selectQuestion(lobby, rng);
   expect(lobby.used_question_count).toBe(1);
   expect(q1?.id).toBe('one');

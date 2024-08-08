@@ -30,6 +30,7 @@ async function handleResponseUpdateOrCreate(
     case 'answering':
     case 'reveal':
       await tryAdvanceTurn(lobbyID, turn);
+      break;
     case 'complete':
       break;
     default:
