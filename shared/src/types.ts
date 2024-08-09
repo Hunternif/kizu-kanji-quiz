@@ -169,6 +169,13 @@ export class GameTurn {
   public phase: TurnPhase = 'new';
   /** Time when the last phase bagan. */
   public phase_start_time: Date = this.time_created;
+  /** Time when it should automatically advance to the next phase.
+   * In Firebase, running a timer is expensive, so we will rely on users
+   * to ping the server after time has elapsed - by submitting an empty response. */
+  public next_phase_time?: Date;
+  /** Store the total phase duration, in case of pauses. */
+  public phase_duration_ms?: number;
+
   public pause: PauseStatus = 'none';
   /** Time when pause was activated. Used to update remaining time. */
   public paused_at?: Date;
@@ -184,10 +191,6 @@ export class GameTurn {
     /** Turn's ordinal number: 1, 2, 3, ... */
     public ordinal: number,
     public time_created: Date,
-    /** Time when it should automatically advance to the next phase.
-     * In Firebase, running a timer is expensive, so we will rely on users
-     * to ping the server after time has elapsed - by submitting an empty response. */
-    public next_phase_time: Date | null,
     /** Game mode could be different per turn. */
     public game_mode: GameMode,
     public question_mode: QuestionMode,
@@ -196,6 +199,26 @@ export class GameTurn {
     /** For 'typed' answer mode choices are empty. */
     public choices?: GameEntry[],
   ) {}
+
+  /** Sets phase, duration and calculates end time. */
+  setPhase(phase: TurnPhase, startTime: Date, durationMs?: number) {
+    this.phase = phase;
+    this.phase_start_time = startTime;
+    this.phase_duration_ms = durationMs;
+    this.next_phase_time = durationMs
+      ? new Date(startTime.getTime() + durationMs)
+      : undefined;
+  }
+
+  /** Calculates phase start time from end time and duration.
+   * Useful when there are pauses in the middle. */
+  getStartTime(): Date {
+    if (this.next_phase_time && this.phase_duration_ms) {
+      return new Date(this.next_phase_time.getTime() - this.phase_duration_ms);
+    } else {
+      return this.phase_start_time;
+    }
+  }
 }
 
 /** Player's submitted response. */

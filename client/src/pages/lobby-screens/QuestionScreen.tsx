@@ -50,7 +50,7 @@ export function QuestionScreen() {
         <div className="timebar-container">
           {turn.next_phase_time && (
             <TimerBar
-              startTime={turn.phase_start_time}
+              startTime={turn.getStartTime()}
               endTime={turn.next_phase_time}
               onClear={handleTimeEnd}
               paused={isPaused}

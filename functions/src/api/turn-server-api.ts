@@ -58,17 +58,13 @@ export async function createNewTurn(
     id,
     newOrdinal,
     now,
-    null,
     lobby.settings.game_mode,
     lobby.settings.question_mode,
     lobby.settings.answer_mode,
     question,
     choices,
   );
-  newTurn.phase = 'answering';
-  newTurn.next_phase_time = new Date(
-    now.getTime() + lobby.settings.question_timer_sec * 1000,
-  );
+  newTurn.setPhase('answering', now, lobby.settings.question_timer_sec * 1000);
   await getTurnsRef(lobby.id).doc(id).set(newTurn);
   lobby.current_turn_id = newTurn.id;
   await updateLobby(lobby);
@@ -112,12 +108,7 @@ export async function playResponse(
  * Starts the turn's 'reveal' [hase] and returns it.
  */
 export async function startTurnReveal(lobby: GameLobby, turn: GameTurn) {
-  const now = new Date();
-  turn.phase = 'reveal';
-  turn.phase_start_time = now;
-  turn.next_phase_time = new Date(
-    now.getTime() + lobby.settings.question_timer_sec * 1000,
-  );
+  turn.setPhase('reveal', new Date(), lobby.settings.question_timer_sec * 1000);
   await updateTurn(lobby.id, turn);
 }
 
@@ -125,9 +116,7 @@ export async function startTurnReveal(lobby: GameLobby, turn: GameTurn) {
  * Completes this turn.
  */
 export async function completeTurn(lobby: GameLobby, turn: GameTurn) {
-  turn.phase = 'complete';
-  turn.phase_start_time = new Date();
-  turn.next_phase_time = null;
+  turn.setPhase('complete', new Date(), undefined);
   await updateTurn(lobby.id, turn);
 }
 
@@ -190,11 +179,11 @@ export async function resumeTurn(lobbyID: string, turn: GameTurn) {
         turn.next_phase_time.getTime() - turn.paused_at.getTime();
       const now = new Date();
       const newNextPhaseTime = new Date(now.getTime() + remainingTimeMs);
-      logger.info(
-        `Remaining time was ${remainingTimeMs / 1000}.
-        Prev end time was ${turn.next_phase_time},
-        bumped it to ${newNextPhaseTime}`,
-      );
+      // logger.info(
+      //   `Remaining time was ${remainingTimeMs / 1000}.
+      //   Prev end time was ${turn.next_phase_time},
+      //   bumped it to ${newNextPhaseTime}`,
+      // );
       turn.next_phase_time = newNextPhaseTime;
     }
     turn.paused_at = undefined;
