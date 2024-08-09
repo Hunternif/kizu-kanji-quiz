@@ -189,6 +189,7 @@ async function validateGameSettings(lobby: GameLobby) {
   if (isChoiceAnswer(settings.answer_mode) && settings.num_choices < 2) {
     settings.num_choices = 2;
   }
+  // TODO: validate that question timer is not too short.
   // Maybe validate that question and answer mode should not match?
   await updateLobby(lobby);
 }

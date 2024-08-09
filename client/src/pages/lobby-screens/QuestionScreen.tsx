@@ -4,7 +4,8 @@ import {
 } from '../../api/turn/turn-response-api';
 import { CenteredLayout } from '../../components/layout/CenteredLayout';
 import { useHandler, useHandler1 } from '../../hooks/data-hooks';
-import { GameEntry } from '../../shared/types';
+import { getAnswerContent, getQuestionContent } from '../../shared/mode-utils';
+import { GameEntry, Language } from '../../shared/types';
 import { useGameContext } from './game-components/GameContext';
 import { JapText } from './game-components/JapText';
 import { TimerBar } from './game-components/TimerBar';
@@ -26,6 +27,8 @@ export function QuestionScreen() {
   const isSkipped = isReveal && response?.answer_entry_id == null;
   const isCorrect = isReveal && turn.question.id === response?.answer_entry_id;
   const isIncorrect = isReveal && !isSkipped && !isCorrect;
+  // TODO: choose display language:
+  const language: Language = 'english';
 
   const rootClasses = ['question-screen'];
   rootClasses.push(`phase-${turn.phase}`);
@@ -36,7 +39,9 @@ export function QuestionScreen() {
   return (
     <CenteredLayout innerClassName={rootClasses.join(' ')}>
       <div className="question-group">
-        <div className='result-text'>{isCorrect ? 'Correct!' : isIncorrect ? 'Incorrect' : null}</div>
+        <div className="result-text">
+          {isCorrect ? 'Correct!' : isIncorrect ? 'Incorrect' : null}
+        </div>
         <div className="timebar-container">
           {turn.next_phase_time && (
             <TimerBar
@@ -46,13 +51,25 @@ export function QuestionScreen() {
             />
           )}
         </div>
-        <QuestionCard text={turn.question.writing} />
+        <QuestionCard
+          text={getQuestionContent(
+            turn.question,
+            turn.question_mode,
+            turn.game_mode,
+            language,
+          )}
+        />
       </div>
       <div className="choices">
         {turn.choices?.map((c) => (
           <Choice
             key={c.id}
-            text={c.reading_romaji}
+            text={getAnswerContent(
+              c,
+              turn.answer_mode,
+              turn.game_mode,
+              language,
+            )}
             readOnly={isSpectator || turn.phase !== 'answering'}
             answer={c.id === turn.question.id}
             selected={response?.answer_entry_id === c.id}

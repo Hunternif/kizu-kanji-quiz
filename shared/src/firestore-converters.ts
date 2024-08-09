@@ -78,7 +78,9 @@ function mapToEntry(data: any): GameEntry {
   );
 }
 function mapFromEntry(entry: GameEntry): any {
-  return copyFields2(entry, { meaning: mapToObject(entry.meaning) }, []);
+  return copyFields2(entry, { meaning: mapToObject(entry.meaning) }, [
+    'isKana',
+  ]);
 }
 
 export const playerConverter: FConverter<PlayerInLobby> = {
@@ -127,9 +129,10 @@ export const turnConverter: FConverter<GameTurn> = {
       data.ordinal,
       time_created,
       next_phase_time,
-      mapToEntry(data.question),
+      data.game_mode,
       data.question_mode,
       data.answer_mode,
+      mapToEntry(data.question),
       data.choices?.map(mapToEntry),
     );
     ret.phase_start_time =

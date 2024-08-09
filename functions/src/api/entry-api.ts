@@ -57,16 +57,7 @@ export async function getHiraganaEntries(): Promise<Array<GameEntry>> {
   for await (const line of file.readLines()) {
     const [kana, reading] = line.split(' ');
     if (kana && reading) {
-      entries.push(
-        new GameEntry(
-          kana,
-          0,
-          kana,
-          kana,
-          reading,
-          new Map([['english', [reading]]]),
-        ),
-      );
+      entries.push(new GameEntry(kana, 0, kana, kana, reading, new Map()));
     }
   }
   return entries;

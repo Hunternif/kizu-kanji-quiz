@@ -58,9 +58,10 @@ export async function createNewTurn(
     newOrdinal,
     now,
     null,
-    question,
+    lobby.settings.game_mode,
     lobby.settings.question_mode,
     lobby.settings.answer_mode,
+    question,
     choices,
   );
   newTurn.phase = 'answering';

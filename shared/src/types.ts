@@ -6,6 +6,8 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
+import { isKanaOnly } from './text-utils';
+
 export class GameLobby {
   /** Null only during creation. Should be UTC time. */
   public time_created?: Date;
@@ -72,6 +74,9 @@ export function defaultLobbySettings(): LobbySettings {
 
 /** An entry that can be used as a question: a kanji, kana or word */
 export class GameEntry {
+  /** True for Hiragana-only and Katakana-only syllables. */
+  public isKana: boolean;
+
   constructor(
     /** Can be the same as writing */
     public id: string,
@@ -83,8 +88,20 @@ export class GameEntry {
     public reading_romaji: string,
     /** Maps language to a list of different meanings. */
     public meaning: Map<Language, string[]>,
-  ) {}
+  ) {
+    this.isKana = isKanaOnly(writing);
+  }
+
+  getMeaning(language: Language): string[] {
+    if (this.meaning.size <= 0) return [noData];
+    if (this.meaning.has(language))
+      return this.meaning.get(language) ?? [noData];
+    return [...this.meaning.values()][0] ?? [noData];
+  }
 }
+
+/** String to use when a piece of data is missing. */
+export const noData: string = '@@nodata';
 
 /** Overall game mode */
 export type GameMode =
@@ -168,9 +185,11 @@ export class GameTurn {
      * In Firebase, running a timer is expensive, so we will rely on users
      * to ping the server after time has elapsed - by submitting an empty response. */
     public next_phase_time: Date | null,
-    public question: GameEntry,
+    /** Game mode could be different per turn. */
+    public game_mode: GameMode,
     public question_mode: QuestionMode,
     public answer_mode: AnswerMode,
+    public question: GameEntry,
     /** For 'typed' answer mode choices are empty. */
     public choices?: GameEntry[],
   ) {}
