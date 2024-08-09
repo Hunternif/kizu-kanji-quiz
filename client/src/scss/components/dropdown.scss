@@ -10,8 +10,9 @@
   }
   .dropdown-content {
     position: absolute;
-    inset: 0px 0px auto auto; // Keep it within the screen
-    transform: translate(0px, 1em); // Move it below the toggle
+    // This is applies in JS:
+    // inset: 0px 0px auto auto; // Keep it within the screen
+    transform: translate(0px, 2em); // Move it below the toggle
   }
 }
 .dropdown-menu {

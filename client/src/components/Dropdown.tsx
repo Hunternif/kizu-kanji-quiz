@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react';
+import { ReactNode, useEffect, useRef, useState } from 'react';
 import { useClick } from '../hooks/ui-hooks';
 
 interface Props extends React.HTMLAttributes<HTMLElement> {
@@ -55,7 +55,43 @@ function DropdownContent({ children, onHide }: ContentProps) {
   // Setting the timeout so that the menu is not removed from DOM
   // before processing the click inside.
   useClick(() => setTimeout(() => onHide(), 100));
-  return <div className="dropdown-content">{children}</div>;
+  const ref = useRef<HTMLDivElement>(null);
+
+  // If the content is too close to the edge of the screen,
+  // its 'inset' property needs to be set.
+  const [stuckLeft, setStuckLeft] = useState(false);
+  const [stuckRight, setStuckRight] = useState(false);
+
+  useEffect(() => {
+    if (ref.current) {
+      // Check if it's attached to the left or right side of the screen:
+      const rect = ref.current.getBoundingClientRect();
+      const left = rect.left;
+      const right = window.innerWidth - rect.right;
+      if (left < rect.width) {
+        setStuckLeft(true);
+      }
+      if (right < rect.width) {
+        setStuckRight(true);
+      }
+    }
+  }, [ref.current]);
+
+  return (
+    <div
+      ref={ref}
+      className="dropdown-content"
+      style={{
+        inset: stuckLeft
+          ? '0px auto auto 0px'
+          : stuckRight
+          ? '0px 0px auto auto'
+          : 'unset',
+      }}
+    >
+      {children}
+    </div>
+  );
 }
 
 interface MenuProps extends React.HTMLAttributes<HTMLElement> {}
