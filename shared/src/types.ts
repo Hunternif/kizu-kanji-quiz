@@ -94,8 +94,9 @@ export class GameEntry {
 
   getMeaning(language: Language): string[] {
     if (this.meaning.size <= 0) return [noData];
-    if (this.meaning.has(language))
+    if (this.meaning.has(language)) {
       return this.meaning.get(language) ?? [noData];
+    }
     return [...this.meaning.values()][0] ?? [noData];
   }
 }
