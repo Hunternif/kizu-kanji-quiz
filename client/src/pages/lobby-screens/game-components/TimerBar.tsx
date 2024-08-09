@@ -5,6 +5,7 @@ interface Props {
   endTime: Date;
   /** Overrides percentage value */
   pctValue?: number;
+  paused?: boolean;
   onClear?: () => void;
 }
 
@@ -24,7 +25,13 @@ function calculateElapsedPercent(startTime: Date, endTime: Date): number {
 /**
  * A horizontal progress bar that corresponds to remaining time.
  */
-export function TimerBar({ startTime, endTime, pctValue, onClear }: Props) {
+export function TimerBar({
+  startTime,
+  endTime,
+  pctValue,
+  paused,
+  onClear,
+}: Props) {
   // Number from 0 to 100:
   const [percent, setPercent] = useState(
     pctValue ?? calculateElapsedPercent(startTime, endTime),
@@ -41,7 +48,7 @@ export function TimerBar({ startTime, endTime, pctValue, onClear }: Props) {
       }
     }
 
-    if (pctValue === undefined) {
+    if (!paused && pctValue === undefined) {
       interval = setInterval(() => {
         const newValue = calculateElapsedPercent(startTime, endTime);
         setPercent(newValue);
@@ -56,7 +63,7 @@ export function TimerBar({ startTime, endTime, pctValue, onClear }: Props) {
       }, 50);
     }
     return stopTimer;
-  }, [startTime, endTime, pctValue, calledClear, onClear]);
+  }, [startTime, endTime, pctValue, calledClear, paused, onClear]);
 
   useEffect(() => {
     // Reset when start time changes:
