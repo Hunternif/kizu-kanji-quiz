@@ -14,11 +14,13 @@ export function HomeScreen() {
   const [handleNewGame, loadingNewGame] = useHandler(async () => {
     const lobbyID = await createLobbyAndJoin();
     navigate(`/${lobbyID}`);
-  });
+  }, []);
 
   return (
     <CenteredLayout outerClassName="home-screen">
       <GameTitle />
+
+
       <Panel flex className="home-card">
         <span>Welcome, {quizUser?.name}</span>
         <GameButton onClick={handleNewGame} loading={loadingNewGame}>

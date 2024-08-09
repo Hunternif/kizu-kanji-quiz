@@ -1,10 +1,9 @@
-import { User } from 'firebase/auth';
+import { updatePlayer } from '../../api/lobby/lobby-player-api';
 import { GameButton } from '../../components/Buttons';
 import { CenteredLayout } from '../../components/layout/CenteredLayout';
-import { GameTitle } from './login-components/GameTitle';
 import { useHandler } from '../../hooks/data-hooks';
 import { PlayerInLobby } from '../../shared/types';
-import { updatePlayer } from '../../api/lobby/lobby-player-api';
+import { GameTitle } from './login-components/GameTitle';
 
 interface Props {
   lobbyID: string;
@@ -18,7 +17,7 @@ export function RejoinScreen({ lobbyID, player }: Props) {
       player.status = 'online';
       await updatePlayer(lobbyID, player);
     }
-  });
+  }, [lobbyID, player]);
 
   return (
     <CenteredLayout

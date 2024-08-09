@@ -23,9 +23,12 @@ export function QuestionScreen() {
   const response = responses.find((r) => r.player_uid === player.uid);
   const isPaused = turn.pause === 'paused';
 
-  const [handleSelect] = useHandler1(async (entry: GameEntry) => {
-    await submitPlayerResponse(lobby, turn, player, entry.id);
-  });
+  const [handleSelect] = useHandler1(
+    async (entry: GameEntry) => {
+      await submitPlayerResponse(lobby, turn, player, entry.id);
+    },
+    [lobby, turn, player],
+  );
 
   /** Notifies the server that this player is ready for the next phase.
    * @param skip if true, will mark this response as skipped. */
@@ -38,9 +41,12 @@ export function QuestionScreen() {
     }
   }
 
-  const [handlePause, pausing] = useHandler1(async (shouldPause: boolean) => {
-    await requestPause(lobby, turn, player, shouldPause);
-  });
+  const [handlePause, pausing] = useHandler1(
+    async (shouldPause: boolean) => {
+      await requestPause(lobby, turn, player, shouldPause);
+    },
+    [lobby, turn, player],
+  );
 
   const isReveal = turn.phase === 'reveal';
   const isSkipped = isReveal && response?.answer_entry_id == null;

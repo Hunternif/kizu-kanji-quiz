@@ -64,7 +64,7 @@ interface LoggedInProps {
 /** User logged in, but not necessarily joined the lobby. */
 function LoggedInLobbyScreen({ lobbyID, user }: LoggedInProps) {
   const [player, loadingPlayer] = usePlayerInLobby(lobbyID, user);
-  const [join, joining] = useHandler(() => joinLobby(lobbyID));
+  const [join, joining] = useHandler(() => joinLobby(lobbyID), [lobbyID]);
 
   useEffect(() => {
     if (!loadingPlayer && !player) {

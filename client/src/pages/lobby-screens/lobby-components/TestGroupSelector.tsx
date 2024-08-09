@@ -47,6 +47,7 @@ export function TestGroupSelector({ lobby, readOnly }: SelectorProps) {
       else lobby.test_groups.delete(value);
       await updateLobby(lobby);
     },
+    [lobby],
   );
   return (
     <div className="test-group-selector">
