@@ -5,12 +5,15 @@ import {
 } from '../../api/turn/turn-response-api';
 import { Checkbox } from '../../components/Checkbox';
 import { CenteredLayout } from '../../components/layout/CenteredLayout';
-import { useHandler, useHandler1 } from '../../hooks/data-hooks';
+import { useHandler1 } from '../../hooks/data-hooks';
 import { GameEntry } from '../../shared/types';
+import { throttle } from '../../shared/utils';
 import { ChoiceCard } from './game-components/ChoiceCard';
 import { useGameContext } from './game-components/GameContext';
 import { QuestionCard } from './game-components/QuestionCard';
 import { TimerBar } from './game-components/TimerBar';
+
+const throttledPing = throttle(pingResponse, 1000);
 
 /** Game screen with a question and multiple choices of answers. */
 export function QuestionScreen() {
@@ -22,9 +25,14 @@ export function QuestionScreen() {
     await submitPlayerResponse(lobby, turn, player, entry.id);
   });
 
-  const [handleTimeEnd] = useHandler(async () => {
-    await pingResponse(lobby, turn, player);
-  });
+  async function handleTimeEnd() {
+    try {
+      await throttledPing(lobby, turn, player);
+      // Don't display these errors because these shouldn't block the player.
+    } catch (e: any) {
+      console.log(e);
+    }
+  }
 
   const [handlePause] = useHandler1(async (shouldPause: boolean) => {
     await requestPause(lobby, turn, player, shouldPause);

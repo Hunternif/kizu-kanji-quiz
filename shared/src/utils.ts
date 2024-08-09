@@ -86,13 +86,13 @@ export function mapToObject<T>(
 /** Function `fn` will be called only after `timeMs` has elapsed
  * since the last invocation. */
 export function debounce(
-  fn: (...args: any[]) => void,
+  fn: (...args: any[]) => void | Promise<void>,
   timeMs: number = 1000,
 ): (...args: any[]) => Promise<void> {
   let timeout: any; // any because NodeJS uses a custom type here.
   return function (...args: any[]) {
     return new Promise((resolve, error) => {
-      if (timeout > 0) {
+      if (timeout !== undefined) {
         clearTimeout(timeout);
       }
       timeout = setTimeout(() => {
@@ -103,6 +103,26 @@ export function debounce(
         }
       }, timeMs);
     });
+  };
+}
+
+/** Function `fn` will be called once, and subsequent calls will be ignored
+ * for the duration `timeMs`. */
+export function throttle<T extends void | Promise<void>>(
+  fn: (...args: any[]) => T,
+  timeMs: number = 1000,
+): (...args: any[]) => T | undefined {
+  let timeout: any; // any because NodeJS uses a custom type here.
+  let throttling = false;
+  return function (...args: any[]) {
+    if (!throttling) {
+      throttling = true;
+      timeout = setTimeout(() => {
+        throttling = false;
+      }, timeMs);
+      return fn(...args);
+    }
+    return undefined;
   };
 }
 
