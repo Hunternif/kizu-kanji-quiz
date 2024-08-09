@@ -108,7 +108,7 @@ export async function playResponse(
  * Starts the turn's 'reveal' [hase] and returns it.
  */
 export async function startTurnReveal(lobby: GameLobby, turn: GameTurn) {
-  turn.setPhase('reveal', new Date(), lobby.settings.question_timer_sec * 1000);
+  turn.setPhase('reveal', new Date(), lobby.settings.reveal_timer_sec * 1000);
   await updateTurn(lobby.id, turn);
 }
 

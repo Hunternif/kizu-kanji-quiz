@@ -64,6 +64,11 @@ export function LobbySettingsPanel(props: Props) {
           control={<QuestionTimerControl {...props} />}
         />
         <FormItem
+          label="Reveal timer [sec]"
+          hint="Answer is revealed for this amount of time (in seconds). 0 to disable."
+          control={<RevealTimerControl {...props} />}
+        />
+        <FormItem
           label="Allow join mid-game"
           hint="If a new person joins after the game has started, they will automatically become a player."
           control={<AllowJoinMidGameControl {...props} />}
@@ -197,6 +202,23 @@ function QuestionTimerControl({ settings, readOnly, onChange }: Props) {
       value={settings.question_timer_sec}
       onChange={async (newValue) => {
         settings.question_timer_sec = newValue;
+        if (onChange) await onChange(settings);
+      }}
+    />
+  );
+}
+
+function RevealTimerControl({ settings, readOnly, onChange }: Props) {
+  return (
+    <NumberInput
+      debounce
+      min={0.0}
+      max={99.0}
+      step={0.5}
+      disabled={readOnly}
+      value={settings.reveal_timer_sec}
+      onChange={async (newValue) => {
+        settings.reveal_timer_sec = newValue;
         if (onChange) await onChange(settings);
       }}
     />

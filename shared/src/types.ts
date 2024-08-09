@@ -50,6 +50,8 @@ export interface LobbySettings {
   num_choices: number;
   /** Answers are accepted for this number of seconds. */
   question_timer_sec: number;
+  /** Answer is revealed for this number of seconds. */
+  reveal_timer_sec: number;
   /** If true, players can join after the game has started. */
   allow_join_mid_game: boolean;
   /** If true, card statistics will not be updated. */
@@ -66,6 +68,7 @@ export function defaultLobbySettings(): LobbySettings {
     answer_mode: 'choose_romaji',
     num_choices: 4,
     question_timer_sec: 5,
+    reveal_timer_sec: 3,
     allow_join_mid_game: true,
     freeze_stats: false,
     lobby_control: 'players',
