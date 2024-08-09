@@ -12,6 +12,7 @@ import { ChoiceCard } from './game-components/ChoiceCard';
 import { useGameContext } from './game-components/GameContext';
 import { QuestionCard } from './game-components/QuestionCard';
 import { TimerBar } from './game-components/TimerBar';
+import { TurnCount } from './game-components/TurnCount';
 
 const throttledPing = throttle(pingResponse, 1000);
 
@@ -52,6 +53,7 @@ export function QuestionScreen() {
   return (
     <CenteredLayout innerClassName={rootClasses.join(' ')}>
       <div className="question-group">
+        <TurnCount />
         <div className="result-text">
           {isCorrect ? 'Correct!' : isIncorrect ? 'Incorrect' : null}
         </div>
