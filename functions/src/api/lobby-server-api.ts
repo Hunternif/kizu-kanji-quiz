@@ -182,14 +182,26 @@ export async function startLobby(lobby: GameLobby) {
   }
 }
 
-/** Check and correct any settings before starting the game */
-async function validateGameSettings(lobby: GameLobby) {
+/** Checks and corrects any settings. Does no update the database! */
+export async function validateGameSettings(lobby: GameLobby) {
   const settings = lobby.settings;
   const defaults = defaultLobbySettings();
   if (isChoiceAnswer(settings.answer_mode) && settings.num_choices < 2) {
     settings.num_choices = 2;
   }
-  // TODO: validate that question timer is not too short.
+  if (settings.question_timer_sec <= 0) {
+    settings.question_timer_sec = 0;
+  }
+  if (settings.reveal_timer_sec <= 0) {
+    settings.reveal_timer_sec = 0;
+  }
+  // Validate that question timer is not too short:
+  if (settings.question_timer_sec > 0 && settings.question_timer_sec < 1) {
+    settings.question_timer_sec = 1; // 1 sec minimum
+  }
+  if (settings.reveal_timer_sec > 0 && settings.reveal_timer_sec < 1) {
+    settings.reveal_timer_sec = 1; // 1 sec minimum
+  }
   // Maybe validate that question and answer mode should not match?
   await updateLobby(lobby);
 }
