@@ -91,6 +91,8 @@ function TurnScreen({ lobby, turn, user, players }: PreTurnProps) {
     player,
     isSpectator,
     isCreator,
+    // TODO: choose display language:
+    language: 'english',
     turn,
     responses,
     canControlLobby,

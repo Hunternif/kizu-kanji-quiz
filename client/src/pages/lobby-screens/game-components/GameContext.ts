@@ -3,6 +3,7 @@ import { createContext, useContext } from 'react';
 import {
   GameLobby,
   GameTurn,
+  Language,
   PlayerInLobby,
   PlayerResponse,
 } from '../../../shared/types';
@@ -22,6 +23,7 @@ export interface GameContextState {
   isSpectator: boolean;
   /** Is current player the lobby creator? */
   isCreator: boolean;
+  language: Language;
 
   // Changes each turn:
   turn: GameTurn;
