@@ -7,14 +7,15 @@ import { GameButton } from '../../components/Buttons';
 import { CenteredLayout } from '../../components/layout/CenteredLayout';
 import { useHandler1 } from '../../hooks/data-hooks';
 import { GameEntry } from '../../shared/types';
-import { throttle } from '../../shared/utils';
+import { throttle3 } from '../../shared/utils';
 import { ChoiceCard } from './game-components/ChoiceCard';
 import { useGameContext } from './game-components/GameContext';
 import { QuestionCard } from './game-components/QuestionCard';
 import { TimerBar } from './game-components/TimerBar';
 import { TurnCount } from './game-components/TurnCount';
 
-const throttledPing = throttle(pingResponse, 1000);
+// Throttle prevents us from accidentally updating the document too many times:
+const throttledPing = throttle3(pingResponse, 1000);
 
 /** Game screen with a question and multiple choices of answers. */
 export function QuestionScreen() {

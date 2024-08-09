@@ -126,6 +126,38 @@ export function throttle<T extends void | Promise<void>>(
   };
 }
 
+/** See throttle() */
+export function throttle1<T1, V extends void | Promise<void>>(
+  fn: (arg1: T1) => V,
+  timeMs: number = 1000,
+): (arg1: T1) => V | undefined {
+  return throttle(fn, timeMs);
+}
+
+/** See throttle() */
+export function throttle2<T1, T2, V extends void | Promise<void>>(
+  fn: (arg1: T1, arg2: T2) => V,
+  timeMs: number = 1000,
+): (arg1: T1, arg2: T2) => V | undefined {
+  return throttle(fn, timeMs);
+}
+
+/** See throttle() */
+export function throttle3<T1, T2, T3, V extends void | Promise<void>>(
+  fn: (arg1: T1, arg2: T2, arg3: T3) => V,
+  timeMs: number = 1000,
+): (arg1: T1, arg2: T2, arg3: T3) => V | undefined {
+  return throttle(fn, timeMs);
+}
+
+/** See throttle() */
+export function throttle4<T1, T2, T3, T4, V extends void | Promise<void>>(
+  fn: (arg1: T1, arg2: T2, arg3: T3, arg4: T4) => V,
+  timeMs: number = 1000,
+): (arg1: T1, arg2: T2, arg3: T3, arg4: T4) => V | undefined {
+  return throttle(fn, timeMs);
+}
+
 /** For counting things that happen "every N turns" etc.
  * Given old '5' and new '16', return '2' for n = 5. */
 export function countEveryN(oldVal: number, newVal: number, n: number): number {
