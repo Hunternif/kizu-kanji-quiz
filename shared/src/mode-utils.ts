@@ -57,7 +57,13 @@ export function getValidAnswerModes(gameMode: GameMode): AnswerMode[] {
 }
 
 /** Returns true if the answer mode is a multiple-choice question. */
-export function isChoiceAnswer(mode: AnswerMode) {
+export function isChoiceAnswer(
+  mode: AnswerMode,
+): mode is
+  | 'choose_kanji'
+  | 'choose_hiragana'
+  | 'choose_romaji'
+  | 'choose_meaning' {
   switch (mode) {
     case 'choose_kanji':
     case 'choose_hiragana':

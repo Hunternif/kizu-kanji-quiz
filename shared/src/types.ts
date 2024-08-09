@@ -268,6 +268,11 @@ export type KickAction = 'kick' | 'ban';
  * Multiple users are allowed to have the same name!
  */
 export class QuizUser {
+  /**
+   * Maps entry ID to its stats for this user.
+   * Must be fetched separately from a Firebase subcollection.
+   */
+  stats: Map<string, EntryStats> = new Map();
   constructor(
     public uid: string,
     public email: string | null | undefined = null,
@@ -276,31 +281,22 @@ export class QuizUser {
   ) {}
 }
 
-/** User's stats, e.g. how many times they answered each question. */
-export class UserStats {
-  /** Maps entry ID to its stats for this user. */
-  public data: Map<string, EntryStats> = new Map();
-  constructor(public uid: string) {}
-}
-
 /** Stats for an individual entry, for an individual player. */
-export class EntryStats {
-  constructor(
-    public entry_id: string,
-    /** Stat for guessing reading from a kanji / kana / word,
-     * given a writing or meaning. */
-    public reading_wins?: number,
-    public reading_fails?: number,
-    /** Stat for guessing meaning from a kanji / word,
-     * given a writing or meaning. */
-    public meaning_wins?: number,
-    public meaning_fails?: number,
-    /** Stat for guessing writing of a kanji / kana / word,
-     * given a reading or meaning. */
-    public writing_wins?: number,
-    public writing_fails?: number,
-  ) {}
-}
+export type EntryStats = {
+  entry_id: string;
+  /** Stat for guessing reading from a kanji / kana / word,
+   * given a writing or meaning. */
+  reading_wins?: number;
+  reading_fails?: number;
+  /** Stat for guessing meaning from a kanji / word,
+   * given a writing or meaning. */
+  meaning_wins?: number;
+  meaning_fails?: number;
+  /** Stat for guessing writing of a kanji / kana / word,
+   * given a reading or meaning. */
+  writing_wins?: number;
+  writing_fails?: number;
+};
 
 /** Used in Firebase RTDB to report user's online status */
 export type DBPresence = {

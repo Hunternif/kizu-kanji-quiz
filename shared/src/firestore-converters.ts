@@ -16,7 +16,6 @@ import {
   PlayerResponse,
   QuizUser,
   TestGroup,
-  UserStats,
 } from './types';
 import { copyFields, copyFields2, mapToObject, removeUndefined } from './utils';
 
@@ -173,7 +172,7 @@ export const playerResponseConverter: FConverter<PlayerResponse> = {
 };
 
 export const userConverter: FConverter<QuizUser> = {
-  toFirestore: (user: QuizUser) => copyFields(user, ['uid']),
+  toFirestore: (user: QuizUser) => copyFields(user, ['uid', 'stats']),
   fromFirestore: (snapshot: FDocSnapshot) => {
     const data = snapshot.data();
     return new QuizUser(
@@ -185,32 +184,18 @@ export const userConverter: FConverter<QuizUser> = {
   },
 };
 
-export const userStatsConverter: FConverter<UserStats> = {
-  toFirestore: (user: UserStats) =>
-    copyFields2(
-      user,
-      { data: mapToObject(user.data, (val) => copyFields(val, ['entry_id'])) },
-      ['uid'],
-    ),
+export const entryStatsConverter: FConverter<EntryStats> = {
+  toFirestore: (stats: EntryStats) => copyFields(stats, ['entry_id']),
   fromFirestore: (snapshot: FDocSnapshot) => {
     const data = snapshot.data();
-    const statData = new Map<string, EntryStats>();
-    for (const key of Object.keys(data.data)) {
-      const val = data.data[key];
-      statData.set(
-        key,
-        new EntryStats(
-          key,
-          val.reading_wins.val.reading_fails,
-          val.meaning_wins,
-          val.meaning_fails,
-          val.writing_wins,
-          val.writing_fails,
-        ),
-      );
-    }
-    const ret = new UserStats(snapshot.id);
-    ret.data = statData;
-    return ret;
+    return {
+      entry_id: snapshot.id,
+      reading_wins: data.reading_wins,
+      reading_fails: data.reading_fails,
+      meaning_wins: data.meaning_wins,
+      meaning_fails: data.meaning_fails,
+      writing_wins: data.writing_wins,
+      writing_fails: data.writing_fails,
+    };
   },
 };

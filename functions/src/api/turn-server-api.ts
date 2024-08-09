@@ -20,6 +20,7 @@ import {
   getPlayerThrows,
   updateLobby,
 } from './lobby-server-repository';
+import { updateUserStats } from './stats-api';
 import {
   getAllPlayerResponses,
   getLastTurn,
@@ -206,7 +207,10 @@ export async function updatePlayerScoresFromTurn(
       await getPlayersRef(lobby.id)
         .doc(resp.player_uid)
         .update({ wins: FieldValue.increment(1) });
-      // TODO: save player statistics.
+    }
+    // Update player statistics:
+    if (!lobby.settings.freeze_stats) {
+      await updateUserStats(turn, resp);
     }
   }
 }
