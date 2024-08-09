@@ -127,6 +127,7 @@ export async function getOnlinePlayers(
 
 /** Returns a list of lobby IDs where this user is a player. */
 export async function findPlayerLobbies(userID: string): Promise<string[]> {
+  // This query requires an index.
   return (
     await lobbiesRef
       .where('status', '!=', 'ended')
