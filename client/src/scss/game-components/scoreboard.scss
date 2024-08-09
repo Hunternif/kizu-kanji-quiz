@@ -1,5 +1,8 @@
 @use '../colors.scss';
 
+.scoreboard-table {
+  padding: 0.5rem 1rem;
+}
 .scoreboard-table td,
 .scoreboard-table th {
   vertical-align: middle;

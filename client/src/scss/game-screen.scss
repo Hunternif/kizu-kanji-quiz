@@ -152,10 +152,15 @@
   text-align: center;
 }
 
-.game-screen .scoreboard {
-  padding: 0.5em;
-  @media (min-width: 50rem) {
-    position: fixed;
-    top: 10rem;
-  }
+.floating-sidebar {
+  position: fixed;
+  z-index: 1;
+  // Center vertically:
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+}
+.scoreboard-container {
+  min-height: 20rem;
 }
