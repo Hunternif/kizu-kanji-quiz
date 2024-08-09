@@ -2,13 +2,10 @@ import { HttpsError } from 'firebase-functions/v2/https';
 import { firestore } from '../firebase-server';
 import {
   playerResponseConverter,
-  turnConverter
+  turnConverter,
 } from '../shared/firestore-converters';
-import {
-  GameLobby,
-  GameTurn,
-  PlayerResponse
-} from '../shared/types';
+import { GameLobby, GameTurn, PlayerResponse } from '../shared/types';
+import { Transaction } from 'firebase-admin/firestore';
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -66,10 +63,15 @@ export async function getLastTurn(lobby: GameLobby): Promise<GameTurn | null> {
 export async function updateTurn(
   lobbyID: string,
   turn: GameTurn,
+  transaction?: Transaction,
 ): Promise<void> {
-  await getTurnsRef(lobbyID)
-    .doc(turn.id)
-    .update(turnConverter.toFirestore(turn));
+  const ref = getTurnsRef(lobbyID).doc(turn.id);
+  const data = turnConverter.toFirestore(turn);
+  if (transaction) {
+    transaction.update(ref, data);
+  } else {
+    await ref.update(data);
+  }
 }
 
 /** Counts how many turns have occurred in this lobby. */
