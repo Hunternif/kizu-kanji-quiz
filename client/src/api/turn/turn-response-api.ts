@@ -11,6 +11,7 @@ import { playerResponseConverter } from '../../shared/firestore-converters';
 import {
   GameLobby,
   GameTurn,
+  PauseRequest,
   PlayerInLobby,
   PlayerResponse,
 } from '../../shared/types';
@@ -30,6 +31,31 @@ export function getPlayerResponsesRef(lobbyID: string, turnID: string) {
   );
 }
 
+function getPlayerResponseRef(lobbyID: string, turnID: string, userID: string) {
+  return doc(getPlayerResponsesRef(lobbyID, turnID), userID);
+}
+
+async function getPlayerResponse(
+  lobbyID: string,
+  turnID: string,
+  userID: string,
+): Promise<PlayerResponse | null> {
+  return (
+    (await getDoc(getPlayerResponseRef(lobbyID, turnID, userID))).data() ?? null
+  );
+}
+
+async function updateResponse(
+  lobbyID: string,
+  turnID: string,
+  response: PlayerResponse,
+) {
+  await setDoc(
+    getPlayerResponseRef(lobbyID, turnID, response.player_uid),
+    response,
+  );
+}
+
 /** Submit player's response */
 export async function submitPlayerResponse(
   lobby: GameLobby,
@@ -45,10 +71,7 @@ export async function submitPlayerResponse(
     answerEntryID,
     answerTyped,
   );
-  await setDoc(
-    doc(getPlayerResponsesRef(lobby.id, turn.id), player.uid),
-    response,
-  );
+  await updateResponse(lobby.id, turn.id, response);
 }
 
 /** Retract player's response */
@@ -83,7 +106,7 @@ export async function pingResponse(
   // Micro-optimization: only do this for lobby creator,
   // so there is only 1 extra document update.
   if (lobby.creator_uid === player.uid && turn.next_phase_time != null) {
-    const ref = doc(getPlayerResponsesRef(lobby.id, turn.id), player.uid);
+    const ref = getPlayerResponseRef(lobby.id, turn.id, player.uid);
     const response = await getDoc(ref);
     if (response.exists()) {
       await updateDoc(ref, { time_updated: new Date() });
@@ -91,5 +114,30 @@ export async function pingResponse(
       const emptyResponse = new PlayerResponse(player.uid, player.name, null);
       await setDoc(ref, emptyResponse);
     }
+  }
+}
+
+/**
+ * Player requests a pause by submitting a response.
+ * The turn will pause at this moment.
+ */
+export async function requestPause(
+  lobby: GameLobby,
+  turn: GameTurn,
+  player: PlayerInLobby,
+  shouldPause: boolean,
+) {
+  const response = await getPlayerResponse(lobby.id, turn.id, player.uid);
+  const request: PauseRequest = shouldPause
+    ? 'request_pause'
+    : 'request_resume';
+  if (response) {
+    response.pause = request;
+    response.time_updated = new Date();
+    await updateResponse(lobby.id, turn.id, response);
+  } else {
+    const emptyResponse = new PlayerResponse(player.uid, player.name, null);
+    emptyResponse.pause = request;
+    await updateResponse(lobby.id, turn.id, emptyResponse);
   }
 }

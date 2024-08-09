@@ -1,5 +1,6 @@
 // Server APIs for game turns, when the game is in progress.
 
+import * as logger from 'firebase-functions/logger';
 import { HttpsError } from 'firebase-functions/v2/https';
 import {
   GameEntry,
@@ -135,7 +136,9 @@ export async function tryAdvanceTurn(lobbyID: string, turn: GameTurn) {
   // TODO: if all responses have been submitted, reduce timer to a small value.
   const now = new Date();
   const shouldAdvance =
-    turn.next_phase_time && now.getTime() >= turn.next_phase_time.getTime();
+    turn.pause === 'none' &&
+    turn.next_phase_time &&
+    now.getTime() >= turn.next_phase_time.getTime();
   if (shouldAdvance) {
     const lobby = await getLobby(lobbyID);
     switch (turn.phase) {
@@ -166,4 +169,36 @@ export async function updatePlayerScoresFromTurn(
   responses: PlayerResponse[],
 ) {
   // TODO: update player scores and stats
+}
+
+/** Pauses timer. */
+export async function pauseTurn(lobbyID: string, turn: GameTurn) {
+  if (turn.pause !== 'paused') {
+    turn.pause = 'paused';
+    turn.paused_at = new Date();
+    await updateTurn(lobbyID, turn);
+    logger.info(`Game paused. Lobby ${lobbyID}`);
+  }
+}
+
+/** Resumes timer. */
+export async function resumeTurn(lobbyID: string, turn: GameTurn) {
+  if (turn.pause === 'paused') {
+    turn.pause = 'none';
+    if (turn.next_phase_time && turn.paused_at) {
+      const remainingTimeMs =
+        turn.next_phase_time.getTime() - turn.paused_at.getTime();
+      const now = new Date();
+      const newNextPhaseTime = new Date(now.getTime() + remainingTimeMs);
+      logger.info(
+        `Remaining time was ${remainingTimeMs / 1000}.
+        Prev end time was ${turn.next_phase_time},
+        bumped it to ${newNextPhaseTime}`,
+      );
+      turn.next_phase_time = newNextPhaseTime;
+    }
+    turn.paused_at = undefined;
+    await updateTurn(lobbyID, turn);
+    logger.info(`Game resumed. Lobby ${lobbyID}`);
+  }
 }

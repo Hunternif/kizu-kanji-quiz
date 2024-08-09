@@ -1,41 +1,37 @@
 import {
-  Change,
-  FirestoreEvent,
   onDocumentCreated,
   onDocumentUpdated,
 } from 'firebase-functions/v2/firestore';
 
-import { QueryDocumentSnapshot } from 'firebase-admin/firestore';
-import { tryAdvanceTurn } from '../api/turn-server-api';
+import { pauseTurn, resumeTurn, tryAdvanceTurn } from '../api/turn-server-api';
 import { getTurn } from '../api/turn-server-repository';
+import { playerResponseConverter } from '../shared/firestore-converters';
+import { PlayerResponse } from '../shared/types';
 import { assertExhaustive } from '../shared/utils';
 
 async function handleResponseUpdateOrCreate(
-  event: FirestoreEvent<
-    Change<QueryDocumentSnapshot> | QueryDocumentSnapshot | undefined,
-    {
-      lobbyID: string;
-      turnID: string;
-      userID: string;
-    }
-  >,
+  lobbyID: string,
+  turnID: string,
+  userID: string,
+  response: PlayerResponse,
 ) {
-  if (!event.data) return;
-  const lobbyID = event.params.lobbyID;
-  const turnID = event.params.turnID;
   const turn = await getTurn(lobbyID, turnID);
-  switch (turn.phase) {
-    case 'new':
+  // Check if pause was requested:
+  switch (response.pause) {
+    case 'request_pause':
+      await pauseTurn(lobbyID, turn);
       break;
-    case 'answering':
-    case 'reveal':
-      await tryAdvanceTurn(lobbyID, turn);
+    case 'request_resume':
+      await resumeTurn(lobbyID, turn);
       break;
-    case 'complete':
+    case undefined:
       break;
     default:
-      assertExhaustive(turn.phase);
+      assertExhaustive(response.pause);
   }
+  // Check if it's time to advance turn as per timer:
+  // (Pause request could have changed next phase time!)
+  await tryAdvanceTurn(lobbyID, turn);
 }
 
 /**
@@ -45,12 +41,26 @@ async function handleResponseUpdateOrCreate(
 export const createResponseChangeHandler = () =>
   onDocumentUpdated(
     'lobbies/{lobbyID}/turns/{turnID}/player_responses/{userID}',
-    handleResponseUpdateOrCreate,
+    async (event) => {
+      if (!event.data) return;
+      const lobbyID = event.params.lobbyID;
+      const turnID = event.params.turnID;
+      const userID = event.params.userID;
+      const response = playerResponseConverter.fromFirestore(event.data.after);
+      await handleResponseUpdateOrCreate(lobbyID, turnID, userID, response);
+    },
   );
 
 /** Same as createResponseChangeHandler */
 export const createResponseCreateHandler = () =>
   onDocumentCreated(
     'lobbies/{lobbyID}/turns/{turnID}/player_responses/{userID}',
-    handleResponseUpdateOrCreate,
+    async (event) => {
+      if (!event.data) return;
+      const lobbyID = event.params.lobbyID;
+      const turnID = event.params.turnID;
+      const userID = event.params.userID;
+      const response = playerResponseConverter.fromFirestore(event.data);
+      await handleResponseUpdateOrCreate(lobbyID, turnID, userID, response);
+    },
   );

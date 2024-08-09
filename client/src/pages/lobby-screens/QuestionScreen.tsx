@@ -1,5 +1,8 @@
-import { useState } from 'react';
-import { pingResponse, submitPlayerResponse } from '../../api/turn/turn-response-api';
+import {
+  pingResponse,
+  requestPause,
+  submitPlayerResponse,
+} from '../../api/turn/turn-response-api';
 import { Checkbox } from '../../components/Checkbox';
 import { CenteredLayout } from '../../components/layout/CenteredLayout';
 import { useHandler, useHandler1 } from '../../hooks/data-hooks';
@@ -13,7 +16,7 @@ import { TimerBar } from './game-components/TimerBar';
 export function QuestionScreen() {
   const { lobby, turn, player, responses } = useGameContext();
   const response = responses.find((r) => r.player_uid === player.uid);
-  const [pause, setPause] = useState(false);
+  const isPaused = turn.pause === 'paused';
 
   const [handleSelect] = useHandler1(async (entry: GameEntry) => {
     await submitPlayerResponse(lobby, turn, player, entry.id);
@@ -21,6 +24,10 @@ export function QuestionScreen() {
 
   const [handleTimeEnd] = useHandler(async () => {
     await pingResponse(lobby, turn, player);
+  });
+
+  const [handlePause] = useHandler1(async (shouldPause: boolean) => {
+    await requestPause(lobby, turn, player, shouldPause);
   });
 
   const isReveal = turn.phase === 'reveal';
@@ -46,7 +53,7 @@ export function QuestionScreen() {
               startTime={turn.phase_start_time}
               endTime={turn.next_phase_time}
               onClear={handleTimeEnd}
-              paused={pause}
+              paused={isPaused}
             />
           )}
         </div>
@@ -58,7 +65,7 @@ export function QuestionScreen() {
         ))}
       </div>
       <br />
-      <Checkbox label="Pause" checked={pause} onToggle={setPause} />
+      <Checkbox label="Pause" checked={isPaused} onToggle={handlePause} />
     </CenteredLayout>
   );
 }

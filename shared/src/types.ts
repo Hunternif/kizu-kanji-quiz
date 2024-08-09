@@ -169,6 +169,9 @@ export class GameTurn {
   public phase: TurnPhase = 'new';
   /** Time when the last phase bagan. */
   public phase_start_time: Date = this.time_created;
+  public pause: PauseStatus = 'none';
+  /** Time when pause was activated. Used to update remaining time. */
+  public paused_at?: Date;
 
   /** Maps player UID to what cards they played in this turn.
    * Must be fetched separately from a Firebase subcollection.
@@ -207,6 +210,8 @@ export class PlayerResponse {
     public answer_typed?: string,
     /** Used to ping the server after the turn ends. */
     public time_updated?: Date,
+    /** Players request pause via their response. */
+    public pause?: PauseRequest,
   ) {}
 }
 
@@ -217,6 +222,9 @@ export type PlayerStatus = 'online' | 'left' | 'banned';
 export type TurnPhase = 'new' | 'answering' | 'reveal' | 'complete';
 
 export type LobbyStatus = 'new' | 'starting' | 'in_progress' | 'ended';
+/** Could contain extra statuses for timed resume. */
+export type PauseStatus = 'none' | 'paused';
+export type PauseRequest = 'request_pause' | 'request_resume';
 
 /** "kick" is re-joinable, "ban" is forever. */
 export type KickAction = 'kick' | 'ban';

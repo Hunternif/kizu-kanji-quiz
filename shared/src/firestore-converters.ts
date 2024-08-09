@@ -113,6 +113,9 @@ export const turnConverter: FConverter<GameTurn> = {
         next_phase_time: turn.next_phase_time
           ? FTimestamp.fromDate(turn.next_phase_time)
           : null,
+        paused_at: turn.paused_at
+          ? FTimestamp.fromDate(turn.paused_at)
+          : undefined,
         question: mapFromEntry(turn.question),
         choices: turn.choices?.map(mapFromEntry),
       },
@@ -138,6 +141,8 @@ export const turnConverter: FConverter<GameTurn> = {
     ret.phase_start_time =
       (data.phase_start_time as FTimestamp | null)?.toDate() ?? time_created;
     ret.phase = data.phase || 'new';
+    ret.pause = data.pause || 'none';
+    ret.paused_at = (data.paused_at as FTimestamp | null)?.toDate();
     return ret;
   },
 };
@@ -161,6 +166,7 @@ export const playerResponseConverter: FConverter<PlayerResponse> = {
       data.answer_entry_id,
       data.answer_typed,
       (data.time_updated as FTimestamp | undefined)?.toDate(),
+      data.pause,
     );
   },
 };
