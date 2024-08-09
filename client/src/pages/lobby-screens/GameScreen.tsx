@@ -8,6 +8,7 @@ import { GameLobby, GameTurn, PlayerInLobby } from '../../shared/types';
 import { assertExhaustive } from '../../shared/utils';
 import { GameContext, GameContextState } from './game-components/GameContext';
 import { QuestionScreen } from './QuestionScreen';
+import { GameHeader } from './game-components/header/GameHeader';
 
 interface ScreenProps {
   lobby: GameLobby;
@@ -101,6 +102,7 @@ function TurnScreen({ lobby, turn, user, players }: PreTurnProps) {
   return (
     <GameContext.Provider value={gameState}>
       <div className={`game-bg phase-${turn.phase}`} />
+      <GameHeader />
       <QuestionScreen />
     </GameContext.Provider>
   );
