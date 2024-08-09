@@ -1,11 +1,14 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createLobbyAndJoin } from '../../api/lobby/lobby-join-api';
 import { GameButton } from '../../components/Buttons';
+import { IconPerson } from '../../components/Icons';
 import { CenteredLayout } from '../../components/layout/CenteredLayout';
 import { Panel } from '../../components/Panel';
 import { useQuizUser } from '../../hooks/auth-hooks';
 import { useHandler } from '../../hooks/data-hooks';
 import { GameTitle } from './login-components/GameTitle';
+import { ProfileModal } from './login-components/ProfileModal';
 import { SignOutButton } from './login-components/SignOutButton';
 
 export function HomeScreen() {
@@ -15,18 +18,31 @@ export function HomeScreen() {
     const lobbyID = await createLobbyAndJoin();
     navigate(`/${lobbyID}`);
   }, []);
+  const [showProfile, setShowProfile] = useState(false);
 
   return (
     <CenteredLayout outerClassName="home-screen">
       <GameTitle />
 
+      {quizUser && (
+        <ProfileModal
+          quizUser={quizUser}
+          show={showProfile}
+          onHide={() => setShowProfile(false)}
+        />
+      )}
 
       <Panel flex className="home-card">
         <span>Welcome, {quizUser?.name}</span>
         <GameButton onClick={handleNewGame} loading={loadingNewGame}>
           New game
         </GameButton>
-        <GameButton disabled>Join game</GameButton>
+        <GameButton
+          iconLeft={<IconPerson />}
+          onClick={() => setShowProfile(true)}
+        >
+          Profile
+        </GameButton>
         <SignOutButton secondary />
       </Panel>
     </CenteredLayout>
