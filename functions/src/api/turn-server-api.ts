@@ -1,5 +1,6 @@
 // Server APIs for game turns, when the game is in progress.
 
+import { FieldValue } from 'firebase-admin/firestore';
 import * as logger from 'firebase-functions/logger';
 import { HttpsError } from 'firebase-functions/v2/https';
 import { isChoiceAnswer } from '../shared/mode-utils';
@@ -15,10 +16,12 @@ import { endLobby, shouldEndLobby } from './lobby-server-api';
 import {
   countPlayers,
   getLobby,
+  getPlayersRef,
   getPlayerThrows,
   updateLobby,
 } from './lobby-server-repository';
 import {
+  getAllPlayerResponses,
   getLastTurn,
   getPlayerResponsesRef,
   getTurnsRef,
@@ -131,10 +134,15 @@ async function countNonEmptyResponses(
 
 /**
  * Starts the turn's 'reveal' [hase] and returns it.
+ * Also counts player scores. Should only be called once!
  */
 export async function startTurnReveal(lobby: GameLobby, turn: GameTurn) {
+  const shouldCountScores = turn.phase !== 'reveal';
   turn.setPhase('reveal', new Date(), lobby.settings.reveal_timer_sec * 1000);
   await updateTurn(lobby.id, turn);
+  if (shouldCountScores) {
+    await updatePlayerScoresFromTurn(lobby, turn);
+  }
 }
 
 /**
@@ -184,13 +192,23 @@ export async function tryAdvanceTurn(lobbyID: string, turn: GameTurn) {
   }
 }
 
-/** Updates all player's scores and likes from this turn, if it has ended. */
+/** Updates all player's scores from this turn, if it has ended. */
 export async function updatePlayerScoresFromTurn(
-  lobbyID: string,
+  lobby: GameLobby,
   turn: GameTurn,
-  responses: PlayerResponse[],
 ) {
-  // TODO: update player scores and stats
+  const responses = await getAllPlayerResponses(lobby.id, turn.id);
+  for (const resp of responses) {
+    if (
+      isChoiceAnswer(turn.answer_mode) &&
+      resp.answer_entry_id === turn.question.id
+    ) {
+      await getPlayersRef(lobby.id)
+        .doc(resp.player_uid)
+        .update({ wins: FieldValue.increment(1) });
+      // TODO: save player statistics.
+    }
+  }
 }
 
 /** Pauses timer. */
