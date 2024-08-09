@@ -97,22 +97,31 @@ export async function getAllPlayerResponses(
  * Special function called at the end of the timer.
  * By updating the response, we notify Firebase that the turn has ended.
  * If the player has not responded, then an empty response is submitted.
+ * @param shouldSkip if true, an empty response will be considered a "skip".
  */
 export async function pingResponse(
   lobby: GameLobby,
   turn: GameTurn,
   player: PlayerInLobby,
+  shouldSkip: boolean,
 ) {
   // Micro-optimization: only do this for lobby creator,
   // so there is only 1 extra document update.
   if (lobby.creator_uid === player.uid) {
     // console.log(`Ping for ${turn.id} '${turn.phase}'! ${new Date()}`);
     const ref = getPlayerResponseRef(lobby.id, turn.id, player.uid);
-    const response = await getDoc(ref);
-    if (response.exists()) {
-      await updateDoc(ref, { time_updated: new Date() });
+    const response = (await getDoc(ref)).data();
+    if (response) {
+      response.time_updated = new Date();
+      if (response.isEmpty() && shouldSkip) {
+        response.skip = true;
+      }
+      await updateDoc(ref, playerResponseConverter.toFirestore(response));
     } else {
       const emptyResponse = new PlayerResponse(player.uid, player.name, null);
+      if (shouldSkip) {
+        emptyResponse.skip = true;
+      }
       await setDoc(ref, emptyResponse);
     }
   }

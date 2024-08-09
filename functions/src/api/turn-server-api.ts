@@ -106,18 +106,27 @@ export async function playResponse(
   return response;
 }
 
+/**
+ * Counts responses that were submitted by players
+ * (not the empty "pings" that were used for notification.)
+ */
 async function countNonEmptyResponses(
   lobbyID: string,
   turn: GameTurn,
 ): Promise<number> {
   const ref = getPlayerResponsesRef(lobbyID, turn.id);
+  const skipCount = (await ref.orderBy('skip', 'asc').count().get()).data()
+    .count;
+  let validCount = 0;
   if (isChoiceAnswer(turn.answer_mode)) {
-    return (await ref.orderBy('answer_entry_id', 'asc').count().get()).data()
-      .count;
+    validCount = (
+      await ref.orderBy('answer_entry_id', 'asc').count().get()
+    ).data().count;
   } else {
-    return (await ref.orderBy('answer_typed', 'asc').count().get()).data()
+    validCount = (await ref.orderBy('answer_typed', 'asc').count().get()).data()
       .count;
   }
+  return skipCount + validCount;
 }
 
 /**

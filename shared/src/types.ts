@@ -209,9 +209,10 @@ export class GameTurn {
     this.phase = phase;
     this.phase_start_time = startTime;
     this.phase_duration_ms = durationMs;
-    this.next_phase_time = durationMs !== undefined
-      ? new Date(startTime.getTime() + durationMs)
-      : undefined;
+    this.next_phase_time =
+      durationMs !== undefined
+        ? new Date(startTime.getTime() + durationMs)
+        : undefined;
   }
 
   /** Calculates phase start time from end time and duration.
@@ -239,7 +240,12 @@ export class PlayerResponse {
     public time_updated?: Date,
     /** Players request pause via their response. */
     public pause?: PauseRequest,
+    /** True if the player decided to skip this turn. */
+    public skip?: boolean,
   ) {}
+  isEmpty(): boolean {
+    return this.answer_entry_id == null && this.answer_typed == null;
+  }
 }
 
 export type PlayerRole = 'player' | 'spectator';

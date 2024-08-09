@@ -41,6 +41,13 @@
   gap: 1em;
 }
 
+.layout-horizontal-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
 
 .layout-game {
   // Centered on the page:

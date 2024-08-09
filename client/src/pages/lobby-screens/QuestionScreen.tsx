@@ -7,7 +7,7 @@ import { GameButton } from '../../components/Buttons';
 import { CenteredLayout } from '../../components/layout/CenteredLayout';
 import { useHandler1 } from '../../hooks/data-hooks';
 import { GameEntry } from '../../shared/types';
-import { throttle3 } from '../../shared/utils';
+import { throttle4 } from '../../shared/utils';
 import { ChoiceCard } from './game-components/ChoiceCard';
 import { useGameContext } from './game-components/GameContext';
 import { QuestionCard } from './game-components/QuestionCard';
@@ -15,7 +15,7 @@ import { TimerBar } from './game-components/TimerBar';
 import { TurnCount } from './game-components/TurnCount';
 
 // Throttle prevents us from accidentally updating the document too many times:
-const throttledPing = throttle3(pingResponse, 1000);
+const throttledPing = throttle4(pingResponse, 1000);
 
 /** Game screen with a question and multiple choices of answers. */
 export function QuestionScreen() {
@@ -27,9 +27,11 @@ export function QuestionScreen() {
     await submitPlayerResponse(lobby, turn, player, entry.id);
   });
 
-  async function handleTimeEnd() {
+  /** Notifies the server that this player is ready for the next phase.
+   * @param skip if true, will mark this response as skipped. */
+  async function signalNextPhase(skip: boolean) {
     try {
-      await throttledPing(lobby, turn, player);
+      await throttledPing(lobby, turn, player, skip);
       // Don't display these errors because these shouldn't block the player.
     } catch (e: any) {
       console.log(e);
@@ -51,6 +53,13 @@ export function QuestionScreen() {
   else if (isCorrect) rootClasses.push('correct');
   else if (isIncorrect) rootClasses.push('incorrect');
 
+  const isTimerEnabled =
+    turn.next_phase_time != null && turn.phase_duration_ms != 0;
+  const showContinue =
+    !isTimerEnabled &&
+    (response?.isEmpty() === false || turn.phase === 'reveal');
+  const showSkip = !isTimerEnabled && (response == null || response.isEmpty());
+
   return (
     <CenteredLayout innerClassName={rootClasses.join(' ')}>
       <div className="question-group">
@@ -59,11 +68,11 @@ export function QuestionScreen() {
           {isCorrect ? 'Correct!' : isIncorrect ? 'Incorrect' : null}
         </div>
         <div className="timebar-container">
-          {turn.next_phase_time && turn.phase_duration_ms != 0 && (
+          {isTimerEnabled && turn.next_phase_time && (
             <TimerBar
               startTime={turn.getStartTime()}
               endTime={turn.next_phase_time}
-              onClear={handleTimeEnd}
+              onClear={() => signalNextPhase(false)}
               paused={isPaused}
             />
           )}
@@ -76,13 +85,22 @@ export function QuestionScreen() {
         ))}
       </div>
       <br />
-      <GameButton
-        secondary={!isPaused}
-        loading={pausing}
-        onClick={() => handlePause(!isPaused)}
-      >
-        {isPaused ? 'Resume' : 'Pause'}
-      </GameButton>
+      {isTimerEnabled && (
+        <GameButton
+          secondary={!isPaused}
+          loading={pausing}
+          onClick={() => handlePause(!isPaused)}
+        >
+          {isPaused ? 'Resume' : 'Pause'}
+        </GameButton>
+      )}
+      {showContinue ? (
+        <GameButton onClick={() => signalNextPhase(true)}>Continue</GameButton>
+      ) : (
+        showSkip && (
+          <GameButton onClick={() => signalNextPhase(true)}>Skip</GameButton>
+        )
+      )}
     </CenteredLayout>
   );
 }
