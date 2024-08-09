@@ -1,0 +1,13 @@
+.game-settings-modal {
+  min-width: 25rem;
+  max-width: 90vw;
+  width: 60rem;
+  @media (max-width: 70rem) {
+    min-width: 20rem;
+    width: 30rem;
+    max-width: 95vw;
+  }
+  header {
+    text-align: center;
+  }
+}
