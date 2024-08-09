@@ -13,7 +13,8 @@ export function ChoiceCard({ entry, onClick }: ChoiceProps) {
   const { turn, player, isSpectator, responses, language } = useGameContext();
   const response = responses.find((r) => r.player_uid === player.uid);
 
-  const readOnly = isSpectator || turn.phase !== 'answering';
+  const isPaused = turn.pause === 'paused';
+  const readOnly = isSpectator || turn.phase !== 'answering' || isPaused;
   const isAnswer = entry.id === turn.question.id;
   const isSelected = response?.answer_entry_id === entry.id;
   const isReveal = turn.phase === 'reveal';
@@ -25,6 +26,7 @@ export function ChoiceCard({ entry, onClick }: ChoiceProps) {
   if (isReveal && isSelected && !isAnswer) classes.push('incorrect');
   if (readOnly) classes.push('readonly');
   if (!readOnly) classes.push('hoverable-card');
+  if (isPaused) classes.push('disabled');
 
   const text = getAnswerContent(
     entry,

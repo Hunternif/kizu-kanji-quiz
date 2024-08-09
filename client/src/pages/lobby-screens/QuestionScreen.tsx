@@ -3,7 +3,7 @@ import {
   requestPause,
   submitPlayerResponse,
 } from '../../api/turn/turn-response-api';
-import { Checkbox } from '../../components/Checkbox';
+import { GameButton } from '../../components/Buttons';
 import { CenteredLayout } from '../../components/layout/CenteredLayout';
 import { useHandler1 } from '../../hooks/data-hooks';
 import { GameEntry } from '../../shared/types';
@@ -35,7 +35,7 @@ export function QuestionScreen() {
     }
   }
 
-  const [handlePause] = useHandler1(async (shouldPause: boolean) => {
+  const [handlePause, pausing] = useHandler1(async (shouldPause: boolean) => {
     await requestPause(lobby, turn, player, shouldPause);
   });
 
@@ -75,7 +75,13 @@ export function QuestionScreen() {
         ))}
       </div>
       <br />
-      <Checkbox label="Pause" checked={isPaused} onToggle={handlePause} />
+      <GameButton
+        secondary={!isPaused}
+        loading={pausing}
+        onClick={() => handlePause(!isPaused)}
+      >
+        {isPaused ? 'Resume' : 'Pause'}
+      </GameButton>
     </CenteredLayout>
   );
 }
