@@ -18,9 +18,9 @@
       background-color: colors.$question-bg-reveal;
     }
   }
-  &.skipped .timer-bar .bar {
-    background-color: colors.$choice-answer-bg;
-  }
+  // &.skipped .timer-bar .bar {
+  //   background-color: colors.$choice-answer-bg;
+  // }
   &.correct .timer-bar .bar {
     background-color: colors.$choice-correct-bg;
   }

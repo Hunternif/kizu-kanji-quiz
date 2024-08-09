@@ -74,10 +74,10 @@ $answer-gold: $gold;
 $correct-green: #7fca6d;
 $incorrect-red: $error-red;
 
-$choice-answer-text: color-mix(in srgb, #d45f00 40%, $text);
-$choice-answer-glow: rgba($answer-gold, 70%);
-$choice-answer-gradient: linear-gradient(to bottom, rgba($answer-gold, 30%), #fff);
-$choice-answer-bg: $answer-gold;//color-mix(in srgb, $answer-gold 90%, $accent-pink);
+// $choice-answer-text: color-mix(in srgb, #d45f00 40%, $text);
+// $choice-answer-glow: rgba($answer-gold, 70%);
+// $choice-answer-gradient: linear-gradient(to bottom, rgba($answer-gold, 30%), #fff);
+// $choice-answer-bg: $answer-gold;//color-mix(in srgb, $answer-gold 90%, $accent-pink);
 
 $choice-correct-text: #fff;//color-mix(in srgb, $correct-green 50%, $text);
 $choice-correct-gradient: linear-gradient(to bottom, lighten($correct-green, 30%), lighten($gold, 45%));
@@ -88,6 +88,11 @@ $choice-incorrect-text: #fff;//color-mix(in srgb, $incorrect-red 50%, $text);
 $choice-incorrect-gradient: linear-gradient(to bottom, lighten($incorrect-red, 50%), lighten($gold, 45%));
 $choice-incorrect-glow: $incorrect-red;
 $choice-incorrect-bg: color-mix(in srgb, $incorrect-red 70%, $gray-4);
+
+$choice-answer-text: $choice-correct-text;
+$choice-answer-glow: $choice-correct-glow;
+$choice-answer-gradient: $choice-correct-gradient;
+$choice-answer-bg: $choice-correct-bg;
 
 $timer-bg: $gray-2;
 $timer-bar: $accent-blue;
