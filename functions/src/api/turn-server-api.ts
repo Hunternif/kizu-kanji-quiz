@@ -2,6 +2,7 @@
 
 import * as logger from 'firebase-functions/logger';
 import { HttpsError } from 'firebase-functions/v2/https';
+import { isChoiceAnswer } from '../shared/mode-utils';
 import {
   GameEntry,
   GameLobby,
@@ -18,14 +19,12 @@ import {
   updateLobby,
 } from './lobby-server-repository';
 import {
-  getAllPlayerResponses,
   getLastTurn,
   getPlayerResponsesRef,
   getTurnsRef,
   setPlayerResponse,
   updateTurn,
 } from './turn-server-repository';
-import { isChoiceAnswer } from '../shared/mode-utils';
 
 const dummyEntry = new GameEntry(
   'test_entry',
@@ -78,12 +77,11 @@ export async function createNewTurn(
 /**
  * Starts the turn.
  */
-export async function startTurn(lobby: GameLobby, turn: GameTurn) {
-  const now = new Date();
-  turn.phase = 'answering';
-  turn.phase_start_time = now;
-  turn.next_phase_time = new Date(
-    now.getTime() + lobby.settings.question_timer_sec * 1000,
+export async function startTurnAnswering(lobby: GameLobby, turn: GameTurn) {
+  turn.setPhase(
+    'answering',
+    new Date(),
+    lobby.settings.question_timer_sec * 1000,
   );
   await updateTurn(lobby.id, turn);
 }
@@ -215,5 +213,42 @@ export async function resumeTurn(lobbyID: string, turn: GameTurn) {
     turn.paused_at = undefined;
     await updateTurn(lobbyID, turn);
     logger.info(`Game resumed. Lobby ${lobbyID}`);
+  }
+}
+
+/**
+ * Applies lobby settings to the current turn.
+ * Useful when changing game mode or timer.
+ */
+export async function updateCurrentTurnSettings(lobby: GameLobby) {
+  const turn = await getLastTurn(lobby);
+  if (turn) {
+    turn.game_mode = lobby.settings.game_mode;
+    turn.answer_mode = lobby.settings.answer_mode;
+    turn.question_mode = lobby.settings.question_mode;
+    const questionTimerMs = lobby.settings.question_timer_sec * 1000;
+    const revealTimerMs = lobby.settings.reveal_timer_sec * 1000;
+    switch (turn.phase) {
+      case 'new':
+        break;
+      case 'answering':
+        if (turn.phase_duration_ms !== questionTimerMs) {
+          // restart the phase from now:
+          turn.setPhase('answering', new Date(), questionTimerMs);
+        }
+        break;
+      case 'reveal':
+        if (turn.phase_duration_ms !== revealTimerMs) {
+          // restart the phase from now:
+          turn.setPhase('reveal', new Date(), revealTimerMs);
+        }
+        break;
+      case 'complete':
+        await updateTurn(lobby.id, turn);
+        break;
+      default:
+        assertExhaustive(turn.phase);
+    }
+    await updateTurn(lobby.id, turn);
   }
 }
