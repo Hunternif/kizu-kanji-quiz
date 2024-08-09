@@ -58,7 +58,7 @@ export function QuestionScreen() {
           {isCorrect ? 'Correct!' : isIncorrect ? 'Incorrect' : null}
         </div>
         <div className="timebar-container">
-          {turn.next_phase_time && (
+          {turn.next_phase_time && turn.phase_duration_ms != 0 && (
             <TimerBar
               startTime={turn.getStartTime()}
               endTime={turn.next_phase_time}

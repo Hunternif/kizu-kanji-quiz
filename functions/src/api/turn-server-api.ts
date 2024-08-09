@@ -12,16 +12,20 @@ import { assertExhaustive } from '../shared/utils';
 import { selectQuestion } from './entry-api';
 import { endLobby, shouldEndLobby } from './lobby-server-api';
 import {
+  countPlayers,
   getLobby,
   getPlayerThrows,
   updateLobby,
 } from './lobby-server-repository';
 import {
+  getAllPlayerResponses,
   getLastTurn,
+  getPlayerResponsesRef,
   getTurnsRef,
   setPlayerResponse,
   updateTurn,
 } from './turn-server-repository';
+import { isChoiceAnswer } from '../shared/mode-utils';
 
 const dummyEntry = new GameEntry(
   'test_entry',
@@ -104,6 +108,20 @@ export async function playResponse(
   return response;
 }
 
+async function countNonEmptyResponses(
+  lobbyID: string,
+  turn: GameTurn,
+): Promise<number> {
+  const ref = getPlayerResponsesRef(lobbyID, turn.id);
+  if (isChoiceAnswer(turn.answer_mode)) {
+    return (await ref.orderBy('answer_entry_id', 'asc').count().get()).data()
+      .count;
+  } else {
+    return (await ref.orderBy('answer_typed', 'asc').count().get()).data()
+      .count;
+  }
+}
+
 /**
  * Starts the turn's 'reveal' [hase] and returns it.
  */
@@ -124,10 +142,18 @@ export async function completeTurn(lobby: GameLobby, turn: GameTurn) {
 export async function tryAdvanceTurn(lobbyID: string, turn: GameTurn) {
   // TODO: if all responses have been submitted, reduce timer to a small value.
   const now = new Date();
-  const shouldAdvance =
-    turn.pause === 'none' &&
-    turn.next_phase_time &&
-    now.getTime() >= turn.next_phase_time.getTime();
+  let shouldAdvance = false;
+  if (turn.pause === 'none') {
+    if (turn.phase_duration_ms === 0) {
+      // count if all players submitted responses
+      const playerCount = await countPlayers(lobbyID, 'player');
+      const count = await countNonEmptyResponses(lobbyID, turn);
+      logger.info(`Counted ${count} responses from ${playerCount} players.`);
+      shouldAdvance = count >= playerCount;
+    } else if (turn.next_phase_time) {
+      shouldAdvance = now.getTime() >= turn.next_phase_time.getTime();
+    }
+  }
   if (shouldAdvance) {
     const lobby = await getLobby(lobbyID);
     switch (turn.phase) {

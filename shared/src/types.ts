@@ -209,7 +209,7 @@ export class GameTurn {
     this.phase = phase;
     this.phase_start_time = startTime;
     this.phase_duration_ms = durationMs;
-    this.next_phase_time = durationMs
+    this.next_phase_time = durationMs !== undefined
       ? new Date(startTime.getTime() + durationMs)
       : undefined;
   }

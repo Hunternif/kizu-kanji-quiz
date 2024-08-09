@@ -26,7 +26,7 @@ export function getTurnsRef(lobbyID: string) {
 }
 
 /** Returns Firestore subcollection reference. */
-function getPlayerResponsesRef(lobbyID: string, turnID: string) {
+export function getPlayerResponsesRef(lobbyID: string, turnID: string) {
   return firestore
     .collection(`lobbies/${lobbyID}/turns/${turnID}/player_responses`)
     .withConverter(playerResponseConverter);
