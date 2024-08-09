@@ -7,6 +7,7 @@ import { VerticalGroup } from '../../components/layout/VerticalGroup';
 import { GameLobby, PlayerInLobby } from '../../shared/types';
 import { NewGameButton } from './game-components/NewGameButton';
 import { GameTitle } from './login-components/GameTitle';
+import { Scoreboard } from './game-components/Scoreboard';
 
 interface Props {
   lobby: GameLobby;
@@ -28,7 +29,8 @@ export function EndgameScreen({ lobby, user, players }: Props) {
     >
       <GameTitle />
       <h2>Game ended</h2>
-      {/* Scoreboard goes here */}
+      <Scoreboard user={user} players={players} />
+      <br />
       <VerticalGroup>
         <GameButton secondary onClick={() => navigate('/')}>
           Go home

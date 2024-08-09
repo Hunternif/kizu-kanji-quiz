@@ -1,0 +1,26 @@
+@use '../colors.scss';
+
+.scoreboard-table td,
+.scoreboard-table th {
+  vertical-align: middle;
+}
+.sb-col-name {
+  // Limit extra long names:
+  max-width: 15rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  // This was needed for avatars:
+  // line-height: 2em;
+  // vertical-align: middle;
+}
+.player-row {
+  &.me .player-name {
+    font-weight: 800;
+  }
+}
+.sb-col-score {
+  padding-left: 1em;
+  color: colors.$accent-purple;
+  font-weight: 700;
+}

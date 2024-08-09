@@ -151,3 +151,11 @@
 .turn-count {
   text-align: center;
 }
+
+.game-screen .scoreboard {
+  padding: 0.5em;
+  @media (min-width: 50rem) {
+    position: fixed;
+    top: 10rem;
+  }
+}

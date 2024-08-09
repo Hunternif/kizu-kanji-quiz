@@ -7,8 +7,9 @@ import { LoadingSpinner } from '../../components/LoadingSpinner';
 import { GameLobby, GameTurn, PlayerInLobby } from '../../shared/types';
 import { assertExhaustive } from '../../shared/utils';
 import { GameContext, GameContextState } from './game-components/GameContext';
-import { QuestionScreen } from './QuestionScreen';
 import { GameHeader } from './game-components/header/GameHeader';
+import { Scoreboard } from './game-components/Scoreboard';
+import { QuestionScreen } from './QuestionScreen';
 
 interface ScreenProps {
   lobby: GameLobby;
@@ -103,6 +104,9 @@ function TurnScreen({ lobby, turn, user, players }: PreTurnProps) {
     <GameContext.Provider value={gameState}>
       <div className={`game-bg phase-${turn.phase}`} />
       <GameHeader />
+      <div className="scoreboard">
+        <Scoreboard players={players} user={user} />
+      </div>
       <QuestionScreen />
     </GameContext.Provider>
   );
