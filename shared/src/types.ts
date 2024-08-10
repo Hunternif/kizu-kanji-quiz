@@ -141,6 +141,7 @@ export type KanjiJlptLevel =
   | 'kanji_jlpt_3'
   | 'kanji_jlpt_4'
   | 'kanji_jlpt_5';
+export type KanjiGroup = KanjiGrade | KanjiJlptLevel;
 /** Combines all possible groups. */
 export type TestGroup =
   | HiraganaGroup

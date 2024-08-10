@@ -5,6 +5,7 @@ import {
   getHiraganaEntries,
   getKatakanaDigraphEntries,
   getKatakanaEntries,
+  parseKanjiFile,
   selectQuestion,
 } from '../entry-api';
 
@@ -44,6 +45,27 @@ test('parse Katakana digraphs', async () => {
   expect(hiragana[0].readings_romaji).toEqual(['kya']);
   expect(hiragana[32].writing).toBe('リョ');
   expect(hiragana[32].readings_romaji).toEqual(['ryo']);
+});
+
+test('parse Kanji', async () => {
+  const kanji = await parseKanjiFile();
+  expect(kanji.length).toBe(2136);
+  expect(kanji[0].writing).toBe('亜');
+  expect(kanji[0].readings_romaji).toEqual(['a']);
+  expect(kanji[0].groups).toEqual(['kanji_grade_S', 'kanji_jlpt_1']);
+  expect(kanji[100].writing).toBe('演');
+  expect(kanji[100].readings_romaji).toEqual(['en']);
+  expect(kanji[100].meanings.get('en')).toEqual([
+    'performance',
+    'act',
+    'play',
+    'render',
+    'stage',
+  ]);
+  expect(kanji[100].groups).toEqual(['kanji_grade_5', 'kanji_jlpt_3']);
+  expect(kanji[1266].writing).toBe('捉');
+  expect(kanji[1266].readings_hiragana).toEqual(['ソク', 'とらえる']);
+  expect(kanji[1266].groups).toEqual(['kanji_grade_S']);
 });
 
 test('select question and choices', () => {

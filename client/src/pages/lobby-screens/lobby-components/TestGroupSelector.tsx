@@ -16,11 +16,11 @@ const kanaGroups: Array<[KanaGroup, string, string]> = [
   ['katakana_digraphs', 'キャ', '33 Katakana digraphs'],
 ];
 const kanjiJlptGroups: Array<[KanjiJlptLevel, string, string]> = [
-  ['kanji_jlpt_5', 'N5', '79 Kanji'],
+  ['kanji_jlpt_5', 'N5', '80 Kanji'],
   ['kanji_jlpt_4', 'N4', '166 Kanji'],
-  ['kanji_jlpt_3', 'N3', '367 Kanji'],
+  ['kanji_jlpt_3', 'N3', '371 Kanji'],
   ['kanji_jlpt_2', 'N2', '367 Kanji'],
-  ['kanji_jlpt_1', 'N1', '990 Kanji'],
+  ['kanji_jlpt_1', 'N1', '985 Kanji'],
 ];
 const kanjiGradeGroups: Array<[KanjiGrade, string, string]> = [
   ['kanji_grade_1', 'Grade 1', '80 Kanji'],
@@ -31,13 +31,6 @@ const kanjiGradeGroups: Array<[KanjiGrade, string, string]> = [
   ['kanji_grade_6', 'Grade 6', '191 Kanji'],
   ['kanji_grade_S', 'Secondary school', '1110 kanji'],
 ];
-
-const enabledGroups = new Set<TestGroup>([
-  'hiragana',
-  'hiragana_digraphs',
-  'katakana',
-  'katakana_digraphs',
-]);
 
 interface SelectorProps {
   user: User;
@@ -114,7 +107,6 @@ function GroupSection({
             selected={lobby.test_groups.has(value)}
             onToggle={onToggle}
             readonly={readOnly}
-            disabled={!enabledGroups.has(value)}
           />
         ))}
       </div>

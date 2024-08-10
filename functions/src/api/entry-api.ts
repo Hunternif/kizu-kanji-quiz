@@ -1,20 +1,22 @@
 import { open } from 'node:fs/promises';
 import { getAnswerContent, isChoiceAnswer } from '../shared/mode-utils';
 import { RNG } from '../shared/rng';
-import { GameEntry, GameLobby, TestGroup } from '../shared/types';
+import {
+  GameEntry,
+  GameLobby,
+  KanaGroup,
+  KanjiGroup,
+  TestGroup,
+} from '../shared/types';
 import { assertExhaustive } from '../shared/utils';
 
-/** Provides gama data for the each test group. */
-export async function getEntries(group: TestGroup): Promise<Array<GameEntry>> {
+function isKanaGroup(group: TestGroup): group is KanaGroup {
   switch (group) {
     case 'hiragana':
-      return await getHiraganaEntries();
     case 'hiragana_digraphs':
-      return await getHiraganaDigraphEntries();
     case 'katakana':
-      return await getKatakanaEntries();
     case 'katakana_digraphs':
-      return await getKatakanaDigraphEntries();
+      return true;
     case 'kanji_grade_1':
     case 'kanji_grade_2':
     case 'kanji_grade_3':
@@ -27,8 +29,49 @@ export async function getEntries(group: TestGroup): Promise<Array<GameEntry>> {
     case 'kanji_jlpt_3':
     case 'kanji_jlpt_4':
     case 'kanji_jlpt_5':
-      // Not supported
-      return [];
+      return false;
+    default:
+      assertExhaustive(group);
+      return false;
+  }
+}
+
+function isKanjiGroup(group: TestGroup): group is KanjiGroup {
+  switch (group) {
+    case 'hiragana':
+    case 'hiragana_digraphs':
+    case 'katakana':
+    case 'katakana_digraphs':
+      return false;
+    case 'kanji_grade_1':
+    case 'kanji_grade_2':
+    case 'kanji_grade_3':
+    case 'kanji_grade_4':
+    case 'kanji_grade_5':
+    case 'kanji_grade_6':
+    case 'kanji_grade_S':
+    case 'kanji_jlpt_1':
+    case 'kanji_jlpt_2':
+    case 'kanji_jlpt_3':
+    case 'kanji_jlpt_4':
+    case 'kanji_jlpt_5':
+      return true;
+    default:
+      assertExhaustive(group);
+      return false;
+  }
+}
+
+async function getKanaEntries(group: KanaGroup): Promise<Array<GameEntry>> {
+  switch (group) {
+    case 'hiragana':
+      return await getHiraganaEntries();
+    case 'hiragana_digraphs':
+      return await getHiraganaDigraphEntries();
+    case 'katakana':
+      return await getKatakanaEntries();
+    case 'katakana_digraphs':
+      return await getKatakanaDigraphEntries();
     default:
       assertExhaustive(group);
       return [];
@@ -37,50 +80,49 @@ export async function getEntries(group: TestGroup): Promise<Array<GameEntry>> {
 
 /** Prepares entries for game, e.g. randomly sorts them. */
 export async function getEntriesForGame(
-  groups: Iterable<TestGroup>,
+  groups: TestGroup[],
 ): Promise<Array<GameEntry>> {
-  const ret = new Array<GameEntry>();
-  for (const group of groups) {
-    const rng = RNG.fromStrSeedWithTimestamp(group);
-    const entries = await getEntries(group);
-    for (const entry of entries) {
-      entry.random_index = rng.randomInt();
-    }
-    ret.push(...entries);
+  const entries = new Array<GameEntry>();
+  const rng = RNG.fromTimestamp();
+  // kanji should be filtered together, because there are so many:
+  const kanjiGroups = groups.filter(isKanjiGroup);
+  const kanaGroups = groups.filter(isKanaGroup);
+  for (const group of kanaGroups) {
+    entries.push(...(await getKanaEntries(group)));
+  }
+  entries.push(...(await getKanjiEntries(kanjiGroups)));
+  for (const entry of entries) {
+    entry.random_index = rng.randomInt();
   }
   // Sort high to low, highest "random index" goes first:
-  ret.sort((a, b) => b.random_index - a.random_index);
-  return ret;
+  entries.sort((a, b) => b.random_index - a.random_index);
+  return entries;
 }
 
 export async function getHiraganaEntries(): Promise<Array<GameEntry>> {
-  return await getKanaEntries(`${__dirname}/../data/hiragana.txt`, [
-    'hiragana',
-  ]);
+  return await parseKanaFile(`${__dirname}/../data/hiragana.txt`, ['hiragana']);
 }
 
 export async function getHiraganaDigraphEntries(): Promise<Array<GameEntry>> {
-  return await getKanaEntries(`${__dirname}/../data/hiragana_digraphs.txt`, [
+  return await parseKanaFile(`${__dirname}/../data/hiragana_digraphs.txt`, [
     'hiragana_digraphs',
   ]);
 }
 
 export async function getKatakanaEntries(): Promise<Array<GameEntry>> {
-  return await getKanaEntries(`${__dirname}/../data/katakana.txt`, [
-    'katakana',
-  ]);
+  return await parseKanaFile(`${__dirname}/../data/katakana.txt`, ['katakana']);
 }
 
 export async function getKatakanaDigraphEntries(): Promise<Array<GameEntry>> {
-  return await getKanaEntries(`${__dirname}/../data/katakana_digraphs.txt`, [
+  return await parseKanaFile(`${__dirname}/../data/katakana_digraphs.txt`, [
     'katakana_digraphs',
   ]);
 }
 
 /** Parses a Hiragana / Katakana data file. */
-async function getKanaEntries(
+async function parseKanaFile(
   path: string,
-  groups: TestGroup[],
+  groups: KanaGroup[],
 ): Promise<Array<GameEntry>> {
   const entries = new Array<GameEntry>();
   await forEachLineInFile(path, (line) => {
@@ -91,6 +133,80 @@ async function getKanaEntries(
       );
     }
   });
+  return entries;
+}
+
+/** Parsese the kanji file and filters matching entries. */
+export async function getKanjiEntries(
+  groups: KanjiGroup[],
+): Promise<Array<GameEntry>> {
+  return (await parseKanjiFile()).filter((k) =>
+    k.groups.find((g) => groups.find((g2) => g2 == g)),
+  );
+}
+
+/** Parses the kanji file 'jouyou_kanji_eng.txt' */
+export async function parseKanjiFile(): Promise<Array<GameEntry>> {
+  const entries = new Array<GameEntry>();
+  await forEachLineInFile(
+    `${__dirname}/../data/jouyou_kanji_eng.txt`,
+    (line) => {
+      const [kanji, grade, jlpt, kanaReadings, romaji, meanings] =
+        line.split('\t');
+      const groups = new Array<KanjiGroup>();
+      switch (grade) {
+        case '1':
+          groups.push('kanji_grade_1');
+          break;
+        case '2':
+          groups.push('kanji_grade_2');
+          break;
+        case '3':
+          groups.push('kanji_grade_3');
+          break;
+        case '4':
+          groups.push('kanji_grade_4');
+          break;
+        case '5':
+          groups.push('kanji_grade_5');
+          break;
+        case '6':
+          groups.push('kanji_grade_6');
+          break;
+        case 'S':
+          groups.push('kanji_grade_S');
+          break;
+      }
+      switch (jlpt) {
+        case 'N5':
+          groups.push('kanji_jlpt_5');
+          break;
+        case 'N4':
+          groups.push('kanji_jlpt_4');
+          break;
+        case 'N3':
+          groups.push('kanji_jlpt_3');
+          break;
+        case 'N2':
+          groups.push('kanji_jlpt_2');
+          break;
+        case 'N1':
+          groups.push('kanji_jlpt_1');
+          break;
+      }
+      entries.push(
+        new GameEntry(
+          kanji,
+          0,
+          kanji,
+          kanaReadings.split(', '),
+          romaji.split(', '),
+          new Map([['en', meanings.split(', ')]]),
+          groups,
+        ),
+      );
+    },
+  );
   return entries;
 }
 
