@@ -1,8 +1,13 @@
 import { FieldValue } from 'firebase-admin/firestore';
 import { firestore } from '../firebase-server';
 import { entryStatsConverter } from '../shared/firestore-converters';
-import { isChoiceAnswer, isCorrectAnswer, isCorrectResponse } from '../shared/mode-utils';
-import { EntryStats, GameTurn, PlayerResponse } from '../shared/types';
+import { isChoiceAnswer, isCorrectResponse } from '../shared/mode-utils';
+import {
+  EntryStats,
+  GameEntry,
+  GameTurn,
+  PlayerResponse,
+} from '../shared/types';
 import { assertExhaustive } from '../shared/utils';
 
 function getStatsRef(userID: string) {
@@ -33,32 +38,19 @@ export async function getUserStat(
   return (await getStatRef(userID, entryID).get()).data() ?? null;
 }
 
-export async function getOrCreateUserStat(
-  userID: string,
-  entryID: string,
-): Promise<EntryStats> {
-  const stat = await getUserStat(userID, entryID);
-  if (stat) return stat;
-  else {
-    const newStat = { entry_id: entryID };
-    await getStatRef(userID, entryID).set(newStat);
-    return newStat;
-  }
-}
-
 type Counts = { [key: string]: number | undefined };
 type UserStatIncrement = Counts & {
-  [P in keyof Omit<EntryStats, 'entry_id'>]: EntryStats[P];
+  [P in keyof Omit<EntryStats, 'entry_id' | 'groups'>]: EntryStats[P];
 };
 type UpdateData = { [key: string]: FieldValue };
 
 /** Increments user stats with the given increment */
 async function incrementStat(
   userID: string,
-  entryID: string,
+  entry: GameEntry,
   increments: UserStatIncrement,
 ) {
-  const ref = getStatRef(userID, entryID);
+  const ref = getStatRef(userID, entry.id);
   const stat = (await ref.get()).data();
   if (stat) {
     const updateObj: UpdateData = {};
@@ -70,7 +62,7 @@ async function incrementStat(
     }
     await ref.update(updateObj);
   } else {
-    ref.set({ entry_id: entryID, ...increments });
+    ref.set({ entry_id: entry.id, groups: entry.groups, ...increments });
   }
 }
 
@@ -109,7 +101,7 @@ export async function updateUserStats(
       default:
         assertExhaustive(turn.game_mode);
     }
-    await incrementStat(response.player_uid, turn.question.id, statIncrement);
+    await incrementStat(response.player_uid, turn.question, statIncrement);
   } else {
     // TODO: implement stats for other answer modes
   }

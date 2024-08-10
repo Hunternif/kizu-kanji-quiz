@@ -288,6 +288,7 @@ export class QuizUser {
 /** Stats for an individual entry, for an individual player. */
 export type EntryStats = {
   entry_id: string;
+  groups: TestGroup[];
   /** Stat for guessing reading from a kanji / kana / word,
    * given a writing or meaning. */
   reading_wins?: number;

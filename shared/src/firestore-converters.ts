@@ -192,6 +192,7 @@ export const entryStatsConverter: FConverter<EntryStats> = {
     const data = snapshot.data();
     return {
       entry_id: snapshot.id,
+      groups: data.groups ?? [],
       reading_wins: data.reading_wins,
       reading_fails: data.reading_fails,
       meaning_wins: data.meaning_wins,
