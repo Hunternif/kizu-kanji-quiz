@@ -24,7 +24,7 @@ export function GameHeader() {
       {isWide && (
         // On a wide screen, the scoreboard is floating on the left side:
         <div className="floating-sidebar">
-          <div className="scoreboard-container">
+          <div className="ingame-scoreboard-container">
             <header>Standings</header>
             <Scoreboard user={user} players={activePlayers} />
           </div>
