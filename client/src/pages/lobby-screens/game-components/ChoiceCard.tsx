@@ -1,3 +1,5 @@
+import { submitPlayerResponse } from '../../../api/turn/turn-response-api';
+import { useHandler } from '../../../hooks/data-hooks';
 import { getAnswerContent, isCorrectAnswer } from '../../../shared/mode-utils';
 import { GameEntry } from '../../../shared/types';
 import { useGameContext } from './GameContext';
@@ -10,7 +12,8 @@ interface ChoiceProps {
 
 /** Choice card. Players click on it to select their answer. */
 export function ChoiceCard({ entry, onClick }: ChoiceProps) {
-  const { turn, player, isSpectator, responses, language } = useGameContext();
+  const { lobby, turn, player, isSpectator, responses, language } =
+    useGameContext();
   const response = responses.find((r) => r.player_uid === player.uid);
 
   const isPaused = turn.pause === 'paused';
@@ -38,12 +41,17 @@ export function ChoiceCard({ entry, onClick }: ChoiceProps) {
     text.length > 20 ? 'long' : text.length > 4 ? 'medium' : 'short',
   );
 
+  const [handleSubmit] = useHandler(async () => {
+    await submitPlayerResponse(lobby, turn, player, language, entry.id);
+  }, [lobby, turn, player, entry, language]);
+
   return (
     <div
       className={classes.join(' ')}
       onClick={() => {
-        if (onClick && !readOnly) {
-          onClick();
+        if (!readOnly) {
+          if (onClick) onClick();
+          handleSubmit();
         }
       }}
     >

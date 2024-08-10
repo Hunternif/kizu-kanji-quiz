@@ -1,14 +1,9 @@
-import {
-  pingResponse,
-  requestPause,
-  submitPlayerResponse,
-} from '../../api/turn/turn-response-api';
+import { pingResponse, requestPause } from '../../api/turn/turn-response-api';
 import { GameButton } from '../../components/Buttons';
 import { CenteredLayout } from '../../components/layout/CenteredLayout';
 import { HorizontalGroup } from '../../components/layout/VerticalGroup copy';
 import { useHandler1 } from '../../hooks/data-hooks';
-import { isCorrectResponse } from '../../shared/mode-utils';
-import { GameEntry } from '../../shared/types';
+import { isChoiceAnswer, isCorrectResponse } from '../../shared/mode-utils';
 import { throttle4 } from '../../shared/utils';
 import { ChoiceCard } from './game-components/ChoiceCard';
 import { useGameContext } from './game-components/GameContext';
@@ -21,17 +16,10 @@ const throttledPing = throttle4(pingResponse, 1000);
 
 /** Game screen with a question and multiple choices of answers. */
 export function QuestionScreen() {
-  const { lobby, turn, player, responses, language, isSpectator } =
+  const { lobby, turn, player, responses, isSpectator } =
     useGameContext();
   const response = responses.find((r) => r.player_uid === player.uid);
   const isPaused = turn.pause === 'paused';
-
-  const [handleSelect] = useHandler1(
-    async (entry: GameEntry) => {
-      await submitPlayerResponse(lobby, turn, player, language, entry.id);
-    },
-    [lobby, turn, player, language],
-  );
 
   /** Notifies the server that this player is ready for the next phase.
    * @param skip if true, will mark this response as skipped. */
@@ -51,6 +39,7 @@ export function QuestionScreen() {
     [lobby, turn, player],
   );
 
+  const showChoices = isChoiceAnswer(turn.answer_mode);
   const isReveal = turn.phase === 'reveal';
   const isSkipped = isReveal && response?.answer_entry_id == null;
   const isCorrect = isReveal && response && isCorrectResponse(turn, response);
@@ -86,11 +75,13 @@ export function QuestionScreen() {
         </div>
         <QuestionCard />
       </div>
-      <div className="choices">
-        {turn.choices?.map((c) => (
-          <ChoiceCard key={c.id} entry={c} onClick={() => handleSelect(c)} />
-        ))}
-      </div>
+      {showChoices && (
+        <div className="choices">
+          {turn.choices?.map((c) => (
+            <ChoiceCard key={c.id} entry={c} />
+          ))}
+        </div>
+      )}
       <br />
       {!isSpectator && (
         <HorizontalGroup className="control-button-group">
