@@ -1,4 +1,7 @@
-import { isCorrectAnswer, isCorrectResponse } from '../../shared/mode-utils';
+import {
+  isCorrectChoiceAnswer,
+  isCorrectResponse,
+} from '../../shared/mode-utils';
 import { GameTurn, PlayerResponse } from '../../shared/types';
 import { getHiraganaEntries, getKatakanaEntries } from '../entry-api';
 
@@ -74,11 +77,11 @@ test('check answer correctness, when answers match', async () => {
   );
 
   // Non-existent answer:
-  expect(isCorrectAnswer(turn, hiragana[0], 'en')).toBe(false);
+  expect(isCorrectChoiceAnswer(turn, hiragana[0], 'en')).toBe(false);
   // Valid hiragana answwer:
-  expect(isCorrectAnswer(turn, hiragana[10], 'en')).toBe(true);
+  expect(isCorrectChoiceAnswer(turn, hiragana[10], 'en')).toBe(true);
   // Valid katakana answer:
-  expect(isCorrectAnswer(turn, katakana[10], 'en')).toBe(true);
+  expect(isCorrectChoiceAnswer(turn, katakana[10], 'en')).toBe(true);
   // Incorrect choice answer:
-  expect(isCorrectAnswer(turn, hiragana[24], 'en')).toBe(false);
+  expect(isCorrectChoiceAnswer(turn, hiragana[24], 'en')).toBe(false);
 });

@@ -98,9 +98,6 @@ export class GameEntry {
   }
 }
 
-/** String to use when a piece of data is missing. */
-export const noData: string = '@@nodata';
-
 /** Overall game mode */
 export type GameMode =
   | 'writing_to_reading'

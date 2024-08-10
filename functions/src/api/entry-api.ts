@@ -256,7 +256,7 @@ export function selectQuestion(
       lobby.settings.answer_mode,
       lobby.settings.game_mode,
       'en',
-    ),
+    ).join(', '),
   );
   const choices = new Array<GameEntry>();
   const targetCount = Math.max(
@@ -273,7 +273,7 @@ export function selectQuestion(
       lobby.settings.answer_mode,
       lobby.settings.game_mode,
       'en',
-    );
+    ).join(', ');
     if (choiceSet.has(choice) || choiceContentSet.has(choiceContent)) {
       retryCounter++;
       if (retryCounter >= 20) break;

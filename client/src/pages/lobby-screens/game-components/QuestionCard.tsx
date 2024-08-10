@@ -17,7 +17,7 @@ export function QuestionCard({}: QuestionProps) {
     turn.question_mode,
     turn.game_mode,
     language,
-  );
+  ).join(', ');
   classes.push(
     text.length > 20 ? 'long' : text.length > 3 ? 'medium' : 'short',
   );

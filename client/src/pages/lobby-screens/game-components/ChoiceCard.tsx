@@ -1,6 +1,9 @@
 import { submitPlayerResponse } from '../../../api/turn/turn-response-api';
 import { useHandler } from '../../../hooks/data-hooks';
-import { getAnswerContent, isCorrectAnswer } from '../../../shared/mode-utils';
+import {
+  getAnswerContent,
+  isCorrectChoiceAnswer,
+} from '../../../shared/mode-utils';
 import { GameEntry } from '../../../shared/types';
 import { useGameContext } from './GameContext';
 import { JapText } from './JapText';
@@ -18,7 +21,7 @@ export function ChoiceCard({ entry, onClick }: ChoiceProps) {
 
   const isPaused = turn.pause === 'paused';
   const readOnly = isSpectator || turn.phase !== 'answering' || isPaused;
-  const isCorrect = isCorrectAnswer(turn, entry, language);
+  const isCorrect = isCorrectChoiceAnswer(turn, entry, language);
   const isSelected = response?.answer_entry_id === entry.id;
   const isReveal = turn.phase === 'reveal';
 
@@ -36,7 +39,7 @@ export function ChoiceCard({ entry, onClick }: ChoiceProps) {
     turn.answer_mode,
     turn.game_mode,
     language,
-  );
+  ).join(', ');
   classes.push(
     text.length > 20 ? 'long' : text.length > 4 ? 'medium' : 'short',
   );
