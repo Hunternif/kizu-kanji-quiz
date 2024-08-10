@@ -1,7 +1,7 @@
 import { open } from 'node:fs/promises';
 import { isChoiceAnswer } from '../shared/mode-utils';
 import { RNG } from '../shared/rng';
-import { GameEntry, GameLobby, TestGroup } from '../shared/types';
+import { GameEntry, GameLobby, GameTurn, PlayerResponse, TestGroup } from '../shared/types';
 import { assertExhaustive } from '../shared/utils';
 
 /** Provides gama data for the each test group. */
@@ -10,8 +10,11 @@ export async function getEntries(group: TestGroup): Promise<Array<GameEntry>> {
     case 'hiragana':
       return await getHiraganaEntries();
     case 'hiragana_digraphs':
+      return await getHiraganaDigraphEntries();
     case 'katakana':
+      return await getKatakanaEntries();
     case 'katakana_digraphs':
+      return await getKatakanaDigraphEntries();
     case 'kanji_grade_1':
     case 'kanji_grade_2':
     case 'kanji_grade_3':
@@ -51,16 +54,45 @@ export async function getEntriesForGame(
 }
 
 export async function getHiraganaEntries(): Promise<Array<GameEntry>> {
-  // From https://stackoverflow.com/a/74322357/1093712
-  const file = await open(`${__dirname}/../data/hiragana.txt`);
+  return await getKanaEntries(`${__dirname}/../data/hiragana.txt`);
+}
+
+export async function getHiraganaDigraphEntries(): Promise<Array<GameEntry>> {
+  return await getKanaEntries(`${__dirname}/../data/hiragana_digraphs.txt`);
+}
+
+export async function getKatakanaEntries(): Promise<Array<GameEntry>> {
+  return await getKanaEntries(`${__dirname}/../data/katakana.txt`);
+}
+
+export async function getKatakanaDigraphEntries(): Promise<Array<GameEntry>> {
+  return await getKanaEntries(`${__dirname}/../data/katakana_digraphs.txt`);
+}
+
+/** Parses a Hiragana / Katakana data file. */
+async function getKanaEntries(path: string): Promise<Array<GameEntry>> {
   const entries = new Array<GameEntry>();
-  for await (const line of file.readLines()) {
+  await forEachLineInFile(path, (line) => {
     const [kana, reading] = line.split(' ');
     if (kana && reading) {
       entries.push(new GameEntry(kana, 0, kana, kana, reading, new Map()));
     }
-  }
+  });
   return entries;
+}
+
+/** Reads a text file line by line and calls the callback on each line. */
+async function forEachLineInFile(
+  path: string,
+  callback: (line: string, index: number) => void,
+) {
+  // From https://stackoverflow.com/a/74322357/1093712
+  const file = await open(path);
+  let i = 0;
+  for await (const line of file.readLines()) {
+    callback(line, i);
+    i++;
+  }
 }
 
 /**

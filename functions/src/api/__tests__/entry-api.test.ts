@@ -1,6 +1,12 @@
 import { RNG } from '../../shared/rng';
 import { defaultLobbySettings, GameEntry, GameLobby } from '../../shared/types';
-import { getHiraganaEntries, selectQuestion } from '../entry-api';
+import {
+  getHiraganaDigraphEntries,
+  getHiraganaEntries,
+  getKatakanaDigraphEntries,
+  getKatakanaEntries,
+  selectQuestion,
+} from '../entry-api';
 
 test('parse Hiragana', async () => {
   const hiragana = await getHiraganaEntries();
@@ -11,6 +17,33 @@ test('parse Hiragana', async () => {
   expect(hiragana[1].reading_romaji).toBe('i');
   expect(hiragana[72].writing).toBe('ん');
   expect(hiragana[72].reading_romaji).toBe('n');
+});
+
+test('parse Hiragana digraphs', async () => {
+  const hiragana = await getHiraganaDigraphEntries();
+  expect(hiragana.length).toBe(33);
+  expect(hiragana[0].writing).toBe('きゃ');
+  expect(hiragana[0].reading_romaji).toBe('kya');
+  expect(hiragana[32].writing).toBe('りょ');
+  expect(hiragana[32].reading_romaji).toBe('ryo');
+});
+
+test('parse Katakana', async () => {
+  const hiragana = await getKatakanaEntries();
+  expect(hiragana.length).toBe(74);
+  expect(hiragana[0].writing).toBe('ア');
+  expect(hiragana[0].reading_romaji).toBe('a');
+  expect(hiragana[73].writing).toBe('ヴ');
+  expect(hiragana[73].reading_romaji).toBe('vu');
+});
+
+test('parse Katakana digraphs', async () => {
+  const hiragana = await getKatakanaDigraphEntries();
+  expect(hiragana.length).toBe(33);
+  expect(hiragana[0].writing).toBe('キャ');
+  expect(hiragana[0].reading_romaji).toBe('kya');
+  expect(hiragana[32].writing).toBe('リョ');
+  expect(hiragana[32].reading_romaji).toBe('ryo');
 });
 
 test('select question and choices', () => {

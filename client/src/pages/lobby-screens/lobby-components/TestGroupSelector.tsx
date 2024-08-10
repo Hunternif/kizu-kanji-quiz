@@ -1,4 +1,6 @@
 import { User } from 'firebase/auth';
+import { updateLobby } from '../../../api/lobby/lobby-repository';
+import { useHandler2 } from '../../../hooks/data-hooks';
 import {
   GameLobby,
   KanaGroup,
@@ -6,8 +8,6 @@ import {
   KanjiJlptLevel,
   TestGroup,
 } from '../../../shared/types';
-import { useHandler2 } from '../../../hooks/data-hooks';
-import { updateLobby } from '../../../api/lobby/lobby-repository';
 
 const kanaGroups: Array<[KanaGroup, string, string]> = [
   ['hiragana', 'あ', '73 Hiragana'],
@@ -32,7 +32,12 @@ const kanjiGradeGroups: Array<[KanjiGrade, string, string]> = [
   ['kanji_grade_S', 'Secondary school', '1110 kanji'],
 ];
 
-const enabledGroups = new Set<TestGroup>(['hiragana']);
+const enabledGroups = new Set<TestGroup>([
+  'hiragana',
+  'hiragana_digraphs',
+  'katakana',
+  'katakana_digraphs',
+]);
 
 interface SelectorProps {
   user: User;
