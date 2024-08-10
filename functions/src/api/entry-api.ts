@@ -1,7 +1,7 @@
 import { open } from 'node:fs/promises';
 import { isChoiceAnswer } from '../shared/mode-utils';
 import { RNG } from '../shared/rng';
-import { GameEntry, GameLobby, GameTurn, PlayerResponse, TestGroup } from '../shared/types';
+import { GameEntry, GameLobby, TestGroup } from '../shared/types';
 import { assertExhaustive } from '../shared/utils';
 
 /** Provides gama data for the each test group. */

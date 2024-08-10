@@ -7,6 +7,7 @@ import { GameButton } from '../../components/Buttons';
 import { CenteredLayout } from '../../components/layout/CenteredLayout';
 import { HorizontalGroup } from '../../components/layout/VerticalGroup copy';
 import { useHandler1 } from '../../hooks/data-hooks';
+import { isCorrectAnswer } from '../../shared/mode-utils';
 import { GameEntry } from '../../shared/types';
 import { throttle4 } from '../../shared/utils';
 import { ChoiceCard } from './game-components/ChoiceCard';
@@ -51,7 +52,7 @@ export function QuestionScreen() {
 
   const isReveal = turn.phase === 'reveal';
   const isSkipped = isReveal && response?.answer_entry_id == null;
-  const isCorrect = isReveal && turn.question.id === response?.answer_entry_id;
+  const isCorrect = isReveal && response && isCorrectAnswer(turn, response);
   const isIncorrect = isReveal && !isSkipped && !isCorrect;
 
   const rootClasses = ['question-screen'];

@@ -1,7 +1,7 @@
 import { FieldValue } from 'firebase-admin/firestore';
 import { firestore } from '../firebase-server';
 import { entryStatsConverter } from '../shared/firestore-converters';
-import { isChoiceAnswer } from '../shared/mode-utils';
+import { isChoiceAnswer, isCorrectAnswer } from '../shared/mode-utils';
 import { EntryStats, GameTurn, PlayerResponse } from '../shared/types';
 import { assertExhaustive } from '../shared/utils';
 
@@ -84,7 +84,7 @@ export async function updateUserStats(
 ) {
   const statIncrement: UserStatIncrement = {};
   if (isChoiceAnswer(turn.answer_mode)) {
-    const isWin = response.answer_entry_id === turn.question.id;
+    const isWin = isCorrectAnswer(turn, response);
     const isFail = response.answer_entry_id !== undefined && !isWin;
     switch (turn.game_mode) {
       case 'writing_to_reading':

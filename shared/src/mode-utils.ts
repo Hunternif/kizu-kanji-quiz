@@ -2,8 +2,10 @@ import {
   AnswerMode,
   GameEntry,
   GameMode,
+  GameTurn,
   Language,
   noData,
+  PlayerResponse,
   QuestionMode,
 } from './types';
 import { assertExhaustive } from './utils';
@@ -183,5 +185,38 @@ function getKanaAnswerContent(kanaEntry: GameEntry, gameMode: GameMode) {
     default:
       assertExhaustive(gameMode);
       return noData;
+  }
+}
+
+/**
+ * Checks if the answer is correct. Handles edge cases,
+ * e.g. identical reading from the wrong word.
+ */
+export function isCorrectAnswer(
+  turn: GameTurn,
+  response: PlayerResponse,
+): boolean {
+  const userAnswer = turn.choices?.find(
+    (c) => c.id === response.answer_entry_id,
+  );
+  if (!userAnswer) return false;
+  if (isChoiceAnswer(turn.answer_mode)) {
+    // Compare question to answer, based on what they look like "as a question":
+    const questionContent = getQuestionContent(
+      turn.question,
+      turn.question_mode,
+      turn.game_mode,
+      response.language ?? 'english',
+    );
+    const userAnswerQuestionContent = getQuestionContent(
+      userAnswer,
+      turn.question_mode,
+      turn.game_mode,
+      response.language ?? 'english',
+    );
+    return questionContent == userAnswerQuestionContent;
+  } else {
+    // TODO: implement other answer modes
+    return false;
   }
 }
