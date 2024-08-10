@@ -5,6 +5,7 @@ import {
 } from '../../api/turn/turn-response-api';
 import { GameButton } from '../../components/Buttons';
 import { CenteredLayout } from '../../components/layout/CenteredLayout';
+import { HorizontalGroup } from '../../components/layout/VerticalGroup copy';
 import { useHandler1 } from '../../hooks/data-hooks';
 import { GameEntry } from '../../shared/types';
 import { throttle4 } from '../../shared/utils';
@@ -91,22 +92,27 @@ export function QuestionScreen() {
         ))}
       </div>
       <br />
-      {isTimerEnabled && (
-        <GameButton
-          secondary={!isPaused}
-          loading={pausing}
-          onClick={() => handlePause(!isPaused)}
-        >
-          {isPaused ? 'Resume' : 'Pause'}
-        </GameButton>
-      )}
-      {showContinue ? (
-        <GameButton onClick={() => signalNextPhase(true)}>Continue</GameButton>
-      ) : (
-        showSkip && (
-          <GameButton onClick={() => signalNextPhase(true)}>Skip</GameButton>
-        )
-      )}
+      <HorizontalGroup>
+        {isTimerEnabled ||
+          (isPaused && (
+            <GameButton
+              secondary={!isPaused}
+              loading={pausing}
+              onClick={() => handlePause(!isPaused)}
+            >
+              {isPaused ? 'Resume' : 'Pause'}
+            </GameButton>
+          ))}
+        {showContinue ? (
+          <GameButton onClick={() => signalNextPhase(true)}>
+            Continue
+          </GameButton>
+        ) : (
+          showSkip && (
+            <GameButton onClick={() => signalNextPhase(true)}>Skip</GameButton>
+          )
+        )}
+      </HorizontalGroup>
     </CenteredLayout>
   );
 }
