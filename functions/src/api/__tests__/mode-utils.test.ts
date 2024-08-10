@@ -2,7 +2,7 @@ import {
   isCorrectChoiceAnswer,
   isCorrectResponse,
 } from '../../shared/mode-utils';
-import { GameTurn, PlayerResponse } from '../../shared/types';
+import { GameEntry, GameTurn, PlayerResponse } from '../../shared/types';
 import { getHiraganaEntries, getKatakanaEntries } from '../entry-api';
 
 test('check answer correctness, when questions match', async () => {
@@ -21,43 +21,14 @@ test('check answer correctness, when questions match', async () => {
     [hiragana[2], katakana[2], hiragana[20]],
   );
 
-  const response1 = new PlayerResponse(
-    'player_1',
-    'Tsukasa',
-    new Date(),
-    'en',
-    // 'あ' - non-existent answer
-    hiragana[0].id,
-  );
-  const response2 = new PlayerResponse(
-    'player_2',
-    'Kagamin',
-    new Date(),
-    'en',
-    // 'う' - valid hiragana answwer
-    hiragana[2].id,
-  );
-  const response3 = new PlayerResponse(
-    'player_3',
-    'Miyuki-san',
-    new Date(),
-    'en',
-    // 'ウ' - valid katakana answer
-    katakana[2].id,
-  );
-  const response4 = new PlayerResponse(
-    'player_4',
-    'konata',
-    new Date(),
-    'en',
-    // 'そ' - incorrect choice answer
-    hiragana[20].id,
-  );
-
-  expect(isCorrectResponse(turn, response1)).toBe(false);
-  expect(isCorrectResponse(turn, response2)).toBe(true);
-  expect(isCorrectResponse(turn, response3)).toBe(true);
-  expect(isCorrectResponse(turn, response4)).toBe(false);
+  // 'あ' - non-existent answer:
+  expect(isCorrectResponse(turn, choiceResponse(hiragana[0].id))).toBe(false);
+  // 'う' - valid hiragana answer:
+  expect(isCorrectResponse(turn, choiceResponse(hiragana[2].id))).toBe(true);
+  // 'ウ' - valid katakana answer:
+  expect(isCorrectResponse(turn, choiceResponse(katakana[2].id))).toBe(true);
+  // 'そ' - incorrect choice answer:
+  expect(isCorrectResponse(turn, choiceResponse(hiragana[20].id))).toBe(false);
 });
 
 test('check answer correctness, when answers match', async () => {
@@ -78,10 +49,60 @@ test('check answer correctness, when answers match', async () => {
 
   // Non-existent answer:
   expect(isCorrectChoiceAnswer(turn, hiragana[0], 'en')).toBe(false);
-  // Valid hiragana answwer:
+  // Valid hiragana answer:
   expect(isCorrectChoiceAnswer(turn, hiragana[10], 'en')).toBe(true);
   // Valid katakana answer:
   expect(isCorrectChoiceAnswer(turn, katakana[10], 'en')).toBe(true);
   // Incorrect choice answer:
   expect(isCorrectChoiceAnswer(turn, hiragana[24], 'en')).toBe(false);
 });
+
+test('check text answer', async () => {
+  const question = new GameEntry(
+    '0001',
+    0,
+    '山',
+    ['サン', 'やま'],
+    ['san', 'yama'],
+    new Map([['en', ['mountain', 'mount']]]),
+    ['kanji_grade_1'],
+  );
+  const turn = new GameTurn(
+    'turn_02',
+    2,
+    new Date(),
+    'writing_to_reading',
+    'kanji',
+    'type_romaji',
+    question,
+  );
+
+  turn.answer_mode = 'type_romaji';
+  // Non-existent romaji answer:
+  expect(isCorrectResponse(turn, typedResponse('12345'))).toBe(false);
+  // Valid romaji answers:
+  expect(isCorrectResponse(turn, typedResponse('san'))).toBe(true);
+  expect(isCorrectResponse(turn, typedResponse('yama'))).toBe(true);
+
+  turn.answer_mode = 'type_meaning';
+  // Non-existent romaji answer:
+  expect(isCorrectResponse(turn, typedResponse('what'))).toBe(false);
+  // Valid romaji answers:
+  expect(isCorrectResponse(turn, typedResponse('mountain'))).toBe(true);
+  expect(isCorrectResponse(turn, typedResponse('mount'))).toBe(true);
+});
+
+function choiceResponse(entryID: string) {
+  return new PlayerResponse('player_1', 'Chooser', new Date(), 'en', entryID);
+}
+
+function typedResponse(text: string) {
+  return new PlayerResponse(
+    'player_2',
+    'Typer',
+    new Date(),
+    'en',
+    undefined,
+    text,
+  );
+}

@@ -160,9 +160,12 @@ export function getAnswerContent(
       }
       return getMeaning(entry, language);
     case 'type_romaji':
+      return entry.readings_romaji;
     case 'type_meaning':
+      return getMeaning(entry, language);
     case 'draw_hiragana':
     case 'draw_kanji':
+      // Unsupported mode.
       // This should happen rarely.
       // E.g. we are requesting choices for a question that expects typing.
       // This can be used if the user changes the answer mode mid-round:
@@ -234,18 +237,21 @@ export function isCorrectResponse(
   response: PlayerResponse,
 ): boolean {
   const language = response.language ?? 'en';
+  const userChoice = turn.choices?.find(
+    (c) => c.id === response.answer_entry_id,
+  );
+  const userText = response.answer_typed;
   switch (turn.answer_mode) {
     case 'choose_kanji':
     case 'choose_hiragana':
     case 'choose_romaji':
     case 'choose_meaning':
-      const userAnswer = turn.choices?.find(
-        (c) => c.id === response.answer_entry_id,
-      );
-      if (!userAnswer) return false;
-      return isCorrectChoiceAnswer(turn, userAnswer, language);
+      if (userChoice == null) return false;
+      return isCorrectChoiceAnswer(turn, userChoice, language);
     case 'type_romaji':
     case 'type_meaning':
+      if (userText == null) return false;
+      return isCorrectTypedAnswer(turn, userText, language);
     case 'draw_hiragana':
     case 'draw_kanji':
       // TODO: implement other answer modes
@@ -256,10 +262,6 @@ export function isCorrectResponse(
   }
 }
 
-/**
- * Checks if the answer is correct. Handles edge cases,
- * e.g. identical reading from the wrong word.
- */
 export function isCorrectChoiceAnswer(
   turn: GameTurn,
   answer: GameEntry,
@@ -295,4 +297,19 @@ export function isCorrectChoiceAnswer(
     questionContent == userAnswerQuestionContent ||
     trueAnswerContent == userAnswerContent
   );
+}
+
+function isCorrectTypedAnswer(
+  turn: GameTurn,
+  text: string,
+  language: Language,
+): boolean {
+  // Compare question to answer:
+  const trueAnswerContent = getAnswerContent(
+    turn.question,
+    turn.answer_mode,
+    turn.game_mode,
+    language,
+  );
+  return trueAnswerContent.find((t) => t == text) != null;
 }

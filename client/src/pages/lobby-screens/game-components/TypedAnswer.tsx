@@ -19,7 +19,7 @@ export function TypedAnswer({ disabled }: Props) {
   const response = responses.find((r) => r.player_uid === player.uid);
 
   const isReveal = turn.phase === 'reveal';
-  const isSkipped = isReveal && response?.answer_entry_id == null;
+  const isSkipped = isReveal && response?.answer_typed == null;
   const isCorrect = isReveal && response && isCorrectResponse(turn, response);
   const isIncorrect = isReveal && !isSkipped && !isCorrect;
   const isTimerEnabled =
