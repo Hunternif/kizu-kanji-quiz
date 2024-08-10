@@ -21,7 +21,8 @@ const throttledPing = throttle4(pingResponse, 1000);
 
 /** Game screen with a question and multiple choices of answers. */
 export function QuestionScreen() {
-  const { lobby, turn, player, responses, language } = useGameContext();
+  const { lobby, turn, player, responses, language, isSpectator } =
+    useGameContext();
   const response = responses.find((r) => r.player_uid === player.uid);
   const isPaused = turn.pause === 'paused';
 
@@ -92,29 +93,31 @@ export function QuestionScreen() {
         ))}
       </div>
       <br />
-      <HorizontalGroup className="control-button-group">
-        {isTimerEnabled ||
-          (isPaused && (
-            <GameButton
-              secondary={!isPaused}
-              loading={pausing}
-              onClick={() => handlePause(!isPaused)}
-            >
-              {isPaused ? 'Resume' : 'Pause'}
+      {!isSpectator && (
+        <HorizontalGroup className="control-button-group">
+          {isTimerEnabled ||
+            (isPaused && (
+              <GameButton
+                secondary={!isPaused}
+                loading={pausing}
+                onClick={() => handlePause(!isPaused)}
+              >
+                {isPaused ? 'Resume' : 'Pause'}
+              </GameButton>
+            ))}
+          {showContinue ? (
+            <GameButton onClick={() => signalNextPhase(true)}>
+              Continue
             </GameButton>
-          ))}
-        {showContinue ? (
-          <GameButton onClick={() => signalNextPhase(true)}>
-            Continue
-          </GameButton>
-        ) : (
-          showSkip && (
-            <GameButton secondary onClick={() => signalNextPhase(true)}>
-              Skip
-            </GameButton>
-          )
-        )}
-      </HorizontalGroup>
+          ) : (
+            showSkip && (
+              <GameButton secondary onClick={() => signalNextPhase(true)}>
+                Skip
+              </GameButton>
+            )
+          )}
+        </HorizontalGroup>
+      )}
     </CenteredLayout>
   );
 }
