@@ -4,7 +4,12 @@ import { useAllPlayerResponses, useLastTurn } from '../../api/turn/turn-hooks';
 import { ErrorContext } from '../../components/ErrorContext';
 import { FillLayout } from '../../components/layout/FillLayout';
 import { LoadingSpinner } from '../../components/LoadingSpinner';
-import { GameLobby, GameTurn, PlayerInLobby } from '../../shared/types';
+import {
+  GameLobby,
+  GameTurn,
+  PlayerInLobby,
+  QuizUser,
+} from '../../shared/types';
 import { assertExhaustive } from '../../shared/utils';
 import { GameContext, GameContextState } from './game-components/GameContext';
 import { GameHeader } from './game-components/header/GameHeader';
@@ -13,6 +18,7 @@ import { QuestionScreen } from './QuestionScreen';
 interface ScreenProps {
   lobby: GameLobby;
   user: User;
+  quizUser: QuizUser;
   players: PlayerInLobby[];
 }
 
@@ -22,7 +28,7 @@ const gameContainerStyle: CSSProperties = {
   overflowY: 'auto',
 };
 
-export function GameScreen({ lobby, user, players }: ScreenProps) {
+export function GameScreen({ lobby, user, quizUser, players }: ScreenProps) {
   const [turn, loadingTurn, error] = useLastTurn(lobby);
   const { setError } = useContext(ErrorContext);
   useEffect(() => {
@@ -37,7 +43,13 @@ export function GameScreen({ lobby, user, players }: ScreenProps) {
       {!turn ? (
         <LoadingSpinner delay text="Waiting for next turn..." />
       ) : (
-        <TurnScreen turn={turn} lobby={lobby} user={user} players={players} />
+        <TurnScreen
+          turn={turn}
+          lobby={lobby}
+          user={user}
+          quizUser={quizUser}
+          players={players}
+        />
       )}
     </FillLayout>
   );
@@ -47,10 +59,11 @@ interface PreTurnProps {
   lobby: GameLobby;
   turn: GameTurn;
   user: User;
+  quizUser: QuizUser;
   players: PlayerInLobby[];
 }
 
-function TurnScreen({ lobby, turn, user, players }: PreTurnProps) {
+function TurnScreen({ lobby, turn, user, quizUser, players }: PreTurnProps) {
   const [responses, loadingResp, error] = useAllPlayerResponses(lobby, turn);
 
   const player = players.find((p) => p.uid === user.uid);
@@ -86,6 +99,7 @@ function TurnScreen({ lobby, turn, user, players }: PreTurnProps) {
 
   const gameState: GameContextState = {
     user,
+    quizUser,
     lobby,
     players,
     activePlayers,

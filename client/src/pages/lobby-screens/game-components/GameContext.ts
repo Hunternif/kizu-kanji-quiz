@@ -6,12 +6,14 @@ import {
   Language,
   PlayerInLobby,
   PlayerResponse,
+  QuizUser,
 } from '../../../shared/types';
 
 /** State of the game in progress. */
 export interface GameContextState {
   // Present throughout the game:
   user: User;
+  quizUser: QuizUser;
   lobby: GameLobby;
   players: PlayerInLobby[];
   /** Players who are currently active, i.e. excluding spectators,

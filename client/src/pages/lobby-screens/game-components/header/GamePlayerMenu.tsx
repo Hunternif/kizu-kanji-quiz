@@ -18,16 +18,24 @@ import { Twemoji } from '../../../../components/Twemoji';
 import { LobbySettings } from '../../../../shared/types';
 import { copyFields } from '../../../../shared/utils';
 import { LobbySettingsPanel } from '../../lobby-components/LobbySettingsPanel';
+import { ProfileModal } from '../../login-components/ProfileModal';
 import { useGameContext } from '../GameContext';
 
 /** Dropdown menu showing player */
 export function GamePlayerMenu() {
   const navigate = useNavigate();
-  const { lobby, player, activePlayers, isSpectator, canControlLobby } =
-    useGameContext();
+  const {
+    quizUser,
+    lobby,
+    player,
+    activePlayers,
+    isSpectator,
+    canControlLobby,
+  } = useGameContext();
   const [showLeaveModal, setShowLeaveModal] = useState(false);
   const [showSettingsModal, setShowSettingsModal] = useState(false);
   const [showEndModal, setShowEndModal] = useState(false);
+  const [showProfileModal, setShowProfileModal] = useState(false);
   const [ending, setEnding] = useState(false);
   const { setError } = useContext(ErrorContext);
 
@@ -130,6 +138,11 @@ export function GamePlayerMenu() {
           onChange={refreshSettings}
         />
       </ConfirmModal>
+      <ProfileModal
+        quizUser={quizUser}
+        show={showProfileModal}
+        onHide={() => setShowProfileModal(false)}
+      />
 
       <Dropdown toggle={<IconHamburger />} toggleClassName="game-menu-icon">
         <DropdownMenu>
@@ -143,6 +156,7 @@ export function GamePlayerMenu() {
               locked={!canJoinAsPlayer}
             />
           )}
+          <MenuItem label="Profile" onClick={() => setShowProfileModal(true)} />
           <MenuItem
             label="Settings"
             onClick={openSettings}

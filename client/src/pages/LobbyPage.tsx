@@ -10,8 +10,9 @@ import { joinLobby } from '../api/lobby/lobby-join-api';
 import { ErrorContext, useErrorContext } from '../components/ErrorContext';
 import { ErrorModal } from '../components/ErrorModal';
 import { LoadingSpinner } from '../components/LoadingSpinner';
-import { useAuthWithPresence } from '../hooks/auth-hooks';
+import { useAuthWithPresence, useQuizUser } from '../hooks/auth-hooks';
 import { useHandler } from '../hooks/data-hooks';
+import { QuizUser } from '../shared/types';
 import { assertExhaustive } from '../shared/utils';
 import { EndgameScreen } from './lobby-screens/EndgameScreen';
 import { GameScreen } from './lobby-screens/GameScreen';
@@ -45,24 +46,30 @@ function LobbyPageThrows() {
   // Double-check that we are logged in.
   // Users who are sent the link will need to log in first.
   const [user, loadingUser] = useAuthWithPresence();
+  const [quizUser, loadingQuizUser] = useQuizUser();
   const lobbyID = useLoaderData() as string;
 
-  if (loadingUser) return <LoadingSpinner delay text="Logging in..." />;
+  if (loadingUser || loadingQuizUser) {
+    return <LoadingSpinner delay text="Logging in..." />;
+  }
 
-  if (!user) {
+  if (!user || !quizUser) {
     return <LoginScreen />;
   }
 
-  return <LoggedInLobbyScreen user={user} lobbyID={lobbyID} />;
+  return (
+    <LoggedInLobbyScreen user={user} quizUser={quizUser} lobbyID={lobbyID} />
+  );
 }
 
 interface LoggedInProps {
   lobbyID: string;
   user: User;
+  quizUser: QuizUser;
 }
 
 /** User logged in, but not necessarily joined the lobby. */
-function LoggedInLobbyScreen({ lobbyID, user }: LoggedInProps) {
+function LoggedInLobbyScreen({ lobbyID, user, quizUser }: LoggedInProps) {
   const [player, loadingPlayer] = usePlayerInLobby(lobbyID, user);
   const [join, joining] = useHandler(() => joinLobby(lobbyID), [lobbyID]);
 
@@ -82,16 +89,19 @@ function LoggedInLobbyScreen({ lobbyID, user }: LoggedInProps) {
     return <RejoinScreen player={player} lobbyID={lobbyID} />;
   }
   // Maybe offer to change user's name before joining:
-  return <JoinedLobbyScreen user={user} lobbyID={lobbyID} />;
+  return (
+    <JoinedLobbyScreen user={user} quizUser={quizUser} lobbyID={lobbyID} />
+  );
 }
 
 interface LoggedInJoinedProps {
   lobbyID: string;
   user: User;
+  quizUser: QuizUser;
 }
 
 /** User logged in AND joined the lobby. */
-function JoinedLobbyScreen({ lobbyID, user }: LoggedInJoinedProps) {
+function JoinedLobbyScreen({ lobbyID, user, quizUser }: LoggedInJoinedProps) {
   const { setError } = useErrorContext();
   const [lobby, loadingLobby, lobbyError] = useLobby(lobbyID);
   const [players, loadingPlayers, playersError] = usePlayers(lobbyID);
@@ -107,7 +117,14 @@ function JoinedLobbyScreen({ lobbyID, user }: LoggedInJoinedProps) {
     case 'starting':
       return <NewLobbyScreen lobby={lobby} user={user} players={players} />;
     case 'in_progress':
-      return <GameScreen lobby={lobby} user={user} players={players} />;
+      return (
+        <GameScreen
+          lobby={lobby}
+          user={user}
+          quizUser={quizUser}
+          players={players}
+        />
+      );
     case 'ended':
       return <EndgameScreen lobby={lobby} user={user} players={players} />;
     default:
