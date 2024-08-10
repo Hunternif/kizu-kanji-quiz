@@ -18,6 +18,10 @@ export function QuestionCard({}: QuestionProps) {
     turn.game_mode,
     language,
   );
+  classes.push(
+    text.length > 20 ? 'long' : text.length > 3 ? 'medium' : 'short',
+  );
+
   return (
     <div className={classes.join(' ')}>
       {isPaused && <div className="pause">Paused</div>}

@@ -34,6 +34,10 @@ export function ChoiceCard({ entry, onClick }: ChoiceProps) {
     turn.game_mode,
     language,
   );
+  classes.push(
+    text.length > 20 ? 'long' : text.length > 4 ? 'medium' : 'short',
+  );
+
   return (
     <div
       className={classes.join(' ')}
