@@ -94,16 +94,15 @@ export function QuestionScreen() {
       <br />
       {!isSpectator && (
         <HorizontalGroup className="control-button-group">
-          {isTimerEnabled ||
-            (isPaused && (
-              <GameButton
-                secondary={!isPaused}
-                loading={pausing}
-                onClick={() => handlePause(!isPaused)}
-              >
-                {isPaused ? 'Resume' : 'Pause'}
-              </GameButton>
-            ))}
+          {(isTimerEnabled || isPaused) && (
+            <GameButton
+              secondary={!isPaused}
+              loading={pausing}
+              onClick={() => handlePause(!isPaused)}
+            >
+              {isPaused ? 'Resume' : 'Pause'}
+            </GameButton>
+          )}
           {showContinue ? (
             // TODO: make 'continue' quorum-based
             <GameButton onClick={() => signalNextPhase(true)}>
