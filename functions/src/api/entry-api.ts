@@ -87,7 +87,7 @@ async function getKanaEntries(
     const [kana, reading] = line.split(' ');
     if (kana && reading) {
       entries.push(
-        new GameEntry(kana, 0, kana, kana, reading, new Map(), groups),
+        new GameEntry(kana, 0, kana, [kana], [reading], new Map(), groups),
       );
     }
   });

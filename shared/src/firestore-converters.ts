@@ -64,21 +64,21 @@ function mapToEntry(data: any): GameEntry {
   const meanings = new Map<Language, string[]>();
   // TODO: make this type-safe:
   // See https://stackoverflow.com/questions/36836011/checking-validity-of-string-literal-union-type-at-runtime
-  for (const key of Object.keys(data.meaning)) {
-    meanings.set(key as Language, data.meaning[key]);
+  for (const key of Object.keys(data.meanings)) {
+    meanings.set(key as Language, data.meanings[key]);
   }
   return new GameEntry(
     data.id,
     data.random_index,
     data.writing,
-    data.reading_hiragana,
-    data.reading_romaji,
+    data.readings_hiragana,
+    data.readings_romaji,
     meanings,
     data.groups ?? [],
   );
 }
 function mapFromEntry(entry: GameEntry): any {
-  return copyFields2(entry, { meaning: mapToObject(entry.meaning) }, [
+  return copyFields2(entry, { meanings: mapToObject(entry.meanings) }, [
     'isKana',
   ]);
 }

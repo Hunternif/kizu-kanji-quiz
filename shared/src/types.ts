@@ -84,25 +84,17 @@ export class GameEntry {
     /** Can be the same as writing */
     public id: string,
     public random_index: number,
-    /** For hiragana, this is the same as reading_hiragana. */
+    /** For hiragana, this is the same as readings_hiragana[0]. */
     public writing: string,
     // TODO: multiple readings: onyomi, kunyomi, variants
-    public reading_hiragana: string,
-    public reading_romaji: string,
+    public readings_hiragana: string[],
+    public readings_romaji: string[],
     /** Maps language to a list of different meanings. */
-    public meaning: Map<Language, string[]>,
+    public meanings: Map<Language, string[]>,
     /** Groups where this entry appears. */
     public groups: TestGroup[],
   ) {
     this.isKana = isKanaOnly(writing);
-  }
-
-  getMeaning(language: Language): string[] {
-    if (this.meaning.size <= 0) return [noData];
-    if (this.meaning.has(language)) {
-      return this.meaning.get(language) ?? [noData];
-    }
-    return [...this.meaning.values()][0] ?? [noData];
   }
 }
 

@@ -100,14 +100,14 @@ export function getQuestionContent(
       if (entry.isKana) {
         return getKanaQuestionContent(entry, gameMode);
       }
-      return entry.reading_hiragana;
+      return entry.readings_hiragana.join(' ');
     case 'romaji':
-      return entry.reading_romaji;
+      return entry.readings_romaji.join(' ');
     case 'meaning':
       if (entry.isKana) {
         return getKanaQuestionContent(entry, gameMode);
       }
-      return entry.getMeaning(language).join(', ');
+      return getMeaning(entry, language).join(', ');
     default:
       assertExhaustive(questionMode);
       return noData;
@@ -131,14 +131,14 @@ export function getAnswerContent(
       if (entry.isKana) {
         return getKanaAnswerContent(entry, gameMode);
       }
-      return entry.reading_hiragana;
+      return entry.readings_hiragana.join(', ');
     case 'choose_romaji':
-      return entry.reading_romaji;
+      return entry.readings_romaji.join(', ');
     case 'choose_meaning':
       if (entry.isKana) {
         return getKanaAnswerContent(entry, gameMode);
       }
-      return entry.getMeaning(language).join(', ');
+      return getMeaning(entry, language).join(', ');
     case 'type_romaji':
     case 'type_meaning':
     case 'draw_hiragana':
@@ -159,7 +159,7 @@ function getKanaQuestionContent(kanaEntry: GameEntry, gameMode: GameMode) {
     case 'reading_to_writing':
     case 'meaning_to_writing':
       // For kana, 'reading' and 'meaning' is always romaji:
-      return kanaEntry.reading_romaji;
+      return kanaEntry.readings_romaji.join(', ');
     case 'writing_to_reading':
     case 'writing_to_meaning':
       return kanaEntry.writing;
@@ -181,11 +181,19 @@ function getKanaAnswerContent(kanaEntry: GameEntry, gameMode: GameMode) {
     case 'writing_to_reading':
     case 'writing_to_meaning':
       // For kana, 'reading' and 'meaning' is always romaji:
-      return kanaEntry.reading_romaji;
+      return kanaEntry.readings_romaji.join(', ');
     default:
       assertExhaustive(gameMode);
       return noData;
   }
+}
+
+function getMeaning(entry: GameEntry, language: Language): string[] {
+  if (entry.meanings.size <= 0) return [noData];
+  if (entry.meanings.has(language)) {
+    return entry.meanings.get(language) ?? [noData];
+  }
+  return [...entry.meanings.values()][0] ?? [noData];
 }
 
 /**
