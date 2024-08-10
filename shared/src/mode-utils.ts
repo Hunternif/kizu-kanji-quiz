@@ -213,10 +213,17 @@ export function isCorrectAnswer(
   language: Language,
 ): boolean {
   if (isChoiceAnswer(turn.answer_mode)) {
-    // Compare question to answer, based on what they look like "as a question":
+    // Compare question to answer, based on what they look like,
+    // as a question and as an answer:
     const questionContent = getQuestionContent(
       turn.question,
       turn.question_mode,
+      turn.game_mode,
+      language,
+    );
+    const trueAnswerContent = getAnswerContent(
+      turn.question,
+      turn.answer_mode,
       turn.game_mode,
       language,
     );
@@ -226,7 +233,16 @@ export function isCorrectAnswer(
       turn.game_mode,
       language,
     );
-    return questionContent == userAnswerQuestionContent;
+    const userAnswerContent = getAnswerContent(
+      answer,
+      turn.answer_mode,
+      turn.game_mode,
+      language,
+    );
+    return (
+      questionContent == userAnswerQuestionContent ||
+      trueAnswerContent == userAnswerContent
+    );
   } else {
     // TODO: implement other answer modes
     return false;

@@ -1,15 +1,15 @@
-import { isCorrectResponse } from '../../shared/mode-utils';
+import { isCorrectAnswer, isCorrectResponse } from '../../shared/mode-utils';
 import { GameTurn, PlayerResponse } from '../../shared/types';
 import { getHiraganaEntries, getKatakanaEntries } from '../entry-api';
 
-test('check answer correctness', async () => {
+test('check answer correctness, when questions match', async () => {
   const hiragana = await getHiraganaEntries();
   const katakana = await getKatakanaEntries();
   const turn = new GameTurn(
     'turn_01',
     1,
     new Date(),
-    'writing_to_reading',
+    'reading_to_writing',
     'romaji',
     'choose_kanji',
     // Question: 'u'
@@ -55,4 +55,30 @@ test('check answer correctness', async () => {
   expect(isCorrectResponse(turn, response2)).toBe(true);
   expect(isCorrectResponse(turn, response3)).toBe(true);
   expect(isCorrectResponse(turn, response4)).toBe(false);
+});
+
+test('check answer correctness, when answers match', async () => {
+  const hiragana = await getHiraganaEntries();
+  const katakana = await getKatakanaEntries();
+  const turn = new GameTurn(
+    'turn_02',
+    2,
+    new Date(),
+    'writing_to_reading',
+    'kanji',
+    'choose_romaji',
+    // Question: 'が'
+    hiragana[10],
+    // Answers: 'ga', 'ga', 'zo'
+    [hiragana[10], katakana[10], hiragana[24]],
+  );
+
+  // Non-existent answer:
+  expect(isCorrectAnswer(turn, hiragana[0], 'english')).toBe(false);
+  // Valid hiragana answwer:
+  expect(isCorrectAnswer(turn, hiragana[10], 'english')).toBe(true);
+  // Valid katakana answer:
+  expect(isCorrectAnswer(turn, katakana[10], 'english')).toBe(true);
+  // Incorrect choice answer:
+  expect(isCorrectAnswer(turn, hiragana[24], 'english')).toBe(false);
 });
