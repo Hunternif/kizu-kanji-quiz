@@ -325,7 +325,7 @@ export async function createLobbyAsCopy(
     (p) => p.status === 'online',
   );
   const newPlayers = players.map(
-    (p) => new PlayerInLobby(p.uid, p.name, p.role, p.status, p.wins),
+    (p) => new PlayerInLobby(p.uid, p.name, p.role, p.status, 0),
   );
   const newPlayersRef = getPlayersRef(newLobby.id);
   // If tracking users' lobbies, could update it here.
