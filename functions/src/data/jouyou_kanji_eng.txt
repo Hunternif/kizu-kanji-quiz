@@ -1,205 +1,1098 @@
-亜	S	N1	ア	a	sub-, Asia
-哀	S	N1	アイ, あわれ, あわれむ	ai, aware, awaremu	pathetic
-挨	S		アイ	ai	push open
-愛	4	N3	アイ	ai	love, affection, favourite
-曖	S		アイ	ai	not clear
+一	1	N5	イチ, イツ, ひと, ひとつ	ichi, itsu, hito, hitotsu	one
+二	1	N5	ニ, ふた, ふたつ	ni, futa, futatsu	two
+三	1	N5	サン, み, みつ, みっつ	san, mi, mitsu, mittsu	three
+四	1	N5	シ, よ, よつ, よっつ, よん	shi, yo, yotsu, yottsu, yon	four
+五	1	N5	ゴ, いつ, いつつ	go, itsu, itsutsu	five
+六	1	N5	ロク, む, むつ, むっつ, （むい）	roku, mu, mutsu, muttsu, (mui)	six
+七	1	N5	シチ, なな, ななつ, （なの）	shichi, nana, nanatsu, (nano)	seven
+八	1	N5	ハチ, や, やつ, やっつ, （よう）	hachi, ya, yatsu, yattsu, (you)	eight
+九	1	N5	キュウ, ク, ここの, ここのつ	kyuu, ku, kokono, kokonotsu	nine
+十	1	N5	ジュウ, ジッ, とお, と	juu, ji', too, to	ten
+人	1	N5	ジン, ニン, ひと	jin, nin, hito	person
+口	1	N4	コウ, ク, くち	kou, ku, kuchi	mouth
+山	1	N5	サン, やま	san, yama	mountain
+月	1	N5	ゲツ, ガツ, つき	getsu, gatsu, tsuki	month, moon
+小	1	N5	ショウ, ちいさい, こ, お	shou, chiisai, ko, o	little, small
+力	1	N4	リョク, リキ, ちから	ryoku, riki, chikara	power, strong, strain, bear up, exert
+子	1	N5	シ, ス, こ	shi, su, ko	child, sign of the rat, 11PM-1AM, first sign of Chinese zodiac
+右	1	N5	ウ, ユウ, みぎ	u, yuu, migi	right
+日	1	N5	ニチ, ジツ, ひ, か	nichi, jitsu, hi, ka	day, sun, Japan
+目	1	N4	モク, （ボク）, め, （ま）	moku, (boku), me, (ma)	eye, class, look, insight, experience, care, favor
+雨	1	N5	ウ, あめ, （あま）	u, ame, (ama)	rain
+円	1	N5	エン, まるい	en, marui	circle, yen, round
+王	1	N3	オウ	ou	king, rule, magnate
+音	1	N4	オン, イン, おと, ね	on, in, oto, ne	sound, noise
+下	1	N5	カ, ゲ, した, しも, もと, さげる, さがる, くだる, くだす, くださる, おろす, おりる	ka, ge, shita, shimo, moto, sageru, sagaru, kudaru, kudasu, kudasaru, orosu, oriru	below, down, descend, give, low, inferior
+火	1	N5	カ, ひ, （ほ）	ka, hi, (ho)	fire
+花	1	N4	カ, はな	ka, hana	flower
+貝	1	N2	かい	kai	shellfish
+学	1	N5	ガク, まなぶ	gaku, manabu	study, learning, science
+気	1	N5	キ, ケ	ki, ke	spirit, mind
+休	1	N5	キュウ, やすむ, やすまる, やすめる	kyuu, yasumu, yasumaru, yasumeru	rest, day off, retire, sleep
+玉	1	N2	ギョク, たま	gyoku, tama	jewel, ball
+金	1	N5	キン, コン, かね, （かな）	kin, kon, kane, (kana)	gold
+空	1	N4	クウ, そら, あく, あける, から	kuu, sora, aku, akeru, kara	empty, sky, void, vacant, vacuum
+犬	1	N4	ケン, いぬ	ken, inu	dog
+見	1	N5	ケン, みる, みえる, みせる	ken, miru, mieru, miseru	see, hopes, chances, idea, opinion, look at, visible
+校	1	N5	コウ	kou	exam, school, printing, proof, correction
+左	1	N5	サ, ひだり	sa, hidari	left
+糸	1	N2	シ, いと	shi, ito	thread
+字	1	N4	ジ, あざ	ji, aza	character, letter, word, section of village
+耳	1	N3	ジ, みみ	ji, mimi	ear
+車	1	N5	シャ, くるま	sha, kuruma	car
+手	1	N4	シュ, て, （た）	shu, te, (ta)	hand
+出	1	N5	シュツ, （スイ）, でる, だす	shutsu, (sui), deru, dasu	exit, leave
+女	1	N5	ジョ, ニョ, （ニョウ）, おんな, め	jo, nyo, (nyou), onna, me	woman, female
+上	1	N5	ジョウ, （ショウ）, うえ, （うわ）, かみ, あげる, あがる, のぼる, のぼせる, のぼす	jou, (shou), ue, (uwa), kami, ageru, agaru, noboru, noboseru, nobosu	above, up
+森	1	N2	シン, もり	shin, mori	forest, woods
+水	1	N5	スイ, みず	sui, mizu	water
+正	1	N4	セイ, ショウ, ただしい, ただす, まさ	sei, shou, tadashii, tadasu, masa	correct, justice, righteous, 10**40
+生	1	N5	セイ, ショウ, いきる, いかす, いける, うまれる, うむ, おう, はえる, はやす, き, なま	sei, shou, ikiru, ikasu, ikeru, umareru, umu, ou, haeru, hayasu, ki, nama	life, genuine, birth
+青	1	N4	セイ, （ショウ）, あお, あおい	sei, (shou), ao, aoi	blue, green
+夕	1	N4	セキ, ゆう	seki, yuu	evening
+石	1	N3	セキ, （シャク）, （コク）, いし	seki, (shaku), (koku), ishi	stone
+赤	1	N4	セキ, （シャク）, あか, あかい, あからむ, あからめる	seki, (shaku), aka, akai, akaramu, akarameru	red
+千	1	N5	セン, ち	sen, chi	thousand
+川	1	N5	セン, かわ	sen, kawa	stream, river
+先	1	N5	セン, さき	sen, saki	before, ahead, previous, future, precedence
+早	1	N4	ソウ, （サッ）, はやい, はやまる, はやめる	sou, (sa'), hayai, hayamaru, hayameru	early, fast
+草	1	N3	ソウ, くさ	sou, kusa	grass, weeds, herbs, pasture, write, draft
+足	1	N4	ソク, あし, たりる, たる, たす	soku, ashi, tariru, taru, tasu	leg, foot, be sufficient, counter for pairs of footwear
+村	1	N2	ソン, むら	son, mura	town, village
+大	1	N5	ダイ, タイ, おお, おおきい, おおいに	dai, tai, oo, ookii, ooini	large, big
+男	1	N5	ダン, ナン, おとこ	dan, nan, otoko	male
+竹	1	N2	チク, たけ	chiku, take	bamboo
+中	1	N5	チュウ, （ジュウ）, なか	chuu, (juu), naka	in, inside, middle, mean, center
+虫	1	N2	チュウ, むし	chuu, mushi	insect, bug, temper
+町	1	N4	チョウ, まち	chou, machi	village, town, block, street
+天	1	N5	テン, あめ, （あま）	ten, ame, (ama)	heavens, sky, imperial
+田	1	N4	デン, た	den, ta	rice field, rice paddy
+土	1	N5	ド, ト, つち	do, to, tsuchi	soil, earth, ground, Turkey
+入	1	N5	ニュウ, いる, いれる, はいる	nyuu, iru, ireru, hairu	enter, insert
+年	1	N5	ネン, とし	nen, toshi	year
+白	1	N5	ハク, ビャク, しろ, （しら）, しろい	haku, byaku, shiro, (shira), shiroi	white
+百	1	N5	ヒャク	hyaku	hundred
+文	1	N4	ブン, モン, ふみ	bun, mon, fumi	sentence, literature, style, art, decoration, figures, plan
+木	1	N5	ボク, モク, き, （こ）	boku, moku, ki, (ko)	tree, wood
+本	1	N5	ホン, もと	hon, moto	book, present, main, true, real, counter for long things
+名	1	N5	メイ, ミョウ, な	mei, myou, na	name, noted, distinguished, reputation
+立	1	N4	リツ, （リュウ）, たつ, たてる	ritsu, (ryuu), tatsu, tateru	stand up
+林	1	N2	リン, はやし	rin, hayashi	grove, forest
+羽	2	N2	ウ, は, はね	u, ha, hane	feathers, counter for birds, rabbits
+雲	2	N2	ウン, くも	un, kumo	cloud
+園	2	N3	エン, その	en, sono	park, garden, yard, farm
+遠	2	N3	エン, （オン）, とおい	en, (on), tooi	distant, far
+何	2	N5	カ, なに, （なん）	ka, nani, (nan)	what
+科	2	N3	カ	ka	department, course, section
+夏	2	N4	カ, （ゲ）, なつ	ka, (ge), natsu	summer
+家	2	N4	カ, ケ, いえ, や	ka, ke, ie, ya	house, home
+歌	2	N4	カ, うた, うたう	ka, uta, utau	song, sing
+画	2	N4	ガ, カク	ga, kaku	brush-stroke, picture
+回	2	N3	カイ, （エ）, まわる, まわす	kai, (e), mawaru, mawasu	-times, round, game, revolve, counter for occurrences
+会	2	N4	カイ, エ, あう	kai, e, au	meeting, meet, party, association, interview, join
+海	2	N4	カイ, うみ	kai, umi	sea, ocean
+絵	2	N3	カイ, エ	kai, e	picture, drawing, painting, sketch
+外	2	N5	ガイ, ゲ, そと, ほか, はずす, はずれる	gai, ge, soto, hoka, hazusu, hazureru	outside
+角	2	N2	カク, かど, つの	kaku, kado, tsuno	angle, corner, square, horn, antlers
+楽	2	N4	ガク, ラク, たのしい, たのしむ	gaku, raku, tanoshii, tanoshimu	music, comfort, ease
+活	2	N3	カツ	katsu	lively, resuscitation, being helped, living
+間	2	N5	カン, ケン, あいだ, ま	kan, ken, aida, ma	interval, space
+丸	2	N2	ガン, まる, まるい, まるめる	gan, maru, marui, marumeru	round, full, month, perfection, -ship, pills, make round, roll up, curl up, seduce, explain away
+岩	2	N2	ガン, いわ	gan, iwa	boulder, rock, cliff
+顔	2	N3	ガン, かお	gan, kao	face, expression
+汽	2	N1	キ	ki	vapor, steam
+記	2	N3	キ, しるす	ki, shirusu	scribe, account, narrative
+帰	2	N4	キ, かえる, かえす	ki, kaeru, kaesu	homecoming, arrive at, lead to, result in
+弓	2	N1	キュウ, ゆみ	kyuu, yumi	bow, bow (archery, violin)
+牛	2	N4	ギュウ, うし	gyuu, ushi	cow
+魚	2	N4	ギョ, うお, さかな	gyo, uo, sakana	fish
+京	2	N4	キョウ, ケイ	kyou, kei	capital, 10**16
+強	2	N4	キョウ, ゴウ, つよい, つよまる, つよめる, しいる	kyou, gou, tsuyoi, tsuyomaru, tsuyomeru, shiiru	strong
+教	2	N4	キョウ, おしえる, おそわる	kyou, oshieru, osowaru	teach, faith, doctrine
+近	2	N4	キン, ちかい	kin, chikai	near, early, akin, tantamount
+兄	2	N4	ケイ, （キョウ）, あに	kei, (kyou), ani	elder brother, big brother
+形	2	N3	ケイ, ギョウ, かた, かたち	kei, gyou, kata, katachi	shape, form, style
+計	2	N4	ケイ, はかる, はからう	kei, hakaru, hakarau	plot, plan, scheme, measure
+元	2	N4	ゲン, ガン, もと	gen, gan, moto	beginning, former time, origin
+言	2	N4	ゲン, ゴン, いう, こと	gen, gon, iu, koto	say
+原	2	N3	ゲン, はら	gen, hara	meadow, original, primitive, field, plain, prairie, tundra, wilderness
+戸	2	N2	コ, と	ko, to	door
+古	2	N4	コ, ふるい, ふるす	ko, furui, furusu	old
+午	2	N5	ゴ	go	noon, sign of the horse, 11AM-1PM, seventh sign of Chinese zodiac
+後	2	N5	ゴ, コウ, のち, うしろ, あと, おくれる	go, kou, nochi, ushiro, ato, okureru	behind, back, later
+語	2	N5	ゴ, かたる, かたらう	go, kataru, katarau	word, speech, language
+工	2	N4	コウ, ク	kou, ku	craft, construction
+公	2	N4	コウ, おおやけ	kou, ooyake	public, prince, official, governmental
+広	2	N4	コウ, ひろい, ひろまる, ひろめる, ひろがる, ひろげる	kou, hiroi, hiromaru, hiromeru, hirogaru, hirogeru	wide, broad, spacious
+交	2	N3	コウ, まじわる, まじえる, まじる, まざる, まぜる, かう, かわす	kou, majiwaru, majieru, majiru, mazaru, mazeru, kau, kawasu	mingle, mixing, association, coming & going
+光	2	N3	コウ, ひかる, ひかり	kou, hikaru, hikari	ray, light
+考	2	N4	コウ, かんがえる	kou, kangaeru	consider, think over
+行	2	N5	コウ, ギョウ, （アン）, いく, ゆく, おこなう	kou, gyou, (an), iku, yuku, okonau	going, journey
+高	2	N5	コウ, たかい, たか, たかまる, たかめる	kou, takai, taka, takamaru, takameru	tall, high, expensive
+黄	2	N2	コウ, オウ, き, （こ）	kou, ou, ki, (ko)	yellow
+合	2	N3	ゴウ, ガッ, （カッ）, あう, あわす, あわせる	gou, ga', (ka'), au, awasu, awaseru	fit, suit, join, 0.1
+谷	2	N2	コク, たに	koku, tani	valley
+国	2	N5	コク, くに	koku, kuni	country
+黒	2	N4	コク, くろ, くろい	koku, kuro, kuroi	black
+今	2	N5	コン, キン, いま	kon, kin, ima	now
+才	2	N3	サイ	sai	genius, years old, cubic shaku
+細	2	N2	サイ, ほそい, ほそる, こまか, こまかい	sai, hosoi, hosoru, komaka, komakai	dainty, get thin, taper, slender, narrow
+作	2	N4	サク, サ, つくる	saku, sa, tsukuru	make, production, prepare, build
+算	2	N2	サン	san	calculate, divining, number, abacus, probability
+止	2	N4	シ, とまる, とめる	shi, tomaru, tomeru	stop, halt
+市	2	N3	シ, いち	shi, ichi	market, city, town
+矢	2	N1	シ, や	shi, ya	dart, arrow
+姉	2	N4	シ, あね	shi, ane	elder sister
+思	2	N4	シ, おもう	shi, omou	think
+紙	2	N4	シ, かみ	shi, kami	paper
+寺	2	N2	ジ, てら	ji, tera	Buddhist temple
+自	2	N4	ジ, シ, みずから	ji, shi, mizukara	oneself
+時	2	N5	ジ, とき	ji, toki	time, hour
+室	2	N4	シツ, むろ	shitsu, muro	room, apartment, chamber, greenhouse, cellar
+社	2	N4	シャ, やしろ	sha, yashiro	company, firm, office, association, shrine
+弱	2	N2	ジャク, よわい, よわる, よわまる, よわめる	jaku, yowai, yowaru, yowamaru, yowameru	weak, frail
+首	2	N3	シュ, くび	shu, kubi	neck
+秋	2	N4	シュウ, あき	shuu, aki	autumn
+週	2	N4	シュウ	shuu	week
+春	2	N4	シュン, はる	shun, haru	springtime, spring (season)
+書	2	N5	ショ, かく	sho, kaku	write
+少	2	N4	ショウ, すくない, すこし	shou, sukunai, sukoshi	few, little
+場	2	N4	ジョウ, ば	jou, ba	location, place
+色	2	N4	ショク, シキ, いろ	shoku, shiki, iro	color
+食	2	N5	ショク, （ジキ）, くう, くらう, たべる	shoku, (jiki), kuu, kurau, taberu	eat, food
+心	2	N4	シン, こころ	shin, kokoro	heart, mind, spirit
+新	2	N4	シン, あたらしい, あらた, にい	shin, atarashii, arata, nii	new
+親	2	N4	シン, おや, したしい, したしむ	shin, oya, shitashii, shitashimu	parent, intimacy, relative, familiarity, dealer (cards)
+図	2	N4	ズ, ト, はかる	zu, to, hakaru	map, drawing, plan, unexpected, accidentally
+数	2	N3	スウ, （ス）, かず, かぞえる	suu, (su), kazu, kazoeru	number, strength, fate, law, figures
+西	2	N5	セイ, サイ, にし	sei, sai, nishi	west, Spain
+声	2	N3	セイ, （ショウ）, こえ, （こわ）	sei, (shou), koe, (kowa)	voice
+星	2	N2	セイ, （ショウ）, ほし	sei, (shou), hoshi	star, spot, dot, mark
+晴	2	N3	セイ, はれる, はらす	sei, hareru, harasu	clear up
+切	2	N4	セツ, （サイ）, きる, きれる	setsu, (sai), kiru, kireru	cut, cutoff, be sharp
+雪	2	N3	セツ, ゆき	setsu, yuki	snow
+船	2	N3	セン, ふね, （ふな）	sen, fune, (funa)	ship, boat
+線	2	N2	セン	sen	line, track
+前	2	N5	ゼン, まえ	zen, mae	in front, before
+組	2	N3	ソ, くむ, くみ	so, kumu, kumi	association, braid, plait, construct, assemble, unite, cooperate, grapple
+走	2	N4	ソウ, はしる	sou, hashiru	run
+多	2	N4	タ, おおい	ta, ooi	many, frequent, much
+太	2	N3	タイ, タ, ふとい, ふとる	tai, ta, futoi, futoru	plump, thick, big around
+体	2	N4	タイ, テイ, からだ	tai, tei, karada	body, substance, object, reality, counter for images
+台	2	N4	ダイ, タイ	dai, tai	pedestal, a stand, counter for machines and vehicles
+地	2	N4	チ, ジ	chi, ji	ground, earth
+池	2	N2	チ, いけ	chi, ike	pond, cistern, pool, reservoir
+知	2	N4	チ, しる	chi, shiru	know, wisdom
+茶	2	N4	チャ, サ	cha, sa	tea
+昼	2	N4	チュウ, ひる	chuu, hiru	daytime, noon
+長	2	N5	チョウ, ながい	chou, nagai	long, leader
+鳥	2	N4	チョウ, とり	chou, tori	bird, chicken
+朝	2	N4	チョウ, あさ	chou, asa	morning, dynasty, regime, epoch, period, (North) Korea
+直	2	N3	チョク, ジキ, ただちに, なおす, なおる	choku, jiki, tadachini, naosu, naoru	straightaway, honesty, frankness, fix, repair
+通	2	N4	ツウ, （ツ）, とおる, とおす, かよう	tsuu, (tsu), tooru, toosu, kayou	traffic, pass through, avenue, commute, counter for letters
+弟	2	N4	テイ, （ダイ）, （デ）, おとうと	tei, (dai), (de), otouto	younger brother, faithful service to elders
+店	2	N4	テン, みせ	ten, mise	store, shop
+点	2	N3	テン	ten	spot, point, mark, speck, decimal point
+電	2	N5	デン	den	electricity
+刀	2	N1	トウ, かたな	tou, katana	sword, saber, knife
+冬	2	N4	トウ, ふゆ	tou, fuyu	winter
+当	2	N3	トウ, あたる, あてる	tou, ataru, ateru	hit, right, appropriate, himself
+東	2	N5	トウ, ひがし	tou, higashi	east
+答	2	N4	トウ, こたえる, こたえ	tou, kotaeru, kotae	solution, answer
+頭	2	N3	トウ, ズ, （ト）, あたま, かしら	tou, zu, (to), atama, kashira	head, counter for large animals
+同	2	N4	ドウ, おなじ	dou, onaji	same, agree, equal
+道	2	N4	ドウ, （トウ）, みち	dou, (tou), michi	road-way, street, district, journey, course, moral, teachings
+読	2	N5	ドク, トク, （トウ）, よむ	doku, toku, (tou), yomu	read
+内	2	N3	ナイ, （ダイ）, うち	nai, (dai), uchi	inside, within, between, among, house, home
+南	2	N5	ナン, （ナ）, みなみ	nan, (na), minami	south
+肉	2	N4	ニク	niku	meat
+馬	2	N3	バ, うま, （ま）	ba, uma, (ma)	horse
+売	2	N4	バイ, うる, うれる	bai, uru, ureru	sell
+買	2	N4	バイ, かう	bai, kau	buy
+麦	2	N2	バク, むぎ	baku, mugi	barley, wheat
+半	2	N5	ハン, なかば	han, nakaba	half, middle, odd number, semi-, part-
+番	2	N3	バン	ban	turn, number in a series
+父	2	N5	フ, ちち	fu, chichi	father
+風	2	N4	フウ, （フ）, かぜ, （かざ）	fuu, (fu), kaze, (kaza)	wind, air, style, manner
+分	2	N5	ブン, フン, ブ, わける, わかれる, わかる, わかつ	bun, fun, bu, wakeru, wakareru, wakaru, wakatsu	part, minute of time
+聞	2	N5	ブン, モン, きく, きこえる	bun, mon, kiku, kikoeru	hear, ask, listen
+米	2	N3	ベイ, マイ, こめ	bei, mai, kome	rice, USA, metre
+歩	2	N4	ホ, ブ, （フ）, あるく, あゆむ	ho, bu, (fu), aruku, ayumu	walk, counter for steps
+母	2	N5	ボ, はは	bo, haha	mama, mother
+方	2	N4	ホウ, かた	hou, kata	direction, person, alternative
+北	2	N5	ホク, きた	hoku, kita	north
+毎	2	N5	マイ	mai	every
+妹	2	N4	マイ, いもうと	mai, imouto	younger sister
+万	2	N5	マン, バン	man, ban	ten thousand
+明	2	N4	メイ, ミョウ, あかり, あかるい, あかるむ, あからむ, あきらか, あける, あく, あくる, あかす	mei, myou, akari, akarui, akarumu, akaramu, akiraka, akeru, aku, akuru, akasu	bright, light
+鳴	2	N3	メイ, なく, なる, ならす	mei, naku, naru, narasu	chirp, cry, bark, sound, ring, echo, honk
+毛	2	N2	モウ, け	mou, ke	fur, hair, feather, down
+門	2	N2	モン, かど	mon, kado	gates
+夜	2	N4	ヤ, よ, よる	ya, yo, yoru	night, evening
+野	2	N4	ヤ, の	ya, no	plains, field, rustic, civilian life
+友	2	N5	ユウ, とも	yuu, tomo	friend
+用	2	N4	ヨウ, もちいる	you, mochiiru	utilize, business, service, use, employ
+曜	2	N4	ヨウ	you	weekday
+来	2	N5	ライ, くる, きたる, きたす	rai, kuru, kitaru, kitasu	come, due, next, cause, become
+里	2		リ, さと	ri, sato	village
+理	2	N4	リ	ri	logic, arrangement, reason, justice, truth
+引	2	N3	イン, ひく, ひける	in, hiku, hikeru	pull, tug, jerk, admit, install, quote, refer to
+話	2	N5	ワ, はなす, はなし	wa, hanasu, hanashi	tale, talk
+運	3	N4	ウン, はこぶ	un, hakobu	carry, luck, destiny, fate, lot, transport, progress, advance
+泳	3	N3	エイ, およぐ	ei, oyogu	swim
+駅	3	N4	エキ	eki	station
+央	3	N2	オウ	ou	center, middle
+横	3	N3	オウ, よこ	ou, yoko	sideways, side, horizontal, width, woof
+屋	3	N4	オク, や	oku, ya	roof, house, shop, dealer, seller
+温	3	N2	オン, あたたか, あたたかい, あたたまる, あたためる	on, atataka, atatakai, atatamaru, atatameru	warm
+化	3	N3	カ, ケ, ばける, ばかす	ka, ke, bakeru, bakasu	change, take the form of, influence, enchant, delude, -ization
+荷	3	N2	カ, に	ka, ni	baggage, shoulder-pole load, bear (a burden), shoulder (a gun), load, cargo, freight
+界	3	N4	カイ	kai	world
+開	3	N4	カイ, ひらく, ひらける, あく, あける	kai, hiraku, hirakeru, aku, akeru	open, unfold, unseal
+階	3	N2	カイ	kai	storey, stair, counter for storeys of a building
+寒	3	N3	カン, さむい	kan, samui	cold
+感	3	N3	カン	kan	emotion, feeling, sensation
+漢	3	N4	カン	kan	Sino-, China
+館	3	N4	カン, やかた	kan, yakata	building, mansion, large building, palace
+岸	3	N2	ガン, きし	gan, kishi	beach
+起	3	N4	キ, おきる, おこる, おこす	ki, okiru, okoru, okosu	rouse, wake up, get up
+期	3	N3	キ, （ゴ）	ki, (go)	period, time, date, term
+客	3	N3	キャク, カク	kyaku, kaku	guest, visitor, customer, client
+究	3	N4	キュウ, きわめる	kyuu, kiwameru	research, study
+急	3	N4	キュウ, いそぐ	kyuu, isogu	hurry, emergency, sudden, steep
+級	3	N1	キュウ	kyuu	class, rank, grade
+宮	3	N1	キュウ, グウ, （ク）, みや	kyuu, guu, (ku), miya	Shinto shrine, constellations, palace, princess
+球	3	N3	キュウ, たま	kyuu, tama	ball, sphere
+去	3	N4	キョ, コ, さる	kyo, ko, saru	gone, past, quit, leave, elapse, eliminate, divorce
+橋	3	N2	キョウ, はし	kyou, hashi	bridge
+業	3	N4	ギョウ, ゴウ, わざ	gyou, gou, waza	business, vocation, arts, performance
+曲	3	N3	キョク, まがる, まげる	kyoku, magaru, mageru	bend, music, melody, composition, pleasure, injustice, fault, curve, crooked, perverse, lean
+局	3	N3	キョク	kyoku	bureau, board, office, affair, conclusion, court lady, lady-in-waiting, her apartment
+銀	3	N4	ギン	gin	silver
+区	3	N2	ク	ku	ward, district
+苦	3	N3	ク, くるしい, くるしむ, くるしめる, にがい, にがる	ku, kurushii, kurushimu, kurushimeru, nigai, nigaru	suffering, trial, worry, hardship, feel bitter, scowl
+具	3	N3	グ	gu	tool, utensil, means, possess, ingredients, counter for armor, suits, sets of furniture
+君	3	N3	クン, きみ	kun, kimi	old boy, name-suffix
+係	3	N3	ケイ, かかる, かかり	kei, kakaru, kakari	person in charge, connection, duty, concern oneself
+軽	3	N2	ケイ, かるい, かろやか	kei, karui, karoyaka	lightly, trifling, unimportant
+血	3	N2	ケツ, ち	ketsu, chi	blood
+決	3	N3	ケツ, きめる, きまる	ketsu, kimeru, kimaru	decide, fix, agree upon, appoint
+研	3	N4	ケン, とぐ	ken, togu	polish, study of, sharpen
+県	3	N2	ケン	ken	prefecture
+庫	3	N2	コ, （ク）	ko, (ku)	warehouse, storehouse
+湖	3	N2	コ, みずうみ	ko, mizuumi	lake
+向	3	N3	コウ, むく, むける, むかう, むこう	kou, muku, mukeru, mukau, mukou	yonder, facing, beyond, confront, defy, tend toward, approach
+幸	3	N3	コウ, さいわい, さち, しあわせ	kou, saiwai, sachi, shiawase	happiness, blessing, fortune
+港	3	N3	コウ, みなと	kou, minato	harbor
+号	3	N3	ゴウ	gou	nickname, number, item, title, pseudonym, name, call
+根	3	N2	コン, ね	kon, ne	root, radical, head (pimple)
+祭	3	N2	サイ, まつる, まつり	sai, matsuru, matsuri	ritual, offer prayers, celebrate, deify, enshrine, worship
+皿	3	N2	さら	sara	dish, a helping, plate
+仕	3	N4	シ, （ジ）, つかえる	shi, (ji), tsukaeru	attend, doing, official, serve
+死	3	N4	シ, しぬ	shi, shinu	death, die
+使	3	N4	シ, つかう	shi, tsukau	use
+始	3	N4	シ, はじめる, はじまる	shi, hajimeru, hajimaru	commence, begin
+指	3	N3	シ, ゆび, さす	shi, yubi, sasu	finger, point to, indicate, put into, play (chess), measure (ruler)
+歯	3	N3	シ, は	shi, ha	tooth, cog
+詩	3	N1	シ	shi	poem, poetry
+次	3	N3	ジ, シ, つぐ, つぎ	ji, shi, tsugu, tsugi	next, order, sequence
+事	3	N4	ジ, （ズ）, こと	ji, (zu), koto	matter, thing, fact, business, reason, possibly
+持	3	N4	ジ, もつ	ji, motsu	hold, have
+式	3	N3	シキ	shiki	style, ceremony, rite, function, method, system, form, expression
+実	3	N3	ジツ, み, みのる	jitsu, mi, minoru	reality, truth
+写	3	N4	シャ, うつす, うつる	sha, utsusu, utsuru	copy, be photographed, describe
+者	3	N4	シャ, もの	sha, mono	someone, person
+主	3	N4	シュ, （ス）, ぬし, おも	shu, (su), nushi, omo	lord, chief, master, main thing, principal
+守	3	N3	シュ, （ス）, まもる, もり	shu, (su), mamoru, mori	guard, protect, defend, obey
+取	3	N3	シュ, とる	shu, toru	take, fetch, take up
+酒	3	N3	シュ, さけ, （さか）	shu, sake, (saka)	sake, alcohol
+受	3	N3	ジュ, うける, うかる	ju, ukeru, ukaru	accept, undergo, answer (phone), take, get, catch, receive
+州	3	N2	シュウ, す	shuu, su	state, province
+拾	3	N2	シュウ, ジュウ, ひろう	shuu, juu, hirou	pick up, gather, find, go on foot, ten
+終	3	N4	シュウ, おわる, おえる	shuu, owaru, oeru	end, finish
+習	3	N4	シュウ, ならう	shuu, narau	learn
+集	3	N4	シュウ, あつまる, あつめる, つどう	shuu, atsumaru, atsumeru, tsudou	gather, meet, congregate, swarm, flock
+住	3	N4	ジュウ, すむ, すまう	juu, sumu, sumau	dwell, reside, live, inhabit
+重	3	N4	ジュウ, チョウ, え, おもい, かさねる, かさなる	juu, chou, e, omoi, kasaneru, kasanaru	heavy, heap up, pile up, nest of boxes, -fold
+宿	3	N3	シュク, やど, やどる, やどす	shuku, yado, yadoru, yadosu	inn, lodging, relay station, dwell, lodge, be pregnant, home, dwelling
+所	3	N3	ショ, ところ	sho, tokoro	place
+暑	3	N1	ショ, あつい	sho, atsui	sultry, hot, summer heat
+助	3	N3	ジョ, たすける, たすかる, すけ	jo, tasukeru, tasukaru, suke	help, rescue, assist
+昭	3	N1	ショウ	shou	shining, bright
+消	3	N3	ショウ, きえる, けす	shou, kieru, kesu	extinguish, blow out, turn off, neutralize, cancel
+商	3	N3	ショウ, あきなう	shou, akinau	make a deal, selling, dealing in, merchant
+章	3	N2	ショウ	shou	badge, chapter, composition, poem, design
+勝	3	N3	ショウ, かつ, まさる	shou, katsu, masaru	victory, win, prevail, excel
+乗	3	N3	ジョウ, のる, のせる	jou, noru, noseru	ride, power, multiplication, record, counter for vehicles, board, mount, join
+植	3	N2	ショク, うえる, うわる	shoku, ueru, uwaru	plant
+申	3	N3	シン, もうす	shin, mousu	have the honor to, sign of the monkey, 3-5PM, ninth sign of Chinese zodiac
+身	3	N3	シン, み	shin, mi	body
+神	3	N3	シン, ジン, かみ, （かん）, （こう）	shin, jin, kami, (kan), (kou)	gods, mind, soul
+真	3	N4	シン, ま	shin, ma	true, reality, Buddhist sect
+深	3	N3	シン, ふかい, ふかまる, ふかめる	shin, fukai, fukamaru, fukameru	deep, heighten, intensify, strengthen
+進	3	N3	シン, すすむ, すすめる	shin, susumu, susumeru	advance, proceed, progress, promote
+世	3	N4	セイ, セ, よ	sei, se, yo	generation, world, society, public
+整	3	N1	セイ, ととのえる, ととのう	sei, totonoeru, totonou	organize, arranging, tune, tone, meter, key (music)
+昔	3	N3	セキ, （シャク）, むかし	seki, (shaku), mukashi	once upon a time, antiquity, old times
+全	3	N3	ゼン, まったく, すべて	zen, mattaku, subete	whole, entire, all, complete, fulfill
+相	3	N3	ソウ, ショウ, あい	sou, shou, ai	inter-, mutual, together, each other, minister of state, councillor, aspect, phase, physiognomy
+送	3	N4	ソウ, おくる	sou, okuru	escort, send
+想	3	N3	ソウ, （ソ）	sou, (so)	concept, think, idea, thought
+息	3	N3	ソク, いき	soku, iki	breath, respiration, son, interest (on money)
+速	3	N3	ソク, はやい, はやめる, はやまる, すみやか	soku, hayai, hayameru, hayamaru, sumiyaka	quick, fast
+族	3	N4	ゾク	zoku	tribe, family
+他	3	N3	タ, ほか	ta, hoka	other, another, the others
+打	3	N3	ダ, うつ	da, utsu	strike, hit, knock, pound, dozen
+対	3	N3	タイ, ツイ	tai, tsui	vis-a-vis, opposite, even, equal, versus, anti-, compare
+待	3	N4	タイ, まつ	tai, matsu	wait, depend on
+代	3	N4	ダイ, タイ, かわる, かえる, よ, しろ	dai, tai, kawaru, kaeru, yo, shiro	substitute, change, convert, replace, period, age, generation, charge, rate, fee
+第	3	N1	ダイ	dai	No., residence
+題	3	N4	ダイ	dai	topic, subject
+炭	3	N2	タン, すみ	tan, sumi	charcoal, coal
+短	3	N2	タン, みじかい	tan, mijikai	short, brevity, fault, defect, weak point
+談	3	N3	ダン	dan	discuss, talk
+着	3	N4	チャク, （ジャク）, きる, きせる, つく, つける	chaku, (jaku), kiru, kiseru, tsuku, tsukeru	don, arrive, wear, counter for suits of clothing
+注	3	N4	チュウ, そそぐ	chuu, sosogu	pour, irrigate, shed (tears), flow into, concentrate on, notes, comment, annotate
+柱	3	N2	チュウ, はしら	chuu, hashira	pillar, post, cylinder, support
+丁	3	N1	チョウ, テイ	chou, tei	street, ward, town, counter for guns, tools, leaves or cakes of something, even number, 4th calendar sig
+帳	3	N1	チョウ	chou	notebook, account book, album
+調	3	N3	チョウ, しらべる, ととのう, ととのえる	chou, shiraberu, totonou, totonoeru	tune, tone, meter, key (music), writing style, prepare, exorcise, investigate
+追	3	N3	ツイ, おう	tsui, ou	chase, drive away, follow, pursue, meanwhile
+定	3	N3	テイ, ジョウ, さだめる, さだまる, さだか	tei, jou, sadameru, sadamaru, sadaka	determine, fix, establish, decide
+庭	3	N3	テイ, にわ	tei, niwa	courtyard, garden, yard
+笛	3	N1	テキ, ふえ	teki, fue	flute, clarinet, pipe, whistle, bagpipe, piccolo
+鉄	3	N2	テツ	tetsu	iron
+転	3	N4	テン, ころがる, ころげる, ころがす, ころぶ	ten, korogaru, korogeru, korogasu, korobu	revolve, turn around, change
+都	3	N3	ト, ツ, みやこ	to, tsu, miyako	metropolis, capital
+度	3	N4	ド, （ト）, （タク）, たび	do, (to), (taku), tabi	degrees, occurrence, time, counter for occurrences
+投	3	N3	トウ, なげる	tou, nageru	throw, discard, abandon, launch into, join, invest in, hurl, give up, sell at a loss
+豆	3	N1	トウ, （ズ）, まめ	tou, (zu), mame	beans, pea, midget
+島	3	N2	トウ, しま	tou, shima	island
+湯	3	N2	トウ, ゆ	tou, yu	hot water, bath, hot spring
+登	3	N3	トウ, ト, のぼる	tou, to, noboru	ascend, climb up
+等	3	N3	トウ, ひとしい	tou, hitoshii	etc., and so forth, class (first), quality, equal, similar
+動	3	N4	ドウ, うごく, うごかす	dou, ugoku, ugokasu	move, motion, change, confusion, shift, shake
+童	3	N2	ドウ, わらべ	dou, warabe	juvenile, child
+農	3	N2	ノウ	nou	agriculture, farmers
+波	3	N2	ハ, なみ	ha, nami	waves, billows, Poland
+配	3	N3	ハイ, くばる	hai, kubaru	distribute, spouse, exile, rationing
+倍	3	N2	バイ	bai	double, twice, times, fold
+箱	3	N3	はこ	hako	box, chest, case, bin, railway car
+畑	3		はた, はたけ	hata, hatake	farm
+発	3	N4	ハツ, ホツ	hatsu, hotsu	discharge, departure, publish, emit, start from, disclose
+反	3	N3	ハン, （ホン）, （タン）, そる, そらす	han, (hon), (tan), soru, sorasu	anti-
+坂	3	N2	ハン, さか	han, saka	slope, incline, hill
+板	3	N2	ハン, バン, いた	han, ban, ita	plank, board, plate, stage
+皮	3	N2	ヒ, かわ	hi, kawa	pelt, skin, hide, leather
+悲	3	N3	ヒ, かなしい, かなしむ	hi, kanashii, kanashimu	jail cell, grieve, sad, deplore, regret
+美	3	N3	ビ, うつくしい	bi, utsukushii	beauty, beautiful
+鼻	3	N2	ビ, はな	bi, hana	nose, snout
+筆	3	N2	ヒツ, ふで	hitsu, fude	writing brush, writing, painting brush, handwriting
+氷	3	N2	ヒョウ, こおり, ひ	hyou, koori, hi	icicle, ice, hail, freeze, congeal
+表	3	N3	ヒョウ, おもて, あらわす, あらわれる	hyou, omote, arawasu, arawareru	surface, table, chart, diagram
+秒	3	N2	ビョウ	byou	second (1, 60 minute)
+病	3	N4	ビョウ, （ヘイ）, やむ, やまい	byou, (hei), yamu, yamai	ill, sick
+品	3	N4	ヒン, しな	hin, shina	goods, refinement, dignity, article, counter for meal courses
+負	3	N3	フ, まける, まかす, おう	fu, makeru, makasu, ou	defeat, negative, -, minus, bear, owe, assume a responsibility
+部	3	N3	ブ	bu	section, bureau, dept, class, copy, part, portion, counter for copies of a newspaper or magazine
+服	3	N4	フク	fuku	clothing, admit, obey, discharge
+福	3	N3	フク	fuku	blessing, fortune, luck, wealth
+物	3	N4	ブツ, モツ, もの	butsu, motsu, mono	thing, object, matter
+平	3	N3	ヘイ, ビョウ, たいら, ひら	hei, byou, taira, hira	even, flat, peace
+返	3	N3	ヘン, かえす, かえる	hen, kaesu, kaeru	return, answer, fade, repay
+勉	3	N4	ベン	ben	exertion
+放	3	N3	ホウ, はなす, はなつ, はなれる, ほうる	hou, hanasu, hanatsu, hanareru, houru	set free, release, fire, shoot, emit, banish, liberate
+味	3	N4	ミ, あじ, あじわう	mi, aji, ajiwau	flavor, taste
+命	3	N3	メイ, ミョウ, いのち	mei, myou, inochi	fate, command, decree, destiny, life, appoint
+面	3	N3	メン, おも, おもて, つら	men, omo, omote, tsura	mask, face, features, surface
+問	3	N4	モン, とう, とい, （とん）	mon, tou, toi, (ton)	question, ask, problem
+役	3	N3	ヤク, エキ	yaku, eki	duty, war, campaign, drafted labor, office, service, role
+薬	3	N3	ヤク, くすり	yaku, kusuri	medicine, chemical, enamel, gunpowder, benefit
+由	3	N3	ユ, ユウ, （ユイ）, よし	yu, yuu, (yui), yoshi	wherefore, a reason
+油	3	N2	ユ, あぶら	yu, abura	oil, fat
+有	3	N4	ユウ, ウ, ある	yuu, u, aru	possess, have, exist, happen, occur, approx
+遊	3	N3	ユウ, （ユ）, あそぶ	yuu, (yu), asobu	play
+予	3	N3	ヨ	yo	beforehand, previous, myself, I
+羊	3	N1	ヨウ, ひつじ	you, hitsuji	sheep
+洋	3	N4	ヨウ	you	ocean, western style
+葉	3	N3	ヨウ, は	you, ha	leaf, plane, lobe, needle, blade, spear, counter for flat things, fragment, piece
+陽	3	N3	ヨウ	you	sunshine, yang principle, positive, male, heaven, daytime
+様	3	N3	ヨウ, さま	you, sama	Esq., way, manner, situation, polite suffix
+落	3	N3	ラク, おちる, おとす	raku, ochiru, otosu	fall, drop, come down
+流	3	N3	リュウ, （ル）, ながれる, ながす	ryuu, (ru), nagareru, nagasu	current, a sink, flow, forfeit
+旅	3	N4	リョ, たび	ryo, tabi	trip, travel
+両	3	N3	リョウ	ryou	both, old Japanese coin, counter for vehicles, two
+緑	3	N2	リョク, （ロク）, みどり	ryoku, (roku), midori	green
 悪	3	N4	アク, オ, わるい	aku, o, warui	bad, vice, rascal, false, evil, wrong
-握	S	N1	アク, にぎる	aku, nigiru	grip
-圧	5	N2	アツ	atsu	pressure, push, overwhelm, oppress, dominate
-扱	S	N1	あつかう	atsukau	handle
-宛	S		あてる	ateru	allocate
-嵐	S	N1	あらし	arashi	storm
 安	3	N4	アン, やすい	an, yasui	relax, cheap, low, quiet, rested, contented, peaceful
-案	4	N1	アン	an	plan, suggestion, draft, ponder, fear, proposition, idea, expectation, bill, worry
 暗	3	N3	アン, くらい	an, kurai	darkness, disappear, shade, informal, grow dark, be blinded
+医	3	N4	イ	i	doctor, medicine
+委	3	N2	イ, ゆだねる	i, yudaneru	committee, entrust to, leave to, devote, discard
+意	3	N4	イ	i	idea, mind, heart, taste, thought, desire, care, liking
+育	3	N3	イク, そだつ, そだてる, はぐくむ	iku, sodatsu, sodateru, hagukumu	bring up, grow up, raise, rear
+員	3	N4	イン	in	employee, member, number, the one in charge
+院	3	N4	イン	in	Inst., institution, temple, mansion, school
+飲	3	N4	イン, のむ	in, nomu	drink, smoke, take
+礼	3	N3	レイ, ライ	rei, rai	salute, bow, ceremony, thanks, remuneration
+列	3	N3	レツ	retsu	file, row, rank, tier, column
+練	3	N2	レン, ねる	ren, neru	practice, gloss, train, drill, polish, refine
+路	3	N3	ロ, じ	ro, ji	path, route, road, distance
+和	3	N3	ワ, （オ）, やわらぐ, やわらげる, なごむ, なごやか	wa, (o), yawaragu, yawarageru, nagomu, nagoyaka	harmony, Japanese style, peace, soften, Japan
+英	4	N4	エイ	ei	England, English
+栄	4	N2	エイ, さかえる, はえ, はえる	ei, sakaeru, hae, haeru	flourish, prosperity, honor, glory, splendor
+媛	4	N1	エン	en	beautiful woman, princess
+塩	4	N2	エン, しお	en, shio	salt
+岡	4		（おか）	(oka)	hill
+億	4	N2	オク	oku	hundred million, 10**8
+加	4	N3	カ, くわえる, くわわる	ka, kuwaeru, kuwawaru	add, addition, increase, join, include, Canada
+果	4	N3	カ, はたす, はてる, はて	ka, hatasu, hateru, hate	fruit, reward, carry out, achieve, complete, end, finish, succeed
+貨	4	N2	カ	ka	freight, goods, property
+課	4	N2	カ	ka	chapter, lesson, section, department, division, counter for chapters (of a book)
+芽	4	N1	ガ, め	ga, me	bud, sprout, spear, germ
+賀	4	N1	ガ	ga	congratulations, joy
+改	4	N2	カイ, あらためる, あらたまる	kai, aratameru, aratamaru	reformation, change, modify, mend, renew, examine, inspect, search
+械	4	N2	カイ	kai	contraption, fetter, machine, instrument
+害	4	N3	ガイ	gai	harm, injury
+街	4	N1	ガイ, （カイ）, まち	gai, (kai), machi	boulevard, street, town
+各	4	N2	カク, おのおの	kaku, onoono	each, every, either
+覚	4	N3	カク, おぼえる, さます, さめる	kaku, oboeru, samasu, sameru	memorize, learn, remember, awake, sober up
+潟	4	N1	かた	kata	lagoon
+完	4	N3	カン	kan	perfect, completion, end
+官	4	N3	カン	kan	bureaucrat, the government
+管	4	N2	カン, くだ	kan, kuda	pipe, tube, wind instrument, drunken talk
+関	4	N3	カン, せき, かかわる	kan, seki, kakawaru	connection, barrier, gateway, involve, concerning
+観	4	N3	カン	kan	outlook, look, appearance, condition, view
+願	4	N3	ガン, ねがう	gan, negau	petition, request, vow, wish, hope
+岐	4	N1	キ	ki	branch off, fork in road, scene, arena, theater
+希	4	N2	キ	ki	hope, beg, request, pray, beseech, Greece, dilute (acid), rare, few, phenomenal
+季	4	N2	キ	ki	seasons
+旗	4	N1	キ, はた	ki, hata	national flag, banner, standard
+器	4	N1	キ, うつわ	ki, utsuwa	utensil, vessel, receptacle, implement, instrument, ability, container, tool, set
+機	4	N3	キ, はた	ki, hata	mechanism, opportunity, occasion, machine, airplane
+議	4	N3	ギ	gi	deliberation, consultation, debate, consideration
+求	4	N3	キュウ, もとめる	kyuu, motomeru	request, want, wish for, require, demand
+泣	4	N1	キュウ, なく	kyuu, naku	cry, weep, moan
+給	4	N3	キュウ	kyuu	salary, wage, gift, allow, grant, bestow on
+挙	4	N1	キョ, あげる, あがる	kyo, ageru, agaru	raise, plan, project, behavior, actions
+漁	4	N2	ギョ, リョウ	gyo, ryou	fishing, fishery
+共	4	N3	キョウ, とも	kyou, tomo	together, both, neither, all, and, alike, with
+協	4	N2	キョウ	kyou	co-, cooperation
+鏡	4	N1	キョウ, かがみ	kyou, kagami	mirror, speculum, barrel-head, round rice-cake offering
+競	4	N2	キョウ, ケイ, きそう, せる	kyou, kei, kisou, seru	emulate, compete with, bid, sell at auction, bout, contest, race
+極	4	N2	キョク, ゴク, きわめる, きわまる, きわみ	kyoku, goku, kiwameru, kiwamaru, kiwami	poles, settlement, conclusion, end, highest rank, electric poles, very, extremely, most, highly, 10**48
+熊	4	N1	くま	kuma	bear
+訓	4	N2	クン	kun	instruction, Japanese character reading, explanation, read
+軍	4	N2	グン	gun	army, force, troops, war, battle
+郡	4	N1	グン	gun	county, district
+群	4	N2	グン, むれる, むれ, （むら）	gun, mureru, mure, (mura)	flock, group, crowd, herd, swarm, cluster
+径	4	N1	ケイ	kei	diameter, path, method
+景	4	N3	ケイ	kei	scenery, view
+芸	4	N2	ゲイ	gei	technique, art, craft, performance, acting, trick, stunt
+欠	4	N3	ケツ, かける, かく	ketsu, kakeru, kaku	lack, gap, fail
+結	4	N1	ケツ, むすぶ, ゆう, ゆわえる	ketsu, musubu, yuu, yuwaeru	tie, bind, contract, join, organize, do up hair, fasten
+建	4	N4	ケン, （コン）, たてる, たつ	ken, (kon), tateru, tatsu	build
+健	4	N1	ケン, すこやか	ken, sukoyaka	healthy, health, strength, persistence
+験	4	N4	ケン, （ゲン）	ken, (gen)	verification, effect, testing
+固	4	N2	コ, かためる, かたまる, かたい	ko, katameru, katamaru, katai	harden, set, clot, curdle
+功	4	N1	コウ, （ク）	kou, (ku)	achievement, merits, success, honor, credit
+好	4	N3	コウ, このむ, すく	kou, konomu, suku	fond, pleasing, like something
+香	4	N2	コウ, （キョウ）, か, かおり, かおる	kou, (kyou), ka, kaori, kaoru	incense, smell, perfume
+候	4	N3	コウ, そうろう	kou, sourou	climate, season, weather
+康	4	N1	コウ	kou	ease, peace
+佐	4	N1	サ	sa	assistant, help
+差	4	N3	サ, さす	sa, sasu	distinction, difference, variation, discrepancy, margin, balance
+菜	4	N2	サイ, な	sai, na	vegetable, side dish, greens
+最	4	N3	サイ, もっとも	sai, mottomo	utmost, most, extreme
+埼	4		（さい）	(sai)	cape (geography)
+材	4	N2	ザイ	zai	lumber, log, timber, wood, talent
+崎	4	N1	さき	saki	promontory, cape, spit
+昨	4	N3	サク	saku	yesterday, previous
+札	4	N2	サツ, ふだ	satsu, fuda	tag, paper money, counter for bonds, placard, bid
+刷	4	N2	サツ, する	satsu, suru	printing, print
+察	4	N3	サツ	satsu	guess, presume, surmise, judge, understand
+参	4	N3	サン, まいる	san, mairu	nonplussed, three, going, coming, visiting, visit, be defeated, die, be madly in love
+産	4	N3	サン, うむ, うまれる, うぶ	san, umu, umareru, ubu	products, bear, give birth, yield, childbirth, native, property
+散	4	N3	サン, ちる, ちらす, ちらかす, ちらかる	san, chiru, chirasu, chirakasu, chirakaru	scatter, disperse, spend, squander
+残	4	N3	ザン, のこる, のこす	zan, nokoru, nokosu	remainder, leftover, balance
+氏	4	N1	シ, うじ	shi, uji	family name, surname, clan
+司	4	N1	シ	shi	director, official, govt office, rule, administer
+試	4	N4	シ, こころみる, ためす	shi, kokoromiru, tamesu	test, try, attempt, experiment, ordeal
+児	4	N2	ジ, （ニ）	ji, (ni)	newborn babe, child, young of animals
+治	4	N3	ジ, チ, おさめる, おさまる, なおる, なおす	ji, chi, osameru, osamaru, naoru, naosu	reign, be at peace, calm down, subdue, quell, govt, cure, heal, rule, conserve
+滋	4	N1	ジ	ji	nourishing, more & more, be luxuriant, planting, turbidity
+辞	4	N3	ジ, やめる	ji, yameru	resign, word, term, expression
+鹿	4	N1	しか, （か）	shika, (ka)	deer
+失	4	N3	シツ, うしなう	shitsu, ushinau	lose, error, fault, disadvantage, loss
+借	4	N4	シャク, かりる	shaku, kariru	borrow, rent
+種	4	N3	シュ, たね	shu, tane	species, kind, class, variety, seed
+周	4	N2	シュウ, まわり	shuu, mawari	circumference, circuit, lap
+祝	4	N2	シュク, （シュウ）, いわう	shuku, (shuu), iwau	celebrate, congratulate
+順	4	N2	ジュン	jun	obey, order, turn, right, docility, occasion
+初	4	N3	ショ, はじめ, はじめて, はつ, うい, そめる	sho, hajime, hajimete, hatsu, ui, someru	first time, beginning
+松	4	N1	ショウ, まつ	shou, matsu	pine tree
+笑	4	N3	ショウ, わらう, えむ	shou, warau, emu	laugh
+唱	4	N1	ショウ, となえる	shou, tonaeru	chant, recite, call upon, yell
+焼	4	N2	ショウ, やく, やける	shou, yaku, yakeru	bake, burning
+照	4	N2	ショウ, てる, てらす, てれる	shou, teru, terasu, tereru	illuminate, shine, compare, bashful
+城	4	N2	ジョウ, しろ	jou, shiro	castle
+縄	4	N1	ジョウ, なわ	jou, nawa	straw rope, cord
+臣	4	N2	シン, ジン	shin, jin	retainer, subject
+信	4	N3	シン	shin	faith, truth, fidelity, trust
+井	4	N1	セイ, （ショウ）, い	sei, (shou), i	well, well crib, town, community
+成	4	N3	セイ, （ジョウ）, なる, なす	sei, (jou), naru, nasu	turn into, become, get, grow, elapse, reach
+省	4	N2	セイ, ショウ, かえりみる, はぶく	sei, shou, kaerimiru, habuku	focus, government ministry, conserve
+清	4	N2	セイ, （ショウ）, きよい, きよまる, きよめる	sei, (shou), kiyoi, kiyomaru, kiyomeru	pure, purify, cleanse, exorcise, Manchu dynasty
+静	4	N3	セイ, （ジョウ）, しず, しずか, しずまる, しずめる	sei, (jou), shizu, shizuka, shizumaru, shizumeru	quiet
+席	4	N3	セキ	seki	seat, mat, occasion, place
+積	4	N3	セキ, つむ, つもる	seki, tsumu, tsumoru	volume, product (x*y), acreage, contents, pile up, stack, load, amass
+折	4	N3	セツ, おる, おり, おれる	setsu, oru, ori, oreru	fold, break, fracture, bend, yield, submit
+節	4	N1	セツ, （セチ）, ふし	setsu, (sechi), fushi	node, season, period, occasion, verse, clause, stanza, honor, joint, knuckle, knob, knot, tune, melody
+説	4	N3	セツ, （ゼイ）, とく	setsu, (zei), toku	rumor, opinion, theory
+浅	4	N2	セン, あさい	sen, asai	shallow, superficial, frivolous, wretched, shameful
+戦	4	N3	セン, いくさ, たたかう	sen, ikusa, tatakau	war, battle, match
+選	4	N3	セン, えらぶ	sen, erabu	elect, select, choose, prefer
+然	4	N3	ゼン, ネン	zen, nen	sort of thing, so, if so, in that case, well
+争	4	N3	ソウ, あらそう	sou, arasou	contend, dispute, argue
+倉	4	N1	ソウ, くら	sou, kura	godown, warehouse, storehouse, cellar, treasury
+巣	4	N1	ソウ, す	sou, su	nest, rookery, hive, cobweb, den
+束	4	N3	ソク, たば	soku, taba	bundle, sheaf, ream, tie in bundles, govern, manage, control
+側	4	N3	ソク, がわ	soku, gawa	side, lean, oppose, regret
+続	4	N3	ゾク, つづく, つづける	zoku, tsuzuku, tsuzukeru	continue, series, sequel
+卒	4	N2	ソツ	sotsu	graduate, soldier, private, die
+孫	4	N2	ソン, まご	son, mago	grandchild, descendants
+帯	4	N2	タイ, おびる, おび	tai, obiru, obi	sash, belt, obi, zone, region
+隊	4	N1	タイ	tai	regiment, party, company, squad
+達	4	N3	タツ	tatsu	accomplished, reach, arrive, attain
+単	4	N3	タン	tan	simple, one, single, merely
+置	4	N3	チ, おく	chi, oku	placement, put, set, deposit, leave behind, keep, employ, pawn
+仲	4	N2	チュウ, なか	chuu, naka	go-between, relationship
+沖	4	N1	チュウ, おき	chuu, oki	open sea, offing, rise high into sky
+兆	4	N2	チョウ, きざす, きざし	chou, kizasu, kizashi	portent, 10**12, trillion, sign, omen, symptoms
+低	4	N2	テイ, ひくい, ひくめる, ひくまる	tei, hikui, hikumeru, hikumaru	lower, short, humble
+底	4	N2	テイ, そこ	tei, soko	bottom, sole, depth, bottom price, base, kind, sort
+的	4	N3	テキ, まと	teki, mato	target
+典	4	N1	テン	ten	code, ceremony, law, rule
+伝	4	N3	デン, つたわる, つたえる, つたう	den, tsutawaru, tsutaeru, tsutau	transmit, go along, walk along, follow, report, communicate, legend, tradition
+徒	4	N3	ト	to	junior, emptiness, vanity, futility, uselessness, ephemeral thing, gang, set, party, people
+努	4	N3	ド, つとめる	do, tsutomeru	toil, diligent, as much as possible
+灯	4	N2	トウ, ひ	tou, hi	lamp, a light, light, counter for lights
+働	4	N3	ドウ, はたらく	dou, hataraku	work, (kokuji)
+特	4	N4	トク	toku	special
+徳	4	N1	トク	toku	benevolence, virtue, goodness, commanding respect
+栃	4		（とち）	(tochi)	horse chestnut
+奈	4	N1	ナ	na	Nara, what?
+梨	4	N1	なし	nashi	pear tree
+熱	4	N3	ネツ, あつい	netsu, atsui	heat, temperature, fever, mania, passion
+念	4	N3	ネン	nen	wish, sense, idea, thought, feeling, desire, attention
+敗	4	N3	ハイ, やぶれる	hai, yabureru	failure, defeat, reversal
+梅	4	N1	バイ, うめ	bai, ume	plum
+博	4	N1	ハク, （バク）	haku, (baku)	Dr., command, esteem, win acclaim, Ph.D., exposition, fair
+阪	4		ハン	han	heights
+飯	4	N4	ハン, めし	han, meshi	meal, boiled rice
+飛	4	N3	ヒ, とぶ, とばす	hi, tobu, tobasu	fly, skip (pages), scatter
+必	4	N3	ヒツ, かならず	hitsu, kanarazu	invariably, certain, inevitable
+票	4	N1	ヒョウ	hyou	ballot, label, ticket, sign
+標	4	N1	ヒョウ	hyou	signpost, seal, mark, stamp, imprint, symbol, emblem, trademark, evidence, souvenir, target
+不	4	N4	フ, ブ	fu, bu	negative, non-, bad, ugly, clumsy
+夫	4	N3	フ, （フウ）, おっと	fu, (fuu), otto	husband, man
+付	4	N3	フ, つける, つく	fu, tsukeru, tsuku	adhere, attach, refer to, append
+府	4	N2	フ	fu	borough, urban prefecture, govt office, representative body, storehouse
+阜	4		（フ）	(fu)	mound
+富	4	N3	フ, （フウ）, とむ, とみ	fu, (fuu), tomu, tomi	wealth, enrich, abundant
+副	4	N2	フク	fuku	vice-, duplicate, copy
+兵	4	N2	ヘイ, ヒョウ	hei, hyou	soldier, private, troops, army, warfare, strategy, tactics
+別	4	N4	ベツ, わかれる	betsu, wakareru	separate, branch off, diverge, fork, another, extra, specially
+辺	4	N2	ヘン, あたり, べ	hen, atari, be	environs, boundary, border, vicinity
+変	4	N3	ヘン, かわる, かえる	hen, kawaru, kaeru	unusual, change, strange
+便	4	N3	ベン, ビン, たより	ben, bin, tayori	convenience
+包	4	N2	ホウ, つつむ	hou, tsutsumu	wrap, pack up, cover, conceal
+法	4	N3	ホウ, （ハッ）, （ホッ）	hou, (ha'), (ho')	method, law, rule, principle, model, system
+望	4	N3	ボウ, モウ, のぞむ	bou, mou, nozomu	ambition, full moon, hope, desire, aspire to, expect
+牧	4	N1	ボク, まき	boku, maki	breed, care for, shepherd, feed, pasture
+末	4	N3	マツ, バツ, すえ	matsu, batsu, sue	end, close, tip, powder, posterity
+満	4	N3	マン, みちる, みたす	man, michiru, mitasu	full, enough, pride, satisfy
+未	4	N3	ミ	mi	un-, not yet, hitherto, still, even now, sign of the ram, 1-3PM, eighth sign of Chinese zodiac
+民	4	N3	ミン, たみ	min, tami	people, nation, subjects
+無	4	N3	ム, ブ, ない	mu, bu, nai	nothing
+約	4	N3	ヤク	yaku	promise, approximately, shrink
+勇	4	N2	ユウ, いさむ	yuu, isamu	courage, cheer up, be in high spirits, bravery, heroism
+要	4	N3	ヨウ, かなめ, いる	you, kaname, iru	need, main point, essence, pivot, key to
+養	4	N1	ヨウ, やしなう	you, yashinau	foster, bring up, rear, develop, nurture
+浴	4	N2	ヨク, あびる, あびせる	yoku, abiru, abiseru	bathe, be favored with, bask in
+利	4	N3	リ, きく	ri, kiku	profit, advantage, benefit
+陸	4	N2	リク	riku	land, six
+良	4	N3	リョウ, よい	ryou, yoi	good, pleasing, skilled
+料	4	N4	リョウ	ryou	fee, materials
+量	4	N2	リョウ, はかる	ryou, hakaru	quantity, measure, weight, amount, consider, estimate, surmise
+愛	4	N3	アイ	ai	love, affection, favourite
+案	4	N1	アン	an	plan, suggestion, draft, ponder, fear, proposition, idea, expectation, bill, worry
 以	4	N4	イ	i	by means of, because, in view of, compared with
 衣	4	N2	イ, ころも	i, koromo	garment, clothes, dressing
 位	4	N3	イ, くらい	i, kurai	rank, grade, throne, crown, about, some
-囲	5	N2	イ, かこむ, かこう	i, kakomu, kakou	surround, besiege, store, paling, enclosure, encircle, preserve, keep
-医	3	N4	イ	i	doctor, medicine
-依	S	N2	イ, （エ）	i, (e)	reliant
-委	3	N2	イ, ゆだねる	i, yudaneru	committee, entrust to, leave to, devote, discard
-威	S	N1	イ	i	intimidate
-為	S	N1	イ	i	do
-畏	S		イ, おそれる	i, osoreru	fear
-胃	6	N2	イ	i	stomach, paunch, crop, craw
-尉	S	N1	イ	i	military officer
-異	6	N1	イ, こと	i, koto	uncommon, queerness, strangeness, wonderful, curious, unusual
-移	5	N2	イ, うつる, うつす	i, utsuru, utsusu	shift, move, change, drift, catch (cold, fire), pass into
-萎	S		イ, なえる	i, naeru	wither
-偉	S	N3	イ, えらい	i, erai	admirable
-椅	S		イ	i	chair
-彙	S		イ	i	same kind
-意	3	N4	イ	i	idea, mind, heart, taste, thought, desire, care, liking
-違	S	N3	イ, ちがう, ちがえる	i, chigau, chigaeru	differ
-維	S	N1	イ	i	fiber
-慰	S	N1	イ, なぐさめる, なぐさむ	i, nagusameru, nagusamu	consolation
-遺	6	N1	イ, （ユイ）	i, (yui)	bequeath, leave behind, reserve
-緯	S	N1	イ	i	horizontal
-域	6	N2	イキ	iki	range, region, limits, stage, level
-育	3	N3	イク, そだつ, そだてる, はぐくむ	iku, sodatsu, sodateru, hagukumu	bring up, grow up, raise, rear
-一	1	N5	イチ, イツ, ひと, ひとつ	ichi, itsu, hito, hitotsu	one
-壱	S	N1	イチ	ichi	one (falsification prevention)
-逸	S	N1	イツ	itsu	deviate
 茨	4		（いばら）	(ibara)	thorn
-芋	S	N1	いも	imo	potato
-引	2	N3	イン, ひく, ひける	in, hiku, hikeru	pull, tug, jerk, admit, install, quote, refer to
 印	4	N2	イン, しるし	in, shirushi	stamp, seal, mark, imprint, symbol, emblem, trademark, evidence, souvenir, India
+輪	4	N2	リン, わ	rin, wa	wheel, ring, circle, link, loop, counter for wheels and flowers
+類	4	N3	ルイ, たぐい	rui, tagui	sort, kind, variety, class, genus
+令	4	N2	レイ	rei	orders, ancient laws, command, decree
+冷	4	N3	レイ, つめたい, ひえる, ひや, ひやす, ひやかす, さめる, さます	rei, tsumetai, hieru, hiya, hiyasu, hiyakasu, sameru, samasu	cool, cold (beer, person), chill
+例	4	N3	レイ, たとえる	rei, tatoeru	example, custom, usage, precedent
+連	4	N3	レン, つらなる, つらねる, つれる	ren, tsuranaru, tsuraneru, tsureru	take along, lead, join, connect, party, gang, clique
+老	4	N3	ロウ, おいる, ふける	rou, oiru, fukeru	old man, old age, grow old
+労	4	N3	ロウ	rou	labor, thank for, reward for, toil, trouble
+録	4	N2	ロク	roku	record
+永	5	N2	エイ, ながい	ei, nagai	eternity, long, lengthy
+営	5	N2	エイ, いとなむ	ei, itonamu	occupation, camp, perform, build, conduct (business)
+衛	5	N1	エイ	ei	defense, protection
+易	5	N3	エキ, イ, やさしい	eki, i, yasashii	easy, ready to, simple, fortune-telling, divination
+益	5	N1	エキ, （ヤク）	eki, (yaku)	benefit, gain, profit, advantage
+液	5	N2	エキ	eki	fluid, liquid, juice, sap, secretion
+演	5	N3	エン	en	performance, act, play, render, stage
+応	5	N1	オウ, こたえる	ou, kotaeru	apply, answer, yes, OK, reply, accept
+往	5	N1	オウ	ou	journey, chase away, let go, going, travel
+桜	5	N1	オウ, さくら	ou, sakura	cherry
+可	5	N3	カ	ka	possible
+仮	5	N1	カ, （ケ）, かり	ka, (ke), kari	sham, temporary, interim, assumed (name), informal
+価	5	N1	カ, あたい	ka, atai	value, price
+河	5	N2	カ, かわ	ka, kawa	river
+過	5	N3	カ, すぎる, すごす, あやまつ, あやまち	ka, sugiru, sugosu, ayamatsu, ayamachi	overdo, exceed, go beyond, error
+快	5	N2	カイ, こころよい	kai, kokoroyoi	cheerful, pleasant, agreeable, comfortable
+解	5	N3	カイ, ゲ, とく, とかす, とける	kai, ge, toku, tokasu, tokeru	unravel, notes, key, explanation, understanding, untie, undo, solve, answer, cancel, absolve, explain, minute
+格	5	N3	カク, （コウ）	kaku, (kou)	status, rank, capacity, character, case (law, grammar)
+確	5	N3	カク, たしか, たしかめる	kaku, tashika, tashikameru	assurance, firm, tight, hard, solid, confirm, clear, evident
+額	5	N2	ガク, ひたい	gaku, hitai	forehead, tablet, plaque, framed picture, sum, amount, volume
+刊	5	N2	カン	kan	publish, carve, engrave
+幹	5	N1	カン, みき	kan, miki	tree trunk
+慣	5	N3	カン, なれる, ならす	kan, nareru, narasu	accustomed, get used to, become experienced
+眼	5	N1	ガン, （ゲン）, まなこ	gan, (gen), manako	eyeball
+紀	5	N1	キ	ki	chronicle, account, narrative, history, annals, geologic period
+基	5	N1	キ, もと, もとい	ki, moto, motoi	fundamentals, radical (chem), counter for machines, foundation
+寄	5	N3	キ, よる, よせる	ki, yoru, yoseru	draw near, stop in, bring near, gather, collect, send, forward
+規	5	N3	キ	ki	standard, measure
+喜	5	N3	キ, よろこぶ	ki, yorokobu	rejoice, take pleasure in
+技	5	N2	ギ, わざ	gi, waza	skill, art, craft, ability, feat, performance, vocation, arts
+義	5	N1	ギ	gi	righteousness, justice, morality, honor, loyalty, meaning
+逆	5	N2	ギャク, さか, さからう	gyaku, saka, sakarau	inverted, reverse, opposite, wicked
+久	5	N2	キュウ, （ク）, ひさしい	kyuu, (ku), hisashii	long time, old story
+旧	5	N2	キュウ	kyuu	old times, old things, old friend, former, ex-
+救	5	N1	キュウ, すくう	kyuu, sukuu	salvation, save, help, rescue, reclaim
+居	5	N3	キョ, いる	kyo, iru	reside, to be, exist, live with
+許	5	N3	キョ, ゆるす	kyo, yurusu	permit, approve
+境	5	N2	キョウ, （ケイ）, さかい	kyou, (kei), sakai	boundary, border, region
+均	5	N2	キン	kin	level, average
+禁	5	N2	キン	kin	prohibition, ban, forbid
+句	5	N1	ク	ku	phrase, clause, sentence, passage, paragraph, counter for haiku
+型	5	N2	ケイ, かた	kei, kata	mould, type, model
+経	5	N3	ケイ, キョウ, へる	kei, kyou, heru	sutra, longitude, pass thru, expire, warp
+潔	5	N1	ケツ, いさぎよい	ketsu, isagiyoi	undefiled, pure, clean, righteous, gallant
+件	5	N3	ケン	ken	affair, case, matter, item
+険	5	N3	ケン, けわしい	ken, kewashii	precipitous, inaccessible place, impregnable position, steep place, sharp eyes
+検	5	N1	ケン	ken	examination, investigate
+限	5	N3	ゲン, かぎる	gen, kagiru	limit, restrict, to best of ability
+現	5	N3	ゲン, あらわれる, あらわす	gen, arawareru, arawasu	present, existing, actual
+減	5	N2	ゲン, へる, へらす	gen, heru, herasu	dwindle, decrease, reduce, decline, curtail, get hungry
+故	5	N1	コ, ゆえ	ko, yue	happenstance, especially, intentionally, reason, cause, circumstances, the late, therefore, consequently
+個	5	N2	コ	ko	individual, counter for articles and military units
+護	5	N1	ゴ	go	safeguard, protect
+効	5	N2	コウ, きく	kou, kiku	merit, efficacy, efficiency, benefit
+厚	5	N2	コウ, あつい	kou, atsui	thick, heavy, rich, kind, cordial, brazen, shameless
+耕	5	N2	コウ, たがやす	kou, tagayasu	till, plow, cultivate
+航	5	N2	コウ	kou	navigate, sail, cruise, fly
+鉱	5	N2	コウ	kou	mineral, ore
+構	5	N3	コウ, かまえる, かまう	kou, kamaeru, kamau	posture, build, pretend
+興	5	N1	コウ, キョウ, おこる, おこす	kou, kyou, okoru, okosu	entertain, revive, retrieve, interest, pleasure
+講	5	N2	コウ	kou	lecture, club, association
+告	5	N3	コク, つげる	koku, tsugeru	revelation, tell, inform, announce
+混	5	N2	コン, まじる, まざる, まぜる, こむ	kon, majiru, mazaru, mazeru, komu	mix, blend, confuse
+査	5	N2	サ	sa	investigate
+再	5	N2	サイ, （サ）, ふたたび	sai, (sa), futatabi	again, twice, second time
+災	5	N1	サイ, わざわい	sai, wazawai	disaster, calamity, woe, curse, evil
+妻	5	N3	サイ, つま	sai, tsuma	wife, spouse
+採	5	N2	サイ, とる	sai, toru	pick, take, fetch, take up
+際	5	N3	サイ, きわ	sai, kiwa	occasion, side, edge, verge, dangerous, adventurous, indecent, time, when
+在	5	N3	ザイ, ある	zai, aru	exist, outskirts, suburbs, located in
+財	5	N3	ザイ, （サイ）	zai, (sai)	property, money, wealth, assets
+罪	5	N3	ザイ, つみ	zai, tsumi	guilt, sin, crime, fault, blame, offense
+殺	5	N3	サツ, （サイ）, （セツ）, ころす	satsu, (sai), (setsu), korosu	kill, murder, butcher, slice off, split, diminish, reduce, spoil
+雑	5	N3	ザツ, ゾウ	zatsu, zou	miscellaneous
+酸	5	N1	サン, すい	san, sui	acid, bitterness, sour, tart
+賛	5	N3	サン	san	approve, praise, title or inscription on picture, assist, agree with
+士	5	N1	シ	shi	gentleman, samurai
+支	5	N3	シ, ささえる	shi, sasaeru	branch, support, sustain
+史	5	N2	シ	shi	history, chronicle
+志	5	N1	シ, こころざす, こころざし	shi, kokorozasu, kokorozashi	intention, plan, resolve, aspire, motive, hopes, shilling
+枝	5	N2	シ, えだ	shi, eda	bough, branch, twig, limb
+師	5	N3	シ	shi	expert, teacher, master, army, war
+資	5	N3	シ	shi	assets, resources, capital, funds, data, be conducive to, contribute to
+飼	5	N1	シ, かう	shi, kau	domesticate, raise, keep, feed
+示	5	N3	ジ, シ, しめす	ji, shi, shimesu	show, indicate, point out, express, display
+似	5	N3	ジ, にる	ji, niru	becoming, resemble, counterfeit, imitate, suitable
+識	5	N3	シキ	shiki	discriminating, know, write
+質	5	N4	シツ, シチ, （チ）	shitsu, shichi, (chi)	substance, quality, matter, temperament
+舎	5	N1	シャ	sha	cottage, inn, hut, house, mansion
+謝	5	N1	シャ, あやまる	sha, ayamaru	apologize, thank, refuse
+授	5	N1	ジュ, さずける, さずかる	ju, sazukeru, sazukaru	impart, instruct, grant, confer
+修	5	N1	シュウ, （シュ）, おさめる, おさまる	shuu, (shu), osameru, osamaru	discipline, conduct oneself well, study, master
+述	5	N2	ジュツ, のべる	jutsu, noberu	mention, state, speak, relate
+術	5	N3	ジュツ	jutsu	art, technique, skill, means, trick, resources, magic
+準	5	N2	ジュン	jun	semi-, correspond to, proportionate to, conform, imitate
+序	5	N1	ジョ	jo	preface, beginning, order, precedence, occasion, chance, incidentally
+招	5	N3	ショウ, まねく	shou, maneku	beckon, invite, summon, engage
+証	5	N1	ショウ	shou	evidence, proof, certificate
+象	5	N2	ショウ, ゾウ	shou, zou	elephant, pattern after, imitate, image, shape, sign (of the times)
+賞	5	N2	ショウ	shou	prize, reward, praise
+条	5	N1	ジョウ	jou	article, clause, item, stripe, streak
+状	5	N3	ジョウ	jou	status quo, conditions, circumstances, form, appearance
+常	5	N3	ジョウ, つね, とこ	jou, tsune, toko	usual, ordinary, normal, regular
+情	5	N3	ジョウ, （セイ）, なさけ	jou, (sei), nasake	feelings, emotion, passion, sympathy, circumstances, facts
+織	5	N1	ショク, シキ, おる	shoku, shiki, oru	weave, fabric
+職	5	N3	ショク	shoku	post, employment, work
+制	5	N3	セイ	sei	system, law, rule
+性	5	N3	セイ, ショウ	sei, shou	sex, gender, nature
+政	5	N3	セイ, （ショウ）, まつりごと	sei, (shou), matsurigoto	politics, government
+勢	5	N2	セイ, いきおい	sei, ikioi	forces, energy, military strength
+精	5	N3	セイ, （ショウ）	sei, (shou)	refined, ghost, fairy, energy, vitality, semen, excellence, purity, skill
+製	5	N1	セイ	sei	made in..., manufacture
+税	5	N2	ゼイ	zei	tax, duty
+責	5	N3	セキ, せめる	seki, semeru	blame, condemn, censure
+績	5	N2	セキ	seki	exploits, unreeling cocoons
+接	5	N2	セツ, つぐ	setsu, tsugu	touch, contact, adjoin, piece together
+設	5	N2	セツ, もうける	setsu, moukeru	establishment, provision, prepare
+絶	5	N3	ゼツ, たえる, たやす, たつ	zetsu, taeru, tayasu, tatsu	discontinue, beyond, sever, cut off, abstain, interrupt, suppress
+祖	5	N3	ソ	so	ancestor, pioneer, founder
+素	5	N1	ソ, ス	so, su	elementary, principle, naked, uncovered
+総	5	N2	ソウ	sou	general, whole, all, full, total
+造	5	N2	ゾウ, つくる	zou, tsukuru	create, make, structure, physique
+像	5	N2	ゾウ	zou	statue, picture, image, figure, portrait
+増	5	N3	ゾウ, ます, ふえる, ふやす	zou, masu, fueru, fuyasu	increase, add, augment, gain, promote
+則	5	N2	ソク	soku	rule, follow, based on, model after
+測	5	N2	ソク, はかる	soku, hakaru	fathom, plan, scheme, measure
+属	5	N1	ゾク	zoku	belong, genus, subordinate official, affiliated
+率	5	N1	ソツ, リツ, ひきいる	sotsu, ritsu, hikiiru	ratio, rate, proportion, %, coefficient, factor
+損	5	N2	ソン, そこなう, そこねる	son, sokonau, sokoneru	damage, loss, disadvantage, hurt, injure
+貸	5	N4	タイ, かす	tai, kasu	lend
+態	5	N1	タイ	tai	attitude, condition, figure, appearance, voice (of verbs)
+団	5	N2	ダン, （トン）	dan, (ton)	group, association
+断	5	N3	ダン, たつ, ことわる	dan, tatsu, kotowaru	severance, decline, refuse, apologize, warn, dismiss, prohibit, decision, judgement, cutting
+築	5	N2	チク, きずく	chiku, kizuku	fabricate, build, construct
+貯	5	N2	チョ	cho	savings, store, lay in, keep, wear mustache
+張	5	N1	チョウ, はる	chou, haru	lengthen, counter for bows & stringed instruments, stretch, spread, put up (tent)
+停	5	N2	テイ	tei	halt, stopping
+提	5	N1	テイ, さげる	tei, sageru	propose, take along, carry in hand
+程	5	N3	テイ, ほど	tei, hodo	extent, degree, law, formula, distance, limits, amount
+適	5	N3	テキ	teki	suitable, occasional, rare, qualified, capable
+統	5	N1	トウ, すべる	tou, suberu	overall, relationship, ruling, governing
+堂	5	N4	ドウ	dou	public chamber, hall
+銅	5	N2	ドウ	dou	copper
+導	5	N2	ドウ, みちびく	dou, michibiku	guidance, leading, conduct, usher
+得	5	N3	トク, える, うる	toku, eru, uru	gain, get, find, earn, acquire, can, may, able to, profit, advantage, benefit
+毒	5	N2	ドク	doku	poison, virus, venom, germ, harm, injury, spite
+独	5	N1	ドク, ひとり	doku, hitori	single, alone, spontaneously, Germany
+任	5	N3	ニン, まかせる, まかす	nin, makaseru, makasu	responsibility, duty, term, entrust to, appoint
+燃	5	N2	ネン, もえる, もやす, もす	nen, moeru, moyasu, mosu	burn, blaze, glow
+能	5	N3	ノウ	nou	ability, talent, skill, capacity
+破	5	N3	ハ, やぶる, やぶれる	ha, yaburu, yabureru	rend, rip, tear, break, destroy, defeat, frustrate
+犯	5	N3	ハン, おかす	han, okasu	crime, sin, offense
+判	5	N3	ハン, バン	han, ban	judgement, signature, stamp, seal
+版	5	N2	ハン	han	printing block, printing plate, edition, impression, label
+比	5	N2	ヒ, くらべる	hi, kuraberu	compare, race, ratio, Philipines
+肥	5	N1	ヒ, こえる, こえ, こやす, こやし	hi, koeru, koe, koyasu, koyashi	fertilizer, get fat, fertile, manure, pamper
+非	5	N3	ヒ	hi	un-, mistake, negative, injustice, non-
+費	5	N3	ヒ, ついやす, ついえる	hi, tsuiyasu, tsuieru	expense, cost, spend, consume, waste
+備	5	N3	ビ, そなえる, そなわる	bi, sonaeru, sonawaru	equip, provision, preparation
+評	5	N1	ヒョウ	hyou	evaluate, criticism, comment
+貧	5	N3	ヒン, ビン, まずしい	hin, bin, mazushii	poverty, poor
+布	5	N2	フ, ぬの	fu, nuno	linen, cloth
+婦	5	N3	フ	fu	lady, woman, wife, bride
+武	5	N2	ブ, ム	bu, mu	warrior, military, chivalry, arms
+復	5	N2	フク	fuku	restore, return to, revert, resume
+複	5	N2	フク	fuku	duplicate, double, compound, multiple
+仏	5	N2	ブツ, ほとけ	butsu, hotoke	Buddha, the dead, France
+粉	5	N2	フン, こ, こな	fun, ko, kona	flour, powder, dust
+編	5	N2	ヘン, あむ	hen, amu	compilation, knit, plait, braid, twist, editing, completed poem, part of a book
+弁	5	N1	ベン	ben	valve, petal, braid, speech, dialect, discrimination, dispose of, distinguish
+保	5	N1	ホ, たもつ	ho, tamotsu	protect, guarantee, keep, preserve, sustain, support
+墓	5	N1	ボ, はか	bo, haka	grave, tomb
+報	5	N3	ホウ, むくいる	hou, mukuiru	report, news, reward, retribution
+豊	5	N2	ホウ, ゆたか	hou, yutaka	bountiful, excellent, rich
+防	5	N2	ボウ, ふせぐ	bou, fusegu	ward off, defend, protect, resist
+貿	5	N2	ボウ	bou	trade, exchange
+暴	5	N2	ボウ, （バク）, あばく, あばれる	bou, (baku), abaku, abareru	outburst, rave, fret, force, violence, cruelty, outrage
+脈	5	N1	ミャク	myaku	vein, pulse, hope
+務	5	N3	ム, つとめる, つとまる	mu, tsutomeru, tsutomaru	task, duties
+夢	5	N3	ム, ゆめ	mu, yume	dream, vision, illusion
+迷	5	N3	メイ, まよう	mei, mayou	astray, be perplexed, in doubt, lost, err, illusion
+綿	5	N2	メン, わた	men, wata	cotton
+輸	5	N2	ユ	yu	transport, send, be inferior
+余	5	N3	ヨ, あまる, あます	yo, amaru, amasu	too much, myself, surplus, other, remainder
+容	5	N3	ヨウ	you	contain, form, looks
+略	5	N2	リャク	ryaku	abbreviation, omission, outline, shorten, capture, plunder
+留	5	N3	リュウ, （ル）, とめる, とまる	ryuu, (ru), tomeru, tomaru	detain, fasten, halt, stop
+領	5	N2	リョウ	ryou	jurisdiction, dominion, territory, fief, reign
+圧	5	N2	アツ	atsu	pressure, push, overwhelm, oppress, dominate
+囲	5	N2	イ, かこむ, かこう	i, kakomu, kakou	surround, besiege, store, paling, enclosure, encircle, preserve, keep
+移	5	N2	イ, うつる, うつす	i, utsuru, utsusu	shift, move, change, drift, catch (cold, fire), pass into
 因	5	N3	イン, よる	in, yoru	cause, factor, be associated with, depend on, be limited to
-咽	S		イン	in	throat
-姻	S	N1	イン	in	matrimony
-員	3	N4	イン	in	employee, member, number, the one in charge
-院	3	N4	イン	in	Inst., institution, temple, mansion, school
-淫	S		イン, みだら	in, midara	lewdness
-陰	S	N1	イン, かげ, かげる	in, kage, kageru	shade
-飲	3	N4	イン, のむ	in, nomu	drink, smoke, take
-隠	S	N1	イン, かくす, かくれる	in, kakusu, kakureru	conceal
-韻	S	N1	イン	in	rhyme
-右	1	N5	ウ, ユウ, みぎ	u, yuu, migi	right
+歴	5	N2	レキ	reki	curriculum, continuation, passage of time
 宇	6	N2	ウ	u	eaves, roof, house, heaven
-羽	2	N2	ウ, は, はね	u, ha, hane	feathers, counter for birds, rabbits
-雨	1	N5	ウ, あめ, （あま）	u, ame, (ama)	rain
+映	6	N4	エイ, うつる, うつす, はえる	ei, utsuru, utsusu, haeru	reflect, reflection, projection
+延	6	N2	エン, のびる, のべる, のばす	en, nobiru, noberu, nobasu	prolong, stretching
+沿	6	N1	エン, そう	en, sou	run alongside, follow along, run along, lie along
+恩	6	N1	オン	on	grace, kindness, goodness, favor, mercy, blessing, benefit
+我	6	N1	ガ, われ, わ	ga, ware, wa	ego, I, selfish, our, oneself
+灰	6	N2	カイ, はい	kai, hai	ashes, puckery juice, cremate
+拡	6	N1	カク	kaku	broaden, extend, expand, enlarge
+革	6	N2	カク, かわ	kaku, kawa	leather, become serious, skin, hide, pelt
+閣	6	N1	カク	kaku	tower, tall building, palace
+割	6	N3	カツ, わる, わり, われる, さく	katsu, waru, wari, wareru, saku	proportion, comparatively, divide, cut, separate, split
+株	6	N1	かぶ	kabu	stocks, stump, shares, stock, counter for small plants
+干	6	N2	カン, ほす, ひる	kan, hosu, hiru	dry, parch
+巻	6	N2	カン, まく, まき	kan, maku, maki	scroll, volume, book, part, roll up, wind up, tie, coil, counter for texts (or book scrolls)
+看	6	N1	カン	kan	watch over, see
+簡	6	N2	カン	kan	simplicity, brevity
+危	6	N3	キ, あぶない, あやうい, あやぶむ	ki, abunai, ayaui, ayabumu	dangerous, fear, uneasy
+机	6	N2	キ, つくえ	ki, tsukue	desk, table
+揮	6	N1	キ	ki	brandish, wave, wag, swing, shake
+貴	6	N1	キ, たっとい, とうとい, たっとぶ, とうとぶ	ki, tattoi, toutoi, tattobu, toutobu	precious, value, prize, esteem, honor
+疑	6	N3	ギ, うたがう	gi, utagau	doubt, distrust, be suspicious, question
+吸	6	N3	キュウ, すう	kyuu, suu	suck, imbibe, inhale, sip
+供	6	N3	キョウ, （ク）, そなえる, とも	kyou, (ku), sonaeru, tomo	submit, offer, present, serve (meal), accompany
+胸	6	N2	キョウ, むね, （むな）	kyou, mune, (muna)	bosom, breast, chest, heart, feelings
+郷	6	N1	キョウ, ゴウ	kyou, gou	home town, village, native place, district
+勤	6	N3	キン, （ゴン）, つとめる, つとまる	kin, (gon), tsutomeru, tsutomaru	diligence, become employed, serve
+筋	6	N1	キン, すじ	kin, suji	muscle, sinew, tendon, fiber, plot, plan, descent
+系	6	N1	ケイ	kei	lineage, system
+敬	6	N2	ケイ, うやまう	kei, uyamau	awe, respect, honor, revere
+警	6	N3	ケイ	kei	admonish, commandment
+劇	6	N2	ゲキ	geki	drama, play
+激	6	N1	ゲキ, はげしい	geki, hageshii	violent, get excited, enraged, chafe, incite
+穴	6	N1	ケツ, あな	ketsu, ana	hole, aperture, slit, cave, den
+券	6	N2	ケン	ken	ticket
+絹	6	N1	ケン, きぬ	ken, kinu	silk
+権	6	N3	ケン, （ゴン）	ken, (gon)	authority, power, rights
+憲	6	N1	ケン	ken	constitution, law
+源	6	N1	ゲン, みなもと	gen, minamoto	source, origin
+厳	6	N1	ゲン, （ゴン）, おごそか, きびしい	gen, (gon), ogosoka, kibishii	stern, strictness, severity, rigidity
+己	6	N1	コ, キ, おのれ	ko, ki, onore	self, snake, serpent
+呼	6	N3	コ, よぶ	ko, yobu	call, call out to, invite
+誤	6	N3	ゴ, あやまる	go, ayamaru	mistake, err, do wrong, mislead
+后	6	N1	コウ	kou	empress, queen, after, behind, back, later
+孝	6		コウ	kou	filial piety
+皇	6	N1	コウ, オウ	kou, ou	emperor
+紅	6	N2	コウ, （ク）, べに, くれない	kou, (ku), beni, kurenai	crimson, deep red
+降	6	N3	コウ, おりる, おろす, ふる	kou, oriru, orosu, furu	descend, precipitate, fall, surrender
+鋼	6	N1	コウ, はがね	kou, hagane	steel
+刻	6	N3	コク, きざむ	koku, kizamu	engrave, cut fine, chop, hash, mince, time, carving
+穀	6	N1	コク	koku	cereals, grain
+骨	6	N2	コツ, ほね	kotsu, hone	skeleton, bone, remains, frame
+困	6	N3	コン, こまる	kon, komaru	quandary, become distressed, annoyed
+砂	6	N2	サ, シャ, すな	sa, sha, suna	sand
+座	6	N3	ザ, すわる	za, suwaru	squat, seat, cushion, gathering, sit
+済	6	N3	サイ, すむ, すます	sai, sumu, sumasu	finish, come to an end, excusable, need not
+裁	6	N1	サイ, たつ, さばく	sai, tatsu, sabaku	tailor, judge, decision, cut out (pattern)
+策	6	N1	サク	saku	scheme, plan, policy, step, means
+冊	6	N2	サツ, サク	satsu, saku	tome, counter for books, volume
+蚕	6	N1	サン, かいこ	san, kaiko	silkworm
+至	6	N1	シ, いたる	shi, itaru	climax, arrive, proceed, reach, attain, result in
+私	6	N4	シ, わたくし, わたし	shi, watakushi, watashi	private, I, me
+姿	6	N1	シ, すがた	shi, sugata	figure, form, shape
+視	6	N1	シ	shi	inspection, regard as, see, look at
+詞	6	N2	シ	shi	part of speech, words, poetry
+誌	6	N2	シ	shi	document, records
+磁	6	N1	ジ	ji	magnet, porcelain
+射	6	N1	シャ, いる	sha, iru	shoot, shine into, onto, archery
+捨	6	N2	シャ, すてる	sha, suteru	discard, throw away, abandon, resign, reject, sacrifice
+尺	6	N1	シャク	shaku	shaku, Japanese foot, measure, scale, rule
+若	6	N3	ジャク, （ニャク）, わかい, もしくは	jaku, (nyaku), wakai, moshikuha	young, if, perhaps, possibly, low number, immature
+樹	6	N1	ジュ	ju	timber trees, wood
+収	6	N3	シュウ, おさめる, おさまる	shuu, osameru, osamaru	income, obtain, reap, pay, supply, store
+宗	6	N1	シュウ, ソウ	shuu, sou	religion, sect, denomination, main point, origin, essence
+就	6	N1	シュウ, （ジュ）, つく, つける	shuu, (ju), tsuku, tsukeru	concerning, settle, take position, depart, study, per
+衆	6	N1	シュウ, （シュ）	shuu, (shu)	masses, great numbers, multitude, populace
+従	6	N1	ジュウ, （ショウ）, （ジュ）, したがう, したがえる	juu, (shou), (ju), shitagau, shitagaeru	accompany, obey, submit to, comply, follow, secondary, incidental, subordinate
+縦	6	N1	ジュウ, たて	juu, tate	vertical, length, height, self-indulgent, wayward
+縮	6	N1	シュク, ちぢむ, ちぢまる, ちぢめる, ちぢれる, ちぢらす	shuku, chijimu, chijimaru, chijimeru, chijireru, chijirasu	shrink, contract, shrivel, wrinkle, reduce
+熟	6	N1	ジュク, うれる	juku, ureru	mellow, ripen, mature, acquire skill
+純	6	N2	ジュン	jun	genuine, purity, innocence, net (profit)
+処	6	N3	ショ	sho	dispose, manage, deal with, sentence, condemn, act, behave, place
+署	6	N2	ショ	sho	signature, govt office, police station
+諸	6	N2	ショ	sho	various, many, several, together
+除	6	N3	ジョ, （ジ）, のぞく	jo, (ji), nozoku	exclude, division (x, 3), remove, abolish, cancel, except
+承	6	N2	ショウ, うけたまわる	shou, uketamawaru	acquiesce, hear, listen to, be informed, receive
+将	6	N2	ショウ	shou	leader, commander, general, admiral, or, and again, soon, from now on, just about
+傷	6	N1	ショウ, きず, いたむ, いためる	shou, kizu, itamu, itameru	wound, hurt, injure, impair, pain, injury, cut, gash, scar, weak point
+障	6	N1	ショウ, さわる	shou, sawaru	hinder, hurt, harm
+蒸	6	N2	ジョウ, むす, むれる, むらす	jou, musu, mureru, murasu	steam, heat, sultry, foment, get musty
+針	6	N2	シン, はり	shin, hari	needle, pin, staple, stinger
+仁	6	N1	ジン, （ニ）	jin, (ni)	humanity, virtue, benevolence, charity, man, kernel
+垂	6	N1	スイ, たれる, たらす	sui, tareru, tarasu	droop, suspend, hang, slouch
+推	6	N1	スイ, おす	sui, osu	conjecture, infer, guess, suppose, support
+寸	6	N1	スン	sun	measurement, foot, 10
+盛	6	N1	セイ, （ジョウ）, もる, さかる, さかん	sei, (jou), moru, sakaru, sakan	boom, prosper, copulate
+聖	6	N1	セイ	sei	holy, saint, sage, master, priest
+誠	6	N1	セイ, まこと	sei, makoto	sincerity, admonish, warn, prohibit, truth, fidelity
+舌	6	N1	ゼツ, した	zetsu, shita	tongue, reed, clapper
+宣	6	N1	セン	sen	proclaim, say, announce
+専	6	N2	セン, もっぱら	sen, moppara	specialty, exclusive, mainly, solely
+泉	6	N2	セン, いずみ	sen, izumi	spring, fountain
+洗	6	N3	セン, あらう	sen, arau	wash, inquire into, probe
+染	6	N1	セン, そめる, そまる, しみる, しみ	sen, someru, somaru, shimiru, shimi	dye, color, paint, stain, print
+銭	6	N1	セン, ぜに	sen, zeni	coin, .01 yen, money
+善	6	N1	ゼン, よい	zen, yoi	virtuous, good, goodness
+奏	6	N1	ソウ, かなでる	sou, kanaderu	play music, speak to a ruler, complete
+窓	6	N3	ソウ, まど	sou, mado	window, pane
+創	6	N1	ソウ, つくる	sou, tsukuru	genesis, wound, injury, hurt, start, originate
+装	6	N2	ソウ, ショウ, よそおう	sou, shou, yosoou	attire, dress, pretend, disguise, profess
+層	6	N2	ソウ	sou	stratum, social class, layer, story, floor
+操	6	N1	ソウ, みさお, あやつる	sou, misao, ayatsuru	maneuver, manipulate, operate, steer, chastity, virginity, fidelity
+蔵	6	N2	ゾウ, くら	zou, kura	storehouse, hide, own, have, possess
+臓	6	N2	ゾウ	zou	entrails, viscera, bowels
+存	6	N3	ソン, ゾン	son, zon	suppose, be aware of, believe, feel
+尊	6	N2	ソン, たっとい, とうとい, たっとぶ, とうとぶ	son, tattoi, toutoi, tattobu, toutobu	revered, valuable, precious, noble, exalted
+退	6	N3	タイ, しりぞく, しりぞける	tai, shirizoku, shirizokeru	retreat, withdraw, retire, resign, repel, expel, reject
+宅	6	N3	タク	taku	home, house, residence, our house, my husband
+担	6	N2	タン, かつぐ, になう	tan, katsugu, ninau	shouldering, carry, raise, bear
+探	6	N3	タン, さぐる, さがす	tan, saguru, sagasu	grope, search, look for
+誕	6	N1	タン	tan	nativity, be born, declension, lie, be arbitrary
+段	6	N3	ダン	dan	grade, steps, stairs
+暖	6	N1	ダン, あたたか, あたたかい, あたたまる, あたためる	dan, atataka, atatakai, atatamaru, atatameru	warmth
+値	6	N3	チ, ね, あたい	chi, ne, atai	price, cost, value
+宙	6	N1	チュウ	chuu	mid-air, air, space, sky, memorization, interval of time
+忠	6	N1	チュウ	chuu	loyalty, fidelity, faithfulness
+著	6	N2	チョ, あらわす, いちじるしい	cho, arawasu, ichijirushii	renowned, publish, write, remarkable, phenomenal, put on, don, wear, arrival, finish (race), counter for suit
+庁	6	N2	チョウ	chou	government office
+頂	6	N3	チョウ, いただく, いただき	chou, itadaku, itadaki	place on the head, receive, top of head, top, summit, peak
+腸	6	N1	チョウ	chou	intestines, guts, bowels, viscera
+潮	6	N1	チョウ, しお	chou, shio	tide, salt water, opportunity
+賃	6	N1	チン	chin	fare, fee, hire, rent, wages, charge
+痛	6	N3	ツウ, いたい, いたむ, いためる	tsuu, itai, itamu, itameru	pain, hurt, damage, bruise
+敵	6	N1	テキ, かたき	teki, kataki	enemy, foe, opponent
+展	6	N1	テン	ten	unfold, expand
+討	6	N1	トウ, うつ	tou, utsu	chastise, attack, defeat, destroy, conquer
+党	6	N2	トウ	tou	party, faction, clique
+糖	6	N1	トウ	tou	sugar
+届	6	N2	とどける, とどく	todokeru, todoku	deliver, reach, arrive, report, notify, forward
+難	6	N3	ナン, かたい, むずかしい	nan, katai, muzukashii	difficult, impossible, trouble, accident, defect
+乳	6	N2	ニュウ, ちち, ち	nyuu, chichi, chi	milk, breasts
+認	6	N3	ニン, みとめる	nin, mitomeru	acknowledge, witness, discern, recognize, appreciate, believe
+納	6	N1	ノウ, （ナッ）, （ナ）, （ナン）, （トウ）, おさめる, おさまる	nou, (na'), (na), (nan), (tou), osameru, osamaru	settlement, obtain, reap, pay, supply, store
+脳	6	N2	ノウ	nou	brain, memory
+派	6	N1	ハ	ha	faction, group, party, clique, sect, school
+拝	6	N2	ハイ, おがむ	hai, ogamu	worship, adore, pray to
+背	6	N3	ハイ, せ, せい, そむく, そむける	hai, se, sei, somuku, somukeru	stature, height, back, behind, disobey, defy, go back on, rebel
+肺	6	N1	ハイ	hai	lungs
+俳	6	N1	ハイ	hai	haiku, actor
+班	6	N1	ハン	han	squad, corps, unit, group
+晩	6	N3	バン	ban	nightfall, night
+否	6	N3	ヒ, いな	hi, ina	negate, no, noes, refuse, decline, deny
+批	6	N1	ヒ	hi	criticism, strike
+秘	6	N1	ヒ, ひめる	hi, himeru	secret, conceal
+俵	6	N1	ヒョウ, たわら	hyou, tawara	bag, bale, sack, counter for bags
+腹	6	N3	フク, はら	fuku, hara	abdomen, belly, stomach
+奮	6	N1	フン, ふるう	fun, furuu	stirred up, be invigorated, flourish
+並	6	N2	ヘイ, なみ, ならべる, ならぶ, ならびに	hei, nami, naraberu, narabu, narabini	row, and, besides, as well as, line up, rank with, rival, equal
+陛	6	N1	ヘイ	hei	highness, steps (of throne)
+閉	6	N3	ヘイ, とじる, とざす, しめる, しまる	hei, tojiru, tozasu, shimeru, shimaru	closed, shut
+片	6	N2	ヘン, かた	hen, kata	one-sided, leaf, sheet
+補	6	N2	ホ, おぎなう	ho, oginau	supplement, supply, make good, offset, compensate, assistant, learner
+暮	6	N3	ボ, くれる, くらす	bo, kureru, kurasu	livelihood, make a living, spend time
+宝	6	N2	ホウ, たから	hou, takara	treasure, wealth, valuables
+訪	6	N3	ホウ, おとずれる, たずねる	hou, otozureru, tazuneru	call on, visit, look up, offer sympathy
+亡	6	N3	ボウ, （モウ）, ない	bou, (mou), nai	deceased, the late, dying, perish
+忘	6	N3	ボウ, わすれる	bou, wasureru	forget
+棒	6	N2	ボウ	bou	rod, stick, cane, pole, club, line
+枚	6	N2	マイ	mai	sheet of..., counter for flat thin objects or sheets
+幕	6	N1	マク, バク	maku, baku	curtain, bunting, act of play
+密	6	N1	ミツ	mitsu	secrecy, density (pop), minuteness, carefulness
+盟	6	N1	メイ	mei	alliance, oath
+模	6	N1	モ, ボ	mo, bo	imitation, copy, mock
+訳	6	N1	ヤク, わけ	yaku, wake	translate, reason, circumstance, case
+郵	6	N2	ユウ	yuu	mail, stagecoach stop
+優	6	N3	ユウ, やさしい, すぐれる	yuu, yasashii, sugureru	tenderness, excel, surpass, actor, superiority, gentleness
+預	6	N2	ヨ, あずける, あずかる	yo, azukeru, azukaru	deposit, custody, leave with, entrust to
+幼	6	N2	ヨウ, おさない	you, osanai	infancy, childhood
+欲	6	N3	ヨク, ほっする, ほしい	yoku, hossuru, hoshii	longing, covetousness, greed, passion, desire, craving
+翌	6	N2	ヨク	yoku	the following, next
+乱	6	N2	ラン, みだれる, みだす	ran, midareru, midasu	riot, war, disorder, disturb
+卵	6	N2	ラン, たまご	ran, tamago	egg, ovum, spawn, roe
+覧	6	N1	ラン	ran	perusal, see
+裏	6	N2	リ, うら	ri, ura	back, amidst, in, reverse, inside, palm, sole, rear, lining, wrong side
+律	6	N2	リツ, （リチ）	ritsu, (richi)	rhythm, law, regulation, gauge, control
+胃	6	N2	イ	i	stomach, paunch, crop, craw
+異	6	N1	イ, こと	i, koto	uncommon, queerness, strangeness, wonderful, curious, unusual
+遺	6	N1	イ, （ユイ）	i, (yui)	bequeath, leave behind, reserve
+域	6	N2	イキ	iki	range, region, limits, stage, level
+臨	6	N1	リン, のぞむ	rin, nozomu	look to, face, meet, confront, attend, call on
+朗	6	N1	ロウ, ほがらか	rou, hogaraka	melodious, clear, bright, serene, cheerful
+論	6	N3	ロン	ron	argument, discourse
 唄	S	N1	（うた）	(uta)	songs with samisen
 鬱	S		ウツ	utsu	gloom, depression
 畝	S	N1	うね	une	furrow
 浦	S	N1	うら	ura	bay
-運	3	N4	ウン, はこぶ	un, hakobu	carry, luck, destiny, fate, lot, transport, progress, advance
-雲	2	N2	ウン, くも	un, kumo	cloud
-永	5	N2	エイ, ながい	ei, nagai	eternity, long, lengthy
-泳	3	N3	エイ, およぐ	ei, oyogu	swim
-英	4	N4	エイ	ei	England, English
-映	6	N4	エイ, うつる, うつす, はえる	ei, utsuru, utsusu, haeru	reflect, reflection, projection
-栄	4	N2	エイ, さかえる, はえ, はえる	ei, sakaeru, hae, haeru	flourish, prosperity, honor, glory, splendor
-営	5	N2	エイ, いとなむ	ei, itonamu	occupation, camp, perform, build, conduct (business)
 詠	S	N1	エイ, よむ	ei, yomu	recitation
 影	S	N1	エイ, かげ	ei, kage	shadow
 鋭	S	N2	エイ, するどい	ei, surudoi	pointed
-衛	5	N1	エイ	ei	defense, protection
-易	5	N3	エキ, イ, やさしい	eki, i, yasashii	easy, ready to, simple, fortune-telling, divination
 疫	S	N1	エキ, （ヤク）	eki, (yaku)	epidemic
-益	5	N1	エキ, （ヤク）	eki, (yaku)	benefit, gain, profit, advantage
-液	5	N2	エキ	eki	fluid, liquid, juice, sap, secretion
-駅	3	N4	エキ	eki	station
 悦	S	N1	エツ	etsu	ecstasy
 越	S	N3	エツ, こす, こえる	etsu, kosu, koeru	cross over
 謁	S	N1	エツ	etsu	audience
 閲	S	N1	エツ	etsu	review
-円	1	N5	エン, まるい	en, marui	circle, yen, round
-延	6	N2	エン, のびる, のべる, のばす	en, nobiru, noberu, nobasu	prolong, stretching
-沿	6	N1	エン, そう	en, sou	run alongside, follow along, run along, lie along
 炎	S	N1	エン, ほのお	en, honoo	inflammation
 怨	S		エン, オン	en, on	grudge
 宴	S	N1	エン	en	banquet
-媛	4	N1	エン	en	beautiful woman, princess
 援	S	N1	エン	en	aid
-園	2	N3	エン, その	en, sono	park, garden, yard, farm
 煙	S	N3	エン, けむる, けむり, けむい	en, kemuru, kemuri, kemui	smoke
 猿	S	N1	エン, さる	en, saru	monkey
-遠	2	N3	エン, （オン）, とおい	en, (on), tooi	distant, far
 鉛	S	N1	エン, なまり	en, namari	lead
-塩	4	N2	エン, しお	en, shio	salt
-演	5	N3	エン	en	performance, act, play, render, stage
 縁	S	N1	エン, ふち	en, fuchi	affinity
 艶	S	N1	エン, つや	en, tsuya	glossy
 汚	S	N2	オ, けがす, けがれる, けがらわしい, よごす, よごれる, きたない	o, kegasu, kegareru, kegarawashii, yogosu, yogoreru, kitanai	dirty
-王	1	N3	オウ	ou	king, rule, magnate
 凹	S	N1	オウ	ou	concave
-央	3	N2	オウ	ou	center, middle
-応	5	N1	オウ, こたえる	ou, kotaeru	apply, answer, yes, OK, reply, accept
-往	5	N1	オウ	ou	journey, chase away, let go, going, travel
 押	S	N3	オウ, おす, おさえる	ou, osu, osaeru	pushed
 旺	S	N1	オウ	ou	flourishing
 欧	S	N2	オウ	ou	Europe
 殴	S	N1	オウ, なぐる	ou, naguru	assault
-桜	5	N1	オウ, さくら	ou, sakura	cherry
 翁	S	N1	オウ	ou	venerable old man
 奥	S	N2	オウ, おく	ou, oku	heart
-横	3	N3	オウ, よこ	ou, yoko	sideways, side, horizontal, width, woof
-岡	4		（おか）	(oka)	hill
-屋	3	N4	オク, や	oku, ya	roof, house, shop, dealer, seller
-億	4	N2	オク	oku	hundred million, 10**8
 憶	S	N1	オク	oku	recollection
 臆	S		オク	oku	timidity
 虞	S	N1	おそれ	osore	uneasiness
 乙	S	N1	オツ	otsu	the latter
 俺	S		おれ	ore	I, we, myself
 卸	S	N1	おろす, おろし	orosu, oroshi	wholesale
-音	1	N4	オン, イン, おと, ね	on, in, oto, ne	sound, noise
-恩	6	N1	オン	on	grace, kindness, goodness, favor, mercy, blessing, benefit
-温	3	N2	オン, あたたか, あたたかい, あたたまる, あたためる	on, atataka, atatakai, atatamaru, atatameru	warm
 穏	S	N1	オン, おだやか	on, odayaka	calm
-下	1	N5	カ, ゲ, した, しも, もと, さげる, さがる, くだる, くだす, くださる, おろす, おりる	ka, ge, shita, shimo, moto, sageru, sagaru, kudaru, kudasu, kudasaru, orosu, oriru	below, down, descend, give, low, inferior
-化	3	N3	カ, ケ, ばける, ばかす	ka, ke, bakeru, bakasu	change, take the form of, influence, enchant, delude, -ization
-火	1	N5	カ, ひ, （ほ）	ka, hi, (ho)	fire
-加	4	N3	カ, くわえる, くわわる	ka, kuwaeru, kuwawaru	add, addition, increase, join, include, Canada
-可	5	N3	カ	ka	possible
-仮	5	N1	カ, （ケ）, かり	ka, (ke), kari	sham, temporary, interim, assumed (name), informal
-何	2	N5	カ, なに, （なん）	ka, nani, (nan)	what
-花	1	N4	カ, はな	ka, hana	flower
 佳	S	N1	カ	ka	excellent
-価	5	N1	カ, あたい	ka, atai	value, price
-果	4	N3	カ, はたす, はてる, はて	ka, hatasu, hateru, hate	fruit, reward, carry out, achieve, complete, end, finish, succeed
-河	5	N2	カ, かわ	ka, kawa	river
 苛	S		カ	ka	torment
-科	2	N3	カ	ka	department, course, section
 架	S	N1	カ, かける, かかる	ka, kakeru, kakaru	rack
-夏	2	N4	カ, （ゲ）, なつ	ka, (ge), natsu	summer
-家	2	N4	カ, ケ, いえ, や	ka, ke, ie, ya	house, home
-荷	3	N2	カ, に	ka, ni	baggage, shoulder-pole load, bear (a burden), shoulder (a gun), load, cargo, freight
 華	S	N1	カ, （ケ）, はな	ka, (ke), hana	splendor
 菓	S	N2	カ	ka	confectionery
-貨	4	N2	カ	ka	freight, goods, property
 渦	S	N1	カ, うず	ka, uzu	whirlpool
-過	5	N3	カ, すぎる, すごす, あやまつ, あやまち	ka, sugiru, sugosu, ayamatsu, ayamachi	overdo, exceed, go beyond, error
 嫁	S	N1	カ, よめ, とつぐ	ka, yome, totsugu	marry into
 暇	S	N1	カ, ひま	ka, hima	spare time
 禍	S	N1	カ	ka	calamity
 靴	S	N3	カ, くつ	ka, kutsu	shoes
 寡	S	N1	カ	ka	widow
-歌	2	N4	カ, うた, うたう	ka, uta, utau	song, sing
 箇	S	N1	カ	ka	counters for things
 稼	S	N1	カ, かせぐ	ka, kasegu	earnings
-課	4	N2	カ	ka	chapter, lesson, section, department, division, counter for chapters (of a book)
 蚊	S	N1	か	ka	mosquito
 牙	S		ガ, （ゲ）, きば	ga, (ge), kiba	tusk
 瓦	S		ガ, かわら	ga, kawara	tile
-我	6	N1	ガ, われ, わ	ga, ware, wa	ego, I, selfish, our, oneself
-画	2	N4	ガ, カク	ga, kaku	brush-stroke, picture
-芽	4	N1	ガ, め	ga, me	bud, sprout, spear, germ
-賀	4	N1	ガ	ga	congratulations, joy
 雅	S	N1	ガ	ga	gracious
 餓	S	N1	ガ	ga	starve
 介	S	N2	カイ	kai	jammed in
-回	2	N3	カイ, （エ）, まわる, まわす	kai, (e), mawaru, mawasu	-times, round, game, revolve, counter for occurrences
-灰	6	N2	カイ, はい	kai, hai	ashes, puckery juice, cremate
-会	2	N4	カイ, エ, あう	kai, e, au	meeting, meet, party, association, interview, join
-快	5	N2	カイ, こころよい	kai, kokoroyoi	cheerful, pleasant, agreeable, comfortable
 戒	S	N1	カイ, いましめる	kai, imashimeru	commandment
-改	4	N2	カイ, あらためる, あらたまる	kai, aratameru, aratamaru	reformation, change, modify, mend, renew, examine, inspect, search
 怪	S	N1	カイ, あやしい, あやしむ	kai, ayashii, ayashimu	suspicious
 拐	S	N1	カイ	kai	kidnap
 悔	S	N1	カイ, くいる, くやむ, くやしい	kai, kuiru, kuyamu, kuyashii	repent
-海	2	N4	カイ, うみ	kai, umi	sea, ocean
-界	3	N4	カイ	kai	world
 皆	S	N3	カイ, みな	kai, mina	all
-械	4	N2	カイ	kai	contraption, fetter, machine, instrument
-絵	2	N3	カイ, エ	kai, e	picture, drawing, painting, sketch
-開	3	N4	カイ, ひらく, ひらける, あく, あける	kai, hiraku, hirakeru, aku, akeru	open, unfold, unseal
-階	3	N2	カイ	kai	storey, stair, counter for storeys of a building
 塊	S	N1	カイ, かたまり	kai, katamari	clod
 楷	S		カイ	kai	square character style
-解	5	N3	カイ, ゲ, とく, とかす, とける	kai, ge, toku, tokasu, tokeru	unravel, notes, key, explanation, understanding, untie, undo, solve, answer, cancel, absolve, explain, minute
 潰	S		カイ, つぶす, つぶれる	kai, tsubusu, tsubureru	crush
 壊	S	N1	カイ, こわす, こわれる	kai, kowasu, kowareru	demolition
 懐	S	N1	カイ, ふところ, なつかしい, なつかしむ, なつく, なつける	kai, futokoro, natsukashii, natsukashimu, natsuku, natsukeru	pocket
 諧	S		カイ	kai	harmony
-貝	1	N2	かい	kai	shellfish
-外	2	N5	ガイ, ゲ, そと, ほか, はずす, はずれる	gai, ge, soto, hoka, hazusu, hazureru	outside
 劾	S	N1	ガイ	gai	censure
-害	4	N3	ガイ	gai	harm, injury
 崖	S		ガイ, がけ	gai, gake	cliff
 涯	S	N1	ガイ	gai	horizon
-街	4	N1	ガイ, （カイ）, まち	gai, (kai), machi	boulevard, street, town
 慨	S	N1	ガイ	gai	rue
 蓋	S		ガイ, ふた	gai, futa	cover
 該	S	N1	ガイ	gai	above-stated
@@ -207,249 +1100,133 @@
 骸	S		ガイ	gai	dead remains
 垣	S	N1	かき	kaki	hedge
 柿	S		かき	kaki	persimmon
-各	4	N2	カク, おのおの	kaku, onoono	each, every, either
-角	2	N2	カク, かど, つの	kaku, kado, tsuno	angle, corner, square, horn, antlers
-拡	6	N1	カク	kaku	broaden, extend, expand, enlarge
-革	6	N2	カク, かわ	kaku, kawa	leather, become serious, skin, hide, pelt
-格	5	N3	カク, （コウ）	kaku, (kou)	status, rank, capacity, character, case (law, grammar)
 核	S	N1	カク	kaku	nucleus
 殻	S	N1	カク, から	kaku, kara	husk
 郭	S	N1	カク	kaku	enclosure
-覚	4	N3	カク, おぼえる, さます, さめる	kaku, oboeru, samasu, sameru	memorize, learn, remember, awake, sober up
 較	S	N1	カク	kaku	contrast
 隔	S	N1	カク, へだてる, へだたる	kaku, hedateru, hedataru	isolate
-閣	6	N1	カク	kaku	tower, tall building, palace
-確	5	N3	カク, たしか, たしかめる	kaku, tashika, tashikameru	assurance, firm, tight, hard, solid, confirm, clear, evident
 獲	S	N1	カク, える	kaku, eru	seize
 嚇	S	N1	カク	kaku	menacing
 穫	S	N1	カク	kaku	harvest
-学	1	N5	ガク, まなぶ	gaku, manabu	study, learning, science
 岳	S	N1	ガク, たけ	gaku, take	point
-楽	2	N4	ガク, ラク, たのしい, たのしむ	gaku, raku, tanoshii, tanoshimu	music, comfort, ease
-額	5	N2	ガク, ひたい	gaku, hitai	forehead, tablet, plaque, framed picture, sum, amount, volume
 顎	S		ガク, あご	gaku, ago	jaw
 掛	S	N3	かける, かかる, かかり	kakeru, kakaru, kakari	hang
-潟	4	N1	かた	kata	lagoon
 括	S	N1	カツ	katsu	fasten
-活	2	N3	カツ	katsu	lively, resuscitation, being helped, living
 喝	S	N1	カツ	katsu	hoarse
 渇	S	N1	カツ, かわく	katsu, kawaku	thirst
-割	6	N3	カツ, わる, わり, われる, さく	katsu, waru, wari, wareru, saku	proportion, comparatively, divide, cut, separate, split
 葛	S		カツ, くず	katsu, kuzu	arrowroot
 滑	S	N1	カツ, コツ, すべる, なめらか	katsu, kotsu, suberu, nameraka	slippery
 褐	S	N1	カツ	katsu	brown
 轄	S	N1	カツ	katsu	control
 且	S	N1	かつ	katsu	moreover
-株	6	N1	かぶ	kabu	stocks, stump, shares, stock, counter for small plants
 釜	S		かま	kama	kettle
 鎌	S	N1	かま	kama	sickle
 刈	S	N1	かる	karu	reap
-干	6	N2	カン, ほす, ひる	kan, hosu, hiru	dry, parch
-刊	5	N2	カン	kan	publish, carve, engrave
 甘	S	N2	カン, あまい, あまえる, あまやかす	kan, amai, amaeru, amayakasu	sweet
 汗	S	N2	カン, あせ	kan, ase	sweat
 缶	S	N2	カン	kan	tin can
-完	4	N3	カン	kan	perfect, completion, end
 肝	S	N1	カン, きも	kan, kimo	liver
-官	4	N3	カン	kan	bureaucrat, the government
 冠	S	N1	カン, かんむり	kan, kanmuri	crown
-巻	6	N2	カン, まく, まき	kan, maku, maki	scroll, volume, book, part, roll up, wind up, tie, coil, counter for texts (or book scrolls)
-看	6	N1	カン	kan	watch over, see
 陥	S	N1	カン, おちいる, おとしいれる	kan, ochiiru, otoshiireru	collapse
 乾	S	N2	カン, かわく, かわかす	kan, kawaku, kawakasu	dry
 勘	S	N1	カン	kan	intuition
 患	S	N2	カン, わずらう	kan, wazurau	afflicted
 貫	S	N1	カン, つらぬく	kan, tsuranuku	pierce
-寒	3	N3	カン, さむい	kan, samui	cold
 喚	S	N1	カン	kan	yell
 堪	S	N1	カン, たえる	kan, taeru	withstand
 換	S	N2	カン, かえる, かわる	kan, kaeru, kawaru	interchange
 敢	S	N1	カン	kan	daring
 棺	S	N1	カン	kan	coffin
 款	S	N1	カン	kan	goodwill
-間	2	N5	カン, ケン, あいだ, ま	kan, ken, aida, ma	interval, space
 閑	S	N1	カン	kan	leisure
 勧	S	N1	カン, すすめる	kan, susumeru	persuade
 寛	S	N1	カン	kan	tolerant
-幹	5	N1	カン, みき	kan, miki	tree trunk
-感	3	N3	カン	kan	emotion, feeling, sensation
-漢	3	N4	カン	kan	Sino-, China
-慣	5	N3	カン, なれる, ならす	kan, nareru, narasu	accustomed, get used to, become experienced
-管	4	N2	カン, くだ	kan, kuda	pipe, tube, wind instrument, drunken talk
-関	4	N3	カン, せき, かかわる	kan, seki, kakawaru	connection, barrier, gateway, involve, concerning
 歓	S	N1	カン	kan	delight
 監	S	N1	カン	kan	oversee
 緩	S	N1	カン, ゆるい, ゆるやか, ゆるむ, ゆるめる	kan, yurui, yuruyaka, yurumu, yurumeru	slacken
 憾	S	N1	カン	kan	remorse
 還	S	N1	カン	kan	send back
-館	3	N4	カン, やかた	kan, yakata	building, mansion, large building, palace
 環	S	N1	カン	kan	ring
-簡	6	N2	カン	kan	simplicity, brevity
-観	4	N3	カン	kan	outlook, look, appearance, condition, view
 韓	S		カン	kan	Korea
 艦	S	N1	カン	kan	warship
 鑑	S	N1	カン, かんがみる	kan, kangamiru	specimen
-丸	2	N2	ガン, まる, まるい, まるめる	gan, maru, marui, marumeru	round, full, month, perfection, -ship, pills, make round, roll up, curl up, seduce, explain away
 含	S	N2	ガン, ふくむ, ふくめる	gan, fukumu, fukumeru	include
-岸	3	N2	ガン, きし	gan, kishi	beach
-岩	2	N2	ガン, いわ	gan, iwa	boulder, rock, cliff
 玩	S		ガン	gan	trifle with
-眼	5	N1	ガン, （ゲン）, まなこ	gan, (gen), manako	eyeball
 頑	S	N1	ガン	gan	stubborn
-顔	2	N3	ガン, かお	gan, kao	face, expression
-願	4	N3	ガン, ねがう	gan, negau	petition, request, vow, wish, hope
 企	S	N1	キ, くわだてる	ki, kuwadateru	plan
 伎	S	N1	キ	ki	deed
-危	6	N3	キ, あぶない, あやうい, あやぶむ	ki, abunai, ayaui, ayabumu	dangerous, fear, uneasy
-机	6	N2	キ, つくえ	ki, tsukue	desk, table
-気	1	N5	キ, ケ	ki, ke	spirit, mind
-岐	4	N1	キ	ki	branch off, fork in road, scene, arena, theater
-希	4	N2	キ	ki	hope, beg, request, pray, beseech, Greece, dilute (acid), rare, few, phenomenal
 忌	S	N1	キ, いむ, いまわしい	ki, imu, imawashii	mourning
-汽	2	N1	キ	ki	vapor, steam
 奇	S	N1	キ	ki	strange
 祈	S	N2	キ, いのる	ki, inoru	pray
-季	4	N2	キ	ki	seasons
-紀	5	N1	キ	ki	chronicle, account, narrative, history, annals, geologic period
 軌	S	N1	キ	ki	rut
 既	S	N1	キ, すでに	ki, sudeni	previously
-記	2	N3	キ, しるす	ki, shirusu	scribe, account, narrative
-起	3	N4	キ, おきる, おこる, おこす	ki, okiru, okoru, okosu	rouse, wake up, get up
 飢	S	N1	キ, うえる	ki, ueru	hungry
 鬼	S	N1	キ, おに	ki, oni	ghost
-帰	2	N4	キ, かえる, かえす	ki, kaeru, kaesu	homecoming, arrive at, lead to, result in
-基	5	N1	キ, もと, もとい	ki, moto, motoi	fundamentals, radical (chem), counter for machines, foundation
-寄	5	N3	キ, よる, よせる	ki, yoru, yoseru	draw near, stop in, bring near, gather, collect, send, forward
-規	5	N3	キ	ki	standard, measure
 亀	S	N1	キ, かめ	ki, kame	turtle
-喜	5	N3	キ, よろこぶ	ki, yorokobu	rejoice, take pleasure in
 幾	S	N3	キ, いく	ki, iku	how many
-揮	6	N1	キ	ki	brandish, wave, wag, swing, shake
-期	3	N3	キ, （ゴ）	ki, (go)	period, time, date, term
 棋	S	N1	キ	ki	chess piece
-貴	6	N1	キ, たっとい, とうとい, たっとぶ, とうとぶ	ki, tattoi, toutoi, tattobu, toutobu	precious, value, prize, esteem, honor
 棄	S	N1	キ	ki	abandon
 毀	S		キ	ki	destroy
-旗	4	N1	キ, はた	ki, hata	national flag, banner, standard
-器	4	N1	キ, うつわ	ki, utsuwa	utensil, vessel, receptacle, implement, instrument, ability, container, tool, set
 畿	S		キ	ki	capital
 輝	S	N1	キ, かがやく	ki, kagayaku	radiance
-機	4	N3	キ, はた	ki, hata	mechanism, opportunity, occasion, machine, airplane
 騎	S	N1	キ	ki	equestrian
-技	5	N2	ギ, わざ	gi, waza	skill, art, craft, ability, feat, performance, vocation, arts
 宜	S	N1	ギ	gi	best regards
 偽	S	N1	ギ, いつわる, にせ	gi, itsuwaru, nise	falsehood
 欺	S	N1	ギ, あざむく	gi, azamuku	deceit
-義	5	N1	ギ	gi	righteousness, justice, morality, honor, loyalty, meaning
-疑	6	N3	ギ, うたがう	gi, utagau	doubt, distrust, be suspicious, question
 儀	S	N1	ギ	gi	ceremony
 戯	S	N1	ギ, たわむれる	gi, tawamureru	frolic
 擬	S	N1	ギ	gi	mimic
 犠	S	N1	ギ	gi	sacrifice
-議	4	N3	ギ	gi	deliberation, consultation, debate, consideration
 菊	S	N1	キク	kiku	chrysanthemum
 吉	S	N1	キチ, キツ	kichi, kitsu	good luck
 喫	S	N2	キツ	kitsu	consume
 詰	S	N2	キツ, つめる, つまる, つむ	kitsu, tsumeru, tsumaru, tsumu	packed
 却	S	N1	キャク	kyaku	instead
-客	3	N3	キャク, カク	kyaku, kaku	guest, visitor, customer, client
 脚	S	N1	キャク, （キャ）, あし	kyaku, (kya), ashi	leg
-逆	5	N2	ギャク, さか, さからう	gyaku, saka, sakarau	inverted, reverse, opposite, wicked
 虐	S	N1	ギャク, しいたげる	gyaku, shiitageru	tyrannize
-九	1	N5	キュウ, ク, ここの, ここのつ	kyuu, ku, kokono, kokonotsu	nine
-久	5	N2	キュウ, （ク）, ひさしい	kyuu, (ku), hisashii	long time, old story
 及	S	N1	キュウ, およぶ, および, およぼす	kyuu, oyobu, oyobi, oyobosu	reach out
-弓	2	N1	キュウ, ゆみ	kyuu, yumi	bow, bow (archery, violin)
 丘	S	N1	キュウ, おか	kyuu, oka	hill
-旧	5	N2	キュウ	kyuu	old times, old things, old friend, former, ex-
-休	1	N5	キュウ, やすむ, やすまる, やすめる	kyuu, yasumu, yasumaru, yasumeru	rest, day off, retire, sleep
-吸	6	N3	キュウ, すう	kyuu, suu	suck, imbibe, inhale, sip
 朽	S	N1	キュウ, くちる	kyuu, kuchiru	decay
 臼	S		キュウ, うす	kyuu, usu	mortar
-求	4	N3	キュウ, もとめる	kyuu, motomeru	request, want, wish for, require, demand
-究	3	N4	キュウ, きわめる	kyuu, kiwameru	research, study
-泣	4	N1	キュウ, なく	kyuu, naku	cry, weep, moan
-急	3	N4	キュウ, いそぐ	kyuu, isogu	hurry, emergency, sudden, steep
-級	3	N1	キュウ	kyuu	class, rank, grade
 糾	S	N1	キュウ	kyuu	twist
-宮	3	N1	キュウ, グウ, （ク）, みや	kyuu, guu, (ku), miya	Shinto shrine, constellations, palace, princess
-救	5	N1	キュウ, すくう	kyuu, sukuu	salvation, save, help, rescue, reclaim
-球	3	N3	キュウ, たま	kyuu, tama	ball, sphere
-給	4	N3	キュウ	kyuu	salary, wage, gift, allow, grant, bestow on
 嗅	S		キュウ, かぐ	kyuu, kagu	smell
 窮	S	N1	キュウ, きわめる, きわまる	kyuu, kiwameru, kiwamaru	hard up
-牛	2	N4	ギュウ, うし	gyuu, ushi	cow
-去	3	N4	キョ, コ, さる	kyo, ko, saru	gone, past, quit, leave, elapse, eliminate, divorce
 巨	S	N2	キョ	kyo	gigantic
-居	5	N3	キョ, いる	kyo, iru	reside, to be, exist, live with
 拒	S	N1	キョ, こばむ	kyo, kobamu	repel
 拠	S	N1	キョ, コ	kyo, ko	foothold
-挙	4	N1	キョ, あげる, あがる	kyo, ageru, agaru	raise, plan, project, behavior, actions
 虚	S	N1	キョ, （コ）	kyo, (ko)	void
-許	5	N3	キョ, ゆるす	kyo, yurusu	permit, approve
 距	S	N1	キョ	kyo	long-distance
-魚	2	N4	ギョ, うお, さかな	gyo, uo, sakana	fish
 御	S	N3	ギョ, ゴ, おん	gyo, go, on	honorable
-漁	4	N2	ギョ, リョウ	gyo, ryou	fishing, fishery
 凶	S	N1	キョウ	kyou	villain
-共	4	N3	キョウ, とも	kyou, tomo	together, both, neither, all, and, alike, with
 叫	S	N2	キョウ, さけぶ	kyou, sakebu	shout
 狂	S	N1	キョウ, くるう, くるおしい	kyou, kuruu, kuruoshii	lunatic
-京	2	N4	キョウ, ケイ	kyou, kei	capital, 10**16
 享	S	N1	キョウ	kyou	receive
-供	6	N3	キョウ, （ク）, そなえる, とも	kyou, (ku), sonaeru, tomo	submit, offer, present, serve (meal), accompany
-協	4	N2	キョウ	kyou	co-, cooperation
 況	S	N2	キョウ	kyou	condition
 峡	S	N1	キョウ	kyou	gorge
 挟	S	N2	キョウ, はさむ, はさまる	kyou, hasamu, hasamaru	pinch
 狭	S	N1	キョウ, せまい, せばめる, せばまる	kyou, semai, sebameru, sebamaru	cramped
 恐	S	N3	キョウ, おそれる, おそろしい	kyou, osoreru, osoroshii	fear
 恭	S	N1	キョウ, うやうやしい	kyou, uyauyashii	respect
-胸	6	N2	キョウ, むね, （むな）	kyou, mune, (muna)	bosom, breast, chest, heart, feelings
 脅	S	N1	キョウ, おびやかす, おどす, おどかす	kyou, obiyakasu, odosu, odokasu	threaten
-強	2	N4	キョウ, ゴウ, つよい, つよまる, つよめる, しいる	kyou, gou, tsuyoi, tsuyomaru, tsuyomeru, shiiru	strong
-教	2	N4	キョウ, おしえる, おそわる	kyou, oshieru, osowaru	teach, faith, doctrine
-郷	6	N1	キョウ, ゴウ	kyou, gou	home town, village, native place, district
-境	5	N2	キョウ, （ケイ）, さかい	kyou, (kei), sakai	boundary, border, region
-橋	3	N2	キョウ, はし	kyou, hashi	bridge
 矯	S	N1	キョウ, ためる	kyou, tameru	rectify
-鏡	4	N1	キョウ, かがみ	kyou, kagami	mirror, speculum, barrel-head, round rice-cake offering
-競	4	N2	キョウ, ケイ, きそう, せる	kyou, kei, kisou, seru	emulate, compete with, bid, sell at auction, bout, contest, race
 響	S	N1	キョウ, ひびく	kyou, hibiku	echo
 驚	S	N1	キョウ, おどろく, おどろかす	kyou, odoroku, odorokasu	wonder
 仰	S	N1	ギョウ, （コウ）, あおぐ, おおせ	gyou, (kou), aogu, oose	face-up
 暁	S	N1	ギョウ, あかつき	gyou, akatsuki	daybreak
-業	3	N4	ギョウ, ゴウ, わざ	gyou, gou, waza	business, vocation, arts, performance
 凝	S	N1	ギョウ, こる, こらす	gyou, koru, korasu	congeal
-曲	3	N3	キョク, まがる, まげる	kyoku, magaru, mageru	bend, music, melody, composition, pleasure, injustice, fault, curve, crooked, perverse, lean
-局	3	N3	キョク	kyoku	bureau, board, office, affair, conclusion, court lady, lady-in-waiting, her apartment
-極	4	N2	キョク, ゴク, きわめる, きわまる, きわみ	kyoku, goku, kiwameru, kiwamaru, kiwami	poles, settlement, conclusion, end, highest rank, electric poles, very, extremely, most, highly, 10**48
-玉	1	N2	ギョク, たま	gyoku, tama	jewel, ball
 巾	S		キン	kin	towel
 斤	S	N1	キン	kin	axe
-均	5	N2	キン	kin	level, average
-近	2	N4	キン, ちかい	kin, chikai	near, early, akin, tantamount
-金	1	N5	キン, コン, かね, （かな）	kin, kon, kane, (kana)	gold
 菌	S	N1	キン	kin	germ
-勤	6	N3	キン, （ゴン）, つとめる, つとまる	kin, (gon), tsutomeru, tsutomaru	diligence, become employed, serve
 琴	S	N1	キン, こと	kin, koto	harp
-筋	6	N1	キン, すじ	kin, suji	muscle, sinew, tendon, fiber, plot, plan, descent
 僅	S		キン, わずか	kin, wazuka	a wee bit
-禁	5	N2	キン	kin	prohibition, ban, forbid
 緊	S	N1	キン	kin	tense
 錦	S	N1	キン, にしき	kin, nishiki	brocade
 謹	S	N1	キン, つつしむ	kin, tsutsushimu	discreet
 襟	S	N1	キン, えり	kin, eri	collar
 吟	S	N1	ギン	gin	versify
-銀	3	N4	ギン	gin	silver
-区	3	N2	ク	ku	ward, district
-句	5	N1	ク	ku	phrase, clause, sentence, passage, paragraph, counter for haiku
-苦	3	N3	ク, くるしい, くるしむ, くるしめる, にがい, にがる	ku, kurushii, kurushimu, kurushimeru, nigai, nigaru	suffering, trial, worry, hardship, feel bitter, scowl
 駆	S	N1	ク, かける, かる	ku, kakeru, karu	drive
-具	3	N3	グ	gu	tool, utensil, means, possess, ingredients, counter for armor, suits, sets of furniture
 惧	S		グ	gu	dread
 愚	S	N1	グ, おろか	gu, oroka	foolish
-空	1	N4	クウ, そら, あく, あける, から	kuu, sora, aku, akeru, kara	empty, sky, void, vacant, vacuum
 偶	S	N3	グウ	guu	accidentally
 遇	S	N1	グウ	guu	interview
 隅	S	N2	グウ, すみ	guu, sumi	corner
@@ -457,34 +1234,17 @@
 屈	S	N1	クツ	kutsu	yield
 掘	S	N2	クツ, ほる	kutsu, horu	dig
 窟	S		クツ	kutsu	cavern
-熊	4	N1	くま	kuma	bear
 繰	S	N1	くる	kuru	winding
-君	3	N3	クン, きみ	kun, kimi	old boy, name-suffix
-訓	4	N2	クン	kun	instruction, Japanese character reading, explanation, read
 勲	S	N1	クン	kun	meritorious deed
 薫	S	N1	クン, かおる	kun, kaoru	fragrant
-軍	4	N2	グン	gun	army, force, troops, war, battle
-郡	4	N1	グン	gun	county, district
-群	4	N2	グン, むれる, むれ, （むら）	gun, mureru, mure, (mura)	flock, group, crowd, herd, swarm, cluster
-兄	2	N4	ケイ, （キョウ）, あに	kei, (kyou), ani	elder brother, big brother
 刑	S	N1	ケイ	kei	punish
-形	2	N3	ケイ, ギョウ, かた, かたち	kei, gyou, kata, katachi	shape, form, style
-系	6	N1	ケイ	kei	lineage, system
-径	4	N1	ケイ	kei	diameter, path, method
 茎	S	N1	ケイ, くき	kei, kuki	stalk
-係	3	N3	ケイ, かかる, かかり	kei, kakaru, kakari	person in charge, connection, duty, concern oneself
-型	5	N2	ケイ, かた	kei, kata	mould, type, model
 契	S	N1	ケイ, ちぎる	kei, chigiru	pledge
-計	2	N4	ケイ, はかる, はからう	kei, hakaru, hakarau	plot, plan, scheme, measure
 恵	S	N1	ケイ, エ, めぐむ	kei, e, megumu	favor
 啓	S	N1	ケイ	kei	disclose
 掲	S	N1	ケイ, かかげる	kei, kakageru	put up (a notice)
 渓	S	N1	ケイ	kei	mountain stream
-経	5	N3	ケイ, キョウ, へる	kei, kyou, heru	sutra, longitude, pass thru, expire, warp
 蛍	S	N1	ケイ, ほたる	kei, hotaru	lightning-bug
-敬	6	N2	ケイ, うやまう	kei, uyamau	awe, respect, honor, revere
-景	4	N3	ケイ	kei	scenery, view
-軽	3	N2	ケイ, かるい, かろやか	kei, karui, karoyaka	lightly, trifling, unimportant
 傾	S	N2	ケイ, かたむく, かたむける	kei, katamuku, katamukeru	lean
 携	S	N1	ケイ, たずさえる, たずさわる	kei, tazusaeru, tazusawaru	portable
 継	S	N1	ケイ, つぐ	kei, tsugu	inherit
@@ -493,583 +1253,277 @@
 憬	S		ケイ	kei	long for
 稽	S		ケイ	kei	consider
 憩	S	N1	ケイ, いこい, いこう	kei, ikoi, ikou	recess
-警	6	N3	ケイ	kei	admonish, commandment
 鶏	S	N1	ケイ, にわとり	kei, niwatori	chicken
-芸	4	N2	ゲイ	gei	technique, art, craft, performance, acting, trick, stunt
 迎	S	N3	ゲイ, むかえる	gei, mukaeru	welcome
 鯨	S	N1	ゲイ, くじら	gei, kujira	whale
 隙	S		ゲキ, すき	geki, suki	fissure
-劇	6	N2	ゲキ	geki	drama, play
 撃	S	N1	ゲキ, うつ	geki, utsu	beat
-激	6	N1	ゲキ, はげしい	geki, hageshii	violent, get excited, enraged, chafe, incite
 桁	S		けた	keta	beam
-欠	4	N3	ケツ, かける, かく	ketsu, kakeru, kaku	lack, gap, fail
-穴	6	N1	ケツ, あな	ketsu, ana	hole, aperture, slit, cave, den
-血	3	N2	ケツ, ち	ketsu, chi	blood
-決	3	N3	ケツ, きめる, きまる	ketsu, kimeru, kimaru	decide, fix, agree upon, appoint
-結	4	N1	ケツ, むすぶ, ゆう, ゆわえる	ketsu, musubu, yuu, yuwaeru	tie, bind, contract, join, organize, do up hair, fasten
 傑	S	N1	ケツ	ketsu	greatness
-潔	5	N1	ケツ, いさぎよい	ketsu, isagiyoi	undefiled, pure, clean, righteous, gallant
-月	1	N5	ゲツ, ガツ, つき	getsu, gatsu, tsuki	month, moon
-犬	1	N4	ケン, いぬ	ken, inu	dog
-件	5	N3	ケン	ken	affair, case, matter, item
-見	1	N5	ケン, みる, みえる, みせる	ken, miru, mieru, miseru	see, hopes, chances, idea, opinion, look at, visible
-券	6	N2	ケン	ken	ticket
 肩	S	N2	ケン, かた	ken, kata	shoulder
-建	4	N4	ケン, （コン）, たてる, たつ	ken, (kon), tateru, tatsu	build
-研	3	N4	ケン, とぐ	ken, togu	polish, study of, sharpen
-県	3	N2	ケン	ken	prefecture
 倹	S	N1	ケン	ken	frugal
 兼	S	N1	ケン, かねる	ken, kaneru	concurrently
 剣	S	N1	ケン, つるぎ	ken, tsurugi	sabre
 拳	S	N1	ケン, こぶし	ken, kobushi	fist
 軒	S	N2	ケン, のき	ken, noki	flats
-健	4	N1	ケン, すこやか	ken, sukoyaka	healthy, health, strength, persistence
-険	5	N3	ケン, けわしい	ken, kewashii	precipitous, inaccessible place, impregnable position, steep place, sharp eyes
 圏	S	N1	ケン	ken	sphere
 堅	S	N1	ケン, かたい	ken, katai	strict
-検	5	N1	ケン	ken	examination, investigate
 嫌	S	N1	ケン, （ゲン）, きらう, いや	ken, (gen), kirau, iya	dislike
 献	S	N1	ケン, （コン）	ken, (kon)	offering
-絹	6	N1	ケン, きぬ	ken, kinu	silk
 遣	S	N1	ケン, つかう, つかわす	ken, tsukau, tsukawasu	dispatch
-権	6	N3	ケン, （ゴン）	ken, (gon)	authority, power, rights
-憲	6	N1	ケン	ken	constitution, law
 賢	S	N2	ケン, かしこい	ken, kashikoi	intelligent
 謙	S	N1	ケン	ken	self-effacing
 鍵	S		ケン, かぎ	ken, kagi	key
 繭	S	N1	ケン, まゆ	ken, mayu	cocoon
 顕	S	N1	ケン	ken	appear
-験	4	N4	ケン, （ゲン）	ken, (gen)	verification, effect, testing
 懸	S	N1	ケン, （ケ）, かける, かかる	ken, (ke), kakeru, kakaru	suspend
-元	2	N4	ゲン, ガン, もと	gen, gan, moto	beginning, former time, origin
 幻	S	N1	ゲン, まぼろし	gen, maboroshi	phantasm
 玄	S	N1	ゲン	gen	mysterious
-言	2	N4	ゲン, ゴン, いう, こと	gen, gon, iu, koto	say
 弦	S	N1	ゲン, つる	gen, tsuru	bowstring
-限	5	N3	ゲン, かぎる	gen, kagiru	limit, restrict, to best of ability
-原	2	N3	ゲン, はら	gen, hara	meadow, original, primitive, field, plain, prairie, tundra, wilderness
-現	5	N3	ゲン, あらわれる, あらわす	gen, arawareru, arawasu	present, existing, actual
 舷	S		ゲン	gen	gunwale
-減	5	N2	ゲン, へる, へらす	gen, heru, herasu	dwindle, decrease, reduce, decline, curtail, get hungry
-源	6	N1	ゲン, みなもと	gen, minamoto	source, origin
-厳	6	N1	ゲン, （ゴン）, おごそか, きびしい	gen, (gon), ogosoka, kibishii	stern, strictness, severity, rigidity
-己	6	N1	コ, キ, おのれ	ko, ki, onore	self, snake, serpent
-戸	2	N2	コ, と	ko, to	door
-古	2	N4	コ, ふるい, ふるす	ko, furui, furusu	old
-呼	6	N3	コ, よぶ	ko, yobu	call, call out to, invite
-固	4	N2	コ, かためる, かたまる, かたい	ko, katameru, katamaru, katai	harden, set, clot, curdle
 股	S		コ, また	ko, mata	crotch
 虎	S	N1	コ, とら	ko, tora	tiger
 孤	S	N1	コ	ko	orphan
 弧	S	N1	コ	ko	arc
-故	5	N1	コ, ゆえ	ko, yue	happenstance, especially, intentionally, reason, cause, circumstances, the late, therefore, consequently
 枯	S	N2	コ, かれる, からす	ko, kareru, karasu	wither
-個	5	N2	コ	ko	individual, counter for articles and military units
-庫	3	N2	コ, （ク）	ko, (ku)	warehouse, storehouse
-湖	3	N2	コ, みずうみ	ko, mizuumi	lake
 雇	S	N2	コ, やとう	ko, yatou	employ
 誇	S	N1	コ, ほこる	ko, hokoru	boast
 鼓	S	N1	コ, つづみ	ko, tsuzumi	drum
 錮	S		コ	ko	tie up
 顧	S	N1	コ, かえりみる	ko, kaerimiru	look back
-五	1	N5	ゴ, いつ, いつつ	go, itsu, itsutsu	five
 互	S	N3	ゴ, たがい	go, tagai	mutually
-午	2	N5	ゴ	go	noon, sign of the horse, 11AM-1PM, seventh sign of Chinese zodiac
 呉	S	N1	ゴ	go	give
-後	2	N5	ゴ, コウ, のち, うしろ, あと, おくれる	go, kou, nochi, ushiro, ato, okureru	behind, back, later
 娯	S	N1	ゴ	go	recreation
 悟	S	N1	ゴ, さとる	go, satoru	enlightenment
 碁	S	N1	ゴ	go	Go
-語	2	N5	ゴ, かたる, かたらう	go, kataru, katarau	word, speech, language
-誤	6	N3	ゴ, あやまる	go, ayamaru	mistake, err, do wrong, mislead
-護	5	N1	ゴ	go	safeguard, protect
-口	1	N4	コウ, ク, くち	kou, ku, kuchi	mouth
-工	2	N4	コウ, ク	kou, ku	craft, construction
-公	2	N4	コウ, おおやけ	kou, ooyake	public, prince, official, governmental
 勾	S		コウ	kou	capture
 孔	S	N1	コウ	kou	cavity
-功	4	N1	コウ, （ク）	kou, (ku)	achievement, merits, success, honor, credit
 巧	S	N1	コウ, たくみ	kou, takumi	adroit
-広	2	N4	コウ, ひろい, ひろまる, ひろめる, ひろがる, ひろげる	kou, hiroi, hiromaru, hiromeru, hirogaru, hirogeru	wide, broad, spacious
 甲	S	N1	コウ, カン	kou, kan	armor
-交	2	N3	コウ, まじわる, まじえる, まじる, まざる, まぜる, かう, かわす	kou, majiwaru, majieru, majiru, mazaru, mazeru, kau, kawasu	mingle, mixing, association, coming & going
-光	2	N3	コウ, ひかる, ひかり	kou, hikaru, hikari	ray, light
-向	3	N3	コウ, むく, むける, むかう, むこう	kou, muku, mukeru, mukau, mukou	yonder, facing, beyond, confront, defy, tend toward, approach
-后	6	N1	コウ	kou	empress, queen, after, behind, back, later
-好	4	N3	コウ, このむ, すく	kou, konomu, suku	fond, pleasing, like something
 江	S	N1	コウ, え	kou, e	inlet
-考	2	N4	コウ, かんがえる	kou, kangaeru	consider, think over
-行	2	N5	コウ, ギョウ, （アン）, いく, ゆく, おこなう	kou, gyou, (an), iku, yuku, okonau	going, journey
 坑	S	N1	コウ	kou	pit
-孝	6		コウ	kou	filial piety
 抗	S	N1	コウ	kou	confront
 攻	S	N1	コウ, せめる	kou, semeru	aggression
 更	S	N3	コウ, さら, ふける, ふかす	kou, sara, fukeru, fukasu	grow late
-効	5	N2	コウ, きく	kou, kiku	merit, efficacy, efficiency, benefit
-幸	3	N3	コウ, さいわい, さち, しあわせ	kou, saiwai, sachi, shiawase	happiness, blessing, fortune
 拘	S	N1	コウ	kou	arrest
 肯	S	N2	コウ	kou	agreement
 侯	S	N1	コウ	kou	marquis
-厚	5	N2	コウ, あつい	kou, atsui	thick, heavy, rich, kind, cordial, brazen, shameless
 恒	S	N1	コウ	kou	constancy
 洪	S	N1	コウ	kou	deluge
-皇	6	N1	コウ, オウ	kou, ou	emperor
-紅	6	N2	コウ, （ク）, べに, くれない	kou, (ku), beni, kurenai	crimson, deep red
 荒	S	N2	コウ, あらい, あれる, あらす	kou, arai, areru, arasu	laid waste
 郊	S	N2	コウ	kou	outskirts
-香	4	N2	コウ, （キョウ）, か, かおり, かおる	kou, (kyou), ka, kaori, kaoru	incense, smell, perfume
-候	4	N3	コウ, そうろう	kou, sourou	climate, season, weather
-校	1	N5	コウ	kou	exam, school, printing, proof, correction
-耕	5	N2	コウ, たがやす	kou, tagayasu	till, plow, cultivate
-航	5	N2	コウ	kou	navigate, sail, cruise, fly
 貢	S	N1	コウ, （ク）, みつぐ	kou, (ku), mitsugu	tribute
-降	6	N3	コウ, おりる, おろす, ふる	kou, oriru, orosu, furu	descend, precipitate, fall, surrender
-高	2	N5	コウ, たかい, たか, たかまる, たかめる	kou, takai, taka, takamaru, takameru	tall, high, expensive
-康	4	N1	コウ	kou	ease, peace
 控	S	N1	コウ, ひかえる	kou, hikaeru	withdraw
 梗	S		コウ	kou	close up
-黄	2	N2	コウ, オウ, き, （こ）	kou, ou, ki, (ko)	yellow
 喉	S		コウ, のど	kou, nodo	throat
 慌	S		コウ, あわてる, あわただしい	kou, awateru, awatadashii	disconcerted
-港	3	N3	コウ, みなと	kou, minato	harbor
 硬	S	N2	コウ, かたい	kou, katai	stiff
 絞	S	N1	コウ, しぼる, しめる, しまる	kou, shiboru, shimeru, shimaru	strangle
 項	S	N1	コウ	kou	paragraph
 溝	S	N1	コウ, みぞ	kou, mizo	gutter
-鉱	5	N2	コウ	kou	mineral, ore
-構	5	N3	コウ, かまえる, かまう	kou, kamaeru, kamau	posture, build, pretend
 綱	S	N1	コウ, つな	kou, tsuna	hawser
 酵	S	N1	コウ	kou	fermentation
 稿	S	N1	コウ	kou	draft
-興	5	N1	コウ, キョウ, おこる, おこす	kou, kyou, okoru, okosu	entertain, revive, retrieve, interest, pleasure
 衡	S	N1	コウ	kou	equilibrium
-鋼	6	N1	コウ, はがね	kou, hagane	steel
-講	5	N2	コウ	kou	lecture, club, association
 購	S	N1	コウ	kou	subscription
 乞	S		こう	kou	beg
-号	3	N3	ゴウ	gou	nickname, number, item, title, pseudonym, name, call
-合	2	N3	ゴウ, ガッ, （カッ）, あう, あわす, あわせる	gou, ga', (ka'), au, awasu, awaseru	fit, suit, join, 0.1
 拷	S	N1	ゴウ	gou	torture
 剛	S	N1	ゴウ	gou	sturdy
 傲	S		ゴウ	gou	be proud
 豪	S	N1	ゴウ	gou	overpowering
 克	S	N1	コク	koku	overcome
-告	5	N3	コク, つげる	koku, tsugeru	revelation, tell, inform, announce
-谷	2	N2	コク, たに	koku, tani	valley
-刻	6	N3	コク, きざむ	koku, kizamu	engrave, cut fine, chop, hash, mince, time, carving
-国	2	N5	コク, くに	koku, kuni	country
-黒	2	N4	コク, くろ, くろい	koku, kuro, kuroi	black
-穀	6	N1	コク	koku	cereals, grain
 酷	S	N1	コク, ひどい	koku, hidoi	cruel
 獄	S	N1	ゴク	goku	prison
-骨	6	N2	コツ, ほね	kotsu, hone	skeleton, bone, remains, frame
 駒	S	N1	こま	koma	horse
 込	S	N3	こむ, こめる	komu, komeru	crowded
 頃	S		ころ	koro	times
-今	2	N5	コン, キン, いま	kon, kin, ima	now
-困	6	N3	コン, こまる	kon, komaru	quandary, become distressed, annoyed
 昆	S	N1	コン	kon	descendants
 恨	S	N1	コン, うらむ, うらめしい	kon, uramu, urameshii	rancor
-根	3	N2	コン, ね	kon, ne	root, radical, head (pimple)
 婚	S	N3	コン	kon	marriage
-混	5	N2	コン, まじる, まざる, まぜる, こむ	kon, majiru, mazaru, mazeru, komu	mix, blend, confuse
 痕	S		コン, あと	kon, ato	mark
 紺	S	N1	コン	kon	dark blue
 魂	S	N1	コン, たましい	kon, tamashii	soul
 墾	S	N1	コン	kon	ground-breaking
 懇	S	N1	コン, ねんごろ	kon, nengoro	sociable
-左	1	N5	サ, ひだり	sa, hidari	left
-佐	4	N1	サ	sa	assistant, help
 沙	S	N1	サ	sa	sand
-査	5	N2	サ	sa	investigate
-砂	6	N2	サ, シャ, すな	sa, sha, suna	sand
 唆	S	N1	サ, そそのかす	sa, sosonokasu	tempt
-差	4	N3	サ, さす	sa, sasu	distinction, difference, variation, discrepancy, margin, balance
 詐	S	N1	サ	sa	lie
 鎖	S	N1	サ, くさり	sa, kusari	chain
-座	6	N3	ザ, すわる	za, suwaru	squat, seat, cushion, gathering, sit
 挫	S		ザ	za	sprain
-才	2	N3	サイ	sai	genius, years old, cubic shaku
-再	5	N2	サイ, （サ）, ふたたび	sai, (sa), futatabi	again, twice, second time
-災	5	N1	サイ, わざわい	sai, wazawai	disaster, calamity, woe, curse, evil
-妻	5	N3	サイ, つま	sai, tsuma	wife, spouse
 采	S	N1	サイ	sai	form
 砕	S	N1	サイ, くだく, くだける	sai, kudaku, kudakeru	smash
 宰	S	N1	サイ	sai	superintend
 栽	S	N1	サイ	sai	plantation
 彩	S	N1	サイ, いろどる	sai, irodoru	coloring
-採	5	N2	サイ, とる	sai, toru	pick, take, fetch, take up
-済	6	N3	サイ, すむ, すます	sai, sumu, sumasu	finish, come to an end, excusable, need not
-祭	3	N2	サイ, まつる, まつり	sai, matsuru, matsuri	ritual, offer prayers, celebrate, deify, enshrine, worship
 斎	S	N1	サイ	sai	purification
-細	2	N2	サイ, ほそい, ほそる, こまか, こまかい	sai, hosoi, hosoru, komaka, komakai	dainty, get thin, taper, slender, narrow
-菜	4	N2	サイ, な	sai, na	vegetable, side dish, greens
-最	4	N3	サイ, もっとも	sai, mottomo	utmost, most, extreme
-裁	6	N1	サイ, たつ, さばく	sai, tatsu, sabaku	tailor, judge, decision, cut out (pattern)
 債	S	N1	サイ	sai	bond
 催	S	N1	サイ, もよおす	sai, moyoosu	sponsor
 塞	S		サイ, ソク, ふさぐ, ふさがる	sai, soku, fusagu, fusagaru	obstruct
 歳	S	N3	サイ, （セイ）	sai, (sei)	year-end
 載	S	N1	サイ, のせる, のる	sai, noseru, noru	ride
-際	5	N3	サイ, きわ	sai, kiwa	occasion, side, edge, verge, dangerous, adventurous, indecent, time, when
-埼	4		（さい）	(sai)	cape (geography)
-在	5	N3	ザイ, ある	zai, aru	exist, outskirts, suburbs, located in
-材	4	N2	ザイ	zai	lumber, log, timber, wood, talent
 剤	S	N1	ザイ	zai	dose
-財	5	N3	ザイ, （サイ）	zai, (sai)	property, money, wealth, assets
-罪	5	N3	ザイ, つみ	zai, tsumi	guilt, sin, crime, fault, blame, offense
-崎	4	N1	さき	saki	promontory, cape, spit
-作	2	N4	サク, サ, つくる	saku, sa, tsukuru	make, production, prepare, build
 削	S	N1	サク, けずる	saku, kezuru	plane
-昨	4	N3	サク	saku	yesterday, previous
 柵	S		サク	saku	fence
 索	S	N1	サク	saku	cord
-策	6	N1	サク	saku	scheme, plan, policy, step, means
 酢	S	N1	サク, す	saku, su	vinegar
 搾	S	N1	サク, しぼる	saku, shiboru	squeeze
 錯	S	N1	サク	saku	confused
 咲	S	N2	さく	saku	blossom
-冊	6	N2	サツ, サク	satsu, saku	tome, counter for books, volume
-札	4	N2	サツ, ふだ	satsu, fuda	tag, paper money, counter for bonds, placard, bid
-刷	4	N2	サツ, する	satsu, suru	printing, print
 刹	S		サツ, セツ	satsu, setsu	temple
 拶	S		サツ	satsu	be imminent
-殺	5	N3	サツ, （サイ）, （セツ）, ころす	satsu, (sai), (setsu), korosu	kill, murder, butcher, slice off, split, diminish, reduce, spoil
-察	4	N3	サツ	satsu	guess, presume, surmise, judge, understand
 撮	S	N1	サツ, とる	satsu, toru	snapshot
 擦	S	N1	サツ, する, すれる	satsu, suru, sureru	grate
-雑	5	N3	ザツ, ゾウ	zatsu, zou	miscellaneous
-皿	3	N2	さら	sara	dish, a helping, plate
-三	1	N5	サン, み, みつ, みっつ	san, mi, mitsu, mittsu	three
-山	1	N5	サン, やま	san, yama	mountain
-参	4	N3	サン, まいる	san, mairu	nonplussed, three, going, coming, visiting, visit, be defeated, die, be madly in love
 桟	S	N1	サン	san	scaffold
-蚕	6	N1	サン, かいこ	san, kaiko	silkworm
 惨	S	N1	サン, ザン, みじめ	san, zan, mijime	wretched
-産	4	N3	サン, うむ, うまれる, うぶ	san, umu, umareru, ubu	products, bear, give birth, yield, childbirth, native, property
 傘	S	N1	サン, かさ	san, kasa	umbrella
-散	4	N3	サン, ちる, ちらす, ちらかす, ちらかる	san, chiru, chirasu, chirakasu, chirakaru	scatter, disperse, spend, squander
-算	2	N2	サン	san	calculate, divining, number, abacus, probability
-酸	5	N1	サン, すい	san, sui	acid, bitterness, sour, tart
-賛	5	N3	サン	san	approve, praise, title or inscription on picture, assist, agree with
-残	4	N3	ザン, のこる, のこす	zan, nokoru, nokosu	remainder, leftover, balance
 斬	S		ザン, きる	zan, kiru	kill by slicing
 暫	S	N1	ザン	zan	temporarily
-士	5	N1	シ	shi	gentleman, samurai
-子	1	N5	シ, ス, こ	shi, su, ko	child, sign of the rat, 11PM-1AM, first sign of Chinese zodiac
-支	5	N3	シ, ささえる	shi, sasaeru	branch, support, sustain
-止	2	N4	シ, とまる, とめる	shi, tomaru, tomeru	stop, halt
-氏	4	N1	シ, うじ	shi, uji	family name, surname, clan
-仕	3	N4	シ, （ジ）, つかえる	shi, (ji), tsukaeru	attend, doing, official, serve
-史	5	N2	シ	shi	history, chronicle
-司	4	N1	シ	shi	director, official, govt office, rule, administer
-四	1	N5	シ, よ, よつ, よっつ, よん	shi, yo, yotsu, yottsu, yon	four
-市	2	N3	シ, いち	shi, ichi	market, city, town
-矢	2	N1	シ, や	shi, ya	dart, arrow
 旨	S	N1	シ, むね	shi, mune	delicious
-死	3	N4	シ, しぬ	shi, shinu	death, die
-糸	1	N2	シ, いと	shi, ito	thread
-至	6	N1	シ, いたる	shi, itaru	climax, arrive, proceed, reach, attain, result in
 伺	S	N2	シ, うかがう	shi, ukagau	pay respects
-志	5	N1	シ, こころざす, こころざし	shi, kokorozasu, kokorozashi	intention, plan, resolve, aspire, motive, hopes, shilling
-私	6	N4	シ, わたくし, わたし	shi, watakushi, watashi	private, I, me
-使	3	N4	シ, つかう	shi, tsukau	use
 刺	S	N2	シ, さす, ささる	shi, sasu, sasaru	thorn
-始	3	N4	シ, はじめる, はじまる	shi, hajimeru, hajimaru	commence, begin
-姉	2	N4	シ, あね	shi, ane	elder sister
-枝	5	N2	シ, えだ	shi, eda	bough, branch, twig, limb
 祉	S	N1	シ	shi	welfare
 肢	S	N1	シ	shi	limb
-姿	6	N1	シ, すがた	shi, sugata	figure, form, shape
-思	2	N4	シ, おもう	shi, omou	think
-指	3	N3	シ, ゆび, さす	shi, yubi, sasu	finger, point to, indicate, put into, play (chess), measure (ruler)
 施	S	N1	シ, セ, ほどこす	shi, se, hodokosu	carry out
-師	5	N3	シ	shi	expert, teacher, master, army, war
 恣	S		シ	shi	selfish
-紙	2	N4	シ, かみ	shi, kami	paper
 脂	S	N2	シ, あぶら	shi, abura	fat
-視	6	N1	シ	shi	inspection, regard as, see, look at
 紫	S	N1	シ, むらさき	shi, murasaki	purple
-詞	6	N2	シ	shi	part of speech, words, poetry
-歯	3	N3	シ, は	shi, ha	tooth, cog
 嗣	S	N1	シ	shi	heir
-試	4	N4	シ, こころみる, ためす	shi, kokoromiru, tamesu	test, try, attempt, experiment, ordeal
-詩	3	N1	シ	shi	poem, poetry
-資	5	N3	シ	shi	assets, resources, capital, funds, data, be conducive to, contribute to
-飼	5	N1	シ, かう	shi, kau	domesticate, raise, keep, feed
-誌	6	N2	シ	shi	document, records
 雌	S	N1	シ, め, めす	shi, me, mesu	feminine
 摯	S		シ	shi	seriousness
 賜	S	N1	シ, たまわる	shi, tamawaru	grant
 諮	S	N1	シ, はかる	shi, hakaru	consult with
-示	5	N3	ジ, シ, しめす	ji, shi, shimesu	show, indicate, point out, express, display
-字	1	N4	ジ, あざ	ji, aza	character, letter, word, section of village
-寺	2	N2	ジ, てら	ji, tera	Buddhist temple
-次	3	N3	ジ, シ, つぐ, つぎ	ji, shi, tsugu, tsugi	next, order, sequence
-耳	1	N3	ジ, みみ	ji, mimi	ear
-自	2	N4	ジ, シ, みずから	ji, shi, mizukara	oneself
-似	5	N3	ジ, にる	ji, niru	becoming, resemble, counterfeit, imitate, suitable
-児	4	N2	ジ, （ニ）	ji, (ni)	newborn babe, child, young of animals
-事	3	N4	ジ, （ズ）, こと	ji, (zu), koto	matter, thing, fact, business, reason, possibly
 侍	S	N1	ジ, さむらい	ji, samurai	waiter
-治	4	N3	ジ, チ, おさめる, おさまる, なおる, なおす	ji, chi, osameru, osamaru, naoru, naosu	reign, be at peace, calm down, subdue, quell, govt, cure, heal, rule, conserve
-持	3	N4	ジ, もつ	ji, motsu	hold, have
-時	2	N5	ジ, とき	ji, toki	time, hour
-滋	4	N1	ジ	ji	nourishing, more & more, be luxuriant, planting, turbidity
 慈	S	N1	ジ, いつくしむ	ji, itsukushimu	mercy
-辞	4	N3	ジ, やめる	ji, yameru	resign, word, term, expression
-磁	6	N1	ジ	ji	magnet, porcelain
 餌	S		ジ, えさ, え	ji, esa, e	bait
 璽	S		ジ	ji	emperor's seal
-鹿	4	N1	しか, （か）	shika, (ka)	deer
-式	3	N3	シキ	shiki	style, ceremony, rite, function, method, system, form, expression
-識	5	N3	シキ	shiki	discriminating, know, write
 軸	S	N1	ジク	jiku	axis
-七	1	N5	シチ, なな, ななつ, （なの）	shichi, nana, nanatsu, (nano)	seven
 𠮟	S		シツ, しかる	shitsu, shikaru	scold
-失	4	N3	シツ, うしなう	shitsu, ushinau	lose, error, fault, disadvantage, loss
-室	2	N4	シツ, むろ	shitsu, muro	room, apartment, chamber, greenhouse, cellar
 疾	S	N1	シツ	shitsu	rapidly
 執	S	N1	シツ, シュウ, とる	shitsu, shuu, toru	tenacious
 湿	S	N2	シツ, しめる, しめす	shitsu, shimeru, shimesu	damp
 嫉	S		シツ	shitsu	envy
 漆	S	N1	シツ, うるし	shitsu, urushi	lacquer
-質	5	N4	シツ, シチ, （チ）	shitsu, shichi, (chi)	substance, quality, matter, temperament
-実	3	N3	ジツ, み, みのる	jitsu, mi, minoru	reality, truth
 芝	S	N1	しば	shiba	turf
-写	3	N4	シャ, うつす, うつる	sha, utsusu, utsuru	copy, be photographed, describe
-社	2	N4	シャ, やしろ	sha, yashiro	company, firm, office, association, shrine
-車	1	N5	シャ, くるま	sha, kuruma	car
-舎	5	N1	シャ	sha	cottage, inn, hut, house, mansion
-者	3	N4	シャ, もの	sha, mono	someone, person
-射	6	N1	シャ, いる	sha, iru	shoot, shine into, onto, archery
-捨	6	N2	シャ, すてる	sha, suteru	discard, throw away, abandon, resign, reject, sacrifice
 赦	S	N1	シャ	sha	pardon
 斜	S	N1	シャ, ななめ	sha, naname	diagonal
 煮	S	N1	シャ, にる, にえる, にやす	sha, niru, nieru, niyasu	boil
 遮	S	N1	シャ, さえぎる	sha, saegiru	intercept
-謝	5	N1	シャ, あやまる	sha, ayamaru	apologize, thank, refuse
 邪	S	N1	ジャ	ja	wicked
 蛇	S	N1	ジャ, ダ, へび	ja, da, hebi	snake
-尺	6	N1	シャク	shaku	shaku, Japanese foot, measure, scale, rule
-借	4	N4	シャク, かりる	shaku, kariru	borrow, rent
 酌	S	N1	シャク, くむ	shaku, kumu	bartending
 釈	S	N1	シャク	shaku	explanation
 爵	S	N1	シャク	shaku	baron
-若	6	N3	ジャク, （ニャク）, わかい, もしくは	jaku, (nyaku), wakai, moshikuha	young, if, perhaps, possibly, low number, immature
-弱	2	N2	ジャク, よわい, よわる, よわまる, よわめる	jaku, yowai, yowaru, yowamaru, yowameru	weak, frail
 寂	S	N1	ジャク, （セキ）, さび, さびしい, さびれる	jaku, (seki), sabi, sabishii, sabireru	loneliness
-手	1	N4	シュ, て, （た）	shu, te, (ta)	hand
-主	3	N4	シュ, （ス）, ぬし, おも	shu, (su), nushi, omo	lord, chief, master, main thing, principal
-守	3	N3	シュ, （ス）, まもる, もり	shu, (su), mamoru, mori	guard, protect, defend, obey
 朱	S	N1	シュ	shu	vermilion
-取	3	N3	シュ, とる	shu, toru	take, fetch, take up
 狩	S	N1	シュ, かる, かり	shu, karu, kari	hunt
-首	2	N3	シュ, くび	shu, kubi	neck
 殊	S	N1	シュ, こと	shu, koto	particularly
 珠	S	N1	シュ	shu	pearl
-酒	3	N3	シュ, さけ, （さか）	shu, sake, (saka)	sake, alcohol
 腫	S		シュ, はれる, はらす	shu, hareru, harasu	tumor
-種	4	N3	シュ, たね	shu, tane	species, kind, class, variety, seed
 趣	S	N1	シュ, おもむき	shu, omomuki	gist
 寿	S		ジュ, ことぶき	ju, kotobuki	longevity
-受	3	N3	ジュ, うける, うかる	ju, ukeru, ukaru	accept, undergo, answer (phone), take, get, catch, receive
 呪	S		ジュ, のろう	ju, norou	curse
-授	5	N1	ジュ, さずける, さずかる	ju, sazukeru, sazukaru	impart, instruct, grant, confer
 需	S	N1	ジュ	ju	demand
 儒	S	N1	ジュ	ju	Confucian
-樹	6	N1	ジュ	ju	timber trees, wood
-収	6	N3	シュウ, おさめる, おさまる	shuu, osameru, osamaru	income, obtain, reap, pay, supply, store
 囚	S	N1	シュウ	shuu	captured
-州	3	N2	シュウ, す	shuu, su	state, province
 舟	S	N2	シュウ, ふね, （ふな）	shuu, fune, (funa)	boat
 秀	S	N1	シュウ, ひいでる	shuu, hiideru	excel
-周	4	N2	シュウ, まわり	shuu, mawari	circumference, circuit, lap
-宗	6	N1	シュウ, ソウ	shuu, sou	religion, sect, denomination, main point, origin, essence
-拾	3	N2	シュウ, ジュウ, ひろう	shuu, juu, hirou	pick up, gather, find, go on foot, ten
-秋	2	N4	シュウ, あき	shuu, aki	autumn
 臭	S	N1	シュウ, くさい, におう	shuu, kusai, niou	stinking
-修	5	N1	シュウ, （シュ）, おさめる, おさまる	shuu, (shu), osameru, osamaru	discipline, conduct oneself well, study, master
 袖	S		シュウ, そで	shuu, sode	sleeve
-終	3	N4	シュウ, おわる, おえる	shuu, owaru, oeru	end, finish
 羞	S		シュウ	shuu	feel ashamed
-習	3	N4	シュウ, ならう	shuu, narau	learn
-週	2	N4	シュウ	shuu	week
-就	6	N1	シュウ, （ジュ）, つく, つける	shuu, (ju), tsuku, tsukeru	concerning, settle, take position, depart, study, per
-衆	6	N1	シュウ, （シュ）	shuu, (shu)	masses, great numbers, multitude, populace
-集	3	N4	シュウ, あつまる, あつめる, つどう	shuu, atsumaru, atsumeru, tsudou	gather, meet, congregate, swarm, flock
 愁	S	N1	シュウ, うれえる, うれい	shuu, ureeru, urei	distress
 酬	S	N1	シュウ	shuu	repay
 醜	S	N1	シュウ, みにくい	shuu, minikui	ugly
 蹴	S		シュウ, ける	shuu, keru	kick
 襲	S	N1	シュウ, おそう	shuu, osou	attack
-十	1	N5	ジュウ, ジッ, とお, と	juu, ji', too, to	ten
 汁	S	N1	ジュウ, しる	juu, shiru	soup
 充	S	N1	ジュウ, あてる	juu, ateru	allot
-住	3	N4	ジュウ, すむ, すまう	juu, sumu, sumau	dwell, reside, live, inhabit
 柔	S	N2	ジュウ, ニュウ, やわらか, やわらかい	juu, nyuu, yawaraka, yawarakai	tender
-重	3	N4	ジュウ, チョウ, え, おもい, かさねる, かさなる	juu, chou, e, omoi, kasaneru, kasanaru	heavy, heap up, pile up, nest of boxes, -fold
-従	6	N1	ジュウ, （ショウ）, （ジュ）, したがう, したがえる	juu, (shou), (ju), shitagau, shitagaeru	accompany, obey, submit to, comply, follow, secondary, incidental, subordinate
 渋	S	N1	ジュウ, しぶ, しぶい, しぶる	juu, shibu, shibui, shiburu	astringent
 銃	S	N1	ジュウ	juu	gun
 獣	S	N1	ジュウ, けもの	juu, kemono	animal
-縦	6	N1	ジュウ, たて	juu, tate	vertical, length, height, self-indulgent, wayward
 叔	S	N1	シュク	shuku	uncle
-祝	4	N2	シュク, （シュウ）, いわう	shuku, (shuu), iwau	celebrate, congratulate
-宿	3	N3	シュク, やど, やどる, やどす	shuku, yado, yadoru, yadosu	inn, lodging, relay station, dwell, lodge, be pregnant, home, dwelling
 淑	S	N1	シュク	shuku	graceful
 粛	S	N1	シュク	shuku	solemn
-縮	6	N1	シュク, ちぢむ, ちぢまる, ちぢめる, ちぢれる, ちぢらす	shuku, chijimu, chijimaru, chijimeru, chijireru, chijirasu	shrink, contract, shrivel, wrinkle, reduce
 塾	S	N1	ジュク	juku	cram school
-熟	6	N1	ジュク, うれる	juku, ureru	mellow, ripen, mature, acquire skill
-出	1	N5	シュツ, （スイ）, でる, だす	shutsu, (sui), deru, dasu	exit, leave
-述	5	N2	ジュツ, のべる	jutsu, noberu	mention, state, speak, relate
-術	5	N3	ジュツ	jutsu	art, technique, skill, means, trick, resources, magic
 俊	S	N1	シュン	shun	genius
-春	2	N4	シュン, はる	shun, haru	springtime, spring (season)
 瞬	S	N1	シュン, またたく	shun, matataku	wink
 旬	S	N1	ジュン, （シュン）	jun, (shun)	10-day period (of the month)
 巡	S	N1	ジュン, めぐる	jun, meguru	patrol
 盾	S	N1	ジュン, たて	jun, tate	shield
 准	S	N1	ジュン	jun	quasi-
 殉	S	N1	ジュン	jun	martyrdom
-純	6	N2	ジュン	jun	genuine, purity, innocence, net (profit)
 循	S	N1	ジュン	jun	sequential
-順	4	N2	ジュン	jun	obey, order, turn, right, docility, occasion
-準	5	N2	ジュン	jun	semi-, correspond to, proportionate to, conform, imitate
 潤	S	N1	ジュン, うるおう, うるおす, うるむ	jun, uruou, uruosu, urumu	wet
 遵	S	N1	ジュン	jun	abide by
-処	6	N3	ショ	sho	dispose, manage, deal with, sentence, condemn, act, behave, place
-初	4	N3	ショ, はじめ, はじめて, はつ, うい, そめる	sho, hajime, hajimete, hatsu, ui, someru	first time, beginning
-所	3	N3	ショ, ところ	sho, tokoro	place
-書	2	N5	ショ, かく	sho, kaku	write
 庶	S	N1	ショ	sho	commoner
-暑	3	N1	ショ, あつい	sho, atsui	sultry, hot, summer heat
-署	6	N2	ショ	sho	signature, govt office, police station
 緒	S	N3	ショ, （チョ）, お	sho, (cho), o	thong
-諸	6	N2	ショ	sho	various, many, several, together
-女	1	N5	ジョ, ニョ, （ニョウ）, おんな, め	jo, nyo, (nyou), onna, me	woman, female
 如	S	N1	ジョ, ニョ	jo, nyo	likeness
-助	3	N3	ジョ, たすける, たすかる, すけ	jo, tasukeru, tasukaru, suke	help, rescue, assist
-序	5	N1	ジョ	jo	preface, beginning, order, precedence, occasion, chance, incidentally
 叙	S	N1	ジョ	jo	confer
 徐	S	N1	ジョ	jo	gradually
-除	6	N3	ジョ, （ジ）, のぞく	jo, (ji), nozoku	exclude, division (x, 3), remove, abolish, cancel, except
-小	1	N5	ショウ, ちいさい, こ, お	shou, chiisai, ko, o	little, small
 升	S	N1	ショウ, ます	shou, masu	measuring box
-少	2	N4	ショウ, すくない, すこし	shou, sukunai, sukoshi	few, little
 召	S	N2	ショウ, めす	shou, mesu	summon
 匠	S	N1	ショウ	shou	artisan
 床	S	N2	ショウ, とこ, ゆか	shou, toko, yuka	bed
 抄	S	N1	ショウ	shou	extract
 肖	S	N1	ショウ	shou	resemblance
 尚	S	N1	ショウ	shou	esteem
-招	5	N3	ショウ, まねく	shou, maneku	beckon, invite, summon, engage
-承	6	N2	ショウ, うけたまわる	shou, uketamawaru	acquiesce, hear, listen to, be informed, receive
 昇	S	N2	ショウ, のぼる	shou, noboru	rise up
-松	4	N1	ショウ, まつ	shou, matsu	pine tree
 沼	S	N1	ショウ, ぬま	shou, numa	marsh
-昭	3	N1	ショウ	shou	shining, bright
 宵	S	N1	ショウ, よい	shou, yoi	wee hours
-将	6	N2	ショウ	shou	leader, commander, general, admiral, or, and again, soon, from now on, just about
-消	3	N3	ショウ, きえる, けす	shou, kieru, kesu	extinguish, blow out, turn off, neutralize, cancel
 症	S	N1	ショウ	shou	symptoms
 祥	S	N1	ショウ	shou	auspicious
 称	S	N1	ショウ	shou	appellation
-笑	4	N3	ショウ, わらう, えむ	shou, warau, emu	laugh
-唱	4	N1	ショウ, となえる	shou, tonaeru	chant, recite, call upon, yell
-商	3	N3	ショウ, あきなう	shou, akinau	make a deal, selling, dealing in, merchant
 渉	S	N1	ショウ	shou	ford
-章	3	N2	ショウ	shou	badge, chapter, composition, poem, design
 紹	S	N2	ショウ	shou	introduce
 訟	S	N1	ショウ	shou	sue
-勝	3	N3	ショウ, かつ, まさる	shou, katsu, masaru	victory, win, prevail, excel
 掌	S	N1	ショウ	shou	manipulate
 晶	S	N1	ショウ	shou	sparkle
-焼	4	N2	ショウ, やく, やける	shou, yaku, yakeru	bake, burning
 焦	S	N1	ショウ, こげる, こがす, こがれる, あせる	shou, kogeru, kogasu, kogareru, aseru	char
 硝	S	N1	ショウ	shou	nitrate
 粧	S		ショウ	shou	cosmetics
 詔	S	N1	ショウ, みことのり	shou, mikotonori	imperial edict
-証	5	N1	ショウ	shou	evidence, proof, certificate
-象	5	N2	ショウ, ゾウ	shou, zou	elephant, pattern after, imitate, image, shape, sign (of the times)
-傷	6	N1	ショウ, きず, いたむ, いためる	shou, kizu, itamu, itameru	wound, hurt, injure, impair, pain, injury, cut, gash, scar, weak point
 奨	S	N1	ショウ	shou	exhort
-照	4	N2	ショウ, てる, てらす, てれる	shou, teru, terasu, tereru	illuminate, shine, compare, bashful
 詳	S	N1	ショウ, くわしい	shou, kuwashii	detailed
 彰	S	N1	ショウ	shou	patent
-障	6	N1	ショウ, さわる	shou, sawaru	hinder, hurt, harm
 憧	S	N1	ショウ, あこがれる	shou, akogareru	desire
 衝	S	N1	ショウ	shou	collide
-賞	5	N2	ショウ	shou	prize, reward, praise
 償	S	N1	ショウ, つぐなう	shou, tsugunau	reparation
 礁	S	N1	ショウ	shou	reef
 鐘	S	N1	ショウ, かね	shou, kane	bell
-上	1	N5	ジョウ, （ショウ）, うえ, （うわ）, かみ, あげる, あがる, のぼる, のぼせる, のぼす	jou, (shou), ue, (uwa), kami, ageru, agaru, noboru, noboseru, nobosu	above, up
 丈	S		ジョウ, たけ	jou, take	length
 冗	S	N1	ジョウ	jou	superfluous
-条	5	N1	ジョウ	jou	article, clause, item, stripe, streak
-状	5	N3	ジョウ	jou	status quo, conditions, circumstances, form, appearance
-乗	3	N3	ジョウ, のる, のせる	jou, noru, noseru	ride, power, multiplication, record, counter for vehicles, board, mount, join
-城	4	N2	ジョウ, しろ	jou, shiro	castle
 浄	S	N1	ジョウ	jou	clean
 剰	S	N1	ジョウ	jou	surplus
-常	5	N3	ジョウ, つね, とこ	jou, tsune, toko	usual, ordinary, normal, regular
-情	5	N3	ジョウ, （セイ）, なさけ	jou, (sei), nasake	feelings, emotion, passion, sympathy, circumstances, facts
-場	2	N4	ジョウ, ば	jou, ba	location, place
 畳	S	N2	ジョウ, たたむ, たたみ	jou, tatamu, tatami	tatami mat
-蒸	6	N2	ジョウ, むす, むれる, むらす	jou, musu, mureru, murasu	steam, heat, sultry, foment, get musty
-縄	4	N1	ジョウ, なわ	jou, nawa	straw rope, cord
 壌	S	N1	ジョウ	jou	lot
 嬢	S	N1	ジョウ	jou	lass
 錠	S	N1	ジョウ	jou	lock
 譲	S	N1	ジョウ, ゆずる	jou, yuzuru	defer
 醸	S	N1	ジョウ, かもす	jou, kamosu	brew
-色	2	N4	ショク, シキ, いろ	shoku, shiki, iro	color
 拭	S		ショク, ふく, ぬぐう	shoku, fuku, nuguu	wipe
-食	2	N5	ショク, （ジキ）, くう, くらう, たべる	shoku, (jiki), kuu, kurau, taberu	eat, food
-植	3	N2	ショク, うえる, うわる	shoku, ueru, uwaru	plant
 殖	S	N1	ショク, ふえる, ふやす	shoku, fueru, fuyasu	augment
 飾	S	N1	ショク, かざる	shoku, kazaru	decorate
 触	S	N2	ショク, ふれる, さわる	shoku, fureru, sawaru	contact
 嘱	S	N1	ショク	shoku	entrust
-織	5	N1	ショク, シキ, おる	shoku, shiki, oru	weave, fabric
-職	5	N3	ショク	shoku	post, employment, work
 辱	S	N1	ジョク, はずかしめる	joku, hazukashimeru	embarrass
 尻	S		しり	shiri	buttocks
-心	2	N4	シン, こころ	shin, kokoro	heart, mind, spirit
-申	3	N3	シン, もうす	shin, mousu	have the honor to, sign of the monkey, 3-5PM, ninth sign of Chinese zodiac
 伸	S	N2	シン, のびる, のばす, のべる	shin, nobiru, nobasu, noberu	lengthen
-臣	4	N2	シン, ジン	shin, jin	retainer, subject
 芯	S		シン	shin	core
-身	3	N3	シン, み	shin, mi	body
 辛	S	N2	シン, からい	shin, karai	spicy
 侵	S	N1	シン, おかす	shin, okasu	encroach
-信	4	N3	シン	shin	faith, truth, fidelity, trust
 津	S	N1	シン, つ	shin, tsu	haven
-神	3	N3	シン, ジン, かみ, （かん）, （こう）	shin, jin, kami, (kan), (kou)	gods, mind, soul
 唇	S	N1	シン, くちびる	shin, kuchibiru	lips
 娠	S	N1	シン	shin	with child
 振	S	N1	シン, ふる, ふるう, ふれる	shin, furu, furuu, fureru	shake
 浸	S	N1	シン, ひたす, ひたる	shin, hitasu, hitaru	immersed
-真	3	N4	シン, ま	shin, ma	true, reality, Buddhist sect
-針	6	N2	シン, はり	shin, hari	needle, pin, staple, stinger
-深	3	N3	シン, ふかい, ふかまる, ふかめる	shin, fukai, fukamaru, fukameru	deep, heighten, intensify, strengthen
 紳	S	N1	シン	shin	sire
-進	3	N3	シン, すすむ, すすめる	shin, susumu, susumeru	advance, proceed, progress, promote
-森	1	N2	シン, もり	shin, mori	forest, woods
 診	S	N1	シン, みる	shin, miru	checkup
 寝	S	N3	シン, ねる, ねかす	shin, neru, nekasu	lie down
 慎	S	N1	シン, つつしむ	shin, tsutsushimu	humility
-新	2	N4	シン, あたらしい, あらた, にい	shin, atarashii, arata, nii	new
 審	S	N1	シン	shin	examine
 震	S	N2	シン, ふるう, ふるえる	shin, furuu, furueru	quake
 薪	S	N1	シン, たきぎ	shin, takigi	fuel
-親	2	N4	シン, おや, したしい, したしむ	shin, oya, shitashii, shitashimu	parent, intimacy, relative, familiarity, dealer (cards)
-人	1	N5	ジン, ニン, ひと	jin, nin, hito	person
 刃	S	N1	ジン, は	jin, ha	blade
-仁	6	N1	ジン, （ニ）	jin, (ni)	humanity, virtue, benevolence, charity, man, kernel
 尽	S	N1	ジン, つくす, つきる, つかす	jin, tsukusu, tsukiru, tsukasu	exhaust
 迅	S	N1	ジン	jin	swift
 甚	S	N1	ジン, はなはだ, はなはだしい	jin, hanahada, hanahadashii	tremendously
@@ -1077,15 +1531,11 @@
 尋	S	N1	ジン, たずねる	jin, tazuneru	inquire
 腎	S		ジン	jin	kidney
 須	S	N1	ス	su	by all means
-図	2	N4	ズ, ト, はかる	zu, to, hakaru	map, drawing, plan, unexpected, accidentally
-水	1	N5	スイ, みず	sui, mizu	water
 吹	S	N3	スイ, ふく	sui, fuku	blow
-垂	6	N1	スイ, たれる, たらす	sui, tareru, tarasu	droop, suspend, hang, slouch
 炊	S	N1	スイ, たく	sui, taku	cook
 帥	S	N1	スイ	sui	commander
 粋	S	N1	スイ, いき	sui, iki	chic
 衰	S	N1	スイ, おとろえる	sui, otoroeru	decline
-推	6	N1	スイ, おす	sui, osu	conjecture, infer, guess, suppose, support
 酔	S	N1	スイ, よう	sui, you	drunk
 遂	S	N1	スイ, とげる	sui, togeru	consummate
 睡	S	N1	スイ	sui	drowsy
@@ -1094,121 +1544,57 @@
 髄	S	N1	ズイ	zui	marrow
 枢	S	N1	スウ	suu	hinge
 崇	S	N1	スウ	suu	adore
-数	2	N3	スウ, （ス）, かず, かぞえる	suu, (su), kazu, kazoeru	number, strength, fate, law, figures
 据	S	N1	すえる, すわる	sueru, suwaru	set
 杉	S	N1	すぎ	sugi	cedar
 裾	S		すそ	suso	cuff
-寸	6	N1	スン	sun	measurement, foot, 10
 瀬	S	N1	せ	se	rapids
 是	S	N1	ゼ	ze	just so
-井	4	N1	セイ, （ショウ）, い	sei, (shou), i	well, well crib, town, community
-世	3	N4	セイ, セ, よ	sei, se, yo	generation, world, society, public
-正	1	N4	セイ, ショウ, ただしい, ただす, まさ	sei, shou, tadashii, tadasu, masa	correct, justice, righteous, 10**40
-生	1	N5	セイ, ショウ, いきる, いかす, いける, うまれる, うむ, おう, はえる, はやす, き, なま	sei, shou, ikiru, ikasu, ikeru, umareru, umu, ou, haeru, hayasu, ki, nama	life, genuine, birth
-成	4	N3	セイ, （ジョウ）, なる, なす	sei, (jou), naru, nasu	turn into, become, get, grow, elapse, reach
-西	2	N5	セイ, サイ, にし	sei, sai, nishi	west, Spain
-声	2	N3	セイ, （ショウ）, こえ, （こわ）	sei, (shou), koe, (kowa)	voice
-制	5	N3	セイ	sei	system, law, rule
 姓	S	N2	セイ, ショウ	sei, shou	surname
 征	S	N1	セイ	sei	subjugate
-性	5	N3	セイ, ショウ	sei, shou	sex, gender, nature
-青	1	N4	セイ, （ショウ）, あお, あおい	sei, (shou), ao, aoi	blue, green
 斉	S	N1	セイ	sei	adjusted
-政	5	N3	セイ, （ショウ）, まつりごと	sei, (shou), matsurigoto	politics, government
-星	2	N2	セイ, （ショウ）, ほし	sei, (shou), hoshi	star, spot, dot, mark
 牲	S	N1	セイ	sei	animal sacrifice
-省	4	N2	セイ, ショウ, かえりみる, はぶく	sei, shou, kaerimiru, habuku	focus, government ministry, conserve
 凄	S		セイ	sei	uncanny
 逝	S	N1	セイ, ゆく, いく	sei, yuku, iku	departed
-清	4	N2	セイ, （ショウ）, きよい, きよまる, きよめる	sei, (shou), kiyoi, kiyomaru, kiyomeru	pure, purify, cleanse, exorcise, Manchu dynasty
-盛	6	N1	セイ, （ジョウ）, もる, さかる, さかん	sei, (jou), moru, sakaru, sakan	boom, prosper, copulate
 婿	S	N1	セイ, むこ	sei, muko	bridegroom
-晴	2	N3	セイ, はれる, はらす	sei, hareru, harasu	clear up
-勢	5	N2	セイ, いきおい	sei, ikioi	forces, energy, military strength
-聖	6	N1	セイ	sei	holy, saint, sage, master, priest
-誠	6	N1	セイ, まこと	sei, makoto	sincerity, admonish, warn, prohibit, truth, fidelity
-精	5	N3	セイ, （ショウ）	sei, (shou)	refined, ghost, fairy, energy, vitality, semen, excellence, purity, skill
-製	5	N1	セイ	sei	made in..., manufacture
 誓	S	N1	セイ, ちかう	sei, chikau	vow
-静	4	N3	セイ, （ジョウ）, しず, しずか, しずまる, しずめる	sei, (jou), shizu, shizuka, shizumaru, shizumeru	quiet
 請	S	N1	セイ, （シン）, こう, うける	sei, (shin), kou, ukeru	solicit
-整	3	N1	セイ, ととのえる, ととのう	sei, totonoeru, totonou	organize, arranging, tune, tone, meter, key (music)
 醒	S		セイ	sei	be disillusioned
-税	5	N2	ゼイ	zei	tax, duty
-夕	1	N4	セキ, ゆう	seki, yuu	evening
 斥	S	N1	セキ	seki	reject
-石	1	N3	セキ, （シャク）, （コク）, いし	seki, (shaku), (koku), ishi	stone
-赤	1	N4	セキ, （シャク）, あか, あかい, あからむ, あからめる	seki, (shaku), aka, akai, akaramu, akarameru	red
-昔	3	N3	セキ, （シャク）, むかし	seki, (shaku), mukashi	once upon a time, antiquity, old times
 析	S	N1	セキ	seki	chop
-席	4	N3	セキ	seki	seat, mat, occasion, place
 脊	S		セキ	seki	stature
 隻	S	N2	セキ	seki	vessels
 惜	S	N1	セキ, おしい, おしむ	seki, oshii, oshimu	pity
 戚	S		セキ	seki	grieve
-責	5	N3	セキ, せめる	seki, semeru	blame, condemn, censure
 跡	S	N2	セキ, あと	seki, ato	tracks
-積	4	N3	セキ, つむ, つもる	seki, tsumu, tsumoru	volume, product (x*y), acreage, contents, pile up, stack, load, amass
-績	5	N2	セキ	seki	exploits, unreeling cocoons
 籍	S	N2	セキ	seki	enroll
-切	2	N4	セツ, （サイ）, きる, きれる	setsu, (sai), kiru, kireru	cut, cutoff, be sharp
-折	4	N3	セツ, おる, おり, おれる	setsu, oru, ori, oreru	fold, break, fracture, bend, yield, submit
 拙	S	N1	セツ, つたない	setsu, tsutanai	bungling
 窃	S	N1	セツ	setsu	stealth
-接	5	N2	セツ, つぐ	setsu, tsugu	touch, contact, adjoin, piece together
-設	5	N2	セツ, もうける	setsu, moukeru	establishment, provision, prepare
-雪	2	N3	セツ, ゆき	setsu, yuki	snow
 摂	S	N1	セツ	setsu	vicarious
-節	4	N1	セツ, （セチ）, ふし	setsu, (sechi), fushi	node, season, period, occasion, verse, clause, stanza, honor, joint, knuckle, knob, knot, tune, melody
-説	4	N3	セツ, （ゼイ）, とく	setsu, (zei), toku	rumor, opinion, theory
-舌	6	N1	ゼツ, した	zetsu, shita	tongue, reed, clapper
-絶	5	N3	ゼツ, たえる, たやす, たつ	zetsu, taeru, tayasu, tatsu	discontinue, beyond, sever, cut off, abstain, interrupt, suppress
-千	1	N5	セン, ち	sen, chi	thousand
-川	1	N5	セン, かわ	sen, kawa	stream, river
 仙	S	N1	セン	sen	hermit
 占	S	N2	セン, しめる, うらなう	sen, shimeru, uranau	fortune telling
-先	1	N5	セン, さき	sen, saki	before, ahead, previous, future, precedence
-宣	6	N1	セン	sen	proclaim, say, announce
-専	6	N2	セン, もっぱら	sen, moppara	specialty, exclusive, mainly, solely
-泉	6	N2	セン, いずみ	sen, izumi	spring, fountain
-浅	4	N2	セン, あさい	sen, asai	shallow, superficial, frivolous, wretched, shameful
-洗	6	N3	セン, あらう	sen, arau	wash, inquire into, probe
-染	6	N1	セン, そめる, そまる, しみる, しみ	sen, someru, somaru, shimiru, shimi	dye, color, paint, stain, print
 扇	S	N1	セン, おうぎ	sen, ougi	fan
 栓	S	N1	セン	sen	plug
 旋	S	N1	セン	sen	rotation
-船	2	N3	セン, ふね, （ふな）	sen, fune, (funa)	ship, boat
-戦	4	N3	セン, いくさ, たたかう	sen, ikusa, tatakau	war, battle, match
 煎	S		セン, いる	sen, iru	broil
 羨	S		セン, うらやむ, うらやましい	sen, urayamu, urayamashii	envy
 腺	S		セン	sen	gland
 詮	S		セン	sen	discussion
 践	S	N1	セン	sen	tread
 箋	S		セン	sen	paper
-銭	6	N1	セン, ぜに	sen, zeni	coin, .01 yen, money
 潜	S	N1	セン, ひそむ, もぐる	sen, hisomu, moguru	submerge
-線	2	N2	セン	sen	line, track
 遷	S	N1	セン	sen	transition
-選	4	N3	セン, えらぶ	sen, erabu	elect, select, choose, prefer
 薦	S	N1	セン, すすめる	sen, susumeru	recommend
 繊	S	N1	セン	sen	slender
 鮮	S	N1	セン, あざやか	sen, azayaka	fresh
-全	3	N3	ゼン, まったく, すべて	zen, mattaku, subete	whole, entire, all, complete, fulfill
-前	2	N5	ゼン, まえ	zen, mae	in front, before
-善	6	N1	ゼン, よい	zen, yoi	virtuous, good, goodness
-然	4	N3	ゼン, ネン	zen, nen	sort of thing, so, if so, in that case, well
 禅	S	N1	ゼン	zen	Zen
 漸	S	N1	ゼン	zen	steadily
 膳	S		ゼン	zen	tray
 繕	S	N1	ゼン, つくろう	zen, tsukurou	darning
 狙	S		ソ, ねらう	so, nerau	aim at
 阻	S	N1	ソ, はばむ	so, habamu	thwart
-祖	5	N3	ソ	so	ancestor, pioneer, founder
 租	S	N1	ソ	so	tariff
-素	5	N1	ソ, ス	so, su	elementary, principle, naked, uncovered
 措	S	N1	ソ	so	set aside
 粗	S	N1	ソ, あらい	so, arai	coarse
-組	2	N3	ソ, くむ, くみ	so, kumu, kumi	association, braid, plait, construct, assemble, unite, cooperate, grapple
 疎	S	N1	ソ, うとい, うとむ	so, utoi, utomu	alienate
 訴	S	N1	ソ, うったえる	so, uttaeru	sue
 塑	S	N1	ソ	so	model
@@ -1216,106 +1602,50 @@
 礎	S	N1	ソ, いしずえ	so, ishizue	cornerstone
 双	S	N2	ソウ, ふた	sou, futa	pair
 壮	S	N1	ソウ	sou	robust
-早	1	N4	ソウ, （サッ）, はやい, はやまる, はやめる	sou, (sa'), hayai, hayamaru, hayameru	early, fast
-争	4	N3	ソウ, あらそう	sou, arasou	contend, dispute, argue
-走	2	N4	ソウ, はしる	sou, hashiru	run
-奏	6	N1	ソウ, かなでる	sou, kanaderu	play music, speak to a ruler, complete
-相	3	N3	ソウ, ショウ, あい	sou, shou, ai	inter-, mutual, together, each other, minister of state, councillor, aspect, phase, physiognomy
 荘	S	N1	ソウ	sou	villa
-草	1	N3	ソウ, くさ	sou, kusa	grass, weeds, herbs, pasture, write, draft
-送	3	N4	ソウ, おくる	sou, okuru	escort, send
-倉	4	N1	ソウ, くら	sou, kura	godown, warehouse, storehouse, cellar, treasury
 捜	S	N2	ソウ, さがす	sou, sagasu	search
 挿	S	N1	ソウ, さす	sou, sasu	insert
 桑	S	N1	ソウ, くわ	sou, kuwa	mulberry
-巣	4	N1	ソウ, す	sou, su	nest, rookery, hive, cobweb, den
 掃	S	N2	ソウ, はく	sou, haku	sweep
 曹	S	N1	ソウ	sou	cadet
 曽	S		ソウ, （ゾ）	sou, (zo)	formerly
 爽	S	N1	ソウ, さわやか	sou, sawayaka	refreshing
-窓	6	N3	ソウ, まど	sou, mado	window, pane
-創	6	N1	ソウ, つくる	sou, tsukuru	genesis, wound, injury, hurt, start, originate
 喪	S	N1	ソウ, も	sou, mo	miss
 痩	S		ソウ, やせる	sou, yaseru	get thin
 葬	S	N1	ソウ, ほうむる	sou, houmuru	interment
-装	6	N2	ソウ, ショウ, よそおう	sou, shou, yosoou	attire, dress, pretend, disguise, profess
 僧	S	N1	ソウ	sou	Buddhist priest
-想	3	N3	ソウ, （ソ）	sou, (so)	concept, think, idea, thought
-層	6	N2	ソウ	sou	stratum, social class, layer, story, floor
-総	5	N2	ソウ	sou	general, whole, all, full, total
 遭	S	N1	ソウ, あう	sou, au	encounter
 槽	S	N1	ソウ	sou	vat
 踪	S		ソウ	sou	remains
-操	6	N1	ソウ, みさお, あやつる	sou, misao, ayatsuru	maneuver, manipulate, operate, steer, chastity, virginity, fidelity
 燥	S	N2	ソウ	sou	parch
 霜	S	N1	ソウ, しも	sou, shimo	frost
 騒	S	N1	ソウ, さわぐ	sou, sawagu	boisterous
 藻	S	N1	ソウ, も	sou, mo	seaweed
-造	5	N2	ゾウ, つくる	zou, tsukuru	create, make, structure, physique
-像	5	N2	ゾウ	zou	statue, picture, image, figure, portrait
-増	5	N3	ゾウ, ます, ふえる, ふやす	zou, masu, fueru, fuyasu	increase, add, augment, gain, promote
 憎	S	N2	ゾウ, にくむ, にくい, にくらしい, にくしみ	zou, nikumu, nikui, nikurashii, nikushimi	hate
-蔵	6	N2	ゾウ, くら	zou, kura	storehouse, hide, own, have, possess
 贈	S	N2	ゾウ, （ソウ）, おくる	zou, (sou), okuru	presents
-臓	6	N2	ゾウ	zou	entrails, viscera, bowels
 即	S	N1	ソク	soku	instant
-束	4	N3	ソク, たば	soku, taba	bundle, sheaf, ream, tie in bundles, govern, manage, control
-足	1	N4	ソク, あし, たりる, たる, たす	soku, ashi, tariru, taru, tasu	leg, foot, be sufficient, counter for pairs of footwear
 促	S	N1	ソク, うながす	soku, unagasu	stimulate
-則	5	N2	ソク	soku	rule, follow, based on, model after
-息	3	N3	ソク, いき	soku, iki	breath, respiration, son, interest (on money)
 捉	S		ソク, とらえる	soku, toraeru	capture
-速	3	N3	ソク, はやい, はやめる, はやまる, すみやか	soku, hayai, hayameru, hayamaru, sumiyaka	quick, fast
-側	4	N3	ソク, がわ	soku, gawa	side, lean, oppose, regret
-測	5	N2	ソク, はかる	soku, hakaru	fathom, plan, scheme, measure
 俗	S	N1	ゾク	zoku	vulgar
-族	3	N4	ゾク	zoku	tribe, family
-属	5	N1	ゾク	zoku	belong, genus, subordinate official, affiliated
 賊	S	N1	ゾク	zoku	burglar
-続	4	N3	ゾク, つづく, つづける	zoku, tsuzuku, tsuzukeru	continue, series, sequel
-卒	4	N2	ソツ	sotsu	graduate, soldier, private, die
-率	5	N1	ソツ, リツ, ひきいる	sotsu, ritsu, hikiiru	ratio, rate, proportion, %, coefficient, factor
-存	6	N3	ソン, ゾン	son, zon	suppose, be aware of, believe, feel
-村	1	N2	ソン, むら	son, mura	town, village
-孫	4	N2	ソン, まご	son, mago	grandchild, descendants
-尊	6	N2	ソン, たっとい, とうとい, たっとぶ, とうとぶ	son, tattoi, toutoi, tattobu, toutobu	revered, valuable, precious, noble, exalted
-損	5	N2	ソン, そこなう, そこねる	son, sokonau, sokoneru	damage, loss, disadvantage, hurt, injure
 遜	S		ソン	son	humble
-他	3	N3	タ, ほか	ta, hoka	other, another, the others
-多	2	N4	タ, おおい	ta, ooi	many, frequent, much
 汰	S	N1	タ	ta	luxury
-打	3	N3	ダ, うつ	da, utsu	strike, hit, knock, pound, dozen
 妥	S	N1	ダ	da	gentle
 唾	S		ダ, つば	da, tsuba	saliva
 堕	S	N1	ダ	da	degenerate
 惰	S	N1	ダ	da	lazy
 駄	S	N1	ダ	da	burdensome
-太	2	N3	タイ, タ, ふとい, ふとる	tai, ta, futoi, futoru	plump, thick, big around
-対	3	N3	タイ, ツイ	tai, tsui	vis-a-vis, opposite, even, equal, versus, anti-, compare
-体	2	N4	タイ, テイ, からだ	tai, tei, karada	body, substance, object, reality, counter for images
 耐	S	N1	タイ, たえる	tai, taeru	resistant
-待	3	N4	タイ, まつ	tai, matsu	wait, depend on
 怠	S	N1	タイ, おこたる, なまける	tai, okotaru, namakeru	neglect
 胎	S	N1	タイ	tai	womb
-退	6	N3	タイ, しりぞく, しりぞける	tai, shirizoku, shirizokeru	retreat, withdraw, retire, resign, repel, expel, reject
-帯	4	N2	タイ, おびる, おび	tai, obiru, obi	sash, belt, obi, zone, region
 泰	S	N1	タイ	tai	peaceful
 堆	S		タイ	tai	piled high
 袋	S	N2	タイ, ふくろ	tai, fukuro	sack
 逮	S	N1	タイ	tai	apprehend
 替	S	N2	タイ, かえる, かわる	tai, kaeru, kawaru	exchange
-貸	5	N4	タイ, かす	tai, kasu	lend
-隊	4	N1	タイ	tai	regiment, party, company, squad
 滞	S	N1	タイ, とどこおる	tai, todokooru	stagnate
-態	5	N1	タイ	tai	attitude, condition, figure, appearance, voice (of verbs)
 戴	S		タイ	tai	be crowned with
-大	1	N5	ダイ, タイ, おお, おおきい, おおいに	dai, tai, oo, ookii, ooini	large, big
-代	3	N4	ダイ, タイ, かわる, かえる, よ, しろ	dai, tai, kawaru, kaeru, yo, shiro	substitute, change, convert, replace, period, age, generation, charge, rate, fee
-台	2	N4	ダイ, タイ	dai, tai	pedestal, a stand, counter for machines and vehicles
-第	3	N1	ダイ	dai	No., residence
-題	3	N4	ダイ	dai	topic, subject
 滝	S	N1	たき	taki	waterfall
-宅	6	N3	タク	taku	home, house, residence, our house, my husband
 択	S	N1	タク	taku	choose
 沢	S	N1	タク, さわ	taku, sawa	swamp
 卓	S	N1	タク	taku	eminent
@@ -1325,239 +1655,128 @@
 諾	S	N1	ダク	daku	consent
 濁	S	N1	ダク, にごる, にごす	daku, nigoru, nigosu	voiced
 但	S	N1	ただし	tadashi	however
-達	4	N3	タツ	tatsu	accomplished, reach, arrive, attain
 脱	S	N1	ダツ, ぬぐ, ぬげる	datsu, nugu, nugeru	undress
 奪	S	N1	ダツ, うばう	datsu, ubau	rob
 棚	S	N1	たな	tana	shelf
 誰	S		だれ	dare	who (question word)
 丹	S	N1	タン	tan	cinnabar
 旦	S	N1	タン, ダン	tan, dan	daybreak
-担	6	N2	タン, かつぐ, になう	tan, katsugu, ninau	shouldering, carry, raise, bear
-単	4	N3	タン	tan	simple, one, single, merely
-炭	3	N2	タン, すみ	tan, sumi	charcoal, coal
 胆	S	N1	タン	tan	gall bladder
-探	6	N3	タン, さぐる, さがす	tan, saguru, sagasu	grope, search, look for
 淡	S	N1	タン, あわい	tan, awai	thin
-短	3	N2	タン, みじかい	tan, mijikai	short, brevity, fault, defect, weak point
 嘆	S	N1	タン, なげく, なげかわしい	tan, nageku, nagekawashii	sigh
 端	S	N1	タン, はし, は, はた	tan, hashi, ha, hata	edge
 綻	S		タン, ほころびる	tan, hokorobiru	rip
-誕	6	N1	タン	tan	nativity, be born, declension, lie, be arbitrary
 鍛	S	N1	タン, きたえる	tan, kitaeru	forge
-団	5	N2	ダン, （トン）	dan, (ton)	group, association
-男	1	N5	ダン, ナン, おとこ	dan, nan, otoko	male
-段	6	N3	ダン	dan	grade, steps, stairs
-断	5	N3	ダン, たつ, ことわる	dan, tatsu, kotowaru	severance, decline, refuse, apologize, warn, dismiss, prohibit, decision, judgement, cutting
 弾	S	N1	ダン, ひく, はずむ, たま	dan, hiku, hazumu, tama	bullet
-暖	6	N1	ダン, あたたか, あたたかい, あたたまる, あたためる	dan, atataka, atatakai, atatamaru, atatameru	warmth
-談	3	N3	ダン	dan	discuss, talk
 壇	S	N1	ダン, （タン）	dan, (tan)	podium
-地	2	N4	チ, ジ	chi, ji	ground, earth
-池	2	N2	チ, いけ	chi, ike	pond, cistern, pool, reservoir
-知	2	N4	チ, しる	chi, shiru	know, wisdom
-値	6	N3	チ, ね, あたい	chi, ne, atai	price, cost, value
 恥	S	N3	チ, はじる, はじ, はじらう, はずかしい	chi, hajiru, haji, hajirau, hazukashii	shame
 致	S	N1	チ, いたす	chi, itasu	(to) do
 遅	S	N3	チ, おくれる, おくらす, おそい	chi, okureru, okurasu, osoi	slow
 痴	S	N1	チ	chi	stupid
 稚	S	N1	チ	chi	immature
-置	4	N3	チ, おく	chi, oku	placement, put, set, deposit, leave behind, keep, employ, pawn
 緻	S		チ	chi	fine (not coarse)
-竹	1	N2	チク, たけ	chiku, take	bamboo
 畜	S	N2	チク	chiku	livestock
 逐	S	N1	チク	chiku	pursue
 蓄	S	N1	チク, たくわえる	chiku, takuwaeru	amass
-築	5	N2	チク, きずく	chiku, kizuku	fabricate, build, construct
 秩	S	N1	チツ	chitsu	regularity
 窒	S	N1	チツ	chitsu	plug up
-茶	2	N4	チャ, サ	cha, sa	tea
-着	3	N4	チャク, （ジャク）, きる, きせる, つく, つける	chaku, (jaku), kiru, kiseru, tsuku, tsukeru	don, arrive, wear, counter for suits of clothing
 嫡	S	N1	チャク	chaku	legitimate wife
-中	1	N5	チュウ, （ジュウ）, なか	chuu, (juu), naka	in, inside, middle, mean, center
-仲	4	N2	チュウ, なか	chuu, naka	go-between, relationship
-虫	1	N2	チュウ, むし	chuu, mushi	insect, bug, temper
-沖	4	N1	チュウ, おき	chuu, oki	open sea, offing, rise high into sky
-宙	6	N1	チュウ	chuu	mid-air, air, space, sky, memorization, interval of time
-忠	6	N1	チュウ	chuu	loyalty, fidelity, faithfulness
 抽	S	N1	チュウ	chuu	pluck
-注	3	N4	チュウ, そそぐ	chuu, sosogu	pour, irrigate, shed (tears), flow into, concentrate on, notes, comment, annotate
-昼	2	N4	チュウ, ひる	chuu, hiru	daytime, noon
-柱	3	N2	チュウ, はしら	chuu, hashira	pillar, post, cylinder, support
 衷	S	N1	チュウ	chuu	inmost
 酎	S		チュウ	chuu	sake
 鋳	S	N1	チュウ, いる	chuu, iru	casting
 駐	S	N2	チュウ	chuu	stop-over
-著	6	N2	チョ, あらわす, いちじるしい	cho, arawasu, ichijirushii	renowned, publish, write, remarkable, phenomenal, put on, don, wear, arrival, finish (race), counter for suit
-貯	5	N2	チョ	cho	savings, store, lay in, keep, wear mustache
-丁	3	N1	チョウ, テイ	chou, tei	street, ward, town, counter for guns, tools, leaves or cakes of something, even number, 4th calendar sig
 弔	S	N1	チョウ, とむらう	chou, tomurau	condolences
-庁	6	N2	チョウ	chou	government office
-兆	4	N2	チョウ, きざす, きざし	chou, kizasu, kizashi	portent, 10**12, trillion, sign, omen, symptoms
-町	1	N4	チョウ, まち	chou, machi	village, town, block, street
-長	2	N5	チョウ, ながい	chou, nagai	long, leader
 挑	S	N1	チョウ, いどむ	chou, idomu	challenge
-帳	3	N1	チョウ	chou	notebook, account book, album
-張	5	N1	チョウ, はる	chou, haru	lengthen, counter for bows & stringed instruments, stretch, spread, put up (tent)
 彫	S	N1	チョウ, ほる	chou, horu	carve
 眺	S	N1	チョウ, ながめる	chou, nagameru	stare
 釣	S	N1	チョウ, つる	chou, tsuru	angling
-頂	6	N3	チョウ, いただく, いただき	chou, itadaku, itadaki	place on the head, receive, top of head, top, summit, peak
-鳥	2	N4	チョウ, とり	chou, tori	bird, chicken
-朝	2	N4	チョウ, あさ	chou, asa	morning, dynasty, regime, epoch, period, (North) Korea
 貼	S		チョウ, はる	chou, haru	paste
 超	S	N2	チョウ, こえる, こす	chou, koeru, kosu	transcend
-腸	6	N1	チョウ	chou	intestines, guts, bowels, viscera
 跳	S	N1	チョウ, はねる, とぶ	chou, haneru, tobu	hop
 徴	S	N1	チョウ	chou	indications
 嘲	S		チョウ, あざける	chou, azakeru	ridicule
-潮	6	N1	チョウ, しお	chou, shio	tide, salt water, opportunity
 澄	S	N1	チョウ, すむ, すます	chou, sumu, sumasu	lucidity
-調	3	N3	チョウ, しらべる, ととのう, ととのえる	chou, shiraberu, totonou, totonoeru	tune, tone, meter, key (music), writing style, prepare, exorcise, investigate
 聴	S	N1	チョウ, きく	chou, kiku	listen
 懲	S	N1	チョウ, こりる, こらす, こらしめる	chou, koriru, korasu, korashimeru	penal
-直	2	N3	チョク, ジキ, ただちに, なおす, なおる	choku, jiki, tadachini, naosu, naoru	straightaway, honesty, frankness, fix, repair
 勅	S	N1	チョク	choku	imperial order
 捗	S		チョク	choku	make progress
 沈	S	N2	チン, しずむ, しずめる	chin, shizumu, shizumeru	sink
 珍	S	N2	チン, めずらしい	chin, mezurashii	rare
 朕	S	N1	チン	chin	majestic plural
 陳	S	N1	チン	chin	exhibit
-賃	6	N1	チン	chin	fare, fee, hire, rent, wages, charge
 鎮	S	N1	チン, しずめる, しずまる	chin, shizumeru, shizumaru	tranquilize
-追	3	N3	ツイ, おう	tsui, ou	chase, drive away, follow, pursue, meanwhile
 椎	S	N1	ツイ	tsui	oak
 墜	S	N1	ツイ	tsui	crash
-通	2	N4	ツウ, （ツ）, とおる, とおす, かよう	tsuu, (tsu), tooru, toosu, kayou	traffic, pass through, avenue, commute, counter for letters
-痛	6	N3	ツウ, いたい, いたむ, いためる	tsuu, itai, itamu, itameru	pain, hurt, damage, bruise
 塚	S	N1	つか	tsuka	hillock
 漬	S	N1	つける, つかる	tsukeru, tsukaru	pickling
 坪	S	N1	つぼ	tsubo	two-mat area
 爪	S		つめ, （つま）	tsume, (tsuma)	claw
 鶴	S	N1	つる	tsuru	crane
-低	4	N2	テイ, ひくい, ひくめる, ひくまる	tei, hikui, hikumeru, hikumaru	lower, short, humble
 呈	S	N1	テイ	tei	display
 廷	S	N1	テイ	tei	courts
-弟	2	N4	テイ, （ダイ）, （デ）, おとうと	tei, (dai), (de), otouto	younger brother, faithful service to elders
-定	3	N3	テイ, ジョウ, さだめる, さだまる, さだか	tei, jou, sadameru, sadamaru, sadaka	determine, fix, establish, decide
-底	4	N2	テイ, そこ	tei, soko	bottom, sole, depth, bottom price, base, kind, sort
 抵	S	N1	テイ	tei	resist
 邸	S	N1	テイ	tei	residence
 亭	S	N1	テイ	tei	pavilion
 貞	S	N1	テイ	tei	upright
 帝	S	N1	テイ	tei	sovereign
 訂	S	N1	テイ	tei	revise
-庭	3	N3	テイ, にわ	tei, niwa	courtyard, garden, yard
 逓	S	N1	テイ	tei	relay
-停	5	N2	テイ	tei	halt, stopping
 偵	S	N1	テイ	tei	spy
 堤	S	N1	テイ, つつみ	tei, tsutsumi	dike
-提	5	N1	テイ, さげる	tei, sageru	propose, take along, carry in hand
-程	5	N3	テイ, ほど	tei, hodo	extent, degree, law, formula, distance, limits, amount
 艇	S	N1	テイ	tei	rowboat
 締	S	N1	テイ, しまる, しめる	tei, shimaru, shimeru	tighten
 諦	S		テイ, あきらめる	tei, akirameru	abandon
 泥	S	N2	デイ, どろ	dei, doro	mud
-的	4	N3	テキ, まと	teki, mato	target
-笛	3	N1	テキ, ふえ	teki, fue	flute, clarinet, pipe, whistle, bagpipe, piccolo
 摘	S	N1	テキ, つむ	teki, tsumu	pinch
 滴	S	N2	テキ, しずく, したたる	teki, shizuku, shitataru	drip
-適	5	N3	テキ	teki	suitable, occasional, rare, qualified, capable
-敵	6	N1	テキ, かたき	teki, kataki	enemy, foe, opponent
 溺	S		デキ, おぼれる	deki, oboreru	drown
 迭	S	N1	テツ	tetsu	transfer
 哲	S	N1	テツ	tetsu	philosophy
-鉄	3	N2	テツ	tetsu	iron
 徹	S	N1	テツ	tetsu	penetrate
 撤	S	N1	テツ	tetsu	remove
-天	1	N5	テン, あめ, （あま）	ten, ame, (ama)	heavens, sky, imperial
-典	4	N1	テン	ten	code, ceremony, law, rule
-店	2	N4	テン, みせ	ten, mise	store, shop
-点	2	N3	テン	ten	spot, point, mark, speck, decimal point
-展	6	N1	テン	ten	unfold, expand
 添	S	N1	テン, そえる, そう	ten, soeru, sou	annexed
-転	3	N4	テン, ころがる, ころげる, ころがす, ころぶ	ten, korogaru, korogeru, korogasu, korobu	revolve, turn around, change
 塡	S		テン	ten	fill in
-田	1	N4	デン, た	den, ta	rice field, rice paddy
-伝	4	N3	デン, つたわる, つたえる, つたう	den, tsutawaru, tsutaeru, tsutau	transmit, go along, walk along, follow, report, communicate, legend, tradition
 殿	S	N2	デン, テン, との, どの	den, ten, tono, dono	Mr.
-電	2	N5	デン	den	electricity
 斗	S	N1	ト	to	Big Dipper
 吐	S	N1	ト, はく	to, haku	spit
 妬	S		ト, ねたむ	to, netamu	jealousy
-徒	4	N3	ト	to	junior, emptiness, vanity, futility, uselessness, ephemeral thing, gang, set, party, people
 途	S	N3	ト	to	route
-都	3	N3	ト, ツ, みやこ	to, tsu, miyako	metropolis, capital
 渡	S	N3	ト, わたる, わたす	to, wataru, watasu	transit
 塗	S	N2	ト, ぬる	to, nuru	paint
 賭	S		ト, かける	to, kakeru	gamble
-土	1	N5	ド, ト, つち	do, to, tsuchi	soil, earth, ground, Turkey
 奴	S	N1	ド	do	guy
-努	4	N3	ド, つとめる	do, tsutomeru	toil, diligent, as much as possible
-度	3	N4	ド, （ト）, （タク）, たび	do, (to), (taku), tabi	degrees, occurrence, time, counter for occurrences
 怒	S	N3	ド, いかる, おこる	do, ikaru, okoru	angry
-刀	2	N1	トウ, かたな	tou, katana	sword, saber, knife
-冬	2	N4	トウ, ふゆ	tou, fuyu	winter
-灯	4	N2	トウ, ひ	tou, hi	lamp, a light, light, counter for lights
-当	2	N3	トウ, あたる, あてる	tou, ataru, ateru	hit, right, appropriate, himself
-投	3	N3	トウ, なげる	tou, nageru	throw, discard, abandon, launch into, join, invest in, hurl, give up, sell at a loss
-豆	3	N1	トウ, （ズ）, まめ	tou, (zu), mame	beans, pea, midget
-東	2	N5	トウ, ひがし	tou, higashi	east
 到	S	N3	トウ	tou	arrival
 逃	S	N3	トウ, にげる, にがす, のがす, のがれる	tou, nigeru, nigasu, nogasu, nogareru	escape
 倒	S	N3	トウ, たおれる, たおす	tou, taoreru, taosu	overthrow
 凍	S	N2	トウ, こおる, こごえる	tou, kooru, kogoeru	frozen
 唐	S		トウ, から	tou, kara	T'ang
-島	3	N2	トウ, しま	tou, shima	island
 桃	S	N1	トウ, もも	tou, momo	peach tree
-討	6	N1	トウ, うつ	tou, utsu	chastise, attack, defeat, destroy, conquer
 透	S	N1	トウ, すく, すかす, すける	tou, suku, sukasu, sukeru	transparent
-党	6	N2	トウ	tou	party, faction, clique
 悼	S	N1	トウ, いたむ	tou, itamu	lament
 盗	S	N3	トウ, ぬすむ	tou, nusumu	steal
 陶	S	N1	トウ	tou	pottery
 塔	S	N2	トウ	tou	pagoda
 搭	S	N1	トウ	tou	board
 棟	S	N1	トウ, むね, （むな）	tou, mune, (muna)	ridgepole
-湯	3	N2	トウ, ゆ	tou, yu	hot water, bath, hot spring
 痘	S	N1	トウ	tou	pox
-登	3	N3	トウ, ト, のぼる	tou, to, noboru	ascend, climb up
-答	2	N4	トウ, こたえる, こたえ	tou, kotaeru, kotae	solution, answer
-等	3	N3	トウ, ひとしい	tou, hitoshii	etc., and so forth, class (first), quality, equal, similar
 筒	S	N2	トウ, つつ	tou, tsutsu	cylinder
-統	5	N1	トウ, すべる	tou, suberu	overall, relationship, ruling, governing
 稲	S	N1	トウ, いね, （いな）	tou, ine, (ina)	rice plant
 踏	S	N1	トウ, ふむ, ふまえる	tou, fumu, fumaeru	step
-糖	6	N1	トウ	tou	sugar
-頭	2	N3	トウ, ズ, （ト）, あたま, かしら	tou, zu, (to), atama, kashira	head, counter for large animals
 謄	S	N1	トウ	tou	mimeograph
 藤	S	N1	トウ, ふじ	tou, fuji	wisteria
 闘	S	N1	トウ, たたかう	tou, tatakau	fight
 騰	S	N1	トウ	tou	inflation
-同	2	N4	ドウ, おなじ	dou, onaji	same, agree, equal
 洞	S	N1	ドウ, ほら	dou, hora	den
 胴	S	N1	ドウ	dou	trunk
-動	3	N4	ドウ, うごく, うごかす	dou, ugoku, ugokasu	move, motion, change, confusion, shift, shake
-堂	5	N4	ドウ	dou	public chamber, hall
-童	3	N2	ドウ, わらべ	dou, warabe	juvenile, child
-道	2	N4	ドウ, （トウ）, みち	dou, (tou), michi	road-way, street, district, journey, course, moral, teachings
-働	4	N3	ドウ, はたらく	dou, hataraku	work, (kokuji)
-銅	5	N2	ドウ	dou	copper
-導	5	N2	ドウ, みちびく	dou, michibiku	guidance, leading, conduct, usher
 瞳	S	N1	ドウ, ひとみ	dou, hitomi	pupil
 峠	S	N1	とうげ	touge	mountain peak
 匿	S	N1	トク	toku	hide
-特	4	N4	トク	toku	special
-得	5	N3	トク, える, うる	toku, eru, uru	gain, get, find, earn, acquire, can, may, able to, profit, advantage, benefit
 督	S	N1	トク	toku	coach
-徳	4	N1	トク	toku	benevolence, virtue, goodness, commanding respect
 篤	S	N1	トク	toku	fervent
-毒	5	N2	ドク	doku	poison, virus, venom, germ, harm, injury, spite
-独	5	N1	ドク, ひとり	doku, hitori	single, alone, spontaneously, Germany
-読	2	N5	ドク, トク, （トウ）, よむ	doku, toku, (tou), yomu	read
-栃	4		（とち）	(tochi)	horse chestnut
 凸	S	N1	トツ	totsu	convex
 突	S	N3	トツ, つく	totsu, tsuku	stab
-届	6	N2	とどける, とどく	todokeru, todoku	deliver, reach, arrive, report, notify, forward
 屯	S	N1	トン	ton	barracks
 豚	S	N1	トン, ぶた	ton, buta	pork
 頓	S		トン	ton	suddenly
@@ -1566,190 +1785,101 @@
 曇	S	N2	ドン, くもる	don, kumoru	cloudy weather
 丼	S		どんぶり, （どん）	donburi, (don)	bowl of food
 那	S	N1	ナ	na	what
-奈	4	N1	ナ	na	Nara, what?
-内	2	N3	ナイ, （ダイ）, うち	nai, (dai), uchi	inside, within, between, among, house, home
-梨	4	N1	なし	nashi	pear tree
 謎	S		なぞ	nazo	riddle
 鍋	S		なべ	nabe	pot
-南	2	N5	ナン, （ナ）, みなみ	nan, (na), minami	south
 軟	S	N2	ナン, やわらか, やわらかい	nan, yawaraka, yawarakai	soft
-難	6	N3	ナン, かたい, むずかしい	nan, katai, muzukashii	difficult, impossible, trouble, accident, defect
-二	1	N5	ニ, ふた, ふたつ	ni, futa, futatsu	two
 尼	S	N1	ニ, あま	ni, ama	nun
 弐	S	N1	ニ	ni	two (falsification prevention)
 匂	S		におう	niou	scent
-肉	2	N4	ニク	niku	meat
 虹	S	N1	にじ	niji	rainbow
-日	1	N5	ニチ, ジツ, ひ, か	nichi, jitsu, hi, ka	day, sun, Japan
-入	1	N5	ニュウ, いる, いれる, はいる	nyuu, iru, ireru, hairu	enter, insert
-乳	6	N2	ニュウ, ちち, ち	nyuu, chichi, chi	milk, breasts
 尿	S	N1	ニョウ	nyou	urine
-任	5	N3	ニン, まかせる, まかす	nin, makaseru, makasu	responsibility, duty, term, entrust to, appoint
 妊	S	N1	ニン	nin	pregnancy
 忍	S	N1	ニン, しのぶ, しのばせる	nin, shinobu, shinobaseru	endure
-認	6	N3	ニン, みとめる	nin, mitomeru	acknowledge, witness, discern, recognize, appreciate, believe
 寧	S	N1	ネイ	nei	rather
-熱	4	N3	ネツ, あつい	netsu, atsui	heat, temperature, fever, mania, passion
-年	1	N5	ネン, とし	nen, toshi	year
-念	4	N3	ネン	nen	wish, sense, idea, thought, feeling, desire, attention
 捻	S		ネン	nen	twist
 粘	S	N1	ネン, ねばる	nen, nebaru	sticky
-燃	5	N2	ネン, もえる, もやす, もす	nen, moeru, moyasu, mosu	burn, blaze, glow
 悩	S	N2	ノウ, なやむ, なやます	nou, nayamu, nayamasu	trouble
-納	6	N1	ノウ, （ナッ）, （ナ）, （ナン）, （トウ）, おさめる, おさまる	nou, (na'), (na), (nan), (tou), osameru, osamaru	settlement, obtain, reap, pay, supply, store
-能	5	N3	ノウ	nou	ability, talent, skill, capacity
-脳	6	N2	ノウ	nou	brain, memory
-農	3	N2	ノウ	nou	agriculture, farmers
 濃	S	N2	ノウ, こい	nou, koi	concentrated
 把	S	N1	ハ	ha	grasp
-波	3	N2	ハ, なみ	ha, nami	waves, billows, Poland
-派	6	N1	ハ	ha	faction, group, party, clique, sect, school
-破	5	N3	ハ, やぶる, やぶれる	ha, yaburu, yabureru	rend, rip, tear, break, destroy, defeat, frustrate
 覇	S	N1	ハ	ha	hegemony
-馬	2	N3	バ, うま, （ま）	ba, uma, (ma)	horse
 婆	S	N1	バ	ba	old woman
 罵	S		バ, ののしる	ba, nonoshiru	insult
-拝	6	N2	ハイ, おがむ	hai, ogamu	worship, adore, pray to
 杯	S	N3	ハイ, さかずき	hai, sakazuki	counter for cupfuls
-背	6	N3	ハイ, せ, せい, そむく, そむける	hai, se, sei, somuku, somukeru	stature, height, back, behind, disobey, defy, go back on, rebel
-肺	6	N1	ハイ	hai	lungs
-俳	6	N1	ハイ	hai	haiku, actor
-配	3	N3	ハイ, くばる	hai, kubaru	distribute, spouse, exile, rationing
 排	S	N1	ハイ	hai	repudiate
-敗	4	N3	ハイ, やぶれる	hai, yabureru	failure, defeat, reversal
 廃	S	N1	ハイ, すたれる, すたる	hai, sutareru, sutaru	abolish
 輩	S	N1	ハイ	hai	comrade
-売	2	N4	バイ, うる, うれる	bai, uru, ureru	sell
-倍	3	N2	バイ	bai	double, twice, times, fold
-梅	4	N1	バイ, うめ	bai, ume	plum
 培	S	N1	バイ, つちかう	bai, tsuchikau	cultivate
 陪	S	N1	バイ	bai	obeisance
 媒	S	N1	バイ	bai	mediator
-買	2	N4	バイ, かう	bai, kau	buy
 賠	S	N1	バイ	bai	compensation
-白	1	N5	ハク, ビャク, しろ, （しら）, しろい	haku, byaku, shiro, (shira), shiroi	white
 伯	S	N1	ハク	haku	chief
 拍	S	N1	ハク, （ヒョウ）	haku, (hyou)	clap
 泊	S	N2	ハク, とまる, とめる	haku, tomaru, tomeru	overnight
 迫	S	N1	ハク, せまる	haku, semaru	urge
 剝	S		ハク, はがす, はぐ, はがれる, はげる	haku, hagasu, hagu, hagareru, hageru	peel
 舶	S	N1	ハク	haku	liner
-博	4	N1	ハク, （バク）	haku, (baku)	Dr., command, esteem, win acclaim, Ph.D., exposition, fair
 薄	S	N2	ハク, うすい, うすめる, うすまる, うすらぐ, うすれる	haku, usui, usumeru, usumaru, usuragu, usureru	dilute
-麦	2	N2	バク, むぎ	baku, mugi	barley, wheat
 漠	S	N1	バク	baku	vague
 縛	S	N1	バク, しばる	baku, shibaru	truss
 爆	S	N2	バク	baku	explode
-箱	3	N3	はこ	hako	box, chest, case, bin, railway car
 箸	S		はし	hashi	chopsticks
-畑	3		はた, はたけ	hata, hatake	farm
 肌	S	N2	はだ	hada	texture
-八	1	N5	ハチ, や, やつ, やっつ, （よう）	hachi, ya, yatsu, yattsu, (you)	eight
 鉢	S	N1	ハチ, （ハツ）	hachi, (hatsu)	bowl
-発	3	N4	ハツ, ホツ	hatsu, hotsu	discharge, departure, publish, emit, start from, disclose
 髪	S	N3	ハツ, かみ	hatsu, kami	hair of the head
 伐	S	N1	バツ	batsu	fell
 抜	S	N3	バツ, ぬく, ぬける, ぬかす, ぬかる	batsu, nuku, nukeru, nukasu, nukaru	slip out
 罰	S	N1	バツ, バチ	batsu, bachi	penalty
 閥	S	N1	バツ	batsu	clique
-反	3	N3	ハン, （ホン）, （タン）, そる, そらす	han, (hon), (tan), soru, sorasu	anti-
-半	2	N5	ハン, なかば	han, nakaba	half, middle, odd number, semi-, part-
 氾	S		ハン	han	spread out
-犯	5	N3	ハン, おかす	han, okasu	crime, sin, offense
 帆	S	N1	ハン, ほ	han, ho	sail
 汎	S		ハン	han	pan-
 伴	S	N1	ハン, バン, ともなう	han, ban, tomonau	consort
-判	5	N3	ハン, バン	han, ban	judgement, signature, stamp, seal
-坂	3	N2	ハン, さか	han, saka	slope, incline, hill
-阪	4		ハン	han	heights
-板	3	N2	ハン, バン, いた	han, ban, ita	plank, board, plate, stage
-版	5	N2	ハン	han	printing block, printing plate, edition, impression, label
-班	6	N1	ハン	han	squad, corps, unit, group
 畔	S	N1	ハン	han	paddy-ridge
 般	S	N2	ハン	han	generally
 販	S	N2	ハン	han	marketing
 斑	S		ハン	han	blemish
-飯	4	N4	ハン, めし	han, meshi	meal, boiled rice
 搬	S	N1	ハン	han	conveyor
 煩	S	N1	ハン, （ボン）, わずらう, わずらわす	han, (bon), wazurau, wazurawasu	anxiety
 頒	S	N1	ハン	han	partition
 範	S	N1	ハン	han	pattern
 繁	S	N1	ハン	han	luxuriant
 藩	S	N1	ハン	han	clan
-晩	6	N3	バン	ban	nightfall, night
-番	2	N3	バン	ban	turn, number in a series
 蛮	S	N1	バン	ban	barbarian
 盤	S	N1	バン	ban	tray
-比	5	N2	ヒ, くらべる	hi, kuraberu	compare, race, ratio, Philipines
-皮	3	N2	ヒ, かわ	hi, kawa	pelt, skin, hide, leather
 妃	S	N1	ヒ	hi	queen
-否	6	N3	ヒ, いな	hi, ina	negate, no, noes, refuse, decline, deny
-批	6	N1	ヒ	hi	criticism, strike
 彼	S	N3	ヒ, かれ, （かの）	hi, kare, (kano)	he
 披	S	N1	ヒ	hi	expose
-肥	5	N1	ヒ, こえる, こえ, こやす, こやし	hi, koeru, koe, koyasu, koyashi	fertilizer, get fat, fertile, manure, pamper
-非	5	N3	ヒ	hi	un-, mistake, negative, injustice, non-
 卑	S	N1	ヒ, いやしい, いやしむ, いやしめる	hi, iyashii, iyashimu, iyashimeru	lowly
-飛	4	N3	ヒ, とぶ, とばす	hi, tobu, tobasu	fly, skip (pages), scatter
 疲	S	N3	ヒ, つかれる	hi, tsukareru	exhausted
-秘	6	N1	ヒ, ひめる	hi, himeru	secret, conceal
 被	S	N2	ヒ, こうむる	hi, koumuru	incur
-悲	3	N3	ヒ, かなしい, かなしむ	hi, kanashii, kanashimu	jail cell, grieve, sad, deplore, regret
 扉	S	N1	ヒ, とびら	hi, tobira	front door
-費	5	N3	ヒ, ついやす, ついえる	hi, tsuiyasu, tsuieru	expense, cost, spend, consume, waste
 碑	S	N1	ヒ	hi	tombstone
 罷	S	N1	ヒ	hi	quit
 避	S	N1	ヒ, さける	hi, sakeru	evade
 尾	S	N1	ビ, お	bi, o	tail
 眉	S	N1	ビ, （ミ）, まゆ	bi, (mi), mayu	eyebrow
-美	3	N3	ビ, うつくしい	bi, utsukushii	beauty, beautiful
-備	5	N3	ビ, そなえる, そなわる	bi, sonaeru, sonawaru	equip, provision, preparation
 微	S	N1	ビ	bi	delicate
-鼻	3	N2	ビ, はな	bi, hana	nose, snout
 膝	S		ひざ	hiza	knee
 肘	S		ひじ	hiji	elbow
 匹	S	N2	ヒツ, ひき	hitsu, hiki	equal
-必	4	N3	ヒツ, かならず	hitsu, kanarazu	invariably, certain, inevitable
 泌	S	N1	ヒツ, ヒ	hitsu, hi	ooze
-筆	3	N2	ヒツ, ふで	hitsu, fude	writing brush, writing, painting brush, handwriting
 姫	S	N1	ひめ	hime	princess
-百	1	N5	ヒャク	hyaku	hundred
-氷	3	N2	ヒョウ, こおり, ひ	hyou, koori, hi	icicle, ice, hail, freeze, congeal
-表	3	N3	ヒョウ, おもて, あらわす, あらわれる	hyou, omote, arawasu, arawareru	surface, table, chart, diagram
-俵	6	N1	ヒョウ, たわら	hyou, tawara	bag, bale, sack, counter for bags
-票	4	N1	ヒョウ	hyou	ballot, label, ticket, sign
-評	5	N1	ヒョウ	hyou	evaluate, criticism, comment
 漂	S	N1	ヒョウ, ただよう	hyou, tadayou	drift
-標	4	N1	ヒョウ	hyou	signpost, seal, mark, stamp, imprint, symbol, emblem, trademark, evidence, souvenir, target
 苗	S	N1	ビョウ, なえ, （なわ）	byou, nae, (nawa)	seedling
-秒	3	N2	ビョウ	byou	second (1, 60 minute)
-病	3	N4	ビョウ, （ヘイ）, やむ, やまい	byou, (hei), yamu, yamai	ill, sick
 描	S	N1	ビョウ, えがく, かく	byou, egaku, kaku	sketch
 猫	S	N3	ビョウ, ねこ	byou, neko	cat
-品	3	N4	ヒン, しな	hin, shina	goods, refinement, dignity, article, counter for meal courses
 浜	S	N1	ヒン, はま	hin, hama	seacoast
-貧	5	N3	ヒン, ビン, まずしい	hin, bin, mazushii	poverty, poor
 賓	S	N1	ヒン	hin	V.I.P.
 頻	S	N1	ヒン	hin	repeatedly
 敏	S	N1	ビン	bin	cleverness
 瓶	S	N2	ビン	bin	flower pot
-不	4	N4	フ, ブ	fu, bu	negative, non-, bad, ugly, clumsy
-夫	4	N3	フ, （フウ）, おっと	fu, (fuu), otto	husband, man
-父	2	N5	フ, ちち	fu, chichi	father
-付	4	N3	フ, つける, つく	fu, tsukeru, tsuku	adhere, attach, refer to, append
-布	5	N2	フ, ぬの	fu, nuno	linen, cloth
 扶	S	N1	フ	fu	aid
-府	4	N2	フ	fu	borough, urban prefecture, govt office, representative body, storehouse
 怖	S	N3	フ, こわい	fu, kowai	dreadful
-阜	4		（フ）	(fu)	mound
 附	S	N1	フ	fu	affixed
 訃	S		フ	fu	obituary
-負	3	N3	フ, まける, まかす, おう	fu, makeru, makasu, ou	defeat, negative, -, minus, bear, owe, assume a responsibility
 赴	S	N1	フ, おもむく	fu, omomuku	proceed
 浮	S	N3	フ, うく, うかれる, うかぶ, うかべる	fu, uku, ukareru, ukabu, ukaberu	floating
-婦	5	N3	フ	fu	lady, woman, wife, bride
 符	S	N2	フ	fu	token
-富	4	N3	フ, （フウ）, とむ, とみ	fu, (fuu), tomu, tomi	wealth, enrich, abundant
 普	S	N2	フ	fu	universal
 腐	S	N1	フ, くさる, くされる, くさらす	fu, kusaru, kusareru, kusarasu	rot
 敷	S	N1	フ, しく	fu, shiku	spread
@@ -1757,84 +1887,42 @@
 賦	S	N1	フ	fu	levy
 譜	S	N1	フ	fu	musical score
 侮	S	N1	ブ, あなどる	bu, anadoru	scorn
-武	5	N2	ブ, ム	bu, mu	warrior, military, chivalry, arms
-部	3	N3	ブ	bu	section, bureau, dept, class, copy, part, portion, counter for copies of a newspaper or magazine
 舞	S	N3	ブ, まう, まい	bu, mau, mai	dance
 封	S	N2	フウ, ホウ	fuu, hou	seal
-風	2	N4	フウ, （フ）, かぜ, （かざ）	fuu, (fu), kaze, (kaza)	wind, air, style, manner
 伏	S	N1	フク, ふせる, ふす	fuku, fuseru, fusu	prostrated
-服	3	N4	フク	fuku	clothing, admit, obey, discharge
-副	4	N2	フク	fuku	vice-, duplicate, copy
 幅	S	N2	フク, はば	fuku, haba	breadth
-復	5	N2	フク	fuku	restore, return to, revert, resume
-福	3	N3	フク	fuku	blessing, fortune, luck, wealth
-腹	6	N3	フク, はら	fuku, hara	abdomen, belly, stomach
-複	5	N2	フク	fuku	duplicate, double, compound, multiple
 覆	S	N1	フク, おおう, くつがえす, くつがえる	fuku, oou, kutsugaesu, kutsugaeru	capsize
 払	S	N3	フツ, はらう	futsu, harau	pay
 沸	S	N2	フツ, わく, わかす	futsu, waku, wakasu	seethe
-仏	5	N2	ブツ, ほとけ	butsu, hotoke	Buddha, the dead, France
-物	3	N4	ブツ, モツ, もの	butsu, motsu, mono	thing, object, matter
-粉	5	N2	フン, こ, こな	fun, ko, kona	flour, powder, dust
 紛	S	N1	フン, まぎれる, まぎらす, まぎらわす, まぎらわしい	fun, magireru, magirasu, magirawasu, magirawashii	distract
 雰	S	N1	フン	fun	atmosphere
 噴	S	N1	フン, ふく	fun, fuku	erupt
 墳	S	N1	フン	fun	tomb
 憤	S	N1	フン, いきどおる	fun, ikidooru	aroused
-奮	6	N1	フン, ふるう	fun, furuu	stirred up, be invigorated, flourish
-分	2	N5	ブン, フン, ブ, わける, わかれる, わかる, わかつ	bun, fun, bu, wakeru, wakareru, wakaru, wakatsu	part, minute of time
-文	1	N4	ブン, モン, ふみ	bun, mon, fumi	sentence, literature, style, art, decoration, figures, plan
-聞	2	N5	ブン, モン, きく, きこえる	bun, mon, kiku, kikoeru	hear, ask, listen
 丙	S	N1	ヘイ	hei	third class
-平	3	N3	ヘイ, ビョウ, たいら, ひら	hei, byou, taira, hira	even, flat, peace
-兵	4	N2	ヘイ, ヒョウ	hei, hyou	soldier, private, troops, army, warfare, strategy, tactics
 併	S	N1	ヘイ, あわせる	hei, awaseru	join
-並	6	N2	ヘイ, なみ, ならべる, ならぶ, ならびに	hei, nami, naraberu, narabu, narabini	row, and, besides, as well as, line up, rank with, rival, equal
 柄	S	N1	ヘイ, がら, え	hei, gara, e	design
-陛	6	N1	ヘイ	hei	highness, steps (of throne)
-閉	6	N3	ヘイ, とじる, とざす, しめる, しまる	hei, tojiru, tozasu, shimeru, shimaru	closed, shut
 塀	S	N1	ヘイ	hei	fence
 幣	S	N1	ヘイ	hei	cash
 弊	S	N1	ヘイ	hei	abuse
 蔽	S		ヘイ	hei	cover
 餅	S		ヘイ, もち	hei, mochi	mochi rice cake
-米	2	N3	ベイ, マイ, こめ	bei, mai, kome	rice, USA, metre
 壁	S	N1	ヘキ, かべ	heki, kabe	wall
 璧	S		ヘキ	heki	sphere
 癖	S	N1	ヘキ, くせ	heki, kuse	mannerism
-別	4	N4	ベツ, わかれる	betsu, wakareru	separate, branch off, diverge, fork, another, extra, specially
 蔑	S		ベツ, さげすむ	betsu, sagesumu	ignore
-片	6	N2	ヘン, かた	hen, kata	one-sided, leaf, sheet
-辺	4	N2	ヘン, あたり, べ	hen, atari, be	environs, boundary, border, vicinity
-返	3	N3	ヘン, かえす, かえる	hen, kaesu, kaeru	return, answer, fade, repay
-変	4	N3	ヘン, かわる, かえる	hen, kawaru, kaeru	unusual, change, strange
 偏	S	N1	ヘン, かたよる	hen, katayoru	partial
 遍	S	N1	ヘン	hen	everywhere
-編	5	N2	ヘン, あむ	hen, amu	compilation, knit, plait, braid, twist, editing, completed poem, part of a book
-弁	5	N1	ベン	ben	valve, petal, braid, speech, dialect, discrimination, dispose of, distinguish
-便	4	N3	ベン, ビン, たより	ben, bin, tayori	convenience
-勉	3	N4	ベン	ben	exertion
-歩	2	N4	ホ, ブ, （フ）, あるく, あゆむ	ho, bu, (fu), aruku, ayumu	walk, counter for steps
-保	5	N1	ホ, たもつ	ho, tamotsu	protect, guarantee, keep, preserve, sustain, support
 哺	S		ホ	ho	suckle
 捕	S	N3	ホ, とらえる, とらわれる, とる, つかまえる, つかまる	ho, toraeru, torawareru, toru, tsukamaeru, tsukamaru	catch
-補	6	N2	ホ, おぎなう	ho, oginau	supplement, supply, make good, offset, compensate, assistant, learner
 舗	S	N1	ホ	ho	pavement
-母	2	N5	ボ, はは	bo, haha	mama, mother
 募	S	N2	ボ, つのる	bo, tsunoru	recruit
-墓	5	N1	ボ, はか	bo, haka	grave, tomb
 慕	S	N1	ボ, したう	bo, shitau	pining
-暮	6	N3	ボ, くれる, くらす	bo, kureru, kurasu	livelihood, make a living, spend time
 簿	S	N1	ボ	bo	register
-方	2	N4	ホウ, かた	hou, kata	direction, person, alternative
-包	4	N2	ホウ, つつむ	hou, tsutsumu	wrap, pack up, cover, conceal
 芳	S	N1	ホウ, かんばしい	hou, kanbashii	perfume
 邦	S	N1	ホウ	hou	home country
 奉	S	N1	ホウ, （ブ）, たてまつる	hou, (bu), tatematsuru	observance
-宝	6	N2	ホウ, たから	hou, takara	treasure, wealth, valuables
 抱	S	N3	ホウ, だく, いだく, かかえる	hou, daku, idaku, kakaeru	embrace
-放	3	N3	ホウ, はなす, はなつ, はなれる, ほうる	hou, hanasu, hanatsu, hanareru, houru	set free, release, fire, shoot, emit, banish, liberate
-法	4	N3	ホウ, （ハッ）, （ホッ）	hou, (ha'), (ho')	method, law, rule, principle, model, system
 泡	S	N1	ホウ, あわ	hou, awa	bubbles
 胞	S	N1	ホウ	hou	placenta
 俸	S	N1	ホウ	hou	salary
@@ -1842,40 +1930,27 @@
 峰	S	N1	ホウ, みね	hou, mine	summit
 砲	S	N1	ホウ	hou	cannon
 崩	S	N1	ホウ, くずれる, くずす	hou, kuzureru, kuzusu	crumble
-訪	6	N3	ホウ, おとずれる, たずねる	hou, otozureru, tazuneru	call on, visit, look up, offer sympathy
-報	5	N3	ホウ, むくいる	hou, mukuiru	report, news, reward, retribution
 蜂	S		ホウ, はち	hou, hachi	bee
-豊	5	N2	ホウ, ゆたか	hou, yutaka	bountiful, excellent, rich
 飽	S	N1	ホウ, あきる, あかす	hou, akiru, akasu	sated
 褒	S	N1	ホウ, ほめる	hou, homeru	praise
 縫	S	N1	ホウ, ぬう	hou, nuu	sew
-亡	6	N3	ボウ, （モウ）, ない	bou, (mou), nai	deceased, the late, dying, perish
 乏	S	N1	ボウ, とぼしい	bou, toboshii	scarce
 忙	S	N3	ボウ, いそがしい	bou, isogashii	busy
 坊	S		ボウ, （ボッ）	bou, (bo')	boy
 妨	S	N1	ボウ, さまたげる	bou, samatageru	disturb
-忘	6	N3	ボウ, わすれる	bou, wasureru	forget
-防	5	N2	ボウ, ふせぐ	bou, fusegu	ward off, defend, protect, resist
 房	S	N1	ボウ, ふさ	bou, fusa	tassel
 肪	S	N1	ボウ	bou	obese
 某	S	N1	ボウ	bou	so-and-so
 冒	S	N1	ボウ, おかす	bou, okasu	risk
 剖	S	N1	ボウ	bou	divide
 紡	S	N1	ボウ, つむぐ	bou, tsumugu	spinning
-望	4	N3	ボウ, モウ, のぞむ	bou, mou, nozomu	ambition, full moon, hope, desire, aspire to, expect
 傍	S	N1	ボウ, かたわら	bou, katawara	bystander
 帽	S	N2	ボウ	bou	cap
-棒	6	N2	ボウ	bou	rod, stick, cane, pole, club, line
-貿	5	N2	ボウ	bou	trade, exchange
 貌	S		ボウ	bou	appearance
-暴	5	N2	ボウ, （バク）, あばく, あばれる	bou, (baku), abaku, abareru	outburst, rave, fret, force, violence, cruelty, outrage
 膨	S	N1	ボウ, ふくらむ, ふくれる	bou, fukuramu, fukureru	swell
 謀	S	N1	ボウ, （ム）, はかる	bou, (mu), hakaru	conspire
 頰	S		ほお	hoo	cheek
-北	2	N5	ホク, きた	hoku, kita	north
-木	1	N5	ボク, モク, き, （こ）	boku, moku, ki, (ko)	tree, wood
 朴	S	N1	ボク	boku	crude
-牧	4	N1	ボク, まき	boku, maki	breed, care for, shepherd, feed, pasture
 睦	S	N1	ボク	boku	harmonious
 僕	S	N1	ボク	boku	me
 墨	S	N1	ボク, すみ	boku, sumi	black ink
@@ -1883,7 +1958,6 @@
 没	S	N1	ボツ	botsu	drown
 勃	S		ボツ	botsu	rise
 堀	S	N1	ほり	hori	ditch
-本	1	N5	ホン, もと	hon, moto	book, present, main, true, real, counter for long things
 奔	S	N1	ホン	hon	bustle
 翻	S	N1	ホン, ひるがえる, ひるがえす	hon, hirugaeru, hirugaesu	flip
 凡	S	N1	ボン, （ハン）	bon, (han)	mediocre
@@ -1892,204 +1966,143 @@
 摩	S	N1	マ	ma	chafe
 磨	S	N2	マ, みがく	ma, migaku	grind
 魔	S	N1	マ	ma	witch
-毎	2	N5	マイ	mai	every
-妹	2	N4	マイ, いもうと	mai, imouto	younger sister
-枚	6	N2	マイ	mai	sheet of..., counter for flat thin objects or sheets
 昧	S		マイ	mai	foolish
 埋	S	N2	マイ, うめる, うまる, うもれる	mai, umeru, umaru, umoreru	bury
-幕	6	N1	マク, バク	maku, baku	curtain, bunting, act of play
 膜	S	N1	マク	maku	membrane
 枕	S		まくら	makura	pillow
 又	S	N1	また	mata	or again
-末	4	N3	マツ, バツ, すえ	matsu, batsu, sue	end, close, tip, powder, posterity
 抹	S	N1	マツ	matsu	rub
-万	2	N5	マン, バン	man, ban	ten thousand
-満	4	N3	マン, みちる, みたす	man, michiru, mitasu	full, enough, pride, satisfy
 慢	S	N1	マン	man	ridicule
 漫	S	N1	マン	man	cartoon
-未	4	N3	ミ	mi	un-, not yet, hitherto, still, even now, sign of the ram, 1-3PM, eighth sign of Chinese zodiac
-味	3	N4	ミ, あじ, あじわう	mi, aji, ajiwau	flavor, taste
 魅	S	N1	ミ	mi	fascination
 岬	S	N1	みさき	misaki	headland
-密	6	N1	ミツ	mitsu	secrecy, density (pop), minuteness, carefulness
 蜜	S		ミツ	mitsu	honey
-脈	5	N1	ミャク	myaku	vein, pulse, hope
 妙	S	N1	ミョウ	myou	exquisite
-民	4	N3	ミン, たみ	min, tami	people, nation, subjects
 眠	S	N3	ミン, ねむる, ねむい	min, nemuru, nemui	sleep
 矛	S	N1	ム, ほこ	mu, hoko	halberd
-務	5	N3	ム, つとめる, つとまる	mu, tsutomeru, tsutomaru	task, duties
-無	4	N3	ム, ブ, ない	mu, bu, nai	nothing
-夢	5	N3	ム, ゆめ	mu, yume	dream, vision, illusion
 霧	S	N1	ム, きり	mu, kiri	fog
 娘	S	N3	むすめ	musume	daughter
-名	1	N5	メイ, ミョウ, な	mei, myou, na	name, noted, distinguished, reputation
-命	3	N3	メイ, ミョウ, いのち	mei, myou, inochi	fate, command, decree, destiny, life, appoint
-明	2	N4	メイ, ミョウ, あかり, あかるい, あかるむ, あからむ, あきらか, あける, あく, あくる, あかす	mei, myou, akari, akarui, akarumu, akaramu, akiraka, akeru, aku, akuru, akasu	bright, light
-迷	5	N3	メイ, まよう	mei, mayou	astray, be perplexed, in doubt, lost, err, illusion
 冥	S		メイ, ミョウ	mei, myou	dark
-盟	6	N1	メイ	mei	alliance, oath
 銘	S	N1	メイ	mei	inscription
-鳴	2	N3	メイ, なく, なる, ならす	mei, naku, naru, narasu	chirp, cry, bark, sound, ring, echo, honk
 滅	S	N1	メツ, ほろびる, ほろぼす	metsu, horobiru, horobosu	destroy
 免	S	N1	メン, まぬかれる	men, manukareru	excuse
-面	3	N3	メン, おも, おもて, つら	men, omo, omote, tsura	mask, face, features, surface
-綿	5	N2	メン, わた	men, wata	cotton
 麺	S		メン	men	noodles
 茂	S	N1	モ, しげる	mo, shigeru	overgrown
-模	6	N1	モ, ボ	mo, bo	imitation, copy, mock
-毛	2	N2	モウ, け	mou, ke	fur, hair, feather, down
 妄	S	N1	モウ, ボウ	mou, bou	delusion
 盲	S	N1	モウ	mou	blind
 耗	S	N1	モウ, （コウ）	mou, (kou)	decrease
 猛	S	N1	モウ	mou	fierce
 網	S	N1	モウ, あみ	mou, ami	netting
-目	1	N4	モク, （ボク）, め, （ま）	moku, (boku), me, (ma)	eye, class, look, insight, experience, care, favor
 黙	S	N1	モク, だまる	moku, damaru	silence
-門	2	N2	モン, かど	mon, kado	gates
 紋	S	N1	モン	mon	family crest
-問	3	N4	モン, とう, とい, （とん）	mon, tou, toi, (ton)	question, ask, problem
 冶	S	N1	ヤ	ya	melting
-夜	2	N4	ヤ, よ, よる	ya, yo, yoru	night, evening
-野	2	N4	ヤ, の	ya, no	plains, field, rustic, civilian life
 弥	S	N1	や	ya	all the more
 厄	S	N1	ヤク	yaku	unlucky
-役	3	N3	ヤク, エキ	yaku, eki	duty, war, campaign, drafted labor, office, service, role
-約	4	N3	ヤク	yaku	promise, approximately, shrink
-訳	6	N1	ヤク, わけ	yaku, wake	translate, reason, circumstance, case
-薬	3	N3	ヤク, くすり	yaku, kusuri	medicine, chemical, enamel, gunpowder, benefit
 躍	S	N1	ヤク, おどる	yaku, odoru	leap
 闇	S		やみ	yami	darkness
-由	3	N3	ユ, ユウ, （ユイ）, よし	yu, yuu, (yui), yoshi	wherefore, a reason
-油	3	N2	ユ, あぶら	yu, abura	oil, fat
 喩	S		ユ	yu	metaphor
 愉	S	N1	ユ	yu	pleasure
 諭	S	N1	ユ, さとす	yu, satosu	rebuke
-輸	5	N2	ユ	yu	transport, send, be inferior
 癒	S	N1	ユ, いえる, いやす	yu, ieru, iyasu	healing
 唯	S	N1	ユイ, （イ）	yui, (i)	solely
-友	2	N5	ユウ, とも	yuu, tomo	friend
-有	3	N4	ユウ, ウ, ある	yuu, u, aru	possess, have, exist, happen, occur, approx
-勇	4	N2	ユウ, いさむ	yuu, isamu	courage, cheer up, be in high spirits, bravery, heroism
 幽	S	N1	ユウ	yuu	seclude
 悠	S	N1	ユウ	yuu	permanence
-郵	6	N2	ユウ	yuu	mail, stagecoach stop
 湧	S	N1	ユウ, わく	yuu, waku	boil
 猶	S	N1	ユウ	yuu	furthermore
 裕	S	N1	ユウ	yuu	abundant
-遊	3	N3	ユウ, （ユ）, あそぶ	yuu, (yu), asobu	play
 雄	S	N1	ユウ, お, おす	yuu, o, osu	male
 誘	S	N1	ユウ, さそう	yuu, sasou	entice
 憂	S	N1	ユウ, うれえる, うれい, うい	yuu, ureeru, urei, ui	melancholy
 融	S	N1	ユウ	yuu	dissolve
-優	6	N3	ユウ, やさしい, すぐれる	yuu, yasashii, sugureru	tenderness, excel, surpass, actor, superiority, gentleness
 与	S	N3	ヨ, あたえる	yo, ataeru	give
-予	3	N3	ヨ	yo	beforehand, previous, myself, I
-余	5	N3	ヨ, あまる, あます	yo, amaru, amasu	too much, myself, surplus, other, remainder
 誉	S	N1	ヨ, ほまれ	yo, homare	reputation
-預	6	N2	ヨ, あずける, あずかる	yo, azukeru, azukaru	deposit, custody, leave with, entrust to
-幼	6	N2	ヨウ, おさない	you, osanai	infancy, childhood
-用	2	N4	ヨウ, もちいる	you, mochiiru	utilize, business, service, use, employ
-羊	3	N1	ヨウ, ひつじ	you, hitsuji	sheep
 妖	S		ヨウ, あやしい	you, ayashii	bewitching
-洋	3	N4	ヨウ	you	ocean, western style
-要	4	N3	ヨウ, かなめ, いる	you, kaname, iru	need, main point, essence, pivot, key to
-容	5	N3	ヨウ	you	contain, form, looks
 庸	S	N1	ヨウ	you	commonplace
 揚	S	N1	ヨウ, あげる, あがる	you, ageru, agaru	hoist
 揺	S	N1	ヨウ, ゆれる, ゆる, ゆらぐ, ゆるぐ, ゆする, ゆさぶる, ゆすぶる	you, yureru, yuru, yuragu, yurugu, yusuru, yusaburu, yusuburu	swing
-葉	3	N3	ヨウ, は	you, ha	leaf, plane, lobe, needle, blade, spear, counter for flat things, fragment, piece
-陽	3	N3	ヨウ	you	sunshine, yang principle, positive, male, heaven, daytime
 溶	S	N2	ヨウ, とける, とかす, とく	you, tokeru, tokasu, toku	melt
 腰	S	N2	ヨウ, こし	you, koshi	loins
-様	3	N3	ヨウ, さま	you, sama	Esq., way, manner, situation, polite suffix
 瘍	S		ヨウ	you	boil (medical)
 踊	S	N2	ヨウ, おどる, おどり	you, odoru, odori	jump
 窯	S	N1	ヨウ, かま	you, kama	kiln
-養	4	N1	ヨウ, やしなう	you, yashinau	foster, bring up, rear, develop, nurture
 擁	S	N1	ヨウ	you	embrace
 謡	S	N1	ヨウ, うたい, うたう	you, utai, utau	noh chanting
-曜	2	N4	ヨウ	you	weekday
 抑	S	N1	ヨク, おさえる	yoku, osaeru	repress
 沃	S		ヨク	yoku	fertility
-浴	4	N2	ヨク, あびる, あびせる	yoku, abiru, abiseru	bathe, be favored with, bask in
-欲	6	N3	ヨク, ほっする, ほしい	yoku, hossuru, hoshii	longing, covetousness, greed, passion, desire, craving
-翌	6	N2	ヨク	yoku	the following, next
 翼	S	N1	ヨク, つばさ	yoku, tsubasa	wing
 拉	S		ラ	ra	crush
 裸	S	N1	ラ, はだか	ra, hadaka	naked
 羅	S	N1	ラ	ra	gauze
-来	2	N5	ライ, くる, きたる, きたす	rai, kuru, kitaru, kitasu	come, due, next, cause, become
 雷	S	N1	ライ, かみなり	rai, kaminari	thunder
 頼	S	N3	ライ, たのむ, たのもしい, たよる	rai, tanomu, tanomoshii, tayoru	trust
 絡	S	N2	ラク, からむ, からまる, からめる	raku, karamu, karamaru, karameru	entwine
-落	3	N3	ラク, おちる, おとす	raku, ochiru, otosu	fall, drop, come down
 酪	S	N1	ラク	raku	dairy products
 辣	S		ラツ	ratsu	bitter
-乱	6	N2	ラン, みだれる, みだす	ran, midareru, midasu	riot, war, disorder, disturb
-卵	6	N2	ラン, たまご	ran, tamago	egg, ovum, spawn, roe
-覧	6	N1	ラン	ran	perusal, see
 濫	S	N1	ラン	ran	excessive
 藍	S	N1	ラン, あい	ran, ai	indigo
 欄	S	N1	ラン	ran	column
 吏	S	N1	リ	ri	officer
-利	4	N3	リ, きく	ri, kiku	profit, advantage, benefit
-里	2		リ, さと	ri, sato	village
-理	2	N4	リ	ri	logic, arrangement, reason, justice, truth
 痢	S	N1	リ	ri	diarrhea
-裏	6	N2	リ, うら	ri, ura	back, amidst, in, reverse, inside, palm, sole, rear, lining, wrong side
 履	S	N1	リ, はく	ri, haku	footgear
 璃	S	N1	リ	ri	glassy
 離	S	N1	リ, はなれる, はなす	ri, hanareru, hanasu	detach
-陸	4	N2	リク	riku	land, six
-立	1	N4	リツ, （リュウ）, たつ, たてる	ritsu, (ryuu), tatsu, tateru	stand up
-律	6	N2	リツ, （リチ）	ritsu, (richi)	rhythm, law, regulation, gauge, control
 慄	S		リツ	ritsu	fear
-略	5	N2	リャク	ryaku	abbreviation, omission, outline, shorten, capture, plunder
 柳	S	N1	リュウ, やなぎ	ryuu, yanagi	willow
-流	3	N3	リュウ, （ル）, ながれる, ながす	ryuu, (ru), nagareru, nagasu	current, a sink, flow, forfeit
-留	5	N3	リュウ, （ル）, とめる, とまる	ryuu, (ru), tomeru, tomaru	detain, fasten, halt, stop
 竜	S	N1	リュウ, たつ	ryuu, tatsu	dragon
 粒	S	N2	リュウ, つぶ	ryuu, tsubu	grains
 隆	S	N1	リュウ	ryuu	hump
 硫	S	N1	リュウ	ryuu	sulphur
 侶	S		リョ	ryo	companion
-旅	3	N4	リョ, たび	ryo, tabi	trip, travel
 虜	S	N1	リョ	ryo	captive
 慮	S	N1	リョ	ryo	prudence
 了	S	N2	リョウ	ryou	finish
-両	3	N3	リョウ	ryou	both, old Japanese coin, counter for vehicles, two
-良	4	N3	リョウ, よい	ryou, yoi	good, pleasing, skilled
-料	4	N4	リョウ	ryou	fee, materials
 涼	S	N2	リョウ, すずしい, すずむ	ryou, suzushii, suzumu	refreshing
 猟	S	N1	リョウ	ryou	game-hunting
 陵	S	N1	リョウ, みささぎ	ryou, misasagi	mausoleum
-量	4	N2	リョウ, はかる	ryou, hakaru	quantity, measure, weight, amount, consider, estimate, surmise
 僚	S	N1	リョウ	ryou	colleague
-領	5	N2	リョウ	ryou	jurisdiction, dominion, territory, fief, reign
 寮	S	N1	リョウ	ryou	dormitory
 療	S	N2	リョウ	ryou	heal
 瞭	S	N1	リョウ	ryou	clear
 糧	S	N1	リョウ, （ロウ）, かて	ryou, (rou), kate	provisions
-力	1	N4	リョク, リキ, ちから	ryoku, riki, chikara	power, strong, strain, bear up, exert
-緑	3	N2	リョク, （ロク）, みどり	ryoku, (roku), midori	green
-林	1	N2	リン, はやし	rin, hayashi	grove, forest
+亜	S	N1	ア	a	sub-, Asia
+哀	S	N1	アイ, あわれ, あわれむ	ai, aware, awaremu	pathetic
+挨	S		アイ	ai	push open
+曖	S		アイ	ai	not clear
+握	S	N1	アク, にぎる	aku, nigiru	grip
+扱	S	N1	あつかう	atsukau	handle
+宛	S		あてる	ateru	allocate
+嵐	S	N1	あらし	arashi	storm
+依	S	N2	イ, （エ）	i, (e)	reliant
+威	S	N1	イ	i	intimidate
+為	S	N1	イ	i	do
+畏	S		イ, おそれる	i, osoreru	fear
+尉	S	N1	イ	i	military officer
+萎	S		イ, なえる	i, naeru	wither
+偉	S	N3	イ, えらい	i, erai	admirable
+椅	S		イ	i	chair
+彙	S		イ	i	same kind
+違	S	N3	イ, ちがう, ちがえる	i, chigau, chigaeru	differ
+維	S	N1	イ	i	fiber
+慰	S	N1	イ, なぐさめる, なぐさむ	i, nagusameru, nagusamu	consolation
+緯	S	N1	イ	i	horizontal
+壱	S	N1	イチ	ichi	one (falsification prevention)
+逸	S	N1	イツ	itsu	deviate
+芋	S	N1	いも	imo	potato
+咽	S		イン	in	throat
+姻	S	N1	イン	in	matrimony
+淫	S		イン, みだら	in, midara	lewdness
+陰	S	N1	イン, かげ, かげる	in, kage, kageru	shade
+隠	S	N1	イン, かくす, かくれる	in, kakusu, kakureru	conceal
+韻	S	N1	イン	in	rhyme
 厘	S	N1	リン	rin	thousandth
 倫	S	N1	リン	rin	ethics
-輪	4	N2	リン, わ	rin, wa	wheel, ring, circle, link, loop, counter for wheels and flowers
 隣	S	N1	リン, となる, となり	rin, tonaru, tonari	neighboring
-臨	6	N1	リン, のぞむ	rin, nozomu	look to, face, meet, confront, attend, call on
 瑠	S	N1	ル	ru	lapis lazuli
 涙	S	N2	ルイ, なみだ	rui, namida	tears
 累	S	N1	ルイ	rui	accumulate
 塁	S	N1	ルイ	rui	bases
-類	4	N3	ルイ, たぐい	rui, tagui	sort, kind, variety, class, genus
-令	4	N2	レイ	rei	orders, ancient laws, command, decree
-礼	3	N3	レイ, ライ	rei, rai	salute, bow, ceremony, thanks, remuneration
-冷	4	N3	レイ, つめたい, ひえる, ひや, ひやす, ひやかす, さめる, さます	rei, tsumetai, hieru, hiya, hiyasu, hiyakasu, sameru, samasu	cool, cold (beer, person), chill
 励	S	N1	レイ, はげむ, はげます	rei, hagemu, hagemasu	encourage
 戻	S	N3	レイ, もどす, もどる	rei, modosu, modoru	re-
-例	4	N3	レイ, たとえる	rei, tatoeru	example, custom, usage, precedent
 鈴	S	N1	レイ, リン, すず	rei, rin, suzu	small bell
 零	S	N2	レイ	rei	zero
 霊	S	N1	レイ, リョウ, たま	rei, ryou, tama	spirits
@@ -2097,37 +2110,24 @@
 齢	S	N2	レイ	rei	age
 麗	S	N1	レイ, うるわしい	rei, uruwashii	lovely
 暦	S	N1	レキ, こよみ	reki, koyomi	calendar
-歴	5	N2	レキ	reki	curriculum, continuation, passage of time
-列	3	N3	レツ	retsu	file, row, rank, tier, column
 劣	S	N1	レツ, おとる	retsu, otoru	inferiority
 烈	S	N1	レツ	retsu	ardent
 裂	S	N1	レツ, さく, さける	retsu, saku, sakeru	split
 恋	S	N2	レン, こう, こい, こいしい	ren, kou, koi, koishii	romance
-連	4	N3	レン, つらなる, つらねる, つれる	ren, tsuranaru, tsuraneru, tsureru	take along, lead, join, connect, party, gang, clique
 廉	S	N1	レン	ren	bargain
-練	3	N2	レン, ねる	ren, neru	practice, gloss, train, drill, polish, refine
 錬	S	N1	レン	ren	tempering
 呂	S	N1	ロ	ro	spine
 炉	S	N1	ロ	ro	hearth
 賂	S		ロ	ro	bribe
-路	3	N3	ロ, じ	ro, ji	path, route, road, distance
 露	S	N1	ロ, （ロウ）, つゆ	ro, (rou), tsuyu	dew
-老	4	N3	ロウ, おいる, ふける	rou, oiru, fukeru	old man, old age, grow old
-労	4	N3	ロウ	rou	labor, thank for, reward for, toil, trouble
 弄	S		ロウ, もてあそぶ	rou, moteasobu	tamper with
 郎	S	N1	ロウ	rou	son
-朗	6	N1	ロウ, ほがらか	rou, hogaraka	melodious, clear, bright, serene, cheerful
 浪	S	N1	ロウ	rou	wandering
 廊	S	N1	ロウ	rou	corridor
 楼	S	N1	ロウ	rou	watchtower
 漏	S	N1	ロウ, もる, もれる, もらす	rou, moru, moreru, morasu	leak
 籠	S		ロウ, かご, こもる	rou, kago, komoru	basket
-六	1	N5	ロク, む, むつ, むっつ, （むい）	roku, mu, mutsu, muttsu, (mui)	six
-録	4	N2	ロク	roku	record
 麓	S		ロク, ふもと	roku, fumoto	foot of a mountain
-論	6	N3	ロン	ron	argument, discourse
-和	3	N3	ワ, （オ）, やわらぐ, やわらげる, なごむ, なごやか	wa, (o), yawaragu, yawarageru, nagomu, nagoyaka	harmony, Japanese style, peace, soften, Japan
-話	2	N5	ワ, はなす, はなし	wa, hanasu, hanashi	tale, talk
 賄	S	N1	ワイ, まかなう	wai, makanau	bribe, board
 脇	S		わき	waki	aside
 惑	S	N1	ワク, まどう	waku, madou	beguile
