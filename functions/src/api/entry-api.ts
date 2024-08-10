@@ -1,5 +1,5 @@
 import { open } from 'node:fs/promises';
-import { isChoiceAnswer } from '../shared/mode-utils';
+import { getAnswerContent, isChoiceAnswer } from '../shared/mode-utils';
 import { RNG } from '../shared/rng';
 import { GameEntry, GameLobby, TestGroup } from '../shared/types';
 import { assertExhaustive } from '../shared/utils';
@@ -132,6 +132,16 @@ export function selectQuestion(
   let choices;
   if (isChoiceAnswer(lobby.settings.answer_mode)) {
     const choiceSet = new Set<GameEntry>([question]);
+    // Check what the choice actually looks like, to remove identical choices:
+    const choiceContentSet = new Set<string>();
+    choiceContentSet.add(
+      getAnswerContent(
+        question,
+        lobby.settings.answer_mode,
+        lobby.settings.game_mode,
+        'english',
+      ),
+    );
     choices = new Array<GameEntry>();
     const targetCount = Math.max(
       2,
@@ -142,11 +152,18 @@ export function selectQuestion(
     while (choiceSet.size < targetCount) {
       const i = rng.randomIntClamped(0, lobby.questions.length - 1);
       const choice = lobby.questions[i];
-      if (choiceSet.has(choice)) {
+      const choiceContent = getAnswerContent(
+        choice,
+        lobby.settings.answer_mode,
+        lobby.settings.game_mode,
+        'english',
+      );
+      if (choiceSet.has(choice) || choiceContentSet.has(choiceContent)) {
         retryCounter++;
         if (retryCounter >= 20) break;
       } else {
         choiceSet.add(choice);
+        choiceContentSet.add(choiceContent);
       }
     }
     // Shuffle choices so that the answer is at a random spot.
