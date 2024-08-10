@@ -150,7 +150,7 @@ export async function tryAdvanceTurn(lobbyID: string, turn: GameTurn) {
   if (turn.pause === 'none') {
     if (turn.phase_duration_ms === 0) {
       // count if all players submitted responses
-      const playerCount = await countPlayers(lobbyID, 'player');
+      const playerCount = await countPlayers(lobbyID, 'player', 'online');
       const count = await countNonEmptyResponses(lobbyID, turn);
       logger.info(`Counted ${count} responses from ${playerCount} players.`);
       shouldAdvance = count >= playerCount;

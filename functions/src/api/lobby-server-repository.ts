@@ -1,11 +1,16 @@
-import { Transaction } from 'firebase-admin/firestore';
+import { Query, Transaction } from 'firebase-admin/firestore';
 import { HttpsError } from 'firebase-functions/v2/https';
 import { firestore } from '../firebase-server';
 import {
   lobbyConverter,
   playerConverter,
 } from '../shared/firestore-converters';
-import { GameLobby, PlayerInLobby, PlayerRole } from '../shared/types';
+import {
+  GameLobby,
+  PlayerInLobby,
+  PlayerRole,
+  PlayerStatus,
+} from '../shared/types';
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -105,15 +110,16 @@ export async function getPlayers(
 export async function countPlayers(
   lobbyID: string,
   role?: PlayerRole,
+  status?: PlayerStatus,
 ): Promise<number> {
-  if (!role) {
-    // Fetch all players
-    return (await getPlayersRef(lobbyID).count().get()).data().count;
-  } else {
-    return (
-      await getPlayersRef(lobbyID).where('role', '==', role).count().get()
-    ).data().count;
+  let query: Query = getPlayersRef(lobbyID);
+  if (role) {
+    query = query.where('role', '==', role);
   }
+  if (status) {
+    query = query.where('status', '==', status);
+  }
+  return (await query.count().get()).data().count;
 }
 
 /** Get active "online" players, usable for game functions. */
