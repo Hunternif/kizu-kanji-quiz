@@ -1,5 +1,5 @@
 import { open } from 'node:fs/promises';
-import { getAnswerContent, isChoiceAnswer } from '../shared/mode-utils';
+import { getAnswerContent } from '../shared/mode-utils';
 import { RNG } from '../shared/rng';
 import {
   GameEntry,
@@ -245,46 +245,45 @@ export function selectQuestion(
   const question = lobby.questions[lobby.used_question_count];
   lobby.used_question_count++;
   // Could potentially return the next N answers, instead of random ones.
-  let choices;
-  if (isChoiceAnswer(lobby.settings.answer_mode)) {
-    const choiceSet = new Set<GameEntry>([question]);
-    // Check what the choice actually looks like, to remove identical choices:
-    const choiceContentSet = new Set<string>();
-    choiceContentSet.add(
-      getAnswerContent(
-        question,
-        lobby.settings.answer_mode,
-        lobby.settings.game_mode,
-        'en',
-      ),
+
+  // Add choices for all question types, just in case they switch question type mid-round.
+  const choiceSet = new Set<GameEntry>([question]);
+  // Check what the choice actually looks like, to remove identical choices:
+  const choiceContentSet = new Set<string>();
+  choiceContentSet.add(
+    getAnswerContent(
+      question,
+      lobby.settings.answer_mode,
+      lobby.settings.game_mode,
+      'en',
+    ),
+  );
+  const choices = new Array<GameEntry>();
+  const targetCount = Math.max(
+    2,
+    Math.min(lobby.settings.num_choices, lobby.questions.length),
+  );
+  // Count retries to prevent an infinite loop:
+  let retryCounter = 0;
+  while (choiceSet.size < targetCount) {
+    const i = rng.randomIntClamped(0, lobby.questions.length - 1);
+    const choice = lobby.questions[i];
+    const choiceContent = getAnswerContent(
+      choice,
+      lobby.settings.answer_mode,
+      lobby.settings.game_mode,
+      'en',
     );
-    choices = new Array<GameEntry>();
-    const targetCount = Math.max(
-      2,
-      Math.min(lobby.settings.num_choices, lobby.questions.length),
-    );
-    // Count retries to prevent an infinite loop:
-    let retryCounter = 0;
-    while (choiceSet.size < targetCount) {
-      const i = rng.randomIntClamped(0, lobby.questions.length - 1);
-      const choice = lobby.questions[i];
-      const choiceContent = getAnswerContent(
-        choice,
-        lobby.settings.answer_mode,
-        lobby.settings.game_mode,
-        'en',
-      );
-      if (choiceSet.has(choice) || choiceContentSet.has(choiceContent)) {
-        retryCounter++;
-        if (retryCounter >= 20) break;
-      } else {
-        choiceSet.add(choice);
-        choiceContentSet.add(choiceContent);
-      }
+    if (choiceSet.has(choice) || choiceContentSet.has(choiceContent)) {
+      retryCounter++;
+      if (retryCounter >= 20) break;
+    } else {
+      choiceSet.add(choice);
+      choiceContentSet.add(choiceContent);
     }
-    // Shuffle choices so that the answer is at a random spot.
-    choices = [...choiceSet];
-    rng.shuffleArray(choices);
   }
+  // Shuffle choices so that the answer is at a random spot.
+  choices.push(...choiceSet);
+  rng.shuffleArray(choices);
   return { question, choices };
 }

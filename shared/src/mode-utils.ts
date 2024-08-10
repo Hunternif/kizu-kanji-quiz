@@ -143,7 +143,10 @@ export function getAnswerContent(
     case 'type_meaning':
     case 'draw_hiragana':
     case 'draw_kanji':
-      return noData; // Should never happen
+      // This should happen rarely.
+      // E.g. we are requesting choices for a question that expects typing.
+      // This can be used if the user changes the answer mode mid-round:
+      return entry.writing;
     default:
       assertExhaustive(answerMode);
       return noData;
