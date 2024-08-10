@@ -54,28 +54,41 @@ export async function getEntriesForGame(
 }
 
 export async function getHiraganaEntries(): Promise<Array<GameEntry>> {
-  return await getKanaEntries(`${__dirname}/../data/hiragana.txt`);
+  return await getKanaEntries(`${__dirname}/../data/hiragana.txt`, [
+    'hiragana',
+  ]);
 }
 
 export async function getHiraganaDigraphEntries(): Promise<Array<GameEntry>> {
-  return await getKanaEntries(`${__dirname}/../data/hiragana_digraphs.txt`);
+  return await getKanaEntries(`${__dirname}/../data/hiragana_digraphs.txt`, [
+    'hiragana_digraphs',
+  ]);
 }
 
 export async function getKatakanaEntries(): Promise<Array<GameEntry>> {
-  return await getKanaEntries(`${__dirname}/../data/katakana.txt`);
+  return await getKanaEntries(`${__dirname}/../data/katakana.txt`, [
+    'katakana',
+  ]);
 }
 
 export async function getKatakanaDigraphEntries(): Promise<Array<GameEntry>> {
-  return await getKanaEntries(`${__dirname}/../data/katakana_digraphs.txt`);
+  return await getKanaEntries(`${__dirname}/../data/katakana_digraphs.txt`, [
+    'katakana_digraphs',
+  ]);
 }
 
 /** Parses a Hiragana / Katakana data file. */
-async function getKanaEntries(path: string): Promise<Array<GameEntry>> {
+async function getKanaEntries(
+  path: string,
+  groups: TestGroup[],
+): Promise<Array<GameEntry>> {
   const entries = new Array<GameEntry>();
   await forEachLineInFile(path, (line) => {
     const [kana, reading] = line.split(' ');
     if (kana && reading) {
-      entries.push(new GameEntry(kana, 0, kana, kana, reading, new Map()));
+      entries.push(
+        new GameEntry(kana, 0, kana, kana, reading, new Map(), groups),
+      );
     }
   });
   return entries;

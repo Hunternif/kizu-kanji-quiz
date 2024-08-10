@@ -91,6 +91,8 @@ export class GameEntry {
     public reading_romaji: string,
     /** Maps language to a list of different meanings. */
     public meaning: Map<Language, string[]>,
+    /** Groups where this entry appears. */
+    public groups: TestGroup[],
   ) {
     this.isKana = isKanaOnly(writing);
   }

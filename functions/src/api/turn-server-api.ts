@@ -3,14 +3,8 @@
 import { FieldValue } from 'firebase-admin/firestore';
 import * as logger from 'firebase-functions/logger';
 import { HttpsError } from 'firebase-functions/v2/https';
-import { isChoiceAnswer, isCorrectAnswer, isCorrectResponse } from '../shared/mode-utils';
-import {
-  GameEntry,
-  GameLobby,
-  GameTurn,
-  Language,
-  PlayerResponse,
-} from '../shared/types';
+import { isChoiceAnswer, isCorrectResponse } from '../shared/mode-utils';
+import { GameLobby, GameTurn, Language, PlayerResponse } from '../shared/types';
 import { assertExhaustive } from '../shared/utils';
 import { selectQuestion } from './entry-api';
 import { endLobby, shouldEndLobby } from './lobby-server-api';
@@ -30,15 +24,6 @@ import {
   setPlayerResponse,
   updateTurn,
 } from './turn-server-repository';
-
-const dummyEntry = new GameEntry(
-  'test_entry',
-  0,
-  'Test?',
-  'this is hiragana',
-  'this is romaji',
-  new Map([['english', ['this is english']]]),
-);
 
 /**
  * Creates a new turn without a prompt, and returns it.

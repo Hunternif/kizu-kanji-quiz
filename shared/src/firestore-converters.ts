@@ -74,6 +74,7 @@ function mapToEntry(data: any): GameEntry {
     data.reading_hiragana,
     data.reading_romaji,
     meanings,
+    data.groups ?? [],
   );
 }
 function mapFromEntry(entry: GameEntry): any {
