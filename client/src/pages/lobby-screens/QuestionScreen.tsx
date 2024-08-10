@@ -3,21 +3,25 @@ import { GameButton } from '../../components/Buttons';
 import { CenteredLayout } from '../../components/layout/CenteredLayout';
 import { HorizontalGroup } from '../../components/layout/VerticalGroup copy';
 import { useHandler1 } from '../../hooks/data-hooks';
-import { isChoiceAnswer, isCorrectResponse } from '../../shared/mode-utils';
+import {
+  isChoiceAnswer,
+  isCorrectResponse,
+  isTypedAnswer,
+} from '../../shared/mode-utils';
 import { throttle4 } from '../../shared/utils';
 import { ChoiceCard } from './game-components/ChoiceCard';
 import { useGameContext } from './game-components/GameContext';
 import { QuestionCard } from './game-components/QuestionCard';
 import { TimerBar } from './game-components/TimerBar';
 import { TurnCount } from './game-components/TurnCount';
+import { TypedAnswer } from './game-components/TypedAnswer';
 
 // Throttle prevents us from accidentally updating the document too many times:
 const throttledPing = throttle4(pingResponse, 1000);
 
 /** Game screen with a question and multiple choices of answers. */
 export function QuestionScreen() {
-  const { lobby, turn, player, responses, isSpectator } =
-    useGameContext();
+  const { lobby, turn, player, responses, isSpectator } = useGameContext();
   const response = responses.find((r) => r.player_uid === player.uid);
   const isPaused = turn.pause === 'paused';
 
@@ -40,6 +44,7 @@ export function QuestionScreen() {
   );
 
   const showChoices = isChoiceAnswer(turn.answer_mode);
+  const showTyping = isTypedAnswer(turn.answer_mode);
   const isReveal = turn.phase === 'reveal';
   const isSkipped = isReveal && response?.answer_entry_id == null;
   const isCorrect = isReveal && response && isCorrectResponse(turn, response);
@@ -82,6 +87,7 @@ export function QuestionScreen() {
           ))}
         </div>
       )}
+      {showTyping && <TypedAnswer disabled={isReveal} />}
       <br />
       {!isSpectator && (
         <HorizontalGroup className="control-button-group">

@@ -145,28 +145,17 @@
   &.answer {
     color: colors.$choice-answer-text;
     background-color: colors.$choice-answer-bg;
-    // background-image: colors.$choice-answer-gradient;
-    // box-shadow: 0px 0px 20px 4px colors.$choice-answer-glow;
     &.correct {
       color: colors.$choice-correct-text;
       background-color: colors.$choice-correct-bg;
-      // background-image: colors.$choice-correct-gradient;
-      // box-shadow: 0px 0px 20px 6px colors.$choice-correct-glow;
     }
   }
   &.incorrect {
     color: colors.$choice-incorrect-text;
     background-color: colors.$choice-incorrect-bg;
-    // background-image: colors.$choice-incorrect-gradient;
-    // box-shadow: 0px 0px 20px 6px colors.$choice-incorrect-glow;
   }
   &:not(.readonly) {
     cursor: pointer;
-    // &:hover {
-    //   box-shadow: 0 3px 10px rgba(colors.$gray-6, 25%);
-    //   background-color: colors.$choice-hover-bg;
-    //   color: colors.$choice-selected-text;
-    // }
   }
   &.disabled {
     opacity: 0.6;
@@ -186,6 +175,27 @@
   }
   &.selected {
     transform: scaleX(1.05) scaleY(1.05);
+  }
+}
+
+.typed-input-form {
+  display: flex;
+  gap: 0.5rem;
+  input.control {
+    &:enabled {
+      background-color: #fff;
+    }
+    text-align: center;
+  }
+  &.correct input {
+    color: colors.$choice-correct-text;
+    background-color: colors.$choice-correct-bg;
+    border-color: transparent;
+  }
+  &.incorrect input {
+    color: colors.$choice-incorrect-text;
+    background-color: colors.$choice-incorrect-bg;
+    border-color: transparent;
   }
 }
 

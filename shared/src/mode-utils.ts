@@ -38,7 +38,7 @@ export function getValidAnswerModes(gameMode: GameMode): AnswerMode[] {
   switch (gameMode) {
     case 'writing_to_reading':
       validAnswerModes.push('choose_hiragana', 'choose_romaji');
-      // validAnswerModes.push('type_romaji'); // not supported yet
+      validAnswerModes.push('type_romaji');
       break;
     case 'reading_to_writing':
       validAnswerModes.push('choose_kanji', 'choose_hiragana');
@@ -46,7 +46,7 @@ export function getValidAnswerModes(gameMode: GameMode): AnswerMode[] {
       break;
     case 'writing_to_meaning':
       validAnswerModes.push('choose_meaning');
-      // validAnswerModes.push('type_meaning'); // not supported yet
+      validAnswerModes.push('type_meaning');
       break;
     case 'meaning_to_writing':
       validAnswerModes.push('choose_kanji', 'choose_hiragana', 'choose_romaji');
@@ -77,6 +77,27 @@ export function isChoiceAnswer(
     case 'draw_hiragana':
     case 'draw_kanji':
       return false;
+    default:
+      assertExhaustive(mode);
+      return false;
+  }
+}
+
+/** Returns true if the user needs to type the answer. */
+export function isTypedAnswer(
+  mode: AnswerMode,
+): mode is 'type_romaji' | 'type_meaning' {
+  switch (mode) {
+    case 'choose_kanji':
+    case 'choose_hiragana':
+    case 'choose_romaji':
+    case 'choose_meaning':
+    case 'draw_hiragana':
+    case 'draw_kanji':
+      return false;
+    case 'type_romaji':
+    case 'type_meaning':
+      return true;
     default:
       assertExhaustive(mode);
       return false;
