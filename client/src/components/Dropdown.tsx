@@ -26,7 +26,9 @@ export function Dropdown({
 
   function handleClick() {
     if (!show) {
-      setShow(true);
+      // In Chrome, there is a layout jerk when dropdown content shows.
+      // requestAnimationFrame() seems to remove it.
+      requestAnimationFrame(() => setShow(true));
     }
     // Closing will be handled by the useClickOutside
   }
