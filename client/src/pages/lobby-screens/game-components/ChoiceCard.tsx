@@ -1,4 +1,4 @@
-import { getAnswerContent } from '../../../shared/mode-utils';
+import { getAnswerContent, isCorrectAnswer } from '../../../shared/mode-utils';
 import { GameEntry } from '../../../shared/types';
 import { useGameContext } from './GameContext';
 import { JapText } from './JapText';
@@ -15,15 +15,15 @@ export function ChoiceCard({ entry, onClick }: ChoiceProps) {
 
   const isPaused = turn.pause === 'paused';
   const readOnly = isSpectator || turn.phase !== 'answering' || isPaused;
-  const isAnswer = entry.id === turn.question.id;
+  const isCorrect = isCorrectAnswer(turn, entry, language);
   const isSelected = response?.answer_entry_id === entry.id;
   const isReveal = turn.phase === 'reveal';
 
   const classes = ['choice-card'];
   if (isSelected) classes.push('selected');
-  if (isReveal && isAnswer) classes.push('answer');
-  if (isReveal && isSelected && isAnswer) classes.push('correct');
-  if (isReveal && isSelected && !isAnswer) classes.push('incorrect');
+  if (isReveal && isCorrect) classes.push('answer');
+  if (isReveal && isSelected && isCorrect) classes.push('correct');
+  if (isReveal && isSelected && !isCorrect) classes.push('incorrect');
   if (readOnly) classes.push('readonly');
   if (!readOnly) classes.push('hoverable-card');
   if (isPaused) classes.push('disabled');

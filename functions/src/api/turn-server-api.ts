@@ -3,7 +3,7 @@
 import { FieldValue } from 'firebase-admin/firestore';
 import * as logger from 'firebase-functions/logger';
 import { HttpsError } from 'firebase-functions/v2/https';
-import { isChoiceAnswer, isCorrectAnswer } from '../shared/mode-utils';
+import { isChoiceAnswer, isCorrectAnswer, isCorrectResponse } from '../shared/mode-utils';
 import {
   GameEntry,
   GameLobby,
@@ -203,7 +203,7 @@ export async function updatePlayerScoresFromTurn(
 ) {
   const responses = await getAllPlayerResponses(lobby.id, turn.id);
   for (const resp of responses) {
-    if (isCorrectAnswer(turn, resp)) {
+    if (isCorrectResponse(turn, resp)) {
       await getPlayersRef(lobby.id)
         .doc(resp.player_uid)
         .update({ wins: FieldValue.increment(1) });

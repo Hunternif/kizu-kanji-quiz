@@ -1,6 +1,6 @@
-import { isCorrectAnswer } from "../../shared/mode-utils";
-import { GameTurn, PlayerResponse } from "../../shared/types";
-import { getHiraganaEntries, getKatakanaEntries } from "../entry-api";
+import { isCorrectResponse } from '../../shared/mode-utils';
+import { GameTurn, PlayerResponse } from '../../shared/types';
+import { getHiraganaEntries, getKatakanaEntries } from '../entry-api';
 
 test('check answer correctness', async () => {
   const hiragana = await getHiraganaEntries();
@@ -51,8 +51,8 @@ test('check answer correctness', async () => {
     hiragana[20].id,
   );
 
-  expect(isCorrectAnswer(turn, response1)).toBe(false);
-  expect(isCorrectAnswer(turn, response2)).toBe(true);
-  expect(isCorrectAnswer(turn, response3)).toBe(true);
-  expect(isCorrectAnswer(turn, response4)).toBe(false);
+  expect(isCorrectResponse(turn, response1)).toBe(false);
+  expect(isCorrectResponse(turn, response2)).toBe(true);
+  expect(isCorrectResponse(turn, response3)).toBe(true);
+  expect(isCorrectResponse(turn, response4)).toBe(false);
 });

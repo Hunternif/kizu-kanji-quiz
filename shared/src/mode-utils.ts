@@ -189,10 +189,10 @@ function getKanaAnswerContent(kanaEntry: GameEntry, gameMode: GameMode) {
 }
 
 /**
- * Checks if the answer is correct. Handles edge cases,
- * e.g. identical reading from the wrong word.
+ * Checks if this player's answer is correct.
+ * Delegates to `isCorrectAnswer()`.
  */
-export function isCorrectAnswer(
+export function isCorrectResponse(
   turn: GameTurn,
   response: PlayerResponse,
 ): boolean {
@@ -200,19 +200,31 @@ export function isCorrectAnswer(
     (c) => c.id === response.answer_entry_id,
   );
   if (!userAnswer) return false;
+  return isCorrectAnswer(turn, userAnswer, response.language ?? 'english');
+}
+
+/**
+ * Checks if the answer is correct. Handles edge cases,
+ * e.g. identical reading from the wrong word.
+ */
+export function isCorrectAnswer(
+  turn: GameTurn,
+  answer: GameEntry,
+  language: Language,
+): boolean {
   if (isChoiceAnswer(turn.answer_mode)) {
     // Compare question to answer, based on what they look like "as a question":
     const questionContent = getQuestionContent(
       turn.question,
       turn.question_mode,
       turn.game_mode,
-      response.language ?? 'english',
+      language,
     );
     const userAnswerQuestionContent = getQuestionContent(
-      userAnswer,
+      answer,
       turn.question_mode,
       turn.game_mode,
-      response.language ?? 'english',
+      language,
     );
     return questionContent == userAnswerQuestionContent;
   } else {
