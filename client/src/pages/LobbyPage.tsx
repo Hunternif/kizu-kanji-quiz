@@ -46,32 +46,30 @@ function LobbyPageThrows() {
   // Double-check that we are logged in.
   // Users who are sent the link will need to log in first.
   const [user, loadingUser] = useAuthWithPresence();
-  const [quizUser, loadingQuizUser] = useQuizUser();
   const lobbyID = useLoaderData() as string;
 
-  if (loadingUser || loadingQuizUser) {
+  if (loadingUser) {
     return <LoadingSpinner delay text="Logging in..." />;
   }
 
-  if (!user || !quizUser) {
+  if (!user) {
     return <LoginScreen />;
   }
 
-  return (
-    <LoggedInLobbyScreen user={user} quizUser={quizUser} lobbyID={lobbyID} />
-  );
+  return <LoggedInLobbyScreen user={user} lobbyID={lobbyID} />;
 }
 
 interface LoggedInProps {
   lobbyID: string;
   user: User;
-  quizUser: QuizUser;
 }
 
 /** User logged in, but not necessarily joined the lobby. */
-function LoggedInLobbyScreen({ lobbyID, user, quizUser }: LoggedInProps) {
+function LoggedInLobbyScreen({ lobbyID, user }: LoggedInProps) {
   const [player, loadingPlayer] = usePlayerInLobby(lobbyID, user);
+  const [quizUser, loadingQuizUser] = useQuizUser();
   const [join, joining] = useHandler(() => joinLobby(lobbyID), [lobbyID]);
+  const { setError } = useErrorContext();
 
   useEffect(() => {
     if (!loadingPlayer && !player) {
@@ -79,8 +77,12 @@ function LoggedInLobbyScreen({ lobbyID, user, quizUser }: LoggedInProps) {
     }
   }, [loadingPlayer, player?.uid]);
 
-  if (loadingPlayer) {
+  if (loadingPlayer || loadingQuizUser) {
     return <LoadingSpinner delay text="Loading user..." />;
+  }
+  if (!quizUser) {
+    setError("Couldn't load user.");
+    return <></>;
   }
   if (joining) {
     return <LoadingSpinner text="Joining lobby..." />;
