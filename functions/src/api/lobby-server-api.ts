@@ -176,8 +176,7 @@ export async function startLobby(lobby: GameLobby) {
     logger.info(`Started lobby ${lobby.id}`);
   } catch (e: any) {
     // Revert lobby status:
-    lobby.status = 'new';
-    await updateLobby(lobby);
+    await lobbiesRef.doc(lobby.id).update({ status: 'new' });
     throw e;
   }
 }
