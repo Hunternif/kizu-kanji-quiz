@@ -163,7 +163,7 @@ export const playerResponseConverter: FConverter<PlayerResponse> = {
       player_uid,
       data.player_name,
       (data.time_submitted as FTimestamp | null)?.toDate() ?? null,
-      data.language || 'english',
+      data.language || 'en',
       data.answer_entry_id,
       data.answer_typed,
       (data.time_updated as FTimestamp | undefined)?.toDate(),

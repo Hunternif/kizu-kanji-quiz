@@ -139,7 +139,7 @@ export function selectQuestion(
         question,
         lobby.settings.answer_mode,
         lobby.settings.game_mode,
-        'english',
+        'en',
       ),
     );
     choices = new Array<GameEntry>();
@@ -156,7 +156,7 @@ export function selectQuestion(
         choice,
         lobby.settings.answer_mode,
         lobby.settings.game_mode,
-        'english',
+        'en',
       );
       if (choiceSet.has(choice) || choiceContentSet.has(choiceContent)) {
         retryCounter++;

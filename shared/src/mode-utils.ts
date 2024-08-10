@@ -208,7 +208,7 @@ export function isCorrectResponse(
     (c) => c.id === response.answer_entry_id,
   );
   if (!userAnswer) return false;
-  return isCorrectAnswer(turn, userAnswer, response.language ?? 'english');
+  return isCorrectAnswer(turn, userAnswer, response.language ?? 'en');
 }
 
 /**

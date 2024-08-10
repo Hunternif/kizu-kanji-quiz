@@ -22,7 +22,7 @@ test('check answer correctness, when questions match', async () => {
     'player_1',
     'Tsukasa',
     new Date(),
-    'english',
+    'en',
     // 'あ' - non-existent answer
     hiragana[0].id,
   );
@@ -30,7 +30,7 @@ test('check answer correctness, when questions match', async () => {
     'player_2',
     'Kagamin',
     new Date(),
-    'english',
+    'en',
     // 'う' - valid hiragana answwer
     hiragana[2].id,
   );
@@ -38,7 +38,7 @@ test('check answer correctness, when questions match', async () => {
     'player_3',
     'Miyuki-san',
     new Date(),
-    'english',
+    'en',
     // 'ウ' - valid katakana answer
     katakana[2].id,
   );
@@ -46,7 +46,7 @@ test('check answer correctness, when questions match', async () => {
     'player_4',
     'konata',
     new Date(),
-    'english',
+    'en',
     // 'そ' - incorrect choice answer
     hiragana[20].id,
   );
@@ -74,11 +74,11 @@ test('check answer correctness, when answers match', async () => {
   );
 
   // Non-existent answer:
-  expect(isCorrectAnswer(turn, hiragana[0], 'english')).toBe(false);
+  expect(isCorrectAnswer(turn, hiragana[0], 'en')).toBe(false);
   // Valid hiragana answwer:
-  expect(isCorrectAnswer(turn, hiragana[10], 'english')).toBe(true);
+  expect(isCorrectAnswer(turn, hiragana[10], 'en')).toBe(true);
   // Valid katakana answer:
-  expect(isCorrectAnswer(turn, katakana[10], 'english')).toBe(true);
+  expect(isCorrectAnswer(turn, katakana[10], 'en')).toBe(true);
   // Incorrect choice answer:
-  expect(isCorrectAnswer(turn, hiragana[24], 'english')).toBe(false);
+  expect(isCorrectAnswer(turn, hiragana[24], 'en')).toBe(false);
 });

@@ -120,7 +120,7 @@ export type AnswerMode =
   | 'draw_hiragana'
   | 'draw_kanji';
 /** Meaning is rendered in this language */
-export type Language = 'english'; // | 'russian';
+export type Language = 'en'; // | 'ru';
 // "anyone" includes spectators
 export type LobbyControl = 'creator' | 'players' | 'anyone';
 

@@ -83,7 +83,7 @@ function makeEntry(id: string, randomIndex: number = 0) {
     `Test: : ${id}`,
     [`this is hiragana: ${id}`],
     [`this is romaji: ${id}`],
-    new Map([['english', [`this is english: ${id}`]]]),
+    new Map([['en', [`this is english: ${id}`]]]),
     [],
   );
 }
