@@ -64,8 +64,7 @@ export function QuestionScreen() {
 
   const isTimerEnabled =
     turn.next_phase_time != null && turn.phase_duration_ms != 0;
-  const showContinue =
-    !isTimerEnabled && response?.isEmpty() === false && turn.phase === 'reveal';
+  const showContinue = !isTimerEnabled && turn.phase === 'reveal';
   const showSkip = !isTimerEnabled && (response == null || response.isEmpty());
 
   return (
@@ -106,6 +105,7 @@ export function QuestionScreen() {
               </GameButton>
             ))}
           {showContinue ? (
+            // TODO: make 'continue' quorum-based
             <GameButton onClick={() => signalNextPhase(true)}>
               Continue
             </GameButton>
