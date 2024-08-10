@@ -140,6 +140,7 @@ export function GamePlayerMenu() {
       </ConfirmModal>
       <ProfileModal
         quizUser={quizUser}
+        lobby={lobby}
         show={showProfileModal}
         onHide={() => setShowProfileModal(false)}
       />
