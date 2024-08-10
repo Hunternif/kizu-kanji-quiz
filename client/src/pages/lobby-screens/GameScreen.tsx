@@ -72,6 +72,9 @@ function TurnScreen({ lobby, turn, user, quizUser, players }: PreTurnProps) {
   const activePlayers = players.filter(
     (p) => p.role === 'player' && p.status === 'online',
   );
+  const spectators = players.filter(
+    (p) => p.role === 'spectator' && p.status === 'online',
+  );
   const lobbyControl = lobby.settings.lobby_control;
 
   let canControlLobby = false;
@@ -102,6 +105,7 @@ function TurnScreen({ lobby, turn, user, quizUser, players }: PreTurnProps) {
     quizUser,
     lobby,
     players,
+    spectators,
     activePlayers,
     player,
     isSpectator,

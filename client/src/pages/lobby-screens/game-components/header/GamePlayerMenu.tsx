@@ -17,6 +17,7 @@ import { IconHamburger } from '../../../../components/Icons';
 import { Twemoji } from '../../../../components/Twemoji';
 import { LobbySettings } from '../../../../shared/types';
 import { copyFields } from '../../../../shared/utils';
+import { LobbyPlayerList } from '../../lobby-components/LobbyPlayerList';
 import { LobbySettingsPanel } from '../../lobby-components/LobbySettingsPanel';
 import { ProfileModal } from '../../login-components/ProfileModal';
 import { useGameContext } from '../GameContext';
@@ -25,9 +26,11 @@ import { useGameContext } from '../GameContext';
 export function GamePlayerMenu() {
   const navigate = useNavigate();
   const {
+    user,
     quizUser,
     lobby,
     player,
+    spectators,
     activePlayers,
     isSpectator,
     canControlLobby,
@@ -36,6 +39,7 @@ export function GamePlayerMenu() {
   const [showSettingsModal, setShowSettingsModal] = useState(false);
   const [showEndModal, setShowEndModal] = useState(false);
   const [showProfileModal, setShowProfileModal] = useState(false);
+  const [showPlayersModal, setShowPlayersModal] = useState(false);
   const [ending, setEnding] = useState(false);
   const { setError } = useContext(ErrorContext);
 
@@ -144,6 +148,23 @@ export function GamePlayerMenu() {
         show={showProfileModal}
         onHide={() => setShowProfileModal(false)}
       />
+      <ConfirmModal
+        show={showPlayersModal}
+        okText="Ok"
+        scroll
+        hideCancel
+        onConfirm={() => setShowPlayersModal(false)}
+        onCancel={() => setShowPlayersModal(false)}
+      >
+        <span>Players</span>
+        <LobbyPlayerList lobby={lobby} user={user} players={activePlayers} />
+        {spectators.length > 0 && (
+          <>
+            <span>Spectators</span>
+            <LobbyPlayerList lobby={lobby} user={user} players={spectators} />
+          </>
+        )}
+      </ConfirmModal>
 
       <Dropdown toggle={<IconHamburger />} toggleClassName="game-menu-icon">
         <DropdownMenu>
@@ -161,6 +182,11 @@ export function GamePlayerMenu() {
           <MenuItem
             label="Settings"
             onClick={openSettings}
+            locked={!canControlLobby}
+          />
+          <MenuItem
+            label="Players..."
+            onClick={() => setShowPlayersModal(true)}
             locked={!canControlLobby}
           />
           <MenuItem label="Leave" onClick={() => setShowLeaveModal(true)} />

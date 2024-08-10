@@ -15,6 +15,7 @@ export interface GameContextState {
   user: User;
   quizUser: QuizUser;
   lobby: GameLobby;
+  spectators: PlayerInLobby[];
   players: PlayerInLobby[];
   /** Players who are currently active, i.e. excluding spectators,
    * people who left, who were kicked, etc. */
