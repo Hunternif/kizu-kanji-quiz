@@ -14,6 +14,8 @@ interface Props {
 export function TypedAnswer({ disabled }: Props) {
   const { lobby, turn, player, responses, language } = useGameContext();
   const [text, setText] = useState('');
+  // Remember turn ID, to reset input when the turn changes:
+  const [lastTurnID, setLastTurnID] = useState(turn.id);
   const response = responses.find((r) => r.player_uid === player.uid);
 
   const isReveal = turn.phase === 'reveal';
@@ -48,6 +50,14 @@ export function TypedAnswer({ disabled }: Props) {
     [lobby, turn, player, language, isTimerEnabled, disabled],
   );
 
+  // Reset input on new turn:
+  useEffect(() => {
+    if (lastTurnID !== turn.id) {
+      setLastTurnID(turn.id);
+      setText('');
+    }
+  }, [turn.id, lastTurnID]);
+
   const classes = ['typed-input-form'];
   if (isSkipped) classes.push('skipped');
   else if (isCorrect) classes.push('correct');
@@ -56,7 +66,7 @@ export function TypedAnswer({ disabled }: Props) {
   return (
     <form className={classes.join(' ')} onSubmit={(e) => e.preventDefault()}>
       <TextInput
-        value={disabled ? (response?.answer_typed ?? text) : text}
+        value={disabled ? response?.answer_typed ?? text : text}
         onChange={handleChange}
         disabled={disabled}
       ></TextInput>
