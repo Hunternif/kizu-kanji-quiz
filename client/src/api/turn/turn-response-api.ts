@@ -11,6 +11,7 @@ import { playerResponseConverter } from '../../shared/firestore-converters';
 import {
   GameLobby,
   GameTurn,
+  Language,
   PauseRequest,
   PlayerInLobby,
   PlayerResponse,
@@ -61,6 +62,7 @@ export async function submitPlayerResponse(
   lobby: GameLobby,
   turn: GameTurn,
   player: PlayerInLobby,
+  language: Language,
   answerEntryID?: string,
   answerTyped?: string,
 ) {
@@ -68,6 +70,7 @@ export async function submitPlayerResponse(
     player.uid,
     player.name,
     null,
+    language,
     answerEntryID,
     answerTyped,
   );

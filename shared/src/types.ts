@@ -233,6 +233,8 @@ export class PlayerResponse {
     public player_name: string, // Copied from 'Players' for convenience.
     /** Should be populated by the server! */
     public time_submitted: Date | null,
+    /** Which language the player saw. */
+    public language?: Language,
     /** Answer to a multiple-choice question. */
     public answer_entry_id?: string,
     public answer_typed?: string,

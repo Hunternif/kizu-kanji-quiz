@@ -20,15 +20,15 @@ const throttledPing = throttle4(pingResponse, 1000);
 
 /** Game screen with a question and multiple choices of answers. */
 export function QuestionScreen() {
-  const { lobby, turn, player, responses } = useGameContext();
+  const { lobby, turn, player, responses, language } = useGameContext();
   const response = responses.find((r) => r.player_uid === player.uid);
   const isPaused = turn.pause === 'paused';
 
   const [handleSelect] = useHandler1(
     async (entry: GameEntry) => {
-      await submitPlayerResponse(lobby, turn, player, entry.id);
+      await submitPlayerResponse(lobby, turn, player, language, entry.id);
     },
-    [lobby, turn, player],
+    [lobby, turn, player, language],
   );
 
   /** Notifies the server that this player is ready for the next phase.

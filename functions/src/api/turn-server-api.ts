@@ -8,6 +8,7 @@ import {
   GameEntry,
   GameLobby,
   GameTurn,
+  Language,
   PlayerResponse,
 } from '../shared/types';
 import { assertExhaustive } from '../shared/utils';
@@ -95,6 +96,7 @@ export async function playResponse(
   lobby: GameLobby,
   turn: GameTurn,
   userID: string,
+  language: Language,
   entryID?: string,
   typedText?: string,
 ): Promise<PlayerResponse> {
@@ -103,6 +105,7 @@ export async function playResponse(
     userID,
     player.name,
     new Date(),
+    language,
     entryID,
     typedText,
   );
