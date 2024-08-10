@@ -64,8 +64,7 @@ export function QuestionScreen() {
   const isTimerEnabled =
     turn.next_phase_time != null && turn.phase_duration_ms != 0;
   const showContinue =
-    !isTimerEnabled &&
-    (response?.isEmpty() === false || turn.phase === 'reveal');
+    !isTimerEnabled && response?.isEmpty() === false && turn.phase === 'reveal';
   const showSkip = !isTimerEnabled && (response == null || response.isEmpty());
 
   return (
@@ -93,7 +92,7 @@ export function QuestionScreen() {
         ))}
       </div>
       <br />
-      <HorizontalGroup>
+      <HorizontalGroup className="control-button-group">
         {isTimerEnabled ||
           (isPaused && (
             <GameButton
@@ -110,7 +109,9 @@ export function QuestionScreen() {
           </GameButton>
         ) : (
           showSkip && (
-            <GameButton onClick={() => signalNextPhase(true)}>Skip</GameButton>
+            <GameButton secondary onClick={() => signalNextPhase(true)}>
+              Skip
+            </GameButton>
           )
         )}
       </HorizontalGroup>
