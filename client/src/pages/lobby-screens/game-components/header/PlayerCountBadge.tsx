@@ -2,13 +2,12 @@ import { InlineButton } from '../../../../components/Buttons';
 import { Dropdown, DropdownMenu } from '../../../../components/Dropdown';
 import { IconCounter } from '../../../../components/IconCounter';
 import { IconPersonInlineSmall } from '../../../../components/Icons';
-import { VerticalGroup } from '../../../../components/layout/VerticalGroup';
 import { useGameContext } from '../GameContext';
 import { Scoreboard } from '../Scoreboard';
 
 /** Shows player count and a dropdown menu with player list. */
 export function PlayerCountBadge() {
-  const { user, activePlayers } = useGameContext();
+  const { lobby, user, activePlayers } = useGameContext();
   return (
     <Dropdown
       toggle={
@@ -22,7 +21,7 @@ export function PlayerCountBadge() {
     >
       <DropdownMenu>
         <header className="scoreboard-header">Standings</header>
-        <Scoreboard user={user} players={activePlayers} />
+        <Scoreboard lobby={lobby} user={user} players={activePlayers} />
       </DropdownMenu>
     </Dropdown>
   );

@@ -29,7 +29,7 @@ export function EndgameScreen({ lobby, user, players }: Props) {
     >
       <GameTitle />
       <h2>Game ended</h2>
-      <Scoreboard user={user} players={players} />
+      <Scoreboard lobby={lobby} user={user} players={players} />
       <br />
       <VerticalGroup>
         <GameButton secondary onClick={() => navigate('/')}>

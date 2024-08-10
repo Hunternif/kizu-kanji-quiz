@@ -7,7 +7,7 @@ import { ScoreBadge } from './ScoreBadge';
 
 /** Header with a toolbar at the top of the game page */
 export function GameHeader() {
-  const { user, activePlayers } = useGameContext();
+  const { lobby, user, activePlayers } = useGameContext();
   // On a big screen, the badges are hidden, and the scroboard is shown.
   const isWide = useScreenWiderThan(768);
   return (
@@ -26,7 +26,7 @@ export function GameHeader() {
         <div className="floating-sidebar">
           <div className="ingame-scoreboard-container">
             <header>Standings</header>
-            <Scoreboard user={user} players={activePlayers} />
+            <Scoreboard lobby={lobby} user={user} players={activePlayers} />
           </div>
         </div>
       )}
