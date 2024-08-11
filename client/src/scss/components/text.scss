@@ -1,11 +1,20 @@
 // Common text styles
-@use "../colors.scss";
+@use '../colors.scss';
 
 // Special font for rendering Japanese characters on cards:
 .jap-text.jp {
-  font-family: "Sawarabi Mincho", serif;
+  font-family: 'Sawarabi Mincho', serif;
   font-weight: 400;
   font-style: normal;
+  .jap-word {
+    text-wrap: nowrap;
+    &::after {
+      content: '、';
+    }
+    &:last-child::after {
+      content: none;
+    }
+  }
 }
 
 a {
@@ -38,7 +47,10 @@ h1 {
 h2 {
   margin-bottom: 1.5rem;
 }
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   margin-top: 0;
 }
 
@@ -48,7 +60,6 @@ pre {
   padding: 0.5em;
   border-radius: 0.25em;
 }
-
 
 .dim {
   /* Dimmed slightly to not attract too much attention*/

@@ -55,7 +55,7 @@ export function ChoiceCard({ entry, onClick }: ChoiceProps) {
         }
       }}
     >
-      <JapText text={text} />
+      <JapText splitJapWords text={text} />
     </div>
   );
 }

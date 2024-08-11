@@ -45,7 +45,7 @@ export function removeFillerText(text: string, language: Language): string {
   // But not if that's the entire word: "（shin）".
   text = text.replace(/(.+)([([{（［｛].+[)\]}）］｝].*)/g, '$1');
   // Remove punctuation
-  text = text.replace(/["'«».,:;!?&%*\-~()[\]{}（）「」【】［］｛｝]/g, '');
+  text = text.replace(/["'«».,:;!?&%*\-~()[\]{}（）「」【】［］｛｝：！？、，。]/g, '');
   // Remove language-specific filler words:
   switch (language) {
     case 'en':

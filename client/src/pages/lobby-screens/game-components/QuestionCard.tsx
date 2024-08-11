@@ -59,7 +59,7 @@ function Explanation({ entry, lang }: ExplanationProps) {
         <>
           <aside className="readings">
             {/* <header>Reading</header> */}
-            <JapText text={entry.readings_hiragana.join(', ')} />
+            <JapText splitJapWords text={entry.readings_hiragana.join(', ')} />
           </aside>
           <aside className="meanings">
             {/* <header>Meaning</header> */}
