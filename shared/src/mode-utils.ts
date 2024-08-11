@@ -294,8 +294,8 @@ export function isCorrectChoiceAnswer(
     language,
   ).join(', ');
   return (
-    questionContent == userAnswerQuestionContent ||
-    trueAnswerContent == userAnswerContent
+    questionContent.toLowerCase() == userAnswerQuestionContent.toLowerCase() ||
+    trueAnswerContent.toLowerCase() == userAnswerContent.toLowerCase()
   );
 }
 
@@ -311,5 +311,7 @@ function isCorrectTypedAnswer(
     turn.game_mode,
     language,
   );
-  return trueAnswerContent.find((t) => t == text) != null;
+  return (
+    trueAnswerContent.find((t) => t.toLowerCase() == text.toLowerCase()) != null
+  );
 }
