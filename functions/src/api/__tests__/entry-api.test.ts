@@ -5,7 +5,7 @@ import {
   getHiraganaEntries,
   getKatakanaDigraphEntries,
   getKatakanaEntries,
-  parseKanjiFile,
+  loadKanjiFile,
   selectQuestion,
 } from '../entry-api';
 
@@ -48,7 +48,7 @@ test('parse Katakana digraphs', async () => {
 });
 
 test('parse Kanji', async () => {
-  const kanji = await parseKanjiFile();
+  const kanji = await loadKanjiFile();
   expect(kanji.length).toBe(2136);
   expect(kanji[0].writing).toBe('一');
   expect(kanji[0].readings_romaji).toEqual(['ichi', 'itsu', 'hito', 'hitotsu']);

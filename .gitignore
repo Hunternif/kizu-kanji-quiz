@@ -32,5 +32,6 @@ firebase-export-*
 
 # Shared files copied to clients:
 client/src/shared
-functions/src/shared
 client/public/data
+functions/src/shared
+functions/src/data

@@ -1,4 +1,5 @@
 import { open } from 'node:fs/promises';
+import { parseKanaFile, parseKanjiFile } from '../shared/kanji-data-api';
 import { getAnswerContent } from '../shared/mode-utils';
 import { RNG } from '../shared/rng';
 import {
@@ -100,114 +101,53 @@ export async function getEntriesForGame(
 }
 
 export async function getHiraganaEntries(): Promise<Array<GameEntry>> {
-  return await parseKanaFile(`${__dirname}/../data/hiragana.txt`, ['hiragana']);
+  return await loadKanaFile(`${__dirname}/../data/hiragana.txt`, ['hiragana']);
 }
 
 export async function getHiraganaDigraphEntries(): Promise<Array<GameEntry>> {
-  return await parseKanaFile(`${__dirname}/../data/hiragana_digraphs.txt`, [
+  return await loadKanaFile(`${__dirname}/../data/hiragana_digraphs.txt`, [
     'hiragana_digraphs',
   ]);
 }
 
 export async function getKatakanaEntries(): Promise<Array<GameEntry>> {
-  return await parseKanaFile(`${__dirname}/../data/katakana.txt`, ['katakana']);
+  return await loadKanaFile(`${__dirname}/../data/katakana.txt`, ['katakana']);
 }
 
 export async function getKatakanaDigraphEntries(): Promise<Array<GameEntry>> {
-  return await parseKanaFile(`${__dirname}/../data/katakana_digraphs.txt`, [
+  return await loadKanaFile(`${__dirname}/../data/katakana_digraphs.txt`, [
     'katakana_digraphs',
   ]);
 }
 
 /** Parses a Hiragana / Katakana data file. */
-async function parseKanaFile(
+async function loadKanaFile(
   path: string,
   groups: KanaGroup[],
 ): Promise<Array<GameEntry>> {
-  const entries = new Array<GameEntry>();
-  await forEachLineInFile(path, (line) => {
-    const [kana, reading] = line.split(' ');
-    if (kana && reading) {
-      entries.push(
-        new GameEntry(kana, 0, kana, [kana], [reading], new Map(), groups),
-      );
-    }
-  });
-  return entries;
+  const content = await readFile(path);
+  return parseKanaFile(content, groups);
 }
 
 /** Parsese the kanji file and filters matching entries. */
 export async function getKanjiEntries(
   groups: KanjiGroup[],
 ): Promise<Array<GameEntry>> {
-  return (await parseKanjiFile()).filter((k) =>
+  return (await loadKanjiFile()).filter((k) =>
     k.groups.find((g) => groups.find((g2) => g2 == g)),
   );
 }
 
 /** Parses the kanji file 'jouyou_kanji_eng.txt' */
-export async function parseKanjiFile(): Promise<Array<GameEntry>> {
-  const entries = new Array<GameEntry>();
-  await forEachLineInFile(
-    `${__dirname}/../data/jouyou_kanji_eng.txt`,
-    (line) => {
-      const [kanji, grade, jlpt, kanaReadings, romaji, meanings] =
-        line.split('\t');
-      const groups = new Array<KanjiGroup>();
-      switch (grade) {
-        case '1':
-          groups.push('kanji_grade_1');
-          break;
-        case '2':
-          groups.push('kanji_grade_2');
-          break;
-        case '3':
-          groups.push('kanji_grade_3');
-          break;
-        case '4':
-          groups.push('kanji_grade_4');
-          break;
-        case '5':
-          groups.push('kanji_grade_5');
-          break;
-        case '6':
-          groups.push('kanji_grade_6');
-          break;
-        case 'S':
-          groups.push('kanji_grade_S');
-          break;
-      }
-      switch (jlpt) {
-        case 'N5':
-          groups.push('kanji_jlpt_5');
-          break;
-        case 'N4':
-          groups.push('kanji_jlpt_4');
-          break;
-        case 'N3':
-          groups.push('kanji_jlpt_3');
-          break;
-        case 'N2':
-          groups.push('kanji_jlpt_2');
-          break;
-        case 'N1':
-          groups.push('kanji_jlpt_1');
-          break;
-      }
-      entries.push(
-        new GameEntry(
-          kanji,
-          0,
-          kanji,
-          kanaReadings.split(', '),
-          romaji.split(', '),
-          new Map([['en', meanings.split(', ')]]),
-          groups,
-        ),
-      );
-    },
-  );
-  return entries;
+export async function loadKanjiFile(): Promise<Array<GameEntry>> {
+  const content = await readFile(`${__dirname}/../data/jouyou_kanji_eng.txt`);
+  return parseKanjiFile(content);
+}
+
+/** Reads the entire file to string. */
+async function readFile(path: string): Promise<string> {
+  const file = await open(path);
+  return (await file.readFile()).toString();
 }
 
 /** Reads a text file line by line and calls the callback on each line. */

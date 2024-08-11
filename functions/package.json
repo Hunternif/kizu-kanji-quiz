@@ -4,6 +4,7 @@
     "lint": "eslint --ext .js,.ts .",
     "copy-shared": "rm -rf ./src/shared && cp -R ../shared/src/. ./src/shared",
     "copy-data": "rm -rf ./lib/data && cp -R ../shared/data/. ./lib/data",
+    "copy-data-for-test": "rm -rf ./src/data && cp -R ../shared/data/. ./src/data",
     "build": "npm run copy-shared && cp ../firebase-config.json ./src && tsc && npm run copy-data",
     "build:watch": "tsc --watch",
     "serve": "npm run build && firebase emulators:start --only functions",
@@ -11,7 +12,7 @@
     "start": "npm run shell",
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log",
-    "test": "jest"
+    "test": "npm run copy-data-for-test && jest"
   },
   "engines": {
     "node": "20"
