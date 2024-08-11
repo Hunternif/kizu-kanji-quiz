@@ -3,7 +3,7 @@
   "scripts": {
     "lint": "eslint --ext .js,.ts .",
     "copy-shared": "rm -rf ./src/shared && cp -R ../shared/src/. ./src/shared",
-    "copy-data": "rm -rf ./lib/data && cp -R ./src/data/. ./lib/data",
+    "copy-data": "rm -rf ./lib/data && cp -R ../shared/data/. ./lib/data",
     "build": "npm run copy-shared && cp ../firebase-config.json ./src && tsc && npm run copy-data",
     "build:watch": "tsc --watch",
     "serve": "npm run build && firebase emulators:start --only functions",
