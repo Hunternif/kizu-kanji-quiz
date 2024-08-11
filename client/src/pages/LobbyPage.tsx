@@ -28,7 +28,7 @@ export function lobbyLoader({ params }: LoaderParams): string {
   return params['lobbyID'] as string;
 }
 
-/** Root component */
+/** Root component of a game lobby, during all phases of the game. */
 export function LobbyPage() {
   const [error, setError] = useState(null);
   return (

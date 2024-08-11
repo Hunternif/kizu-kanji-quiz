@@ -6,11 +6,17 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { ErrorPage } from './pages/ErrorPage';
 import { lobbyLoader, LobbyPage } from './pages/LobbyPage';
 import { WelcomePage } from './pages/WelcomePage';
+import { StatsPage } from './pages/StatsPage';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <WelcomePage />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: '/stats',
+    element: <StatsPage />,
     errorElement: <ErrorPage />,
   },
   // {

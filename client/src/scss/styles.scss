@@ -26,6 +26,7 @@
 @import 'login-screen.scss';
 @import 'lobby-screen.scss';
 @import 'game-screen.scss';
+@import 'stats-page.scss';
 
 // Specific components:
 @import 'lobby-components/test-group-selector.scss';
@@ -36,6 +37,7 @@
 @import 'game-components/question-card.scss';
 @import 'game-components/choice-card.scss';
 @import 'game-components/typed-answer.scss';
+@import 'stats-components/test-group-list.scss';
 
 // Final overrides for mobile:
 

@@ -1,10 +1,40 @@
-import { GameEntry, KanaGroup, KanjiGroup, TestGroup } from './types';
+import {
+  GameEntry,
+  KanaGroup,
+  KanjiGrade,
+  KanjiGroup,
+  KanjiJlptLevel,
+  TestGroup,
+} from './types';
 
 ///////////////////////////////////////////////////////////////////////////////
 //
 //  API related to parsing the kanji & kana .txt data files.
 //
 ///////////////////////////////////////////////////////////////////////////////
+
+export const kanaGroupNames: Array<[KanaGroup, string, string]> = [
+  ['hiragana', 'あ', '73 Hiragana'],
+  ['hiragana_digraphs', 'きゃ', '33 Hiragana digraphs'],
+  ['katakana', 'カ', '74 Katakana'],
+  ['katakana_digraphs', 'キャ', '33 Katakana digraphs'],
+];
+export const kanjiJlptGroupNames: Array<[KanjiJlptLevel, string, string]> = [
+  ['kanji_jlpt_5', 'N5', '80 Kanji'],
+  ['kanji_jlpt_4', 'N4', '166 Kanji'],
+  ['kanji_jlpt_3', 'N3', '371 Kanji'],
+  ['kanji_jlpt_2', 'N2', '367 Kanji'],
+  ['kanji_jlpt_1', 'N1', '985 Kanji'],
+];
+export const kanjiGradeGroupNames: Array<[KanjiGrade, string, string]> = [
+  ['kanji_grade_1', 'Grade 1', '80 Kanji'],
+  ['kanji_grade_2', 'Grade 2', '160 Kanji'],
+  ['kanji_grade_3', 'Grade 3', '200 Kanji'],
+  ['kanji_grade_4', 'Grade 4', '202 Kanji'],
+  ['kanji_grade_5', 'Grade 5', '193 Kanji'],
+  ['kanji_grade_6', 'Grade 6', '191 Kanji'],
+  ['kanji_grade_S', 'Secondary school', '1110 kanji'],
+];
 
 /** Parses a Hiragana / Katakana data file. */
 export async function parseKanaFile(

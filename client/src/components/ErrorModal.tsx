@@ -7,6 +7,12 @@ interface Props {
 }
 
 export function ErrorModal({ error, setError }: Props) {
+  let text = 'An error occurred';
+  if (typeof(error) === 'string') {
+    text = error;
+  } else if (error instanceof Error) {
+    text = error.message;
+  }
   return (
     <Modal
       closeButton
@@ -15,7 +21,7 @@ export function ErrorModal({ error, setError }: Props) {
       className="error-modal"
       title="Error"
     >
-      <ModalBody>{error instanceof Error && error.message}</ModalBody>
+      <ModalBody>{text}</ModalBody>
     </Modal>
   );
 }

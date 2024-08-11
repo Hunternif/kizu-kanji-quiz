@@ -2,35 +2,11 @@ import { User } from 'firebase/auth';
 import { updateLobby } from '../../../api/lobby/lobby-repository';
 import { useHandler2 } from '../../../hooks/data-hooks';
 import {
-  GameLobby,
-  KanaGroup,
-  KanjiGrade,
-  KanjiJlptLevel,
-  TestGroup,
-} from '../../../shared/types';
-
-const kanaGroups: Array<[KanaGroup, string, string]> = [
-  ['hiragana', 'あ', '73 Hiragana'],
-  ['hiragana_digraphs', 'きゃ', '33 Hiragana digraphs'],
-  ['katakana', 'カ', '74 Katakana'],
-  ['katakana_digraphs', 'キャ', '33 Katakana digraphs'],
-];
-const kanjiJlptGroups: Array<[KanjiJlptLevel, string, string]> = [
-  ['kanji_jlpt_5', 'N5', '80 Kanji'],
-  ['kanji_jlpt_4', 'N4', '166 Kanji'],
-  ['kanji_jlpt_3', 'N3', '371 Kanji'],
-  ['kanji_jlpt_2', 'N2', '367 Kanji'],
-  ['kanji_jlpt_1', 'N1', '985 Kanji'],
-];
-const kanjiGradeGroups: Array<[KanjiGrade, string, string]> = [
-  ['kanji_grade_1', 'Grade 1', '80 Kanji'],
-  ['kanji_grade_2', 'Grade 2', '160 Kanji'],
-  ['kanji_grade_3', 'Grade 3', '200 Kanji'],
-  ['kanji_grade_4', 'Grade 4', '202 Kanji'],
-  ['kanji_grade_5', 'Grade 5', '193 Kanji'],
-  ['kanji_grade_6', 'Grade 6', '191 Kanji'],
-  ['kanji_grade_S', 'Secondary school', '1110 kanji'],
-];
+  kanaGroupNames,
+  kanjiGradeGroupNames,
+  kanjiJlptGroupNames,
+} from '../../../shared/kanji-data-api';
+import { GameLobby, TestGroup } from '../../../shared/types';
 
 interface SelectorProps {
   user: User;
@@ -53,7 +29,7 @@ export function TestGroupSelector({ lobby, readOnly }: SelectorProps) {
         big
         title="Hiragana & Katakana"
         lobby={lobby}
-        groups={kanaGroups}
+        groups={kanaGroupNames}
         readOnly={readOnly}
         onToggle={toggleHandler}
       />
@@ -61,14 +37,14 @@ export function TestGroupSelector({ lobby, readOnly }: SelectorProps) {
         big
         title="Kanji: Japanese Language Proficiency Test"
         lobby={lobby}
-        groups={kanjiJlptGroups}
+        groups={kanjiJlptGroupNames}
         readOnly={readOnly}
         onToggle={toggleHandler}
       />
       <GroupSection
         title="Kanji: Primary school"
         lobby={lobby}
-        groups={kanjiGradeGroups}
+        groups={kanjiGradeGroupNames}
         readOnly={readOnly}
         onToggle={toggleHandler}
       />

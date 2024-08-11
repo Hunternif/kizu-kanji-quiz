@@ -1,0 +1,21 @@
+@use 'colors.scss';
+
+.stats-side-column {
+  flex: 0 0 auto;
+  width: 33.33%;
+
+  // This is needed to enable scrolling:
+  // TODO: make a proper scroller component
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  background-color: colors.$panel-bg;
+
+  @media (min-width: 768px) {
+    width: 25%;
+  }
+  @media (min-width: 1200px) {
+    width: 16.66%;
+  }
+}

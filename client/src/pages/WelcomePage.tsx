@@ -8,6 +8,7 @@ import { HomeScreen } from './lobby-screens/HomeScreen';
 import { LoginMode, LoginScreen } from './lobby-screens/LoginScreen';
 import { assertExhaustive } from '../shared/utils';
 
+/** The initial landing page */
 export function WelcomePage() {
   const [error, setError] = useState(null);
   const [user, loading] = useAuthState(firebaseAuth);
