@@ -1,0 +1,28 @@
+@use '../colors.scss';
+
+.typed-input-form {
+  .input-row {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .typed-prompt {
+    text-align: center;
+    height: 2rem;
+  }
+  input.user-typed-input {
+    &:enabled {
+      background-color: #fff;
+    }
+    text-align: center;
+  }
+  &.correct .user-typed-input {
+    color: colors.$choice-correct-text;
+    background-color: colors.$choice-correct-bg;
+    border-color: transparent;
+  }
+  &.incorrect .user-typed-input {
+    color: colors.$choice-incorrect-text;
+    background-color: colors.$choice-incorrect-bg;
+    border-color: transparent;
+  }
+}
