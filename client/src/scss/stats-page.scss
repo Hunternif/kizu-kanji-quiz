@@ -18,3 +18,30 @@
   // TODO: make a proper scroller component
   display: flex;
 }
+
+.kanji-stat-list {
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+
+  .e {
+    min-width: 2.5rem;
+    min-height: 2.5rem;
+    padding: 0.25rem;
+    
+    text-align: center;
+    text-wrap: nowrap;
+
+    border-radius: 2px;
+    // border: 1px solid colors.$gray-2;
+    background-color: colors.$choice-bg;
+    box-shadow: 0 2px 2px rgba(colors.$gray-6, 10%);
+
+    &.short,
+    &.one {
+      font-size: 1.5rem;
+    }
+  }
+}

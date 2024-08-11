@@ -97,7 +97,7 @@ service cloud.firestore {
                    && fieldsUnchanged(['is_admin']);
     }
 
-    match /user_stats/{userID} {
+    match /users/{userID}/stats/{entry} {
       allow read, write: if userIsAdmin();
       // allow access to your own info when you are logged in.
       allow read, write: if isLoggedIn() && request.auth.uid == userID;

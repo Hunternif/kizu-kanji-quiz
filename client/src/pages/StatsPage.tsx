@@ -1,13 +1,12 @@
 import { useState } from 'react';
-import { loadAllKanjiData } from '../api/kanji-cache-api';
 import { ErrorContext, useErrorContext } from '../components/ErrorContext';
 import { ErrorModal } from '../components/ErrorModal';
 import { LoadingSpinner } from '../components/LoadingSpinner';
 import { ScrollContainer } from '../components/layout/ScrollContainer';
 import { SidebarLayout } from '../components/layout/SidebarLayout';
 import { useQuizUser } from '../hooks/auth-hooks';
-import { useAsyncData } from '../hooks/data-hooks';
-import { GameEntry, TestGroup } from '../shared/types';
+import { TestGroup } from '../shared/types';
+import { KanjiStatList } from './stats-components/KanjiStatList';
 import { TestGroupList } from './stats-components/TestGroupList';
 
 /** Page with your user's statistics */
@@ -26,7 +25,6 @@ export function StatsPage() {
 function StatsPageThrows() {
   const [quizUser, loadingQuizUser] = useQuizUser();
   const { setError } = useErrorContext();
-  const [allEntries] = useAsyncData(loadAllKanjiData());
   const [selectedGroup, setSelectedGroup] = useState<TestGroup>();
 
   if (loadingQuizUser) {
@@ -36,12 +34,6 @@ function StatsPageThrows() {
     setError("Couldn't load user.");
     return <></>;
   }
-
-  const filteredEntries =
-    (allEntries &&
-      selectedGroup &&
-      filterEntries(allEntries.values(), selectedGroup)) ??
-    [];
 
   return (
     <>
@@ -61,22 +53,9 @@ function StatsPageThrows() {
         }
       >
         <ScrollContainer scrollDark>
-          <div>
-            {filteredEntries.map((e) => (
-              <span key={e.writing} className="e">
-                {e.writing}
-              </span>
-            ))}
-          </div>
+          <KanjiStatList quizUser={quizUser} selectedGroup={selectedGroup} />
         </ScrollContainer>
       </SidebarLayout>
     </>
   );
-}
-
-function filterEntries(
-  entries: Iterable<GameEntry>,
-  group: TestGroup,
-): GameEntry[] {
-  return [...entries].filter((k) => k.groups.find((g) => group === g));
 }

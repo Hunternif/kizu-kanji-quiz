@@ -110,17 +110,17 @@ export function useMarkedData<T>(): [
  * Convenience hook to run async handler on a button click,
  * with error handling and loading state.
  */
-export function useHandler(
-  callback: () => Promise<void>,
+export function useHandler<V>(
+  callback: () => Promise<V>,
   deps: DependencyList,
-): [handler: () => Promise<void>, loading: boolean] {
+): [handler: () => Promise<V | undefined>, loading: boolean] {
   const { setError } = useErrorContext();
   const [loading, setLoading] = useState(false);
 
   const handler = useCallback(async () => {
     try {
       setLoading(true);
-      await callback();
+      return await callback();
     } catch (e: any) {
       setError(e);
     } finally {
@@ -134,17 +134,17 @@ export function useHandler(
  * Convenience hook to run async handler on a button click,
  * with error handling and loading state. With 1 argument.
  */
-export function useHandler1<T>(
-  callback: (arg1: T) => Promise<void>,
+export function useHandler1<T, V>(
+  callback: (arg1: T) => Promise<V>,
   deps: DependencyList,
-): [handler: (arg1: T) => Promise<void>, loading: boolean] {
+): [handler: (arg1: T) => Promise<V | undefined>, loading: boolean] {
   const { setError } = useErrorContext();
   const [loading, setLoading] = useState(false);
 
   const handler = useCallback(async (arg1: T) => {
     try {
       setLoading(true);
-      await callback(arg1);
+      return await callback(arg1);
     } catch (e: any) {
       setError(e);
     } finally {
@@ -159,17 +159,17 @@ export function useHandler1<T>(
  * with error handling and loading state. With 2 arguments.
  * WARNING: parameters passed here are saved in the closure!
  */
-export function useHandler2<T, U>(
-  callback: (arg1: T, arg2: U) => Promise<void>,
+export function useHandler2<T, U, V>(
+  callback: (arg1: T, arg2: U) => Promise<V>,
   deps: DependencyList,
-): [handler: (arg1: T, arg2: U) => Promise<void>, loading: boolean] {
+): [handler: (arg1: T, arg2: U) => Promise<V | undefined>, loading: boolean] {
   const { setError } = useErrorContext();
   const [loading, setLoading] = useState(false);
 
   const handler = useCallback(async (arg1: T, arg2: U) => {
     try {
       setLoading(true);
-      await callback(arg1, arg2);
+      return await callback(arg1, arg2);
     } catch (e: any) {
       setError(e);
     } finally {
