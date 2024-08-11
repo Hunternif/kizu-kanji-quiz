@@ -40,9 +40,6 @@ export function ChoiceCard({ entry, onClick }: ChoiceProps) {
     turn.game_mode,
     language,
   ).join(', ');
-  classes.push(
-    text.length > 20 ? 'long' : text.length > 4 ? 'medium' : 'short',
-  );
 
   const [handleSubmit] = useHandler(async () => {
     await submitPlayerResponse(lobby, turn, player, language, entry.id);

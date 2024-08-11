@@ -7,7 +7,7 @@
 
   background-color: colors.$choice-bg;
   border-radius: 0.4rem;
-  padding: 0.5rem;
+  padding: 0.5rem 0.75rem;
   box-shadow: 0 2px 6px rgba(colors.$gray-6, 10%);
 
   display: flex;
@@ -26,20 +26,18 @@
     text-wrap: wrap;
     text-overflow: ellipsis;
     overflow: hidden;
-  }
-  &.short {
-    font-size: 2rem;
-  }
-  &.medium {
-    font-size: 1.2rem;
-    line-height: 1.2;
-    max-width: 8rem;
-  }
-  &.long {
-    font-size: 1rem;
-    line-height: 1.2;
-    max-width: 8rem;
-    .jap-text {
+    &.short {
+      font-size: 2rem;
+    }
+    &.medium {
+      font-size: 1.2rem;
+      line-height: 1.2;
+      max-width: 8rem;
+    }
+    &.long {
+      font-size: 1rem;
+      line-height: 1.2;
+      max-width: 8rem;
       max-height: 5rem;
     }
   }

@@ -128,7 +128,7 @@ export function getQuestionContent(
       if (entry.isKana) {
         return getKanaQuestionContent(entry, gameMode);
       }
-      return getMeaning(entry, language);
+      return getEntryMeaning(entry, language);
     default:
       assertExhaustive(questionMode);
       return [];
@@ -159,11 +159,11 @@ export function getAnswerContent(
       if (entry.isKana) {
         return getKanaAnswerContent(entry, gameMode);
       }
-      return getMeaning(entry, language);
+      return getEntryMeaning(entry, language);
     case 'type_romaji':
       return entry.readings_romaji;
     case 'type_meaning':
-      return getMeaning(entry, language);
+      return getEntryMeaning(entry, language);
     case 'draw_hiragana':
     case 'draw_kanji':
       // Unsupported mode.
@@ -221,7 +221,10 @@ function getKanaAnswerContent(
   }
 }
 
-function getMeaning(entry: GameEntry, language: Language): string[] {
+export function getEntryMeaning(
+  entry: GameEntry,
+  language: Language,
+): string[] {
   if (entry.meanings.size <= 0) return [];
   if (entry.meanings.has(language)) {
     return entry.meanings.get(language) ?? [];

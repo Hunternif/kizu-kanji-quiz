@@ -60,6 +60,10 @@ $q-green: #508349;
 $question-bg: color-mix(in srgb, $q-green 50%, $gray-6);
 $question-bg-reveal: color-mix(in srgb, $q-green 40%, $gray-4);
 $question-text: #fff;
+$explanation-main-bg: $question-bg-reveal;
+$explanation-main-text: #fff;
+$explanation-details-bg: #fff;
+$explanation-details-text: $text;
 
 $choice-bg: #fff;
 $choice-selected-text: color-mix(

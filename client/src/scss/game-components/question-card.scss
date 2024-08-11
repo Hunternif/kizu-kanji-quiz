@@ -1,7 +1,10 @@
 @use '../colors.scss';
 
+$animation-duration: 200ms;
+$animation-function: ease;
+
 .phase-reveal {
-  .question-card {
+  .main-content {
     background-color: colors.$question-bg-reveal;
   }
 }
@@ -10,51 +13,114 @@
   height: 20rem;
   margin-bottom: 2rem;
   position: relative;
+  overflow: hidden;
 
-  background-color: colors.$question-bg;
   // border-radius: 0.5rem;
   box-shadow: 0 2px 8px rgba(colors.$gray-5, 20%);
-  padding: 1rem;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  .main-content {
+    width: 100%;
+    height: 100%;
 
-  // Smooth color transitions:
-  transition-property: all;
-  transition-duration: 200ms;
-  transition-timing-function: ease;
+    background-color: colors.$question-bg;
 
-  .question-text {
-    color: colors.$question-text;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .question-text {
+      color: colors.$question-text;
+      text-align: center;
+      text-wrap: wrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      padding: 1rem;
+      max-height: 20rem;
+    }
+  }
+
+  // Handle giant kanji and long text:
+  .main-content {
+    .short {
+      font-size: 10rem;
+    }
+    .medium {
+      font-size: 3rem;
+      line-height: 1.2;
+    }
+    .long {
+      font-size: 2rem;
+      line-height: 1.2;
+    }
+  }
+
+  .details {
+    width: 100%;
+    height: 50%;
+    padding: 1rem 1rem;
+
     text-wrap: wrap;
     text-overflow: ellipsis;
     overflow: hidden;
     max-height: 20rem;
+
+    color: colors.$explanation-details-text;
+    background-color: colors.$explanation-details-bg;
+
+    aside {
+      margin-bottom: 0.5rem;
+    }
+    .jap-text {
+      font-size: 1.1rem;
+      line-height: 1;
+    }
   }
-  // Handle giant kanji and long text:
-  &.short .question-text {
-    font-size: 10rem;
+}
+.question-card.question {
+  .details {
+    opacity: 0;
   }
-  &.medium {
-    font-size: 3rem;
-    line-height: 1.2;
+}
+
+// Smooth transitions:
+.question-card,
+.question-card .main-content,
+.question-card .details,
+.question-card .question-text {
+  transition-property: all;
+  transition-duration: $animation-duration;
+  transition-timing-function: $animation-function;
+}
+
+.question-card.explanation {
+  .main-content {
+    height: 50%;
+
+    color: colors.$explanation-main-text;
+    background-color: colors.$explanation-main-bg;
+
+    .question-text {
+      max-height: 10rem;
+    }
   }
-  &.long .question-text {
-    font-size: 2rem;
-    line-height: 1.2;
+  // Slightly reduce size text size, because the content is 50% height:
+  .question-text.short {
+    font-size: 5rem;
   }
-  .pause {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
-    font-style: italic;
-    background-color: rgba(colors.$gray-1, 80%);
+  .details {
+    height: 50%;
   }
+}
+
+.question-card .pause {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-style: italic;
+  background-color: rgba(colors.$gray-1, 80%);
 }
