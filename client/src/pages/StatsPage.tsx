@@ -52,6 +52,7 @@ function StatsPageThrows() {
           </>
         }
       >
+        <header>Statistics</header>
         <ScrollContainer scrollDark>
           <KanjiStatList quizUser={quizUser} selectedGroup={selectedGroup} />
         </ScrollContainer>
