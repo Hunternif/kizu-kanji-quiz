@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "copy-data": "rm -rf ./public/data/*.txt && cp -R ../shared/data/. ./public/data",
     "copy-shared": "rm -rf ./src/shared && cp -R ../shared/src/. ./src/shared",
-    "build": "npm run copy-shared && tsc && vite build",
+    "build": "npm run copy-shared && tsc && vite build && npm run copy-data",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "test": "vitest run",
