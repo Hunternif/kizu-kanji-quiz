@@ -6,20 +6,13 @@ import { setMyPlayerRole } from '../../api/lobby/lobby-player-api';
 import { GameButton } from '../../components/Buttons';
 import { ErrorContext } from '../../components/ErrorContext';
 import { IconCounter } from '../../components/IconCounter';
-import {
-  IconArowLeft,
-  IconHamburger,
-  IconPersonInline,
-} from '../../components/Icons';
-import { ModalBackdrop } from '../../components/ModalBackdrop';
+import { IconPersonInline } from '../../components/Icons';
 import { FillLayout } from '../../components/layout/FillLayout';
-import { RowLayout } from '../../components/layout/RowLayout';
-import { ScreenSizeSwitch } from '../../components/layout/ScreenSizeSwitch';
+import { SidebarLayout } from '../../components/layout/SidebarLayout';
 import { GameLobby, PlayerInLobby } from '../../shared/types';
 import { LobbyCreationReadOnly } from './lobby-components/LobbyCreationReadOnly';
 import { LobbyCreatorControls } from './lobby-components/LobbyCreatorControls';
 import { LobbyPlayerList } from './lobby-components/LobbyPlayerList';
-import { Col } from '../../components/layout/Col';
 
 interface Props {
   lobby: GameLobby;
@@ -41,96 +34,22 @@ const scrollableColumnStyle: CSSProperties = {
   paddingRight: 'calc(1em - 8px)',
 };
 
-const menuButtonStyle: CSSProperties = {
-  padding: '1rem',
-  lineHeight: 1,
-  cursor: 'pointer',
-};
-
-const overlaySidebarStyle: CSSProperties = {
-  position: 'absolute',
-  height: '100%',
-  width: '16em',
-  zIndex: 10,
-};
-
-const smallHeaderStyle: CSSProperties = {
-  height: '3em',
-  marginLeft: '0.5em',
-  marginTop: '0.5em',
-  position: 'absolute',
-  display: 'flex',
-  alignItems: 'center',
-  zIndex: 3,
-};
-
 /** User logged in AND joined the lobby. */
 export function NewLobbyScreen(props: Props) {
   return (
-    <FillLayout className="new-lobby-screen">
-      <ScreenSizeSwitch
-        widthBreakpoint={600}
-        smallScreen={<SmallScreenLobby {...props} />}
-        bigScreen={<BigScreenLobby {...props} />}
-      />
-    </FillLayout>
-  );
-}
-
-function BigScreenLobby(props: Props) {
-  return (
-    <RowLayout>
-      <Col className="player-list-column">
-        <PlayerListSidebar {...props} />
-      </Col>
-      <Col className="main-content-column">
-        <MainContent {...props} />
-      </Col>
-    </RowLayout>
-  );
-}
-
-function SmallScreenLobby(props: Props) {
-  const [menuOpen, setMenuOpen] = useState(false);
-  function openMenu() {
-    setMenuOpen(true);
-  }
-  function closeMenu() {
-    setMenuOpen(false);
-  }
-  return (
-    <>
-      {menuOpen ? (
-        <>
-          <div style={overlaySidebarStyle}>
-            <div
-              style={{
-                position: 'absolute',
-                ...menuButtonStyle,
-                ...smallHeaderStyle,
-              }}
-              onClick={closeMenu}
-            >
-              <IconArowLeft width={20} height={20} />
-            </div>
-            <PlayerListSidebar {...props} />
-          </div>
-          <ModalBackdrop onClick={closeMenu} />
-        </>
-      ) : (
-        <div style={smallHeaderStyle}>
-          <div style={menuButtonStyle} onClick={openMenu}>
-            <IconHamburger width={20} height={20} />
-          </div>
-          <IconCounter
-            className="dim lobby-player-counter"
-            icon={<IconPersonInline />}
-            count={props.players.length}
-          />
-        </div>
-      )}
+    <SidebarLayout
+      className="new-lobby-screen"
+      sidebar={<PlayerListSidebar {...props} />}
+      collapsedHeader={
+        <IconCounter
+          className="dim lobby-player-counter"
+          icon={<IconPersonInline />}
+          count={props.players.length}
+        />
+      }
+    >
       <MainContent {...props} />
-    </>
+    </SidebarLayout>
   );
 }
 
@@ -206,7 +125,7 @@ function PlayerListSidebar({ lobby, user, players }: Props) {
       </h3>
       <FillLayout
         style={scrollableColumnStyle}
-        className="miniscrollbar miniscrollbar-light"
+        className="miniscrollbar miniscrollbar-dark"
       >
         <LobbyPlayerList
           lobby={lobby}

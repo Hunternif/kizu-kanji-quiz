@@ -129,3 +129,42 @@
     }
   }
 }
+
+/*----------------- Layout with a collapsing sidebar -----------------*/
+.layout-sidebar-column {
+  flex: 0 0 auto;
+  width: 33.33%;
+  height: 100%;
+  @media (min-width: 768px) {
+    width: 25%;
+  }
+  @media (min-width: 1200px) {
+    width: 16.66%;
+  }
+}
+
+.layout-sidebar-overlay {
+  position: absolute;
+  height: 100%;
+  width: 16rem;
+  z-index: 10;
+}
+.layout-sidebar-overlay .hide-button,
+.collapsed-header {
+  position: absolute;
+  z-index: 3;
+
+  // Position the button with slightly nicer margins:
+  height: 3rem;
+  left: 1.5rem;
+  top: 0.5rem;
+
+  // Additional items placed on the collapsed header
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.layout-sidebar-overlay .hide-button,
+.collapsed-header .show-button {
+  cursor: pointer;
+}

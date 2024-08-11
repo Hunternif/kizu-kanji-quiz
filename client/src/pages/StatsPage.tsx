@@ -2,11 +2,10 @@ import { useState } from 'react';
 import { ErrorContext, useErrorContext } from '../components/ErrorContext';
 import { ErrorModal } from '../components/ErrorModal';
 import { LoadingSpinner } from '../components/LoadingSpinner';
-import { Col } from '../components/layout/Col';
-import { RowLayout } from '../components/layout/RowLayout';
+import { ScrollContainer } from '../components/layout/ScrollContainer';
+import { SidebarLayout } from '../components/layout/SidebarLayout';
 import { useQuizUser } from '../hooks/auth-hooks';
 import { TestGroupList } from './stats-components/TestGroupList';
-import { ScrollContainer } from '../components/layout/ScrollContainer';
 
 /** Page with your user's statistics */
 export function StatsPage() {
@@ -35,15 +34,19 @@ function StatsPageThrows() {
 
   return (
     <>
-      <RowLayout>
-        <Col className="stats-side-column">
-          <header>Test Groups</header>
-          <ScrollContainer scrollDark>
-            <TestGroupList />
-          </ScrollContainer>
-        </Col>
-        <Col className="main-content-column">Kanji go here</Col>
-      </RowLayout>
+      <SidebarLayout
+        sidebarClassName="stats-side-column"
+        sidebar={
+          <>
+            <header>Test Groups</header>
+            <ScrollContainer scrollDark>
+              <TestGroupList />
+            </ScrollContainer>
+          </>
+        }
+      >
+        Kanji go here
+      </SidebarLayout>
     </>
   );
 }

@@ -18,18 +18,6 @@
   }
 }
 
-.player-list-column {
-  flex: 0 0 auto;
-  width: 33.33%;
-  margin-top: 1em;
-  @media (min-width: 768px) {
-    width: 25%;
-  }
-  @media (min-width: 1200px) {
-    width: 16.66%;
-  }
-}
-
 .new-lobby-main-content {
   display: flex;
   flex-direction: column;
