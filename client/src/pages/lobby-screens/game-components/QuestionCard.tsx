@@ -32,6 +32,7 @@ export function QuestionCard({}: QuestionProps) {
       {isPaused && <div className="pause">Paused</div>}
       <main className="main-content">
         <JapText
+          short={2}
           className="question-text"
           text={isReveal ? turn.question.writing : text}
         />
@@ -52,14 +53,20 @@ interface ExplanationProps {
 function Explanation({ entry, lang }: ExplanationProps) {
   return (
     <>
-      <aside className="readings">
-        {/* <header>Reading</header> */}
-        <JapText text={entry.readings_hiragana.join(', ')} />
-      </aside>
-      <aside className="meanings">
-        {/* <header>Meaning</header> */}
-        <JapText text={getEntryMeaning(entry, lang).join(', ')} />
-      </aside>
+      {entry.isKana ? (
+        <JapText className="kana" text={entry.readings_romaji.join(', ')} />
+      ) : (
+        <>
+          <aside className="readings">
+            {/* <header>Reading</header> */}
+            <JapText text={entry.readings_hiragana.join(', ')} />
+          </aside>
+          <aside className="meanings">
+            {/* <header>Meaning</header> */}
+            <JapText text={getEntryMeaning(entry, lang).join(', ')} />
+          </aside>
+        </>
+      )}
     </>
   );
 }

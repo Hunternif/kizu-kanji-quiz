@@ -26,7 +26,7 @@
     text-wrap: wrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    &.short {
+    &.short, &.one {
       font-size: 2rem;
     }
     &.medium {

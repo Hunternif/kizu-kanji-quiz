@@ -42,8 +42,11 @@ $animation-function: ease;
 
   // Handle giant kanji and long text:
   .main-content {
-    .short {
+    .one {
       font-size: 10rem;
+    }
+    .short {
+      font-size: 6rem;
     }
     .medium {
       font-size: 3rem;
@@ -71,9 +74,28 @@ $animation-function: ease;
     aside {
       margin-bottom: 0.5rem;
     }
-    .jap-text {
+    .jap-text:not(.kana) {
       font-size: 1.1rem;
       line-height: 1;
+    }
+    .jap-text.kana {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      &.one,
+      &.short {
+        font-size: 3rem;
+      }
+      &.medium {
+        font-size: 3rem;
+        line-height: 1.2;
+      }
+      &.long {
+        font-size: 2rem;
+        line-height: 1.2;
+      }
     }
   }
 }
@@ -105,6 +127,7 @@ $animation-function: ease;
     }
   }
   // Slightly reduce size text size, because the content is 50% height:
+  .question-text.one,
   .question-text.short {
     font-size: 5rem;
   }
