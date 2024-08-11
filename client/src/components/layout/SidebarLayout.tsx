@@ -70,7 +70,7 @@ function SmallScreen({
   }
   const sidebarClasses = ['layout-sidebar-overlay'];
   if (sidebarClassName) sidebarClasses.push(sidebarClassName);
-  const mainClasses = ['layout-main-column'];
+  const mainClasses = ['layout-main-column full-width'];
   if (mainClassName) mainClasses.push(mainClassName);
   return (
     <>

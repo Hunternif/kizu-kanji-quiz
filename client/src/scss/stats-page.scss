@@ -17,6 +17,11 @@
   // This is needed to enable scrolling:
   // TODO: make a proper scroller component
   display: flex;
+
+  &.full-width {
+    // extra margin to make the header look nice:
+    padding-top: 3.5rem;
+  }
 }
 
 .kanji-stat-list {

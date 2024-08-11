@@ -142,6 +142,11 @@
     width: 16.66%;
   }
 }
+.layout-main-column {
+  // This is needed to enable scrolling, and keep the sidebar button sticky.
+  // TODO: make a proper scroller component
+  height: 100%;
+}
 
 .layout-sidebar-overlay {
   position: absolute;
@@ -155,9 +160,9 @@
   z-index: 3;
 
   // Position the button with slightly nicer margins:
-  height: 3rem;
-  left: 1.5rem;
-  top: 0.5rem;
+  top: 0;
+  left: 0;
+  padding: 1.1rem 1.5rem;
 
   // Additional items placed on the collapsed header
   display: flex;
