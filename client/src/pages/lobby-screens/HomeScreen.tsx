@@ -10,6 +10,7 @@ import { useHandler } from '../../hooks/data-hooks';
 import { GameTitle } from './login-components/GameTitle';
 import { ProfileModal } from './login-components/ProfileModal';
 import { SignOutButton } from './login-components/SignOutButton';
+import { Twemoji } from '../../components/Twemoji';
 
 export function HomeScreen() {
   const [quizUser] = useQuizUser();
@@ -42,6 +43,12 @@ export function HomeScreen() {
           onClick={() => setShowProfile(true)}
         >
           Profile
+        </GameButton>
+        <GameButton
+          iconLeft={<Twemoji>💹</Twemoji>}
+          onClick={() => navigate('/stats')}
+        >
+          Statistics
         </GameButton>
         <SignOutButton secondary />
       </Panel>
