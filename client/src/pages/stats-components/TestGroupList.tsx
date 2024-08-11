@@ -5,27 +5,31 @@ import {
 } from '../../shared/kanji-data-api';
 import { TestGroup } from '../../shared/types';
 
-export function TestGroupList() {
-  function selectHandler(group: TestGroup) {}
+interface ListProps {
+  selectedGroup?: TestGroup;
+  onSelect?: (group: TestGroup) => void;
+}
 
+export function TestGroupList({ selectedGroup, onSelect }: ListProps) {
   return (
     <div className="test-group-list">
       <GroupSection
-        big
         title="Hiragana & Katakana"
         groups={kanaGroupNames}
-        onSelectGroup={selectHandler}
+        selectedGroup={selectedGroup}
+        onSelectGroup={onSelect}
       />
       <GroupSection
-        big
         title="Kanji: Japanese Language Proficiency Test"
         groups={kanjiJlptGroupNames}
-        onSelectGroup={selectHandler}
+        selectedGroup={selectedGroup}
+        onSelectGroup={onSelect}
       />
       <GroupSection
         title="Kanji: Primary school"
         groups={kanjiGradeGroupNames}
-        onSelectGroup={selectHandler}
+        selectedGroup={selectedGroup}
+        onSelectGroup={onSelect}
       />
     </div>
   );
@@ -35,14 +39,14 @@ interface SectionProps extends React.HTMLAttributes<HTMLElement> {
   title: string;
   groups: Array<[value: TestGroup, label: string, sublabel: string]>;
   big?: boolean; // Makes the label big
-  selected?: boolean;
+  selectedGroup?: TestGroup;
   onSelectGroup?: (value: TestGroup) => void;
 }
 function GroupSection({
   title,
   groups,
   big,
-  selected,
+  selectedGroup,
   onSelectGroup,
   ...props
 }: SectionProps) {
@@ -57,7 +61,7 @@ function GroupSection({
             label={label}
             big={big}
             sublabel={sub}
-            selected={selected}
+            selected={selectedGroup === value}
             onClick={() => onSelectGroup && onSelectGroup(value)}
           />
         ))}
@@ -77,6 +81,7 @@ interface GroupProps {
 function Group({ value, label, big, sublabel, selected, onClick }: GroupProps) {
   const classes = ['group-button'];
   if (big) classes.push('big');
+  if (selected) classes.push('selected');
   return (
     <div className={classes.join(' ')} onClick={onClick}>
       <span className="group-label">{label}</span>

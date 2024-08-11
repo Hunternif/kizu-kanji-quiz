@@ -7,6 +7,7 @@ import { ScrollContainer } from '../components/layout/ScrollContainer';
 import { SidebarLayout } from '../components/layout/SidebarLayout';
 import { useQuizUser } from '../hooks/auth-hooks';
 import { useAsyncData } from '../hooks/data-hooks';
+import { GameEntry, TestGroup } from '../shared/types';
 import { TestGroupList } from './stats-components/TestGroupList';
 
 /** Page with your user's statistics */
@@ -26,6 +27,7 @@ function StatsPageThrows() {
   const [quizUser, loadingQuizUser] = useQuizUser();
   const { setError } = useErrorContext();
   const [allEntries] = useAsyncData(loadAllKanjiData());
+  const [selectedGroup, setSelectedGroup] = useState<TestGroup>();
 
   if (loadingQuizUser) {
     return <LoadingSpinner delay text="Loading user..." />;
@@ -34,6 +36,12 @@ function StatsPageThrows() {
     setError("Couldn't load user.");
     return <></>;
   }
+
+  const filteredEntries =
+    (allEntries &&
+      selectedGroup &&
+      filterEntries(allEntries.values(), selectedGroup)) ??
+    [];
 
   return (
     <>
@@ -44,14 +52,17 @@ function StatsPageThrows() {
           <>
             <header>Test Groups</header>
             <ScrollContainer scrollDark>
-              <TestGroupList />
+              <TestGroupList
+                selectedGroup={selectedGroup}
+                onSelect={setSelectedGroup}
+              />
             </ScrollContainer>
           </>
         }
       >
         <ScrollContainer scrollDark>
           <div>
-            {allEntries && [...allEntries.values()].map((e) => (
+            {filteredEntries.map((e) => (
               <span key={e.writing} className="e">
                 {e.writing}
               </span>
@@ -61,4 +72,11 @@ function StatsPageThrows() {
       </SidebarLayout>
     </>
   );
+}
+
+function filterEntries(
+  entries: Iterable<GameEntry>,
+  group: TestGroup,
+): GameEntry[] {
+  return [...entries].filter((k) => k.groups.find((g) => group === g));
 }
