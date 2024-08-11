@@ -37,10 +37,10 @@ export const kanjiGradeGroupNames: Array<[KanjiGrade, string, string]> = [
 ];
 
 /** Parses a Hiragana / Katakana data file. */
-export async function parseKanaFile(
+export function parseKanaFile(
   content: string,
   groups: KanaGroup[],
-): Promise<Array<GameEntry>> {
+): Array<GameEntry> {
   const entries = new Array<GameEntry>();
   for (const line of content.split(/\r?\n/)) {
     const [kana, reading] = line.split(' ');

@@ -5,11 +5,16 @@
   // TODO: make a proper scroller component
   display: flex;
   flex-direction: column;
-  height: 100%;
 
   background-color: colors.$panel-bg;
 
   header {
     margin-top: 1.2rem;
   }
+}
+
+.stats-main-column {
+  // This is needed to enable scrolling:
+  // TODO: make a proper scroller component
+  display: flex;
 }

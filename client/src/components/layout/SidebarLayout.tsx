@@ -11,6 +11,7 @@ interface Props extends React.HTMLAttributes<HTMLElement> {
   /** Things that appear next to the hamburger button, when the sidebar collapses. */
   collapsedHeader?: ReactNode;
   sidebarClassName?: string;
+  mainClassName?: string;
   /** Max screen width when the sidebar collapses. Defaults to 600px. */
   widthBreakpoint?: number;
 }
@@ -20,9 +21,9 @@ interface Props extends React.HTMLAttributes<HTMLElement> {
  * When the screen becomes too small (e.g. on mobile),
  * the sidebar collapses and opens in a popup.
  */
-export function SidebarLayout({className, ...props}: Props) {
+export function SidebarLayout({ className, ...props }: Props) {
   const { widthBreakpoint } = props;
-  const classes = ["layout-with-sidebar"];
+  const classes = ['layout-with-sidebar'];
   if (className) classes.push(className);
   return (
     <FillLayout className={classes.join(' ')}>
@@ -35,13 +36,20 @@ export function SidebarLayout({className, ...props}: Props) {
   );
 }
 
-function BigScreen({ sidebar, sidebarClassName, children }: Props) {
+function BigScreen({
+  sidebar,
+  sidebarClassName,
+  mainClassName,
+  children,
+}: Props) {
   const sidebarClasses = ['layout-sidebar-column'];
   if (sidebarClassName) sidebarClasses.push(sidebarClassName);
+  const mainClasses = ['layout-main-column'];
+  if (mainClassName) mainClasses.push(mainClassName);
   return (
     <RowLayout>
       <Col className={sidebarClasses.join(' ')}>{sidebar}</Col>
-      <Col className="layout-main-column">{children}</Col>
+      <Col className={mainClasses.join(' ')}>{children}</Col>
     </RowLayout>
   );
 }
@@ -49,6 +57,7 @@ function BigScreen({ sidebar, sidebarClassName, children }: Props) {
 function SmallScreen({
   sidebar,
   sidebarClassName,
+  mainClassName,
   collapsedHeader,
   children,
 }: Props) {
@@ -61,6 +70,8 @@ function SmallScreen({
   }
   const sidebarClasses = ['layout-sidebar-overlay'];
   if (sidebarClassName) sidebarClasses.push(sidebarClassName);
+  const mainClasses = ['layout-main-column'];
+  if (mainClassName) mainClasses.push(mainClassName);
   return (
     <>
       {sidebarShown ? (
@@ -81,7 +92,7 @@ function SmallScreen({
           {collapsedHeader}
         </div>
       )}
-      <Col className="layout-main-column">{children}</Col>
+      <Col className={mainClasses.join(' ')}>{children}</Col>
     </>
   );
 }
