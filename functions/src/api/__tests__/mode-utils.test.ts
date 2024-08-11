@@ -64,7 +64,7 @@ test('check text answer', async () => {
     '山',
     ['サン', 'やま'],
     ['san', 'yama'],
-    new Map([['en', ['mountain', 'mount']]]),
+    new Map([['en', ['mountain', 'mount', 'hill (a really tall one)']]]),
     ['kanji_grade_1'],
   );
   const turn = new GameTurn(
@@ -85,11 +85,13 @@ test('check text answer', async () => {
   expect(isCorrectResponse(turn, typedResponse('yama'))).toBe(true);
 
   turn.answer_mode = 'type_meaning';
-  // Non-existent romaji answer:
+  // Non-existent meaning answer:
   expect(isCorrectResponse(turn, typedResponse('what'))).toBe(false);
-  // Valid romaji answers:
+  // Valid meaning answers:
   expect(isCorrectResponse(turn, typedResponse('mountain'))).toBe(true);
   expect(isCorrectResponse(turn, typedResponse('mount'))).toBe(true);
+  // Valid meaning answer with removed filler:
+  expect(isCorrectResponse(turn, typedResponse('hill'))).toBe(true);
 });
 
 function choiceResponse(entryID: string) {

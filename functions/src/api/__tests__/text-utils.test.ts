@@ -3,6 +3,7 @@ import {
   detectKana,
   detectKanji,
   isKanaOnly,
+  removeFillerText,
 } from '../../shared/text-utils';
 
 test('detect japanese text', () => {
@@ -47,4 +48,18 @@ test('detect Kana only', () => {
   expect(isKanaOnly('ひらがな漢字')).toBe(false);
   expect(isKanaOnly('English ひらがな漢字 lol')).toBe(false);
   expect(isKanaOnly('😎')).toBe(false);
+});
+
+test('remove filler text for correctness check', () => {
+  expect(removeFillerText('Book', 'en')).toBe('book');
+  expect(removeFillerText('sign of the rat', 'en')).toBe('signrat');
+  expect(removeFillerText('minute of time, or something', 'en')).toBe(
+    'minutetimesomething',
+  );
+  expect(removeFillerText('(optional)', 'en')).toBe('optional');
+  expect(removeFillerText('（コク）', 'en')).toBe('コク');
+  expect(removeFillerText('minute (of time)', 'en')).toBe('minute');
+  expect(removeFillerText('counter for storeys of a building', 'en')).toBe(
+    'counterstoreysbuilding',
+  );
 });

@@ -1,3 +1,6 @@
+import { Language } from './types';
+import { assertExhaustive } from './utils';
+
 /**
  * Returns true if the text contains Japanese characters.
  * From https://stackoverflow.com/a/15034560/1093712
@@ -30,4 +33,29 @@ export function detectKanji(text: string) {
  */
 export function isKanaOnly(text: string) {
   return detectKana(text) && !detectKanji(text);
+}
+
+/**
+ * Removes words like 'the' to improve correctness check.
+ * Also removes whitespace.
+ */
+export function removeFillerText(text: string, language: Language): string {
+  text = text.toLowerCase();
+  // Remove optional parts in brackets: "minute (of time)".
+  // But not if that's the entire word: "（shin）".
+  text = text.replace(/(.+)([([{（［｛].+[)\]}）］｝].*)/g, '$1');
+  // Remove punctuation
+  text = text.replace(/["'«».,:;!?&%*\-~()[\]{}（）「」【】［］｛｝]/g, '');
+  // Remove language-specific filler words:
+  switch (language) {
+    case 'en':
+      text = text.replace(/(the|of|a|to|in|on|for|or)\s+/g, '');
+      break;
+    default:
+      assertExhaustive(language);
+      break;
+  }
+  // remove whitespace:
+  text = text.replace(/\s+/g, '');
+  return text;
 }

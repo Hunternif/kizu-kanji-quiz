@@ -214,7 +214,7 @@
 番	2	N3	バン	ban	turn, number in a series
 父	2	N5	フ, ちち	fu, chichi	father
 風	2	N4	フウ, （フ）, かぜ, （かざ）	fuu, (fu), kaze, (kaza)	wind, air, style, manner
-分	2	N5	ブン, フン, ブ, わける, わかれる, わかる, わかつ	bun, fun, bu, wakeru, wakareru, wakaru, wakatsu	part, minute of time
+分	2	N5	ブン, フン, ブ, わける, わかれる, わかる, わかつ	bun, fun, bu, wakeru, wakareru, wakaru, wakatsu	part, minute (of time)
 聞	2	N5	ブン, モン, きく, きこえる	bun, mon, kiku, kikoeru	hear, ask, listen
 米	2	N3	ベイ, マイ, こめ	bei, mai, kome	rice, USA, metre
 歩	2	N4	ホ, ブ, （フ）, あるく, あゆむ	ho, bu, (fu), aruku, ayumu	walk, counter for steps
@@ -249,7 +249,7 @@
 荷	3	N2	カ, に	ka, ni	baggage, shoulder-pole load, bear (a burden), shoulder (a gun), load, cargo, freight
 界	3	N4	カイ	kai	world
 開	3	N4	カイ, ひらく, ひらける, あく, あける	kai, hiraku, hirakeru, aku, akeru	open, unfold, unseal
-階	3	N2	カイ	kai	storey, stair, counter for storeys of a building
+階	3	N2	カイ	kai	storey, floor, stair, counter for storeys of a building
 寒	3	N3	カン, さむい	kan, samui	cold
 感	3	N3	カン	kan	emotion, feeling, sensation
 漢	3	N4	カン	kan	Sino-, China
@@ -335,7 +335,7 @@
 整	3	N1	セイ, ととのえる, ととのう	sei, totonoeru, totonou	organize, arranging, tune, tone, meter, key (music)
 昔	3	N3	セキ, （シャク）, むかし	seki, (shaku), mukashi	once upon a time, antiquity, old times
 全	3	N3	ゼン, まったく, すべて	zen, mattaku, subete	whole, entire, all, complete, fulfill
-相	3	N3	ソウ, ショウ, あい	sou, shou, ai	inter-, mutual, together, each other, minister of state, councillor, aspect, phase, physiognomy
+相	3	N3	ソウ, ショウ, あい	sou, shou, ai	inter-, mutual, together, each other, minister (of state), councillor, aspect, phase, physiognomy
 送	3	N4	ソウ, おくる	sou, okuru	escort, send
 想	3	N3	ソウ, （ソ）	sou, (so)	concept, think, idea, thought
 息	3	N3	ソク, いき	soku, iki	breath, respiration, son, interest (on money)
@@ -1825,7 +1825,7 @@
 箸	S		はし	hashi	chopsticks
 肌	S	N2	はだ	hada	texture
 鉢	S	N1	ハチ, （ハツ）	hachi, (hatsu)	bowl
-髪	S	N3	ハツ, かみ	hatsu, kami	hair of the head
+髪	S	N3	ハツ, かみ	hatsu, kami	hair (of the head)
 伐	S	N1	バツ	batsu	fell
 抜	S	N3	バツ, ぬく, ぬける, ぬかす, ぬかる	batsu, nuku, nukeru, nukasu, nukaru	slip out
 罰	S	N1	バツ, バチ	batsu, bachi	penalty

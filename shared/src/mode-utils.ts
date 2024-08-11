@@ -1,3 +1,4 @@
+import { removeFillerText } from './text-utils';
 import {
   AnswerMode,
   GameEntry,
@@ -311,7 +312,8 @@ function isCorrectTypedAnswer(
     turn.game_mode,
     language,
   );
+  text = removeFillerText(text, language);
   return (
-    trueAnswerContent.find((t) => t.toLowerCase() == text.toLowerCase()) != null
+    trueAnswerContent.find((t) => removeFillerText(t, language) == text) != null
   );
 }
