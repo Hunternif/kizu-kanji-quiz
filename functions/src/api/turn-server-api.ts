@@ -15,7 +15,7 @@ import {
   getPlayerThrows,
   updateLobby,
 } from './lobby-server-repository';
-import { updateUserStats } from './stats-api';
+import { updateUserStats } from './stats-server-api';
 import {
   getAllPlayerResponses,
   getLastTurn,
