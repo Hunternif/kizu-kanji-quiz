@@ -10,7 +10,6 @@ import {
   defaultLobbySettings,
 } from '../shared/types';
 import { assertExhaustive, stringComparator } from '../shared/utils';
-import { assertNotAnonymous } from './auth-api';
 import { getEntriesForGame } from './entry-api';
 import {
   countPlayers,
@@ -35,7 +34,7 @@ import { getOrCreateQuizUser } from './user-server-api';
 export async function createLobby(userID: string): Promise<GameLobby> {
   // TODO: need to acquire lock. This doesn't prevent double lobby creation!
   // Only allow non-anonymous users to create lobbies:
-  await assertNotAnonymous(userID);
+  // await assertNotAnonymous(userID);
   await assertLobbyLimit();
   const newLobbyRef = lobbiesRef.doc();
   const newID = newLobbyRef.id;
@@ -310,7 +309,7 @@ export async function createLobbyAsCopy(
   userID: string,
   oldLobby: GameLobby,
 ): Promise<GameLobby> {
-  await assertNotAnonymous(userID);
+  // await assertNotAnonymous(userID);
   await assertLobbyLimit();
   const newLobbyRef = lobbiesRef.doc();
   const newID = newLobbyRef.id;
