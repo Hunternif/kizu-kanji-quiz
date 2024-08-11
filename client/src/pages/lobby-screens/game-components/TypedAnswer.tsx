@@ -4,6 +4,8 @@ import { GameButton } from '../../../components/Buttons';
 import { TextInput } from '../../../components/FormControls';
 import { useHandler1 } from '../../../hooks/data-hooks';
 import { isCorrectResponse } from '../../../shared/mode-utils';
+import { AnswerMode } from '../../../shared/types';
+import { assertExhaustive } from '../../../shared/utils';
 import { useGameContext } from './GameContext';
 
 interface Props {
@@ -63,22 +65,52 @@ export function TypedAnswer({ disabled }: Props) {
   else if (isCorrect) classes.push('correct');
   else if (isIncorrect) classes.push('incorrect');
 
+  const prompt = getPrompt(turn.answer_mode);
+
   return (
     <form className={classes.join(' ')} onSubmit={(e) => e.preventDefault()}>
-      <TextInput
-        value={disabled ? response?.answer_typed ?? text : text}
-        onChange={handleChange}
-        disabled={disabled}
-      ></TextInput>
-      {!isTimerEnabled && (
-        <GameButton
-          submit
-          onClick={() => submitResponse(text)}
+      <div className="typed-prompt">{prompt}:</div>
+      <div className="input-row">
+        <TextInput
+          className="user-typed-input"
+          value={disabled ? response?.answer_typed ?? text : text}
+          onChange={handleChange}
           disabled={disabled}
-        >
-          Submit
-        </GameButton>
-      )}
+        ></TextInput>
+        {!isTimerEnabled && (
+          <GameButton
+            submit
+            onClick={() => submitResponse(text)}
+            disabled={disabled}
+          >
+            Submit
+          </GameButton>
+        )}
+      </div>
     </form>
   );
+}
+
+function getPrompt(answerMode: AnswerMode): string {
+  switch (answerMode) {
+    case 'choose_kanji':
+      return 'Choose kanji';
+    case 'choose_hiragana':
+      return 'Choose hiragana';
+    case 'choose_romaji':
+      return 'Choose romaji';
+    case 'choose_meaning':
+      return 'Choose meaning';
+    case 'type_romaji':
+      return 'Type romaji';
+    case 'type_meaning':
+      return 'Type meaning';
+    case 'draw_hiragana':
+      return 'Draw hiragana';
+    case 'draw_kanji':
+      return 'Draw kanji';
+    default:
+      assertExhaustive(answerMode);
+      return '';
+  }
 }
