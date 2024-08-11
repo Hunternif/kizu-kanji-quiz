@@ -7,6 +7,8 @@ interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
   show: boolean;
   title?: string;
   noFade?: boolean;
+  /** If true, will not render the background */
+  transparent?: boolean;
   onHide?: () => void;
   closeButton?: boolean;
 }
@@ -21,19 +23,24 @@ function ShownModal({
   show,
   title,
   noFade,
+  transparent,
   onHide,
   children,
   closeButton,
+  className,
   ...props
 }: ModalProps) {
   useKeyDown(() => show && onHide && onHide(), ['Escape']);
+  const cardClasses = ['modal-card'];
+  if (className) cardClasses.push(className);
+  if (transparent) cardClasses.push('transparent');
   return (
     <>
       {!noFade && <ModalBackdrop style={{ zIndex: '19' }} />}
       <div className="modal-container" onMouseDown={onHide}>
         <div
           {...props}
-          className={`modal-card ${props.className ?? ''}`}
+          className={cardClasses.join(' ')}
           // Prevent clicking on the card from closing the modal:
           onMouseDown={(e) => e.stopPropagation()}
         >

@@ -1,10 +1,12 @@
-import { CSSProperties } from 'react';
+import { CSSProperties, useState } from 'react';
 import { loadAllKanjiData } from '../../api/kanji-cache-api';
 import { getUserStats } from '../../api/stats-api';
 import { useErrorContext } from '../../components/ErrorContext';
+import { Modal } from '../../components/Modal';
 import { useAsyncData } from '../../hooks/data-hooks';
 import { GameEntry, QuizUser, TestGroup } from '../../shared/types';
 import { JapText } from '../lobby-screens/game-components/JapText';
+import { QuestionCard } from '../lobby-screens/game-components/QuestionCard';
 
 interface Props {
   quizUser: QuizUser;
@@ -13,6 +15,7 @@ interface Props {
 
 export function KanjiStatList({ quizUser, selectedGroup }: Props) {
   const { setError } = useErrorContext();
+  const [selectedEntry, setSelectedEntry] = useState<GameEntry>();
 
   async function fetchKanji() {
     try {
@@ -39,6 +42,25 @@ export function KanjiStatList({ quizUser, selectedGroup }: Props) {
 
   return (
     <div className="kanji-stat-list">
+      <Modal
+        transparent
+        closeButton
+        show={selectedEntry != null}
+        onHide={() => setSelectedEntry(undefined)}
+        className="entry-details-modal"
+      >
+        {/* TODO: use current language */}
+        {selectedEntry && (
+          <QuestionCard
+            entry={selectedEntry}
+            gameMode="writing_to_meaning"
+            questionMode="kanji"
+            reveal
+            lang="en"
+          />
+        )}
+      </Modal>
+
       {filteredEntries.map((e) => {
         const stat = userStats?.get(e.id);
         const style: CSSProperties = {};
@@ -70,6 +92,7 @@ export function KanjiStatList({ quizUser, selectedGroup }: Props) {
             className="e"
             style={style}
             text={e.writing}
+            onClick={() => setSelectedEntry(e)}
           />
         );
       })}

@@ -21,7 +21,8 @@ const throttledPing = throttle4(pingResponse, 1000);
 
 /** Game screen with a question and multiple choices of answers. */
 export function QuestionScreen() {
-  const { lobby, turn, player, responses, isSpectator } = useGameContext();
+  const { lobby, turn, player, responses, isSpectator, language } =
+    useGameContext();
   const response = responses.find((r) => r.player_uid === player.uid);
   const isPaused = turn.pause === 'paused';
 
@@ -78,7 +79,14 @@ export function QuestionScreen() {
             />
           )}
         </div>
-        <QuestionCard />
+        <QuestionCard
+          entry={turn.question}
+          gameMode={turn.game_mode}
+          questionMode={turn.question_mode}
+          paused={turn.pause === 'paused'}
+          reveal={turn.phase === 'reveal'}
+          lang={language}
+        />
       </div>
       {showChoices && (
         <div className="choices">

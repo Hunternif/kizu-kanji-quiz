@@ -27,18 +27,20 @@
 
 /* Similar to login-card */
 .modal-card {
-  padding: 1em;
-  border-radius: 0.735rem;
-  background-color: colors.$modal-bg;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
   display: flex;
-  gap: 1em;
   flex-direction: column;
   justify-content: flex-start;
-  min-width: 18em;
-  max-width: 60vw;
-  min-height: 8em;
-  max-height: 80vh;
+  &:not(.transparent) {
+    gap: 1em;
+    padding: 1em;
+    border-radius: 0.735rem;
+    background-color: colors.$modal-bg;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    min-width: 18em;
+    max-width: 60vw;
+    min-height: 8em;
+    max-height: 80vh;
+  }
   > header {
     display: flex;
     align-items: center;
