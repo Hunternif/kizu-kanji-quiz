@@ -59,8 +59,8 @@ export function QuestionScreen() {
 
   const isTimerEnabled =
     turn.next_phase_time != null && turn.phase_duration_ms != 0;
-  const showContinue = !isTimerEnabled && turn.phase === 'reveal';
-  const showSkip = !isTimerEnabled && (response == null || response.isEmpty());
+  const showContinue = turn.phase === 'reveal' || response?.isEmpty() === false;
+  const showSkip = response == null || response.isEmpty();
 
   return (
     <CenteredLayout innerClassName={rootClasses.join(' ')}>
