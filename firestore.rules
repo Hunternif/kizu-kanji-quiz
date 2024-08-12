@@ -69,18 +69,8 @@ service cloud.firestore {
         match /player_responses/{userID} {
           // Allow players to submit as many times as needed:
           allow create, update: if isLoggedIn() && request.auth.uid == userID
-                                && userIsActivePlayer(lobby)
-                                // Allow submitting responses during 'answering' phase:
-                                && (
-                                  isTurnPhase(lobby, turn, 'answering')
-                                  // And also allow 'ping' responses during 'reveal':
-                                  || (
-                                    isTurnPhase(lobby, turn, 'reveal')
-                                    && fieldsUnchanged(['answer_entry_id', 'answer_typed'])
-                                  )
-                                );
-          allow delete: if isLoggedIn() && request.auth.uid == userID
-                        && isTurnPhase(lobby, turn, 'answering');
+                                && userIsActivePlayer(lobby);
+          allow delete: if isLoggedIn() && request.auth.uid == userID;
         }
       }
     }
