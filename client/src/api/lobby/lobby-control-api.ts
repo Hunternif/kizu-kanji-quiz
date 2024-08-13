@@ -6,13 +6,8 @@ import {
   startLobbyFun,
   updateLobbySettingsFun,
 } from '../../firebase';
-import {
-  GameLobby,
-  GameTurn,
-  LobbySettings,
-  PlayerInLobby,
-  TestGroup,
-} from '../../shared/types';
+import { GameLobby, LobbySettings, TestGroup } from '../../shared/types';
+import { getLastTurn, updateTurn } from '../turn/turn-repository';
 import { getLobby, updateLobby } from './lobby-repository';
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -33,6 +28,26 @@ export async function startLobby(lobby: GameLobby): Promise<void> {
   await updateLobby(lobby);
   // Now actually start it:
   await startLobbyFun({ lobby_id: lobby.id });
+}
+
+/** Signals the end of the initial countdown before the start of the game.
+ * Must be called from the lobby creator's client. */
+export async function signalEndOfCountdown(lobby: GameLobby) {
+  if (lobby.creator_uid === firebaseAuth.currentUser?.uid) {
+    // Update first turn's start time:
+    const turn = await getLastTurn(lobby);
+    if (turn) {
+      // TODO: this could be screwed up because of timezones:
+      turn.setPhase(
+        'answering',
+        new Date(),
+        lobby.settings.question_timer_sec * 1000,
+      );
+      await updateTurn(lobby.id, turn);
+    }
+    lobby.status = 'in_progress';
+    await updateLobby(lobby);
+  }
 }
 
 export async function endLobby(lobby: GameLobby): Promise<void> {

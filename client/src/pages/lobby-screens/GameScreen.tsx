@@ -15,6 +15,7 @@ import { assertExhaustive } from '../../shared/utils';
 import { GameContext, GameContextState } from './game-components/GameContext';
 import { GameHeader } from './game-components/header/GameHeader';
 import { QuestionScreen } from './QuestionScreen';
+import { CountdownScreen } from './CountdownScreen';
 
 interface ScreenProps {
   lobby: GameLobby;
@@ -126,7 +127,11 @@ function TurnScreen({ lobby, turn, user, quizUser, players }: PreTurnProps) {
     <GameContext.Provider value={gameState}>
       <div className={`game-bg phase-${turn.phase}`} />
       <GameHeader />
-      <QuestionScreen />
+      {lobby.status === 'starting_countdown' ? (
+        <CountdownScreen />
+      ) : (
+        <QuestionScreen />
+      )}
     </GameContext.Provider>
   );
 }

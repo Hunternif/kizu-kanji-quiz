@@ -56,7 +56,20 @@ export async function createNewTurn(
     question,
     choices,
   );
-  newTurn.setPhase('answering', now, lobby.settings.question_timer_sec * 1000);
+
+  // Offset by countdown timer:
+  let phaseStart = now;
+  if (lobby.status === 'starting_countdown') {
+    phaseStart = new Date(
+      now.getTime() + lobby.settings.start_countdown_sec * 1000,
+    );
+  }
+  newTurn.setPhase(
+    'answering',
+    phaseStart,
+    lobby.settings.question_timer_sec * 1000,
+  );
+
   await getTurnsRef(lobby.id).doc(id).set(newTurn);
   lobby.current_turn_id = newTurn.id;
   await updateLobby(lobby);

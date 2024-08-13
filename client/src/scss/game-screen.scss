@@ -57,3 +57,25 @@
     width: auto;
   }
 }
+
+.countdown-screen {
+  text-align: center;
+  header {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+  .countdown-timer {
+    // font-family: Arial, Helvetica, sans-serif;
+    // font-family: 'Courier New', Courier, monospace;
+    font-size: 10rem;
+    font-weight: 800;
+    // color: colors.$countdown;
+    border: 5px dashed colors.$gray-1;
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

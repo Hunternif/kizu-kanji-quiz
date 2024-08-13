@@ -9,13 +9,12 @@ import {
   IconChevronDownInline,
   IconQuestionInline,
 } from '../../../components/Icons';
-import { Twemoji } from '../../../components/Twemoji';
+import { Warning } from '../../../components/Warning';
 import {
   getValidAnswerModes,
   getValidQuestionModes,
 } from '../../../shared/mode-utils';
 import { AnswerMode, LobbySettings, QuestionMode } from '../../../shared/types';
-import { Warning } from '../../../components/Warning';
 
 interface Props {
   settings: LobbySettings;
@@ -69,6 +68,11 @@ export function LobbySettingsPanel(props: Props) {
           label="Reveal timer [sec]"
           hint="Answer is revealed for this amount of time (in seconds). 0 to disable."
           control={<RevealTimerControl {...props} />}
+        />
+        <FormItem
+          label="Countdown [sec]"
+          hint="Countdown before the first turn (in seconds). 0 to disable."
+          control={<StartCountdownTimerControl {...props} />}
         />
         <FormItem
           label="Allow join mid-game"
@@ -219,6 +223,23 @@ function RevealTimerControl({ settings, readOnly, onChange }: Props) {
       value={settings.reveal_timer_sec}
       onChange={async (newValue) => {
         settings.reveal_timer_sec = newValue;
+        if (onChange) await onChange(settings);
+      }}
+    />
+  );
+}
+
+function StartCountdownTimerControl({ settings, readOnly, onChange }: Props) {
+  return (
+    <NumberInput
+      debounce
+      min={0.0}
+      max={99.0}
+      step={1}
+      disabled={readOnly}
+      value={settings.start_countdown_sec}
+      onChange={async (newValue) => {
+        settings.start_countdown_sec = newValue;
         if (onChange) await onChange(settings);
       }}
     />

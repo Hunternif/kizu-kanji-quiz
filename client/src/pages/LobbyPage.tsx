@@ -118,6 +118,7 @@ function JoinedLobbyScreen({ lobbyID, user, quizUser }: LoggedInJoinedProps) {
     case 'new':
     case 'starting':
       return <NewLobbyScreen lobby={lobby} user={user} players={players} />;
+    case 'starting_countdown':
     case 'in_progress':
       return (
         <GameScreen

@@ -52,6 +52,8 @@ export interface LobbySettings {
   question_timer_sec: number;
   /** Answer is revealed for this number of seconds. */
   reveal_timer_sec: number;
+  /** Countdown timer before the start of the first round. */
+  start_countdown_sec: number;
   /** If true, players can join after the game has started. */
   allow_join_mid_game: boolean;
   /** If true, card statistics will not be updated. */
@@ -65,10 +67,11 @@ export function defaultLobbySettings(): LobbySettings {
     max_players: 20,
     max_questions: 50,
     question_mode: 'kanji',
-    answer_mode: 'choose_romaji',
+    answer_mode: 'choose_meaning',
     num_choices: 4,
     question_timer_sec: 5,
     reveal_timer_sec: 3,
+    start_countdown_sec: 3,
     allow_join_mid_game: true,
     freeze_stats: false,
     lobby_control: 'players',
@@ -260,7 +263,12 @@ export type PlayerStatus = 'online' | 'left' | 'banned';
 
 export type TurnPhase = 'new' | 'answering' | 'reveal' | 'complete';
 
-export type LobbyStatus = 'new' | 'starting' | 'in_progress' | 'ended';
+export type LobbyStatus =
+  | 'new'
+  | 'starting'
+  | 'starting_countdown' // countdown before the first turn
+  | 'in_progress'
+  | 'ended';
 /** Could contain extra statuses for timed resume. */
 export type PauseStatus = 'none' | 'paused';
 export type PauseRequest = 'request_pause' | 'request_resume';

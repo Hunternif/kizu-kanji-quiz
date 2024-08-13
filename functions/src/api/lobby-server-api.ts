@@ -51,6 +51,7 @@ async function allowJoinAsPlayer(lobby: GameLobby): Promise<boolean> {
     case 'new':
       return true;
     case 'starting':
+    case 'starting_countdown':
       // Let them try again after the lobby has started:
       return false;
     case 'in_progress':
@@ -67,6 +68,7 @@ async function allowJoinAsSpectator(lobby: GameLobby): Promise<boolean> {
   switch (lobby.status) {
     case 'new':
     case 'starting':
+    case 'starting_countdown':
     case 'in_progress':
       return true;
     case 'ended':
@@ -168,9 +170,13 @@ export async function startLobby(lobby: GameLobby) {
     await validateGameSettings(lobby);
     // Copy cards from all added decks into the lobby:
     await copyEntriesToLobby(lobby);
-    await createNewTurn(lobby);
     // Start the game:
-    lobby.status = 'in_progress';
+    if (lobby.settings.start_countdown_sec > 0) {
+      lobby.status = 'starting_countdown';
+    } else {
+      lobby.status = 'in_progress';
+    }
+    await createNewTurn(lobby);
     await updateLobby(lobby);
     logger.info(`Started lobby ${lobby.id}`);
   } catch (e: any) {
@@ -180,7 +186,7 @@ export async function startLobby(lobby: GameLobby) {
   }
 }
 
-/** Checks and corrects any settings. Does no update the database! */
+/** Checks and corrects any settings. Does not update the database! */
 export async function validateGameSettings(lobby: GameLobby) {
   const settings = lobby.settings;
   const defaults = defaultLobbySettings();
@@ -201,7 +207,6 @@ export async function validateGameSettings(lobby: GameLobby) {
     settings.reveal_timer_sec = 1; // 1 sec minimum
   }
   // Maybe validate that question and answer mode should not match?
-  await updateLobby(lobby);
 }
 
 /**

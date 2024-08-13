@@ -102,6 +102,8 @@ $choice-answer-bg: $choice-correct-bg;
 $timer-bg: $gray-2;
 $timer-bar: $accent-blue;
 
+$countdown: $question-bg;
+
 /*------------------------- Form controls ------------------------*/
 $control-bg: $gray-0;
 $control-bg-focus: lighten($gray-0, 5%);
