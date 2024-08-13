@@ -17,7 +17,7 @@ import { TurnCount } from './game-components/TurnCount';
 import { TypedAnswer } from './game-components/TypedAnswer';
 
 // Throttle prevents us from accidentally updating the document too many times:
-const throttledPing = throttle4(pingResponse, 1000);
+const throttledPing = throttle4(pingResponse, 200);
 
 /** Game screen with a question and multiple choices of answers. */
 export function QuestionScreen() {
