@@ -44,6 +44,7 @@ export class GameLobby {
 
 export interface LobbySettings {
   max_players: number;
+  max_questions: number;
   game_mode: GameMode;
   question_mode: QuestionMode;
   answer_mode: AnswerMode;
@@ -63,6 +64,7 @@ export interface LobbySettings {
 export function defaultLobbySettings(): LobbySettings {
   return {
     max_players: 20,
+    max_questions: 50,
     game_mode: 'writing_to_reading',
     question_mode: 'kanji',
     answer_mode: 'choose_romaji',

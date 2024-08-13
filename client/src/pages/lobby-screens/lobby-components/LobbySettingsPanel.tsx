@@ -34,11 +34,6 @@ export function LobbySettingsPanel(props: Props) {
       </header>
       <div className="lobby-settings-form">
         <FormItem
-          label="Maximum players"
-          hint="When this number is reached, other players can only spectate."
-          control={<MaxPlayersControl {...props} />}
-        />
-        <FormItem
           label="Game mode"
           hint="Describes what the overall game mode looks like, question and answer."
           control={<GameModeControl {...props} />}
@@ -52,6 +47,11 @@ export function LobbySettingsPanel(props: Props) {
           label="Answer mode"
           hint="What the players' answers will look like."
           control={<AnswerModeControl {...props} />}
+        />
+        <FormItem
+          label="Max questions"
+          hint="Game will end after this many questions. 0 to disable."
+          control={<MaxQuestionsControl {...props} />}
         />
         <FormItem
           label="Choices"
@@ -83,6 +83,11 @@ export function LobbySettingsPanel(props: Props) {
           hint="Statistics will not be updated during this game. Use this for test games."
           control={<FreezeStatsControl {...props} />}
         />
+        <FormItem
+          label="Maximum players"
+          hint="When this number is reached, other players can only spectate."
+          control={<MaxPlayersControl {...props} />}
+        />
       </div>
     </div>
   );
@@ -98,6 +103,22 @@ function MaxPlayersControl({ settings, readOnly, onChange }: Props) {
       value={settings.max_players}
       onChange={async (newValue) => {
         settings.max_players = newValue;
+        if (onChange) await onChange(settings);
+      }}
+    />
+  );
+}
+
+function MaxQuestionsControl({ settings, readOnly, onChange }: Props) {
+  return (
+    <NumberInput
+      debounce
+      min={0}
+      max={9999}
+      disabled={readOnly}
+      value={settings.max_questions}
+      onChange={async (newValue) => {
+        settings.max_questions = newValue;
         if (onChange) await onChange(settings);
       }}
     />
