@@ -35,6 +35,12 @@ export function isKanaOnly(text: string) {
   return detectKana(text) && !detectKanji(text);
 }
 
+const regexWordInBracketsAfter = /(.+)([([{（［｛].+[)\]}）］｝].*)/g;
+const regexWordInBracketsBefore = /(.*)([([{（［｛].+[)\]}）］｝])(.+)/g;
+const regexPunctuation =
+  /["'«».,:;!?&%*\-~()[\]{}（）「」【】［］｛｝：！？、，。]/g;
+const regexEnglishFillers = /(the|of|a|to|in|on|for|or)\s+/g;
+
 /**
  * Removes words like 'the' to improve correctness check.
  * Also removes whitespace.
@@ -43,13 +49,14 @@ export function removeFillerText(text: string, language: Language): string {
   text = text.toLowerCase();
   // Remove optional parts in brackets: "minute (of time)".
   // But not if that's the entire word: "（shin）".
-  text = text.replace(/(.+)([([{（［｛].+[)\]}）］｝].*)/g, '$1');
+  text = text.replace(regexWordInBracketsAfter, '$1');
+  text = text.replace(regexWordInBracketsBefore, '$1 $3');
   // Remove punctuation
-  text = text.replace(/["'«».,:;!?&%*\-~()[\]{}（）「」【】［］｛｝：！？、，。]/g, '');
+  text = text.replace(regexPunctuation, '');
   // Remove language-specific filler words:
   switch (language) {
     case 'en':
-      text = text.replace(/(the|of|a|to|in|on|for|or)\s+/g, '');
+      text = text.replace(regexEnglishFillers, '');
       break;
     default:
       assertExhaustive(language);

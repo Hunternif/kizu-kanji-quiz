@@ -58,7 +58,9 @@ test('remove filler text for correctness check', () => {
   );
   expect(removeFillerText('(optional)', 'en')).toBe('optional');
   expect(removeFillerText('（コク）', 'en')).toBe('コク');
+  expect(removeFillerText('spectator(s)', 'en')).toBe('spectator');
   expect(removeFillerText('minute (of time)', 'en')).toBe('minute');
+  expect(removeFillerText('(any) market (as a concept)', 'en')).toBe('market');
   expect(removeFillerText('counter for storeys of a building', 'en')).toBe(
     'counterstoreysbuilding',
   );
