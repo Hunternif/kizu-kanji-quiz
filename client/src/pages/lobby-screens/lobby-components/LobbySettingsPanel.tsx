@@ -9,10 +9,6 @@ import {
   IconChevronDownInline,
   IconQuestionInline,
 } from '../../../components/Icons';
-import {
-  getValidAnswerModes,
-  getValidQuestionModes,
-} from '../../../shared/mode-utils';
 import { AnswerMode, LobbySettings, QuestionMode } from '../../../shared/types';
 
 interface Props {
@@ -33,11 +29,6 @@ export function LobbySettingsPanel(props: Props) {
         <h3>Game Settings</h3>
       </header>
       <div className="lobby-settings-form">
-        <FormItem
-          label="Game mode"
-          hint="Describes what the overall game mode looks like, question and answer."
-          control={<GameModeControl {...props} />}
-        />
         <FormItem
           label="Question mode"
           hint="What the question will look like."
@@ -125,27 +116,6 @@ function MaxQuestionsControl({ settings, readOnly, onChange }: Props) {
   );
 }
 
-function GameModeControl({ settings, readOnly, onChange }: Props) {
-  return (
-    <SelectInput
-      disabled={readOnly}
-      value={settings.game_mode}
-      onChange={async (newValue) => {
-        settings.game_mode = newValue;
-        settings.question_mode = getValidQuestionModes(newValue)[0];
-        settings.answer_mode = getValidAnswerModes(newValue)[0];
-        if (onChange) await onChange(settings);
-      }}
-      options={[
-        ['writing_to_reading', '字 ⇢ reading'],
-        ['reading_to_writing', 'Reading ⇢ 字'],
-        ['writing_to_meaning', '字 ⇢ meaning'],
-        ['meaning_to_writing', 'Meaning ⇢ 字'],
-      ]}
-    />
-  );
-}
-
 function QuestionModeControl({ settings, readOnly, onChange }: Props) {
   const options: Array<[QuestionMode, string]> = [
     ['kanji', '漢字'],
@@ -153,10 +123,6 @@ function QuestionModeControl({ settings, readOnly, onChange }: Props) {
     ['romaji', 'Romaji'],
     ['meaning', 'Meaning'],
   ];
-  const validQuestionModes = new Set(getValidQuestionModes(settings.game_mode));
-  const validOptions = options.filter(([key, _]) =>
-    validQuestionModes.has(key),
-  );
   return (
     <SelectInput
       disabled={readOnly}
@@ -165,7 +131,7 @@ function QuestionModeControl({ settings, readOnly, onChange }: Props) {
         settings.question_mode = newValue;
         if (onChange) await onChange(settings);
       }}
-      options={validOptions}
+      options={options}
     />
   );
 }
@@ -181,8 +147,6 @@ function AnswerModeControl({ settings, readOnly, onChange }: Props) {
     ['type_romaji', 'Type romaji'],
     ['type_meaning', 'Type meaning'],
   ];
-  const validAnswerModes = new Set(getValidAnswerModes(settings.game_mode));
-  const validOptions = options.filter(([key, _]) => validAnswerModes.has(key));
   return (
     <SelectInput
       disabled={readOnly}
@@ -191,7 +155,7 @@ function AnswerModeControl({ settings, readOnly, onChange }: Props) {
         settings.answer_mode = newValue;
         if (onChange) await onChange(settings);
       }}
-      options={validOptions}
+      options={options}
     />
   );
 }

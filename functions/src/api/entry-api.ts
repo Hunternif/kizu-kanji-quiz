@@ -193,8 +193,8 @@ export function selectQuestion(
   choiceContentSet.add(
     getAnswerContent(
       question,
+      lobby.settings.question_mode,
       lobby.settings.answer_mode,
-      lobby.settings.game_mode,
       'en',
     ).join(', '),
   );
@@ -210,8 +210,8 @@ export function selectQuestion(
     const choice = lobby.questions[i];
     const choiceContent = getAnswerContent(
       choice,
+      lobby.settings.question_mode,
       lobby.settings.answer_mode,
-      lobby.settings.game_mode,
       'en',
     ).join(', ');
     if (choiceSet.has(choice) || choiceContentSet.has(choiceContent)) {

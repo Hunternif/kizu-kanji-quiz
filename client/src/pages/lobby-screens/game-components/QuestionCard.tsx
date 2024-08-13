@@ -3,8 +3,8 @@ import {
   getQuestionContent,
 } from '../../../shared/mode-utils';
 import {
+  AnswerMode,
   GameEntry,
-  GameMode,
   Language,
   QuestionMode,
 } from '../../../shared/types';
@@ -12,8 +12,8 @@ import { JapText } from './JapText';
 
 interface QuestionProps {
   entry: GameEntry;
-  gameMode: GameMode;
   questionMode: QuestionMode;
+  answerMode: AnswerMode;
   lang: Language;
   paused?: boolean;
   reveal?: boolean;
@@ -22,8 +22,8 @@ interface QuestionProps {
 /** The big card showing the question that all players need to answer. */
 export function QuestionCard({
   entry,
-  gameMode,
   questionMode,
+  answerMode,
   lang,
   paused,
   reveal,
@@ -33,7 +33,7 @@ export function QuestionCard({
   if (!reveal) cardClasses.push('question');
   if (reveal) cardClasses.push('explanation');
 
-  const text = getQuestionContent(entry, questionMode, gameMode, lang).join(
+  const text = getQuestionContent(entry, questionMode, answerMode, lang).join(
     ', ',
   );
 

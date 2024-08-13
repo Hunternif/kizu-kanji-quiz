@@ -129,7 +129,6 @@ export const turnConverter: FConverter<GameTurn> = {
       snapshot.id,
       data.ordinal,
       time_created,
-      data.game_mode,
       data.question_mode,
       data.answer_mode,
       mapToEntry(data.question),

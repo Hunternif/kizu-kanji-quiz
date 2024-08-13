@@ -45,7 +45,6 @@ export class GameLobby {
 export interface LobbySettings {
   max_players: number;
   max_questions: number;
-  game_mode: GameMode;
   question_mode: QuestionMode;
   answer_mode: AnswerMode;
   num_choices: number;
@@ -65,7 +64,6 @@ export function defaultLobbySettings(): LobbySettings {
   return {
     max_players: 20,
     max_questions: 50,
-    game_mode: 'writing_to_reading',
     question_mode: 'kanji',
     answer_mode: 'choose_romaji',
     num_choices: 4,
@@ -100,12 +98,6 @@ export class GameEntry {
   }
 }
 
-/** Overall game mode */
-export type GameMode =
-  | 'writing_to_reading'
-  | 'reading_to_writing'
-  | 'writing_to_meaning'
-  | 'meaning_to_writing';
 /** What is shown on the question */
 export type QuestionMode = 'kanji' | 'hiragana' | 'romaji' | 'meaning';
 /** What is shown on the answers */
@@ -148,6 +140,23 @@ export type TestGroup =
   | KanjiGrade
   | KanjiJlptLevel;
 
+export const allQuestionModes: Array<QuestionMode> = [
+  'kanji',
+  'hiragana',
+  'romaji',
+  'meaning',
+];
+export const allAnswerModes: Array<AnswerMode> = [
+  'choose_kanji',
+  'choose_hiragana',
+  'choose_romaji',
+  'choose_meaning',
+  'type_romaji',
+  'type_meaning',
+  'draw_hiragana',
+  'draw_kanji',
+];
+
 /** Instance of a player specific to a single game lobby. */
 export class PlayerInLobby {
   /** Should be UTC */
@@ -189,8 +198,6 @@ export class GameTurn {
     /** Turn's ordinal number: 1, 2, 3, ... */
     public ordinal: number,
     public time_created: Date,
-    /** Game mode could be different per turn. */
-    public game_mode: GameMode,
     public question_mode: QuestionMode,
     public answer_mode: AnswerMode,
     public question: GameEntry,

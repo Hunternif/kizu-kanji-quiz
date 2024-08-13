@@ -51,7 +51,6 @@ export async function createNewTurn(
     id,
     newOrdinal,
     now,
-    lobby.settings.game_mode,
     lobby.settings.question_mode,
     lobby.settings.answer_mode,
     question,
@@ -239,7 +238,6 @@ export async function resumeTurn(lobbyID: string, turn: GameTurn) {
 export async function updateCurrentTurnSettings(lobby: GameLobby) {
   const turn = await getLastTurn(lobby);
   if (turn) {
-    turn.game_mode = lobby.settings.game_mode;
     turn.answer_mode = lobby.settings.answer_mode;
     turn.question_mode = lobby.settings.question_mode;
     const questionTimerMs = lobby.settings.question_timer_sec * 1000;

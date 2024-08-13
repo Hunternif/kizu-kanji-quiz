@@ -12,7 +12,6 @@ test('check answer correctness, when questions match', async () => {
     'turn_01',
     1,
     new Date(),
-    'reading_to_writing',
     'romaji',
     'choose_kanji',
     // Question: 'u'
@@ -38,7 +37,6 @@ test('check answer correctness, when answers match', async () => {
     'turn_02',
     2,
     new Date(),
-    'writing_to_reading',
     'kanji',
     'choose_romaji',
     // Question: 'が'
@@ -71,7 +69,6 @@ test('check text answer', async () => {
     'turn_02',
     2,
     new Date(),
-    'writing_to_reading',
     'kanji',
     'type_romaji',
     question,

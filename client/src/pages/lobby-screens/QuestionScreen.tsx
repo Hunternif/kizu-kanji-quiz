@@ -81,8 +81,8 @@ export function QuestionScreen() {
         </div>
         <QuestionCard
           entry={turn.question}
-          gameMode={turn.game_mode}
           questionMode={turn.question_mode}
+          answerMode={turn.answer_mode}
           paused={turn.pause === 'paused'}
           reveal={turn.phase === 'reveal'}
           lang={language}

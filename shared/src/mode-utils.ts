@@ -2,7 +2,6 @@ import { removeFillerText } from './text-utils';
 import {
   AnswerMode,
   GameEntry,
-  GameMode,
   GameTurn,
   Language,
   PlayerResponse,
@@ -10,50 +9,78 @@ import {
 } from './types';
 import { assertExhaustive } from './utils';
 
-/** Returns valid question modes given game mode */
-export function getValidQuestionModes(gameMode: GameMode): QuestionMode[] {
+/** Returns valid question modes given answer mode */
+export function getValidQuestionModes(answerMode: AnswerMode): QuestionMode[] {
   const validQuestionModes: Array<QuestionMode> = [];
-  switch (gameMode) {
-    case 'writing_to_reading':
-      validQuestionModes.push('kanji', 'hiragana');
+  switch (answerMode) {
+    case 'choose_kanji':
+    case 'draw_kanji':
+      validQuestionModes.push('hiragana', 'romaji', 'meaning');
       break;
-    case 'reading_to_writing':
-      validQuestionModes.push('hiragana', 'romaji');
+    case 'choose_hiragana':
+    case 'draw_hiragana':
+      validQuestionModes.push('kanji', 'romaji', 'meaning');
       break;
-    case 'writing_to_meaning':
+    case 'choose_romaji':
+    case 'type_romaji':
+      validQuestionModes.push('kanji', 'hiragana', 'meaning');
+      break;
+    case 'choose_meaning':
+    case 'type_meaning':
       validQuestionModes.push('kanji', 'hiragana', 'romaji');
       break;
-    case 'meaning_to_writing':
-      validQuestionModes.push('meaning');
-      break;
     default:
-      assertExhaustive(gameMode);
+      assertExhaustive(answerMode);
   }
   return validQuestionModes;
 }
 
-/** Returns valid answer modes given game mode */
-export function getValidAnswerModes(gameMode: GameMode): AnswerMode[] {
+/** Returns valid answer modes given question mode */
+export function getValidAnswerModes(questionMode: QuestionMode): AnswerMode[] {
   const validAnswerModes: Array<AnswerMode> = [];
-  switch (gameMode) {
-    case 'writing_to_reading':
-      validAnswerModes.push('choose_hiragana', 'choose_romaji');
-      validAnswerModes.push('type_romaji');
+  switch (questionMode) {
+    case 'kanji':
+      validAnswerModes.push(
+        'choose_hiragana',
+        'choose_romaji',
+        'choose_meaning',
+        'type_romaji',
+        'type_meaning',
+        // 'draw_hiragana', // not supported yet
+      );
       break;
-    case 'reading_to_writing':
-      validAnswerModes.push('choose_kanji', 'choose_hiragana');
-      // validAnswerModes.push('draw_kanji', 'draw_hiragana'); // not supported yet
+    case 'hiragana':
+      validAnswerModes.push(
+        'choose_kanji',
+        'choose_romaji',
+        'choose_meaning',
+        'type_romaji',
+        'type_meaning',
+        // 'draw_kanji' // not supported yet
+      );
       break;
-    case 'writing_to_meaning':
-      validAnswerModes.push('choose_meaning');
-      validAnswerModes.push('type_meaning');
+    case 'romaji':
+      validAnswerModes.push(
+        'choose_kanji',
+        'choose_hiragana',
+        'choose_meaning',
+        'type_meaning',
+        // 'draw_hiragana', // not supported yet
+        // 'draw_kanji', // not supported yet
+      );
       break;
-    case 'meaning_to_writing':
-      validAnswerModes.push('choose_kanji', 'choose_hiragana', 'choose_romaji');
-      // validAnswerModes.push('draw_kanji', 'draw_hiragana'); // not supported yet
+    case 'meaning':
+      validAnswerModes.push(
+        'choose_kanji',
+        'choose_hiragana',
+        'choose_romaji',
+        'type_romaji',
+        // 'draw_hiragana', // not supported yet
+        // 'draw_kanji', // not supported yet
+      );
       break;
     default:
-      assertExhaustive(gameMode);
+      assertExhaustive(questionMode);
   }
   return validAnswerModes;
 }
@@ -111,7 +138,7 @@ export function isTypedAnswer(
 export function getQuestionContent(
   entry: GameEntry,
   questionMode: QuestionMode,
-  gameMode: GameMode,
+  answerMode: AnswerMode,
   language: Language,
 ): string[] {
   switch (questionMode) {
@@ -119,14 +146,14 @@ export function getQuestionContent(
       return [entry.writing];
     case 'hiragana':
       if (entry.isKana) {
-        return getKanaQuestionContent(entry, gameMode);
+        return getKanaQuestionContent(entry, questionMode, answerMode);
       }
       return entry.readings_hiragana;
     case 'romaji':
       return entry.readings_romaji;
     case 'meaning':
       if (entry.isKana) {
-        return getKanaQuestionContent(entry, gameMode);
+        return getKanaQuestionContent(entry, questionMode, answerMode);
       }
       return getEntryMeaning(entry, language);
     default:
@@ -141,8 +168,8 @@ export function getQuestionContent(
  */
 export function getAnswerContent(
   entry: GameEntry,
+  questionMode: QuestionMode,
   answerMode: AnswerMode,
-  gameMode: GameMode,
   language: Language,
 ): string[] {
   switch (answerMode) {
@@ -150,14 +177,14 @@ export function getAnswerContent(
       return [entry.writing];
     case 'choose_hiragana':
       if (entry.isKana) {
-        return getKanaAnswerContent(entry, gameMode);
+        return getKanaAnswerContent(entry, questionMode, answerMode);
       }
       return entry.readings_hiragana;
     case 'choose_romaji':
       return entry.readings_romaji;
     case 'choose_meaning':
       if (entry.isKana) {
-        return getKanaAnswerContent(entry, gameMode);
+        return getKanaAnswerContent(entry, questionMode, answerMode);
       }
       return getEntryMeaning(entry, language);
     case 'type_romaji':
@@ -183,18 +210,19 @@ export function getAnswerContent(
  */
 function getKanaQuestionContent(
   kanaEntry: GameEntry,
-  gameMode: GameMode,
+  questionMode: QuestionMode,
+  answerMode: AnswerMode,
 ): string[] {
-  switch (gameMode) {
-    case 'reading_to_writing':
-    case 'meaning_to_writing':
-      // For kana, 'reading' and 'meaning' is always romaji:
-      return kanaEntry.readings_romaji;
-    case 'writing_to_reading':
-    case 'writing_to_meaning':
+  switch (questionMode) {
+    case 'kanji':
+    case 'hiragana':
       return [kanaEntry.writing];
+    case 'romaji':
+    case 'meaning':
+      // For kana, 'reading' and 'meaning' are romaji:
+      return kanaEntry.readings_romaji;
     default:
-      assertExhaustive(gameMode);
+      assertExhaustive(questionMode);
       return [];
   }
 }
@@ -205,18 +233,24 @@ function getKanaQuestionContent(
  */
 function getKanaAnswerContent(
   kanaEntry: GameEntry,
-  gameMode: GameMode,
+  questionMode: QuestionMode,
+  answerMode: AnswerMode,
 ): string[] {
-  switch (gameMode) {
-    case 'reading_to_writing':
-    case 'meaning_to_writing':
+  switch (answerMode) {
+    case 'choose_kanji':
+    case 'choose_hiragana':
       return [kanaEntry.writing];
-    case 'writing_to_reading':
-    case 'writing_to_meaning':
-      // For kana, 'reading' and 'meaning' is always romaji:
+    case 'choose_romaji':
+    case 'choose_meaning':
+    case 'type_romaji':
+    case 'type_meaning':
+      // For kana, 'reading' and 'meaning' are romaji:
       return kanaEntry.readings_romaji;
+    case 'draw_hiragana':
+    case 'draw_kanji':
+      return []; // unsupported
     default:
-      assertExhaustive(gameMode);
+      assertExhaustive(answerMode);
       return [];
   }
 }
@@ -276,25 +310,25 @@ export function isCorrectChoiceAnswer(
   const questionContent = getQuestionContent(
     turn.question,
     turn.question_mode,
-    turn.game_mode,
+    turn.answer_mode,
     language,
   ).join(', ');
   const trueAnswerContent = getAnswerContent(
     turn.question,
+    turn.question_mode,
     turn.answer_mode,
-    turn.game_mode,
     language,
   ).join(', ');
   const userAnswerQuestionContent = getQuestionContent(
     answer,
     turn.question_mode,
-    turn.game_mode,
+    turn.answer_mode,
     language,
   ).join(', ');
   const userAnswerContent = getAnswerContent(
     answer,
+    turn.question_mode,
     turn.answer_mode,
-    turn.game_mode,
     language,
   ).join(', ');
   return (
@@ -311,8 +345,8 @@ function isCorrectTypedAnswer(
   // Compare question to answer:
   const trueAnswerContent = getAnswerContent(
     turn.question,
+    turn.question_mode,
     turn.answer_mode,
-    turn.game_mode,
     language,
   );
   text = removeFillerText(text, language);

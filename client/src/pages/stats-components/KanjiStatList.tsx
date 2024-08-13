@@ -53,8 +53,8 @@ export function KanjiStatList({ quizUser, selectedGroup }: Props) {
         {selectedEntry && (
           <QuestionCard
             entry={selectedEntry}
-            gameMode="writing_to_meaning"
             questionMode="kanji"
+            answerMode="type_meaning"
             reveal
             lang="en"
           />

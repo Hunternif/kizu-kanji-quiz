@@ -36,8 +36,8 @@ export function ChoiceCard({ entry, onClick }: ChoiceProps) {
 
   const text = getAnswerContent(
     entry,
+    turn.question_mode,
     turn.answer_mode,
-    turn.game_mode,
     language,
   ).join(', ');
 
