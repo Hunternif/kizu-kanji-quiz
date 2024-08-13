@@ -39,9 +39,9 @@ service cloud.firestore {
       return doc == null || doc.data['status'] != "banned";
     }
 
-    function isTurnPhase(lobby, turn, phase) {
-      return get(/databases/$(database)/documents/lobbies/$(lobby)/turns/$(turn)).data.phase == phase;
-    }
+    // function isTurnPhase(lobby, turn, phase) {
+    //   return get(/databases/$(database)/documents/lobbies/$(lobby)/turns/$(turn)).data.phase == phase;
+    // }
 
     match /lobbies/{lobby} {
       // Anyone can read basic lobby data:
@@ -66,6 +66,10 @@ service cloud.firestore {
       }
 
       match /turns/{turn} {
+        allow read: if isLoggedIn() && userIsPlayer(lobby);
+        // Allow creator to control the game:
+        allow write: if isLoggedIn() && userIsCreator(lobby);
+
         match /player_responses/{userID} {
           // Allow players to submit as many times as needed:
           allow create, update: if isLoggedIn() && request.auth.uid == userID

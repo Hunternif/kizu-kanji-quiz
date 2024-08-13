@@ -68,7 +68,9 @@ export const onUserPresenceChange = createOnUserPresenceChangeHandler();
  * 1. advance turn phase.
  * 2. Logs player responses into stats (only after the 'answering' phase)
  */
-export const onResponseChange = createResponseChangeHandler();
+// DISABLED: responses will be controlled from the client side.
+// export const onResponseChange = createResponseChangeHandler();
 
 /** Same as onResponseChange */
-export const onResponseCreate = createResponseCreateHandler();
+// DISABLED: responses will be controlled from the client side.
+// export const onResponseCreate = createResponseCreateHandler();

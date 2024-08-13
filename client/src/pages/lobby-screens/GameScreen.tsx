@@ -1,5 +1,6 @@
 import { User } from 'firebase/auth';
 import { CSSProperties, useContext, useEffect } from 'react';
+import { useGameObserver } from '../../api/turn/use-game-observer';
 import { useAllPlayerResponses, useLastTurn } from '../../api/turn/turn-hooks';
 import { ErrorContext } from '../../components/ErrorContext';
 import { FillLayout } from '../../components/layout/FillLayout';
@@ -64,6 +65,10 @@ interface PreTurnProps {
 }
 
 function TurnScreen({ lobby, turn, user, quizUser, players }: PreTurnProps) {
+  // This is the main game controller:
+  useGameObserver(lobby, turn, quizUser);
+
+  // Construct game context:
   const [responses, loadingResp, error] = useAllPlayerResponses(lobby, turn);
 
   const player = players.find((p) => p.uid === user.uid);

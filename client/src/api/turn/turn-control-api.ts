@@ -1,14 +1,7 @@
-import {
-  getCountFromServer,
-  increment,
-  orderBy,
-  query,
-  setDoc,
-  updateDoc,
-} from 'firebase/firestore';
+import { increment, setDoc, updateDoc } from 'firebase/firestore';
 import { isChoiceAnswer, isCorrectResponse } from '../../shared/mode-utils';
 import { selectQuestion } from '../../shared/question-api';
-import { GameLobby, GameTurn } from '../../shared/types';
+import { GameLobby, GameTurn, PlayerResponse } from '../../shared/types';
 import { assertExhaustive } from '../../shared/utils';
 import { endLobby, shouldEndLobby } from '../lobby/lobby-control-api';
 import {
@@ -20,10 +13,7 @@ import {
 import { updateUserStats } from '../stats/stats-api';
 import { getLastTurn, getTurnRef, updateTurn } from './turn-repository';
 
-import {
-  getAllPlayerResponses,
-  getPlayerResponsesRef,
-} from './turn-response-api';
+import { getAllPlayerResponses } from './turn-response-api';
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -86,22 +76,15 @@ export async function startTurnAnswering(lobby: GameLobby, turn: GameTurn) {
  * (not the empty "pings" that were used for notification.)
  */
 async function countNonEmptyResponses(
-  lobbyID: string,
   turn: GameTurn,
+  responses: PlayerResponse[],
 ): Promise<number> {
-  const ref = getPlayerResponsesRef(lobbyID, turn.id);
-  const skipCount = (
-    await getCountFromServer(query(ref, orderBy('skip', 'asc')))
-  ).data().count;
+  const skipCount = responses.filter((r) => r.skip).length;
   let validCount = 0;
   if (isChoiceAnswer(turn.answer_mode)) {
-    validCount = (
-      await getCountFromServer(query(ref, orderBy('answer_entry_id', 'asc')))
-    ).data().count;
+    validCount = responses.filter((r) => r.answer_entry_id != null).length;
   } else {
-    validCount = (
-      await getCountFromServer(query(ref, orderBy('answer_typed', 'asc')))
-    ).data().count;
+    validCount = responses.filter((r) => r.answer_typed != null).length;
   }
   return skipCount + validCount;
 }
@@ -128,7 +111,11 @@ export async function completeTurn(lobby: GameLobby, turn: GameTurn) {
 }
 
 /** Checks if the timer has run out and advances turn to the next phase. */
-export async function tryAdvanceTurn(lobbyID: string, turn: GameTurn) {
+export async function tryAdvanceTurn(
+  lobbyID: string,
+  turn: GameTurn,
+  responses: PlayerResponse[],
+) {
   // TODO: if all responses have been submitted, reduce timer to a small value.
   const now = new Date();
   let shouldAdvance = false;
@@ -136,7 +123,7 @@ export async function tryAdvanceTurn(lobbyID: string, turn: GameTurn) {
     if (turn.phase_duration_ms === 0) {
       // count if all players submitted responses
       const playerCount = await countPlayers(lobbyID, 'player', 'online');
-      const count = await countNonEmptyResponses(lobbyID, turn);
+      const count = await countNonEmptyResponses(turn, responses);
       // logger.info(`Counted ${count} responses from ${playerCount} players.`);
       shouldAdvance = count >= playerCount;
     } else if (turn.next_phase_time) {
