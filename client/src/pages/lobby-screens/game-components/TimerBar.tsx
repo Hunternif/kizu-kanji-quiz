@@ -9,6 +9,7 @@ interface Props {
   onClear?: () => void;
 }
 
+/** Returns a percent value, from 0 to 100. */
 function calculateElapsedPercent(startTime: Date, endTime: Date): number {
   const nowMs = new Date().getTime();
   const startMs = startTime.getTime();
@@ -48,7 +49,7 @@ export function TimerBar({
       }
     }
 
-    if (!paused && pctValue === undefined) {
+    function startTimer() {
       interval = setInterval(() => {
         const newValue = calculateElapsedPercent(startTime, endTime);
         setPercent(newValue);
@@ -60,7 +61,13 @@ export function TimerBar({
           }
           stopTimer();
         }
-      }, 50);
+      }, 50); // Updates often for a smooth movement.
+    }
+
+    // Don't start the timer if it's already at 100%.
+    const currentValue = calculateElapsedPercent(startTime, endTime);
+    if (!paused && pctValue === undefined && currentValue < 100) {
+      startTimer();
     }
     return stopTimer;
   }, [startTime, endTime, pctValue, calledClear, paused, onClear]);
