@@ -2,11 +2,12 @@ import {
   Transaction,
   collection,
   doc,
+  getDoc,
   getDocs,
   updateDoc,
 } from 'firebase/firestore';
 import { turnConverter } from '../../shared/firestore-converters';
-import { GameTurn } from '../../shared/types';
+import { GameLobby, GameTurn } from '../../shared/types';
 import { lobbiesRef } from '../lobby/lobby-repository';
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -24,6 +25,25 @@ export function getTurnsRef(lobbyID: string) {
 
 export function getTurnRef(lobbyID: string, turnID: string) {
   return doc(getTurnsRef(lobbyID), turnID);
+}
+
+/** Finds turn by ID, or throws HttpsError. */
+export async function getTurn(
+  lobbyID: string,
+  turnID: string,
+): Promise<GameTurn> {
+  const turn = (await getDoc(getTurnRef(lobbyID, turnID))).data();
+  if (!turn) {
+    throw new Error(`Turn ${turnID} not found in lobby ${lobbyID}`);
+  }
+  return turn;
+}
+
+/** Finds the last turn in the lobby. */
+export async function getLastTurn(lobby: GameLobby): Promise<GameTurn | null> {
+  return lobby.current_turn_id
+    ? await getTurn(lobby.id, lobby.current_turn_id)
+    : null;
 }
 
 /** Fetches all turns that occurred in the lobby. */

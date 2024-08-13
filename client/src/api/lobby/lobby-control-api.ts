@@ -73,11 +73,16 @@ export async function removeTestGroups(
   });
 }
 
-/** Returns true if game end condition has been reached. */
-export async function checkIfShouldEndGame(
-  lobby: GameLobby,
-  turn: GameTurn,
-  players: PlayerInLobby[],
-): Promise<boolean> {
-  return lobby.questions.length > 0;
+/** Checks end-game conditions */
+export function shouldEndLobby(lobby: GameLobby) {
+  if (lobby.used_question_count >= lobby.questions.length) {
+    return true;
+  }
+  if (
+    lobby.settings.max_questions > 0 &&
+    lobby.used_question_count >= lobby.settings.max_questions
+  ) {
+    return true;
+  }
+  return false;
 }

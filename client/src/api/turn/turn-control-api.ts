@@ -1,29 +1,38 @@
-// Server APIs for game turns, when the game is in progress.
-
-import { FieldValue } from 'firebase-admin/firestore';
-import * as logger from 'firebase-functions/logger';
-import { HttpsError } from 'firebase-functions/v2/https';
-import { isChoiceAnswer, isCorrectResponse } from '../shared/mode-utils';
-import { GameLobby, GameTurn, Language, PlayerResponse } from '../shared/types';
-import { assertExhaustive } from '../shared/utils';
-import { selectQuestion } from '../shared/question-api';
-import { endLobby, shouldEndLobby } from './lobby-server-api';
+import {
+  getCountFromServer,
+  increment,
+  orderBy,
+  query,
+  setDoc,
+  updateDoc,
+} from 'firebase/firestore';
+import { isChoiceAnswer, isCorrectResponse } from '../../shared/mode-utils';
+import { selectQuestion } from '../../shared/question-api';
+import { GameLobby, GameTurn } from '../../shared/types';
+import { assertExhaustive } from '../../shared/utils';
+import { endLobby, shouldEndLobby } from '../lobby/lobby-control-api';
 import {
   countPlayers,
   getLobby,
-  getPlayersRef,
-  getPlayerThrows,
+  getPlayerRef,
   updateLobby,
-} from './lobby-server-repository';
-import { updateUserStats } from './stats-server-api';
+} from '../lobby/lobby-repository';
+import { updateUserStats } from '../stats/stats-api';
+import { getLastTurn, getTurnRef, updateTurn } from './turn-repository';
+
 import {
   getAllPlayerResponses,
-  getLastTurn,
   getPlayerResponsesRef,
-  getTurnsRef,
-  setPlayerResponse,
-  updateTurn,
-} from './turn-server-repository';
+} from './turn-response-api';
+
+///////////////////////////////////////////////////////////////////////////////
+//
+//  This API controls the flow of the game by listenning to player responses.
+//  We trust the Lobby Creator to not hack the game, so we can rely on their
+//  client to control the game without the need for Cloud Functions.
+//  That makes the game faster.
+//
+///////////////////////////////////////////////////////////////////////////////
 
 /**
  * Creates a new turn without a prompt, and returns it.
@@ -41,10 +50,7 @@ export async function createNewTurn(
   const id = 'turn_' + String(newOrdinal).padStart(2, '0');
   const { question, choices } = selectQuestion(lobby);
   if (!question) {
-    throw new HttpsError(
-      'failed-precondition',
-      `No more questions in lobby ${lobby.id}`,
-    );
+    throw new Error(`No more questions in lobby ${lobby.id}`);
   }
   const now = new Date();
   const newTurn = new GameTurn(
@@ -57,7 +63,7 @@ export async function createNewTurn(
     choices,
   );
   newTurn.setPhase('answering', now, lobby.settings.question_timer_sec * 1000);
-  await getTurnsRef(lobby.id).doc(id).set(newTurn);
+  await setDoc(getTurnRef(lobby.id, id), newTurn);
   lobby.current_turn_id = newTurn.id;
   await updateLobby(lobby);
   return newTurn; // timestamp may not have reloaded but that's ok.
@@ -75,28 +81,6 @@ export async function startTurnAnswering(lobby: GameLobby, turn: GameTurn) {
   await updateTurn(lobby.id, turn);
 }
 
-/** (Only used in tests) */
-export async function playResponse(
-  lobby: GameLobby,
-  turn: GameTurn,
-  userID: string,
-  language: Language,
-  entryID?: string,
-  typedText?: string,
-): Promise<PlayerResponse> {
-  const player = await getPlayerThrows(lobby.id, userID);
-  const response = new PlayerResponse(
-    userID,
-    player.name,
-    new Date(),
-    language,
-    entryID,
-    typedText,
-  );
-  await setPlayerResponse(lobby.id, turn.id, response);
-  return response;
-}
-
 /**
  * Counts responses that were submitted by players
  * (not the empty "pings" that were used for notification.)
@@ -106,16 +90,18 @@ async function countNonEmptyResponses(
   turn: GameTurn,
 ): Promise<number> {
   const ref = getPlayerResponsesRef(lobbyID, turn.id);
-  const skipCount = (await ref.orderBy('skip', 'asc').count().get()).data()
-    .count;
+  const skipCount = (
+    await getCountFromServer(query(ref, orderBy('skip', 'asc')))
+  ).data().count;
   let validCount = 0;
   if (isChoiceAnswer(turn.answer_mode)) {
     validCount = (
-      await ref.orderBy('answer_entry_id', 'asc').count().get()
+      await getCountFromServer(query(ref, orderBy('answer_entry_id', 'asc')))
     ).data().count;
   } else {
-    validCount = (await ref.orderBy('answer_typed', 'asc').count().get()).data()
-      .count;
+    validCount = (
+      await getCountFromServer(query(ref, orderBy('answer_typed', 'asc')))
+    ).data().count;
   }
   return skipCount + validCount;
 }
@@ -188,9 +174,9 @@ export async function updatePlayerScoresFromTurn(
   const responses = await getAllPlayerResponses(lobby.id, turn.id);
   for (const resp of responses) {
     if (isCorrectResponse(turn, resp)) {
-      await getPlayersRef(lobby.id)
-        .doc(resp.player_uid)
-        .update({ wins: FieldValue.increment(1) });
+      await updateDoc(getPlayerRef(lobby.id, resp.player_uid), {
+        wins: increment(1),
+      });
     }
     // Update player statistics:
     if (!lobby.settings.freeze_stats) {
@@ -205,7 +191,6 @@ export async function pauseTurn(lobbyID: string, turn: GameTurn) {
     turn.pause = 'paused';
     turn.paused_at = new Date();
     await updateTurn(lobbyID, turn);
-    logger.info(`Game paused. Lobby ${lobbyID}`);
   }
 }
 
@@ -227,7 +212,6 @@ export async function resumeTurn(lobbyID: string, turn: GameTurn) {
     }
     turn.paused_at = undefined;
     await updateTurn(lobbyID, turn);
-    logger.info(`Game resumed. Lobby ${lobbyID}`);
   }
 }
 

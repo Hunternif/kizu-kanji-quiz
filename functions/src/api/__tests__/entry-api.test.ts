@@ -1,3 +1,4 @@
+import { selectQuestion } from '../../shared/question-api';
 import { RNG } from '../../shared/rng';
 import { defaultLobbySettings, GameEntry, GameLobby } from '../../shared/types';
 import {
@@ -6,7 +7,6 @@ import {
   getKatakanaDigraphEntries,
   getKatakanaEntries,
   loadKanjiFile,
-  selectQuestion,
 } from '../entry-api';
 
 test('parse Hiragana', async () => {

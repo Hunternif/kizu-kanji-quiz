@@ -1,6 +1,6 @@
 import { CSSProperties, useState } from 'react';
 import { loadAllKanjiData } from '../../api/kanji-cache-api';
-import { getUserStats } from '../../api/stats-api';
+import { getUserStats } from '../../api/stats/stats-repository';
 import { useErrorContext } from '../../components/ErrorContext';
 import { Modal } from '../../components/Modal';
 import { useAsyncData } from '../../hooks/data-hooks';
