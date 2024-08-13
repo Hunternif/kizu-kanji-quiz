@@ -149,11 +149,16 @@ export async function tryAdvanceTurn(lobbyID: string, turn: GameTurn) {
   let shouldAdvance = false;
   if (turn.pause === 'none') {
     if (turn.phase_duration_ms === 0) {
-      // count if all players submitted responses
-      const playerCount = await countPlayers(lobbyID, 'player', 'online');
-      const count = await countNonEmptyResponses(lobbyID, turn);
-      // logger.info(`Counted ${count} responses from ${playerCount} players.`);
-      shouldAdvance = count >= playerCount;
+      if (turn.phase === 'reveal') {
+        // During 'reveal', 1 person is enough to advance to the next turn.
+        shouldAdvance = true;
+      } else {
+        // count if all players submitted responses
+        const playerCount = await countPlayers(lobbyID, 'player', 'online');
+        const count = await countNonEmptyResponses(lobbyID, turn);
+        // logger.info(`Counted ${count} responses from ${playerCount} players.`);
+        shouldAdvance = count >= playerCount;
+      }
     } else if (turn.next_phase_time) {
       shouldAdvance = now.getTime() >= turn.next_phase_time.getTime();
     }
