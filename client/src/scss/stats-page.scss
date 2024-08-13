@@ -53,7 +53,9 @@
     cursor: pointer;
 
     &.short,
-    &.one {
+    &.one,
+    &.medium,
+    &.long {
       font-size: 1.5rem;
     }
   }

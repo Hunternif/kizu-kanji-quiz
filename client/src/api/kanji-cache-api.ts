@@ -1,7 +1,12 @@
-import { parseKanaFile, parseKanjiFile } from '../shared/kanji-data-api';
-import { GameEntry } from '../shared/types';
+import {
+  parseKanaFile,
+  parseKanjiFile,
+  parseVocabFile,
+  vocabJlptGroupNames,
+} from '../shared/kanji-data-api';
+import { GameEntry, VocabJlptGroup } from '../shared/types';
 
-/** Maps entry writing to entry. */
+/** Maps entry ID to entry. */
 const entryCache: Map<string, GameEntry> = new Map();
 let fetchingLock = false;
 
@@ -16,6 +21,9 @@ export async function loadAllKanjiData(): Promise<Map<string, GameEntry>> {
   const katakanaFile = await fetchFile('katakana.txt');
   const katakanaDiFile = await fetchFile('katakana_digraphs.txt');
   const kanjiFile = await fetchFile('jouyou_kanji_eng.txt');
+  function addEntries(entries: GameEntry[]) {
+    entries.forEach((e) => entryCache.set(e.id, e));
+  }
   addEntries(parseKanaFile(hiraganaFile, ['hiragana']));
   addEntries(parseKanaFile(hiraganaDiFile, ['hiragana_digraphs']));
   addEntries(parseKanaFile(katakanaFile, ['katakana']));
@@ -25,8 +33,24 @@ export async function loadAllKanjiData(): Promise<Map<string, GameEntry>> {
   return entryCache;
 }
 
-function addEntries(entries: GameEntry[]) {
-  entries.forEach((e) => entryCache.set(e.writing, e));
+/** Separate vocab cache. Maps group to entry ID to entry. */
+const vocabCache: Map<VocabJlptGroup, Map<string, GameEntry>> = new Map(
+  vocabJlptGroupNames.map(([group]) => [group, new Map()]),
+);
+
+/** Loads Vocab data for the given group and caches it. */
+export async function loadVocabData(
+  group: VocabJlptGroup,
+): Promise<Map<string, GameEntry>> {
+  let groupCache = vocabCache.get(group)!;
+  if (groupCache.size > 0 || fetchingLock) {
+    return groupCache;
+  }
+  fetchingLock = true;
+  const groupFile = await fetchFile(`${group}.txt`);
+  parseVocabFile(groupFile, [group]).forEach((e) => groupCache.set(e.id, e));
+  fetchingLock = false;
+  return groupCache;
 }
 
 async function fetchFile(fileName: string): Promise<string> {

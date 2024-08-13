@@ -7,6 +7,7 @@ import {
   TestGroup,
   VocabJlptGroup,
 } from './types';
+import { assertExhaustive } from './utils';
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -44,6 +45,100 @@ export const vocabJlptGroupNames: Array<[VocabJlptGroup, string, string]> = [
   ['vocab_n2', 'N2', '1832 words'],
   ['vocab_n1', 'N1', '3472 words'],
 ];
+
+export function isKanaGroup(group: TestGroup): group is KanaGroup {
+  switch (group) {
+    case 'hiragana':
+    case 'hiragana_digraphs':
+    case 'katakana':
+    case 'katakana_digraphs':
+      return true;
+    case 'kanji_grade_1':
+    case 'kanji_grade_2':
+    case 'kanji_grade_3':
+    case 'kanji_grade_4':
+    case 'kanji_grade_5':
+    case 'kanji_grade_6':
+    case 'kanji_grade_S':
+    case 'kanji_jlpt_1':
+    case 'kanji_jlpt_2':
+    case 'kanji_jlpt_3':
+    case 'kanji_jlpt_4':
+    case 'kanji_jlpt_5':
+    case 'vocab_n5':
+    case 'vocab_n4':
+    case 'vocab_n3':
+    case 'vocab_n2':
+    case 'vocab_n1':
+      return false;
+    default:
+      assertExhaustive(group);
+      return false;
+  }
+}
+
+export function isKanjiGroup(group: TestGroup): group is KanjiGroup {
+  switch (group) {
+    case 'hiragana':
+    case 'hiragana_digraphs':
+    case 'katakana':
+    case 'katakana_digraphs':
+      return false;
+    case 'kanji_grade_1':
+    case 'kanji_grade_2':
+    case 'kanji_grade_3':
+    case 'kanji_grade_4':
+    case 'kanji_grade_5':
+    case 'kanji_grade_6':
+    case 'kanji_grade_S':
+    case 'kanji_jlpt_1':
+    case 'kanji_jlpt_2':
+    case 'kanji_jlpt_3':
+    case 'kanji_jlpt_4':
+    case 'kanji_jlpt_5':
+      return true;
+    case 'vocab_n5':
+    case 'vocab_n4':
+    case 'vocab_n3':
+    case 'vocab_n2':
+    case 'vocab_n1':
+      return false;
+    default:
+      assertExhaustive(group);
+      return false;
+  }
+}
+
+export function isVocabGroup(group: TestGroup): group is VocabJlptGroup {
+  switch (group) {
+    case 'hiragana':
+    case 'hiragana_digraphs':
+    case 'katakana':
+    case 'katakana_digraphs':
+    case 'kanji_grade_1':
+    case 'kanji_grade_2':
+    case 'kanji_grade_3':
+    case 'kanji_grade_4':
+    case 'kanji_grade_5':
+    case 'kanji_grade_6':
+    case 'kanji_grade_S':
+    case 'kanji_jlpt_1':
+    case 'kanji_jlpt_2':
+    case 'kanji_jlpt_3':
+    case 'kanji_jlpt_4':
+    case 'kanji_jlpt_5':
+      return false;
+    case 'vocab_n5':
+    case 'vocab_n4':
+    case 'vocab_n3':
+    case 'vocab_n2':
+    case 'vocab_n1':
+      return true;
+    default:
+      assertExhaustive(group);
+      return false;
+  }
+}
 
 /** Parses a Hiragana / Katakana data file. */
 export function parseKanaFile(

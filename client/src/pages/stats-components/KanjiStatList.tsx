@@ -1,9 +1,10 @@
-import { CSSProperties, useState } from 'react';
-import { loadAllKanjiData } from '../../api/kanji-cache-api';
+import { CSSProperties, useEffect, useState } from 'react';
+import { loadAllKanjiData, loadVocabData } from '../../api/kanji-cache-api';
 import { getUserStats } from '../../api/stats/stats-repository';
 import { useErrorContext } from '../../components/ErrorContext';
 import { Modal } from '../../components/Modal';
 import { useAsyncData } from '../../hooks/data-hooks';
+import { isVocabGroup } from '../../shared/kanji-data-api';
 import { GameEntry, QuizUser, TestGroup } from '../../shared/types';
 import { JapText } from '../lobby-screens/game-components/JapText';
 import { QuestionCard } from '../lobby-screens/game-components/QuestionCard';
@@ -16,6 +17,7 @@ interface Props {
 export function KanjiStatList({ quizUser, selectedGroup }: Props) {
   const { setError } = useErrorContext();
   const [selectedEntry, setSelectedEntry] = useState<GameEntry>();
+  const [entries, setEntries] = useState<Array<GameEntry>>([]);
 
   async function fetchKanji() {
     try {
@@ -31,14 +33,27 @@ export function KanjiStatList({ quizUser, selectedGroup }: Props) {
       setError(e);
     }
   }
-  const [allEntries] = useAsyncData(fetchKanji());
+  const [kanjiEntries] = useAsyncData(fetchKanji());
   const [userStats] = useAsyncData(fetchStats());
 
-  const filteredEntries =
-    (allEntries &&
-      selectedGroup &&
-      filterEntries(allEntries.values(), selectedGroup)) ??
-    [];
+  // Load vocab groups separately, because they are extra large:
+  useEffect(() => {
+    async function updateEntries() {
+      try {
+        if (selectedGroup) {
+          if (isVocabGroup(selectedGroup)) {
+            const vocabEntries = await loadVocabData(selectedGroup);
+            setEntries([...vocabEntries.values()]);
+          } else if (kanjiEntries) {
+            setEntries(filterEntries(kanjiEntries.values(), selectedGroup));
+          }
+        }
+      } catch (e: any) {
+        setError(e);
+      }
+    }
+    updateEntries();
+  }, [kanjiEntries, selectedGroup]);
 
   return (
     <div className="kanji-stat-list">
@@ -61,7 +76,7 @@ export function KanjiStatList({ quizUser, selectedGroup }: Props) {
         )}
       </Modal>
 
-      {filteredEntries.map((e) => {
+      {entries.map((e) => {
         const stat = userStats?.get(e.id);
         const style: CSSProperties = {};
         if (stat) {

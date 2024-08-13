@@ -2,6 +2,7 @@ import {
   kanaGroupNames,
   kanjiGradeGroupNames,
   kanjiJlptGroupNames,
+  vocabJlptGroupNames,
 } from '../../shared/kanji-data-api';
 import { TestGroup } from '../../shared/types';
 
@@ -28,6 +29,12 @@ export function TestGroupList({ selectedGroup, onSelect }: ListProps) {
       <GroupSection
         title="Kanji: Primary school"
         groups={kanjiGradeGroupNames}
+        selectedGroup={selectedGroup}
+        onSelectGroup={onSelect}
+      />
+      <GroupSection
+        title="Vocabulary: Japanese Language Proficiency Test"
+        groups={vocabJlptGroupNames}
         selectedGroup={selectedGroup}
         onSelectGroup={onSelect}
       />
