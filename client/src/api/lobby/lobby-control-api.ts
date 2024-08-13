@@ -1,6 +1,7 @@
 import { runTransaction } from 'firebase/firestore';
 import {
   endLobbyFun,
+  firebaseAuth,
   firestore,
   startLobbyFun,
   updateLobbySettingsFun,
@@ -35,7 +36,13 @@ export async function startLobby(lobby: GameLobby): Promise<void> {
 }
 
 export async function endLobby(lobby: GameLobby): Promise<void> {
-  await endLobbyFun({ lobby_id: lobby.id });
+  if (lobby.creator_uid === firebaseAuth.currentUser?.uid) {
+    // Creator can update lobby directly:
+    lobby.status = 'ended';
+    await updateLobby(lobby);
+  } else {
+    await endLobbyFun({ lobby_id: lobby.id });
+  }
 }
 
 export async function updateLobbySettings(
