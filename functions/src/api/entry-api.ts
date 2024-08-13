@@ -1,13 +1,16 @@
 import { open } from 'node:fs/promises';
-import { parseKanaFile, parseKanjiFile } from '../shared/kanji-data-api';
-import { getAnswerContent } from '../shared/mode-utils';
+import {
+  parseKanaFile,
+  parseKanjiFile,
+  parseVocabFile,
+} from '../shared/kanji-data-api';
 import { RNG } from '../shared/rng';
 import {
   GameEntry,
-  GameLobby,
   KanaGroup,
   KanjiGroup,
   TestGroup,
+  VocabJlptGroup,
 } from '../shared/types';
 import { assertExhaustive } from '../shared/utils';
 
@@ -30,6 +33,11 @@ function isKanaGroup(group: TestGroup): group is KanaGroup {
     case 'kanji_jlpt_3':
     case 'kanji_jlpt_4':
     case 'kanji_jlpt_5':
+    case 'vocab_n5':
+    case 'vocab_n4':
+    case 'vocab_n3':
+    case 'vocab_n2':
+    case 'vocab_n1':
       return false;
     default:
       assertExhaustive(group);
@@ -57,6 +65,43 @@ function isKanjiGroup(group: TestGroup): group is KanjiGroup {
     case 'kanji_jlpt_4':
     case 'kanji_jlpt_5':
       return true;
+    case 'vocab_n5':
+    case 'vocab_n4':
+    case 'vocab_n3':
+    case 'vocab_n2':
+    case 'vocab_n1':
+      return false;
+    default:
+      assertExhaustive(group);
+      return false;
+  }
+}
+
+function isVocabGroup(group: TestGroup): group is VocabJlptGroup {
+  switch (group) {
+    case 'hiragana':
+    case 'hiragana_digraphs':
+    case 'katakana':
+    case 'katakana_digraphs':
+    case 'kanji_grade_1':
+    case 'kanji_grade_2':
+    case 'kanji_grade_3':
+    case 'kanji_grade_4':
+    case 'kanji_grade_5':
+    case 'kanji_grade_6':
+    case 'kanji_grade_S':
+    case 'kanji_jlpt_1':
+    case 'kanji_jlpt_2':
+    case 'kanji_jlpt_3':
+    case 'kanji_jlpt_4':
+    case 'kanji_jlpt_5':
+      return false;
+    case 'vocab_n5':
+    case 'vocab_n4':
+    case 'vocab_n3':
+    case 'vocab_n2':
+    case 'vocab_n1':
+      return true;
     default:
       assertExhaustive(group);
       return false;
@@ -79,6 +124,34 @@ async function getKanaEntries(group: KanaGroup): Promise<Array<GameEntry>> {
   }
 }
 
+/** Parses the 'vocab_n*.txt' data files. */
+export async function getVocabEntries(
+  group: VocabJlptGroup,
+): Promise<Array<GameEntry>> {
+  let content: string;
+  switch (group) {
+    case 'vocab_n5':
+      content = await readFile(`${__dirname}/../data/vocab_n5.txt`);
+      break;
+    case 'vocab_n4':
+      content = await readFile(`${__dirname}/../data/vocab_n4.txt`);
+      break;
+    case 'vocab_n3':
+      content = await readFile(`${__dirname}/../data/vocab_n3.txt`);
+      break;
+    case 'vocab_n2':
+      content = await readFile(`${__dirname}/../data/vocab_n2.txt`);
+      break;
+    case 'vocab_n1':
+      content = await readFile(`${__dirname}/../data/vocab_n1.txt`);
+      break;
+    default:
+      assertExhaustive(group);
+      return [];
+  }
+  return parseVocabFile(content, [group]);
+}
+
 /** Prepares entries for game, e.g. randomly sorts them. */
 export async function getEntriesForGame(
   groups: TestGroup[],
@@ -88,10 +161,14 @@ export async function getEntriesForGame(
   // kanji should be filtered together, because there are so many:
   const kanjiGroups = groups.filter(isKanjiGroup);
   const kanaGroups = groups.filter(isKanaGroup);
+  const vocabGroups = groups.filter(isVocabGroup);
   for (const group of kanaGroups) {
     entries.push(...(await getKanaEntries(group)));
   }
   entries.push(...(await getKanjiEntries(kanjiGroups)));
+  for (const group of vocabGroups) {
+    entries.push(...(await getVocabEntries(group)));
+  }
   for (const entry of entries) {
     entry.random_index = rng.randomInt();
   }

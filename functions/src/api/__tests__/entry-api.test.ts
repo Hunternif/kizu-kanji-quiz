@@ -6,6 +6,7 @@ import {
   getHiraganaEntries,
   getKatakanaDigraphEntries,
   getKatakanaEntries,
+  getVocabEntries,
   loadKanjiFile,
 } from '../entry-api';
 
@@ -66,6 +67,25 @@ test('parse Kanji', async () => {
   expect(kanji[1627].writing).toBe('捉');
   expect(kanji[1627].readings_hiragana).toEqual(['ソク', 'とらえる']);
   expect(kanji[1627].groups).toEqual(['kanji_grade_S']);
+});
+
+test('parse JLPT Vocab', async () => {
+  const vocabN5 = await getVocabEntries('vocab_n5');
+  expect(vocabN5.length).toBe(669);
+  expect(vocabN5[15].id).toBe(`word_あそこ`);
+  expect(vocabN5[15].writing).toBe('あそこ');
+
+  const vocabN4 = await getVocabEntries('vocab_n4');
+  expect(vocabN4.length).toBe(633);
+
+  const vocabN3 = await getVocabEntries('vocab_n3');
+  expect(vocabN3.length).toBe(1830);
+
+  const vocabN2 = await getVocabEntries('vocab_n2');
+  expect(vocabN2.length).toBe(1832);
+
+  const vocabN1 = await getVocabEntries('vocab_n1');
+  expect(vocabN1.length).toBe(3472);
 });
 
 test('select question and choices', () => {

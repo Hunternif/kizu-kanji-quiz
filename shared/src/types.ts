@@ -136,12 +136,20 @@ export type KanjiJlptLevel =
   | 'kanji_jlpt_4'
   | 'kanji_jlpt_5';
 export type KanjiGroup = KanjiGrade | KanjiJlptLevel;
+export type VocabJlptGroup =
+  | 'vocab_n5'
+  | 'vocab_n4'
+  | 'vocab_n3'
+  | 'vocab_n2'
+  | 'vocab_n1';
+
 /** Combines all possible groups. */
 export type TestGroup =
   | HiraganaGroup
   | KatakanaGroup
   | KanjiGrade
-  | KanjiJlptLevel;
+  | KanjiJlptLevel
+  | VocabJlptGroup;
 
 export const allQuestionModes: Array<QuestionMode> = [
   'kanji',

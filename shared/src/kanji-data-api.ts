@@ -5,6 +5,7 @@ import {
   KanjiGroup,
   KanjiJlptLevel,
   TestGroup,
+  VocabJlptGroup,
 } from './types';
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -34,6 +35,14 @@ export const kanjiGradeGroupNames: Array<[KanjiGrade, string, string]> = [
   ['kanji_grade_5', 'Grade 5', '193 Kanji'],
   ['kanji_grade_6', 'Grade 6', '191 Kanji'],
   ['kanji_grade_S', 'Secondary school', '1110 kanji'],
+];
+
+export const vocabJlptGroupNames: Array<[VocabJlptGroup, string, string]> = [
+  ['vocab_n5', 'N5', '669 words'],
+  ['vocab_n4', 'N4', '663 words'],
+  ['vocab_n3', 'N3', '1830 words'],
+  ['vocab_n2', 'N2', '1832 words'],
+  ['vocab_n1', 'N1', '3472 words'],
 ];
 
 /** Parses a Hiragana / Katakana data file. */
@@ -116,6 +125,30 @@ export function parseKanjiFile(content: string): Array<GameEntry> {
         0,
         kanji,
         kanaReadings.split(', '),
+        romaji.split(', '),
+        new Map([['en', meanings.split(', ')]]),
+        groups,
+      ),
+    );
+  }
+  return entries;
+}
+
+/** Parses a 'vocab_n*.txt' data file. */
+export function parseVocabFile(
+  content: string,
+  groups: VocabJlptGroup[],
+): Array<GameEntry> {
+  const entries = new Array<GameEntry>();
+  for (const line of content.split(/\r?\n/)) {
+    const [kanji, hiragana, romaji, meanings] = line.split('\t');
+    const writing = kanji.length > 0 ? kanji : hiragana;
+    entries.push(
+      new GameEntry(
+        `word_${writing}`,
+        0,
+        writing,
+        hiragana.split(', '),
         romaji.split(', '),
         new Map([['en', meanings.split(', ')]]),
         groups,

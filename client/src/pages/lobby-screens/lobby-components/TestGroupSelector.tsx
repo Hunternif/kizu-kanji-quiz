@@ -5,6 +5,7 @@ import {
   kanaGroupNames,
   kanjiGradeGroupNames,
   kanjiJlptGroupNames,
+  vocabJlptGroupNames,
 } from '../../../shared/kanji-data-api';
 import { GameLobby, TestGroup } from '../../../shared/types';
 
@@ -45,6 +46,13 @@ export function TestGroupSelector({ lobby, readOnly }: SelectorProps) {
         title="Kanji: Primary school"
         lobby={lobby}
         groups={kanjiGradeGroupNames}
+        readOnly={readOnly}
+        onToggle={toggleHandler}
+      />
+      <GroupSection
+        title="Vocabulary: Japanese Langyage Proficiency Test"
+        lobby={lobby}
+        groups={vocabJlptGroupNames}
         readOnly={readOnly}
         onToggle={toggleHandler}
       />
