@@ -6,7 +6,7 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-import { isKanaOnly } from './text-utils';
+import { isKanaGroup } from './kanji-data-api';
 
 export class GameLobby {
   /** Null only during creation. Should be UTC time. */
@@ -97,7 +97,7 @@ export class GameEntry {
     /** Groups where this entry appears. */
     public groups: TestGroup[],
   ) {
-    this.isKana = isKanaOnly(writing);
+    this.isKana = groups.every(isKanaGroup);
   }
 }
 
