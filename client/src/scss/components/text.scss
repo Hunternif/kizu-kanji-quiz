@@ -3,7 +3,10 @@
 
 // Special font for rendering Japanese characters on cards:
 .jap-text.jp {
-  font-family: 'Sawarabi Mincho', serif;
+  font-family: 'HiraMinProN-W3', 'Hiragino Mincho ProN W3',
+    'Hiragino Mincho ProN', 'ヒラギノ明朝 ProN W3', '游明朝', 'YuMincho',
+    'HG明朝E', 'ＭＳ Ｐ明朝', 'MS PMincho', 'MS 明朝', 'MS Mincho',
+    'Sawarabi Mincho', serif;
   font-weight: 400;
   font-style: normal;
   .jap-word {
