@@ -92,13 +92,21 @@ test('check text answer', async () => {
 });
 
 function choiceResponse(entryID: string) {
-  return new PlayerResponse('player_1', 'Chooser', new Date(), 'en', entryID);
+  return new PlayerResponse(
+    'player_1',
+    'Chooser',
+    'answering',
+    new Date(),
+    'en',
+    entryID,
+  );
 }
 
 function typedResponse(text: string) {
   return new PlayerResponse(
     'player_2',
     'Typer',
+    'answering',
     new Date(),
     'en',
     undefined,

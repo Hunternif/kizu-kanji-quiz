@@ -88,6 +88,7 @@ export async function playResponse(
   const response = new PlayerResponse(
     userID,
     player.name,
+    turn.phase,
     new Date(),
     language,
     entryID,

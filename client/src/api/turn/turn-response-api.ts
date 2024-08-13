@@ -5,7 +5,6 @@ import {
   getDoc,
   getDocs,
   setDoc,
-  updateDoc,
 } from 'firebase/firestore';
 import { playerResponseConverter } from '../../shared/firestore-converters';
 import {
@@ -69,6 +68,7 @@ export async function submitPlayerResponse(
   const response = new PlayerResponse(
     player.uid,
     player.name,
+    turn.phase,
     null,
     language,
     answerEntryID,
@@ -112,20 +112,25 @@ export async function pingResponse(
   // so there is only 1 extra document update.
   if (lobby.creator_uid === player.uid || shouldSkip) {
     // console.log(`Ping for ${turn.id} '${turn.phase}'! ${new Date()}`);
-    const ref = getPlayerResponseRef(lobby.id, turn.id, player.uid);
-    const response = (await getDoc(ref)).data();
+    const response = await getPlayerResponse(lobby.id, turn.id, player.uid);
     if (response) {
+      response.current_phase = turn.phase;
       response.time_updated = new Date();
       if (response.isEmpty() && shouldSkip) {
         response.skip = true;
       }
-      await updateDoc(ref, playerResponseConverter.toFirestore(response));
+      await updateResponse(lobby.id, turn.id, response);
     } else {
-      const emptyResponse = new PlayerResponse(player.uid, player.name, null);
+      const emptyResponse = new PlayerResponse(
+        player.uid,
+        player.name,
+        turn.phase,
+        null,
+      );
       if (shouldSkip) {
         emptyResponse.skip = true;
       }
-      await setDoc(ref, emptyResponse);
+      await updateResponse(lobby.id, turn.id, emptyResponse);
     }
   }
 }
@@ -146,10 +151,16 @@ export async function requestPause(
     : 'request_resume';
   if (response) {
     response.pause = request;
+    response.current_phase = turn.phase;
     response.time_updated = new Date();
     await updateResponse(lobby.id, turn.id, response);
   } else {
-    const emptyResponse = new PlayerResponse(player.uid, player.name, null);
+    const emptyResponse = new PlayerResponse(
+      player.uid,
+      player.name,
+      turn.phase,
+      null,
+    );
     emptyResponse.pause = request;
     await updateResponse(lobby.id, turn.id, emptyResponse);
   }
