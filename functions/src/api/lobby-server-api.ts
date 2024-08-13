@@ -215,7 +215,13 @@ export async function validateGameSettings(lobby: GameLobby) {
  * Calculating initial tag counts could go here too.
  */
 async function copyEntriesToLobby(lobby: GameLobby): Promise<void> {
-  lobby.questions = await getEntriesForGame([...lobby.test_groups]);
+  const entries = await getEntriesForGame([...lobby.test_groups]);
+  // Hard-limit the number of entries for performance:
+  let maxEntries = 999;
+  if (lobby.settings.max_questions > 0) {
+    maxEntries = Math.min(maxEntries, lobby.settings.max_questions);
+  }
+  lobby.questions = entries.slice(0, maxEntries);
 }
 
 /** Sets lobby status to "ended", and performs any cleanup */
