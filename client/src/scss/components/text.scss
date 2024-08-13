@@ -84,3 +84,8 @@ pre {
   margin-top: 0.5em;
   color: colors.$error-red;
 }
+
+.warning {
+  color: colors.$warning;
+  font-weight: 600;
+}

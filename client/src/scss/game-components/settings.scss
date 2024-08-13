@@ -1,0 +1,76 @@
+.lobby-settings-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 3em;
+  row-gap: 0.5em;
+  padding: 0.5em 1em;
+  @media (max-width: 75rem) {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em 0.5em;
+  }
+  @media (max-width: 600px) {
+    padding: 0.5em 0.5em;
+  }
+
+  .warning {
+    grid-column: span 2;
+    text-align: center;
+  }
+}
+.lobby-settings-form-item {
+  display: grid;
+  grid-template-columns: 55% 45%;
+  // column-gap: 0.75em; // this is bugged, ignores parent grid gap
+  align-items: baseline;
+  min-height: 2.5em;
+  &.disabled {
+    opacity: 0.5;
+  }
+  .label-container {
+    text-align: end;
+    margin-right: 0.75em;
+    .label {
+      display: inline-flex;
+      gap: 0.4em;
+      margin-bottom: 0.25em;
+      .hint-icon {
+        color: colors.$hint;
+        opacity: 0.5;
+        cursor: pointer;
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+    .hint {
+      font-size: small;
+      font-weight: 400;
+    }
+  }
+  .checkbox {
+    margin-top: 0.5em; // aligns it with other form inputs
+  }
+  .control {
+    min-width: 10em;
+    max-width: 13em;
+  }
+  select:disabled {
+    // Show full-opacity options for read-only mode:
+    opacity: 1;
+  }
+}
+
+.game-settings-modal {
+  min-width: 25rem;
+  max-width: 90vw;
+  width: 60rem;
+  @media (max-width: 75rem) {
+    min-width: 20rem;
+    width: 30rem;
+    max-width: 95vw;
+  }
+  header {
+    text-align: center;
+  }
+}

@@ -9,7 +9,13 @@ import {
   IconChevronDownInline,
   IconQuestionInline,
 } from '../../../components/Icons';
+import { Twemoji } from '../../../components/Twemoji';
+import {
+  getValidAnswerModes,
+  getValidQuestionModes,
+} from '../../../shared/mode-utils';
 import { AnswerMode, LobbySettings, QuestionMode } from '../../../shared/types';
+import { Warning } from '../../../components/Warning';
 
 interface Props {
   settings: LobbySettings;
@@ -23,12 +29,17 @@ interface Props {
 export function LobbySettingsPanel(props: Props) {
   // Delay header class to prevent background flickering bug in Chrome :(
   const headerClass = useDelay('lobby-settings', 1000) ?? '';
+  const isInvalidMode =
+    getValidQuestionModes(props.settings.answer_mode).indexOf(
+      props.settings.question_mode,
+    ) === -1;
   return (
     <div className="lobby-settings-container">
       <header className={headerClass}>
         <h3>Game Settings</h3>
       </header>
       <div className="lobby-settings-form">
+        {isInvalidMode && <Warning>Question and Answer are the same</Warning>}
         <FormItem
           label="Question mode"
           hint="What the question will look like."
@@ -123,9 +134,11 @@ function QuestionModeControl({ settings, readOnly, onChange }: Props) {
     ['romaji', 'Romaji'],
     ['meaning', 'Meaning'],
   ];
+  const validModes = getValidQuestionModes(settings.answer_mode);
   return (
     <SelectInput
       disabled={readOnly}
+      invalid={validModes.indexOf(settings.question_mode) == -1}
       value={settings.question_mode}
       onChange={async (newValue) => {
         settings.question_mode = newValue;
@@ -139,17 +152,19 @@ function QuestionModeControl({ settings, readOnly, onChange }: Props) {
 function AnswerModeControl({ settings, readOnly, onChange }: Props) {
   const options: Array<[AnswerMode, string]> = [
     ['choose_kanji', 'Choose kanji'],
-    ['draw_kanji', 'Draw kanji'],
+    // ['draw_kanji', 'Draw kanji'], // not supported yet
     ['choose_hiragana', 'Choose hiragana'],
-    ['draw_hiragana', 'Draw hiragana'],
+    // ['draw_hiragana', 'Draw hiragana'], // not supported yet
     ['choose_romaji', 'Choose romaji'],
     ['choose_meaning', 'Choose meaning'],
     ['type_romaji', 'Type romaji'],
     ['type_meaning', 'Type meaning'],
   ];
+  const validModes = getValidAnswerModes(settings.question_mode);
   return (
     <SelectInput
       disabled={readOnly}
+      invalid={validModes.indexOf(settings.answer_mode) == -1}
       value={settings.answer_mode}
       onChange={async (newValue) => {
         settings.answer_mode = newValue;

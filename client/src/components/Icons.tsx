@@ -415,3 +415,28 @@ export function IconGoogle(props: IconSvgProps) {
     </Svg>
   );
 }
+
+export function IconWarning(props: IconSvgProps) {
+  // From Google Fonts, Material Icons: https://fonts.google.com/icons
+  // To remove the diamond shape, delete 'm608-368 46-166-142-98-46 166 142 98Z'
+  return (
+    <Svg
+      {...props}
+      height={props.height ?? 24}
+      width={props.width ?? 24}
+      viewBox="0 -960 960 960"
+    >
+      {/* Edited to be filled instead of outlined */}
+      <path d="M109-120q-11 0-20-5.5T75-140q-5-9-5.5-19.5T75-180l370-640q6-10 15.5-15t19.5-5q10 0 19.5 5t15.5 15l370 640q6 10 5.5 20.5T885-140q-5 9-14 14.5t-20 5.5H109Zm69-80h604Zm302-40q17 0 28.5-11.5T520-280q0-17-11.5-28.5T480-320q-17 0-28.5 11.5T440-280q0 17 11.5 28.5T480-240Zm0-120q17 0 28.5-11.5T520-400v-120q0-17-11.5-28.5T480-560q-17 0-28.5 11.5T440-520v120q0 17 11.5 28.5T480-360Zm0-100Z" />
+    </Svg>
+  );
+}
+
+export function IconWarningInline(props: IconSvgProps) {
+  return (
+    <IconWarning
+      {...props}
+      className={`icon-warning-inline ${props.className}`}
+    />
+  );
+}

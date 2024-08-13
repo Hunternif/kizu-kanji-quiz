@@ -12,6 +12,7 @@ export interface ControlProps {
   small?: boolean;
   tiny?: boolean;
   inline?: boolean;
+  invalid?: boolean;
 }
 
 interface NumberInputProps extends ControlProps {
@@ -224,6 +225,7 @@ export function getControlStyle({
   small,
   tiny,
   inline,
+  invalid,
 }: ControlProps): string {
   const classes = new Array<string>();
   if (className) classes.push(className);
@@ -234,6 +236,7 @@ export function getControlStyle({
   if (small) classes.push('small-control');
   if (tiny) classes.push('tiny-control');
   if (inline) classes.push('inline-control');
+  if (invalid) classes.push('invalid-control');
   return classes.join(' ');
 }
 

@@ -1,5 +1,5 @@
-@use "../colors.scss";
-@use "../sizes.scss";
+@use '../colors.scss';
+@use '../sizes.scss';
 
 /*------------------------- Input component ------------------------*/
 /* Copied from Bootstrap and modified */
@@ -21,5 +21,16 @@ input.control {
     background-color: colors.$control-bg-focus;
     border-color: colors.$control-border-focus;
     outline: 0;
+  }
+}
+
+.invalid-control {
+  border: 2px solid colors.$control-invalid-border;
+  background-color: colors.$control-invalid-bg;
+  &:focus,
+  &:focus-visible {
+    border: 2px solid colors.$control-invalid-border;
+    // This colors the dropdown options too:
+    // background-color: colors.$control-invalid-bg-focus;
   }
 }

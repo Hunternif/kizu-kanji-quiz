@@ -16,6 +16,7 @@ $text: $gray-5;
 $hint: $gray-3;
 
 $error-red: #e64949;
+$warning: #e67549;
 
 $gold: #ffc90f; // From CAA
 
@@ -113,6 +114,10 @@ $checkbox-bg: transparent;
 
 $menu-bg: #fff;
 $menu-focus-bg: $gray-0;
+
+$control-invalid-border: $warning;
+$control-invalid-bg: color-mix(in srgb, $warning 20%, #fff);
+$control-invalid-bg-focus: color-mix(in srgb, $warning 15%, #fff);
 
 /*------------------- "Panels" (modals & cards) ------------------*/
 $modal-bg: #fff;
