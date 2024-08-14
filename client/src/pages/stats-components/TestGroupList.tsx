@@ -135,7 +135,7 @@ function Group({
   const progressClasses = ['progress-bar'];
   if (groupProgress !== undefined) {
     const total = testGroupInfo.get(value)?.count ?? 1;
-    progressRate = Math.max(0, Math.min(100, groupProgress / total));
+    progressRate = 100 * Math.max(0, Math.min(1, groupProgress / total));
     if (progressRate < 30) progressClasses.push('red');
     else if (progressRate < 60) progressClasses.push('yellow');
     else progressClasses.push('green');
