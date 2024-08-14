@@ -44,10 +44,12 @@ export function useClickOutside<T extends HTMLElement>(
         callback();
       }
     };
-    document.addEventListener('mousedown', click);
+    // Chrome doesn't support mousedown.
+    // See https://stackoverflow.com/a/41238807/1093712
+    document.addEventListener('pointerdown', click);
 
     return () => {
-      document.removeEventListener('mousedown', click);
+      document.removeEventListener('pointerdown', click);
     };
   }, []);
   return ref;
@@ -59,10 +61,12 @@ export function useClick(callback: () => void) {
     const click = () => {
       callback();
     };
-    document.addEventListener('mousedown', click);
+    // Chrome doesn't support mousedown.
+    // See https://stackoverflow.com/a/41238807/1093712
+    document.addEventListener('pointerdown', click);
 
     return () => {
-      document.removeEventListener('mousedown', click);
+      document.removeEventListener('pointerdown', click);
     };
   }, []);
 }
