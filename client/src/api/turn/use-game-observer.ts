@@ -48,21 +48,26 @@ export function useGameObserver(
 
       let shouldPause = false;
       let shouldResume = false;
+      let shouldSkip = false;
       for (const change of snap.docChanges()) {
         if (change.type === 'added' || change.type === 'modified') {
           // Check if pause was requested:
           const response = change.doc.data();
-          switch (response.pause) {
+          switch (response.request) {
             case 'request_pause':
               shouldPause = true;
               break;
             case 'request_resume':
               shouldResume = true;
               break;
+            case 'skip_answer':
+            case 'next_turn':
+              shouldSkip = true;
+              break;
             case undefined:
               break;
             default:
-              assertExhaustive(response.pause);
+              assertExhaustive(response.request);
           }
         }
       }

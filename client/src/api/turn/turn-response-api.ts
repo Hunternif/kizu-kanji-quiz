@@ -11,10 +11,11 @@ import {
   GameLobby,
   GameTurn,
   Language,
-  PauseRequest,
   PlayerInLobby,
+  PlayerRequest,
   PlayerResponse,
 } from '../../shared/types';
+import { assertExhaustive } from '../../shared/utils';
 import { getTurnRef } from './turn-repository';
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -113,28 +114,37 @@ export async function pingResponse(
   // so there is only 1 extra document update.
   if (lobby.creator_uid === player.uid || shouldSkip) {
     // console.log(`Ping for ${turn.id} '${turn.phase}'! ${new Date()}`);
-    const response = await getPlayerResponse(lobby.id, turn.id, player.uid);
+    let response = await getPlayerResponse(lobby.id, turn.id, player.uid);
     if (response) {
       response.current_phase = turn.phase;
-      response.pause = undefined; // clear stale pause requests
+      response.request = undefined; // clear stale requests
       response.time_updated = new Date();
-      if (response.isEmpty() && shouldSkip) {
-        response.skip = true;
-      }
-      await updateResponse(lobby.id, turn.id, response);
     } else {
-      const emptyResponse = new PlayerResponse(
+      // Make an empty response:
+      response = new PlayerResponse(
         player.uid,
         player.name,
         turn.id,
         turn.phase,
         null,
       );
-      if (shouldSkip) {
-        emptyResponse.skip = true;
-      }
-      await updateResponse(lobby.id, turn.id, emptyResponse);
     }
+    if (shouldSkip) {
+      response.skip = true;
+      switch (turn.phase) {
+        case 'new':
+        case 'answering':
+          response.request = 'skip_answer';
+          break;
+        case 'reveal':
+        case 'complete':
+          response.request = 'next_turn';
+          break;
+        default:
+          assertExhaustive(turn.phase);
+      }
+    }
+    await updateResponse(lobby.id, turn.id, response);
   }
 }
 
@@ -149,11 +159,11 @@ export async function requestPause(
   shouldPause: boolean,
 ) {
   const response = await getPlayerResponse(lobby.id, turn.id, player.uid);
-  const request: PauseRequest = shouldPause
+  const request: PlayerRequest = shouldPause
     ? 'request_pause'
     : 'request_resume';
   if (response) {
-    response.pause = request;
+    response.request = request;
     response.current_phase = turn.phase;
     response.time_updated = new Date();
     await updateResponse(lobby.id, turn.id, response);
@@ -165,7 +175,7 @@ export async function requestPause(
       turn.phase,
       null,
     );
-    emptyResponse.pause = request;
+    emptyResponse.request = request;
     await updateResponse(lobby.id, turn.id, emptyResponse);
   }
 }

@@ -168,7 +168,7 @@ export const playerResponseConverter: FConverter<PlayerResponse> = {
       data.answer_entry_id,
       data.answer_typed,
       (data.time_updated as FTimestamp | undefined)?.toDate(),
-      data.pause,
+      data.request,
       data.skip,
     );
   },

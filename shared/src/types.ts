@@ -259,8 +259,9 @@ export class PlayerResponse {
     public answer_typed?: string,
     /** Used to ping the server after the turn ends. */
     public time_updated?: Date,
-    /** Players request pause via their response. */
-    public pause?: PauseRequest,
+    /** Players request certain actions via their response. */
+    // TODO: maybe separate PlayerResponse and PlayerRequst into 2 docs?
+    public request?: PlayerRequest,
     /** True if the player decided to skip this turn. */
     public skip?: boolean,
   ) {}
@@ -283,7 +284,11 @@ export type LobbyStatus =
   | 'ended';
 /** Could contain extra statuses for timed resume. */
 export type PauseStatus = 'none' | 'paused';
-export type PauseRequest = 'request_pause' | 'request_resume';
+export type PlayerRequest =
+  | 'request_pause'
+  | 'request_resume'
+  | 'skip_answer'
+  | 'next_turn';
 
 /** "kick" is re-joinable, "ban" is forever. */
 export type KickAction = 'kick' | 'ban';

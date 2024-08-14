@@ -18,13 +18,15 @@ async function handleResponseUpdateOrCreate(
 ) {
   const turn = await getTurn(lobbyID, turnID);
   // Check if pause was requested:
-  switch (response.pause) {
+  switch (response.request) {
     case 'request_pause':
       await pauseTurn(lobbyID, turn);
       break;
     case 'request_resume':
       await resumeTurn(lobbyID, turn);
       break;
+    case 'skip_answer':
+    case 'next_turn':
     case undefined:
       // Check if it's time to advance turn as per timer:
       // (Pause request could have changed next phase time!)
@@ -41,7 +43,7 @@ async function handleResponseUpdateOrCreate(
       }
       break;
     default:
-      assertExhaustive(response.pause);
+      assertExhaustive(response.request);
   }
 }
 
