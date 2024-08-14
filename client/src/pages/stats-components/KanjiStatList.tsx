@@ -19,13 +19,6 @@ export function KanjiStatList({ quizUser, selectedGroup }: Props) {
   const [selectedEntry, setSelectedEntry] = useState<GameEntry>();
   const [entries, setEntries] = useState<Array<GameEntry>>([]);
 
-  async function fetchKanji() {
-    try {
-      return await loadAllKanjiData();
-    } catch (e: any) {
-      setError(e);
-    }
-  }
   async function fetchStats() {
     try {
       return await getUserStats(quizUser.uid);
@@ -33,27 +26,28 @@ export function KanjiStatList({ quizUser, selectedGroup }: Props) {
       setError(e);
     }
   }
-  const [kanjiEntries] = useAsyncData(fetchKanji());
   const [userStats] = useAsyncData(fetchStats());
 
-  // Load vocab groups separately, because they are extra large:
-  useEffect(() => {
-    async function updateEntries() {
-      try {
-        if (selectedGroup) {
-          if (isVocabGroup(selectedGroup)) {
-            const vocabEntries = await loadVocabData(selectedGroup);
-            setEntries([...vocabEntries.values()]);
-          } else if (kanjiEntries) {
-            setEntries(filterEntries(kanjiEntries.values(), selectedGroup));
-          }
+  async function updateEntries() {
+    try {
+      if (selectedGroup) {
+        // Load vocab groups separately, because they are extra large:
+        if (isVocabGroup(selectedGroup)) {
+          const vocabEntries = await loadVocabData(selectedGroup);
+          setEntries([...vocabEntries.values()]);
+        } else {
+          const kanjiEntries = await loadAllKanjiData();
+          setEntries(filterEntries(kanjiEntries.values(), selectedGroup));
         }
-      } catch (e: any) {
-        setError(e);
       }
+    } catch (e: any) {
+      setError(e);
     }
+  }
+
+  useEffect(() => {
     updateEntries();
-  }, [kanjiEntries, selectedGroup]);
+  }, [selectedGroup]);
 
   return (
     <div className="kanji-stat-list">

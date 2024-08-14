@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import { ErrorContext, useErrorContext } from '../components/ErrorContext';
 import { ErrorModal } from '../components/ErrorModal';
 import { LoadingSpinner } from '../components/LoadingSpinner';
@@ -8,6 +9,14 @@ import { useQuizUser } from '../hooks/auth-hooks';
 import { TestGroup } from '../shared/types';
 import { KanjiStatList } from './stats-components/KanjiStatList';
 import { TestGroupList } from './stats-components/TestGroupList';
+
+interface LoaderParams {
+  params: any;
+}
+
+export function statsLoader({ params }: LoaderParams): TestGroup {
+  return params['group'] as TestGroup;
+}
 
 /** Page with your user's statistics */
 export function StatsPage() {
@@ -23,9 +32,10 @@ export function StatsPage() {
 }
 
 function StatsPageThrows() {
-  const [quizUser, loadingQuizUser] = useQuizUser();
   const { setError } = useErrorContext();
-  const [selectedGroup, setSelectedGroup] = useState<TestGroup>();
+  const navigate = useNavigate();
+  const selectedGroup = useLoaderData() as TestGroup;
+  const [quizUser, loadingQuizUser] = useQuizUser();
 
   if (loadingQuizUser) {
     return <LoadingSpinner delay text="Loading user..." />;
@@ -46,7 +56,7 @@ function StatsPageThrows() {
             <ScrollContainer scrollDark>
               <TestGroupList
                 selectedGroup={selectedGroup}
-                onSelect={setSelectedGroup}
+                onSelect={(group) => navigate(`/stats/${group}`)}
               />
             </ScrollContainer>
           </>

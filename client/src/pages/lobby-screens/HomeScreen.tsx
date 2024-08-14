@@ -46,7 +46,7 @@ export function HomeScreen() {
         </GameButton>
         <GameButton
           iconLeft={<Twemoji>💹</Twemoji>}
-          onClick={() => navigate('/stats')}
+          onClick={() => navigate('/stats/hiragana')}
         >
           Statistics
         </GameButton>

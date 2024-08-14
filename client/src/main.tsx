@@ -5,8 +5,8 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { ErrorPage } from './pages/ErrorPage';
 import { lobbyLoader, LobbyPage } from './pages/LobbyPage';
+import { statsLoader, StatsPage } from './pages/StatsPage';
 import { WelcomePage } from './pages/WelcomePage';
-import { StatsPage } from './pages/StatsPage';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +18,12 @@ const router = createBrowserRouter([
     path: '/stats',
     element: <StatsPage />,
     errorElement: <ErrorPage />,
+  },
+  {
+    path: '/stats/:group',
+    element: <StatsPage />,
+    errorElement: <ErrorPage />,
+    loader: statsLoader,
   },
   // {
   //   path: "/test",
