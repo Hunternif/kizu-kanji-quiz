@@ -115,6 +115,7 @@ export async function pingResponse(
     const response = await getPlayerResponse(lobby.id, turn.id, player.uid);
     if (response) {
       response.current_phase = turn.phase;
+      response.pause = undefined; // clear stale pause requests
       response.time_updated = new Date();
       if (response.isEmpty() && shouldSkip) {
         response.skip = true;
