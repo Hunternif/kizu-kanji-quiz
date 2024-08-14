@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { submitPlayerResponse } from '../../../api/turn/turn-response-api';
 import { GameButton } from '../../../components/Buttons';
 import { TextInput } from '../../../components/FormControls';
@@ -16,6 +16,8 @@ interface Props {
 export function TypedAnswer({ disabled }: Props) {
   const { lobby, turn, player, responses, language } = useGameContext();
   const [text, setText] = useState('');
+  const inputRef = useRef<HTMLInputElement>(null);
+
   // Remember turn ID, to reset input when the turn changes:
   const [lastTurnID, setLastTurnID] = useState(turn.id);
   const response = responses.find((r) => r.player_uid === player.uid);
@@ -52,11 +54,12 @@ export function TypedAnswer({ disabled }: Props) {
     [lobby, turn, player, language, isTimerEnabled, disabled],
   );
 
-  // Reset input on new turn:
+  // Reset and auto-focus input on new turn:
   useEffect(() => {
     if (lastTurnID !== turn.id) {
       setLastTurnID(turn.id);
       setText('');
+      inputRef.current?.focus();
     }
   }, [turn.id, lastTurnID]);
 
@@ -72,6 +75,7 @@ export function TypedAnswer({ disabled }: Props) {
       <div className="typed-prompt">{prompt}:</div>
       <div className="input-row">
         <TextInput
+          ref={inputRef}
           className="user-typed-input"
           value={disabled ? response?.answer_typed ?? text : text}
           onChange={handleChange}

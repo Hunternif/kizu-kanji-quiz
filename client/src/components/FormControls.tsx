@@ -1,4 +1,11 @@
-import { ChangeEvent, ReactNode, useContext, useMemo, useState } from 'react';
+import {
+  ChangeEvent,
+  forwardRef,
+  ReactNode,
+  useContext,
+  useMemo,
+  useState,
+} from 'react';
 import { debounce } from '../shared/utils';
 import { Checkbox } from './Checkbox';
 import { ErrorContext } from './ErrorContext';
@@ -178,43 +185,49 @@ interface TextInputProps extends ControlProps {
 }
 
 /** Form input: text */
-export function TextInput({
-  value,
-  placeholder,
-  disabled,
-  password,
-  onChange,
-  ...props
-}: TextInputProps) {
-  const { setError } = useContext(ErrorContext);
-  const controlClass = getControlStyle(props);
-  const debouncedHandler = useMemo(
-    () => debounce(onChange) as ChangeHandler<string>,
-    [onChange],
-  );
-  async function handleChange(event: ChangeEvent<HTMLInputElement>) {
-    try {
-      const newValue = event.currentTarget.value;
-      if (props.debounce) {
-        await debouncedHandler(newValue);
-      } else {
-        await onChange(newValue);
+export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
+  function TextInput(
+    {
+      value,
+      placeholder,
+      disabled,
+      password,
+      onChange,
+      ...props
+    }: TextInputProps,
+    ref,
+  ) {
+    const { setError } = useContext(ErrorContext);
+    const controlClass = getControlStyle(props);
+    const debouncedHandler = useMemo(
+      () => debounce(onChange) as ChangeHandler<string>,
+      [onChange],
+    );
+    async function handleChange(event: ChangeEvent<HTMLInputElement>) {
+      try {
+        const newValue = event.currentTarget.value;
+        if (props.debounce) {
+          await debouncedHandler(newValue);
+        } else {
+          await onChange(newValue);
+        }
+      } catch (e: any) {
+        setError(e);
       }
-    } catch (e: any) {
-      setError(e);
     }
-  }
-  return (
-    <input
-      type={password ? 'password' : 'text'}
-      className={`control ${controlClass}`}
-      value={value}
-      placeholder={placeholder}
-      disabled={disabled}
-      onChange={handleChange}
-    />
-  );
-}
+    return (
+      <input
+        ref={ref}
+        type={password ? 'password' : 'text'}
+        className={`control ${controlClass}`}
+        value={value}
+        placeholder={placeholder}
+        disabled={disabled}
+        onChange={handleChange}
+      />
+    );
+  },
+);
 
 export function getControlStyle({
   className,
