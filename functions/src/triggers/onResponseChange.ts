@@ -26,19 +26,19 @@ async function handleResponseUpdateOrCreate(
       await resumeTurn(lobbyID, turn);
       break;
     case undefined:
+      // Check if it's time to advance turn as per timer:
+      // (Pause request could have changed next phase time!)
+      // Also ensure that the request is not stale:
+      if (turn.phase === response.current_phase) {
+        await tryAdvanceTurn(lobbyID, turn);
+      } else {
+        logger.info(
+          `Stale request! Requested during phase ${response.current_phase}, turn phase is ${turn.phase}. Lobby ${lobbyID}`,
+        );
+      }
       break;
     default:
       assertExhaustive(response.pause);
-  }
-  // Check if it's time to advance turn as per timer:
-  // (Pause request could have changed next phase time!)
-  // Also ensure that the request is not stale:
-  if (turn.phase === response.current_phase) {
-    await tryAdvanceTurn(lobbyID, turn);
-  } else {
-    logger.info(
-      `Stale request! Requested during phase ${response.current_phase}, turn phase is ${turn.phase}. Lobby ${lobbyID}`,
-    );
   }
 }
 

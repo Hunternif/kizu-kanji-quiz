@@ -79,9 +79,8 @@ export function useGameObserver(
           await pauseTurn(lobby.id, updatedTurn);
         } else if (shouldResume) {
           await resumeTurn(lobby.id, updatedTurn);
-        }
-        // Check if it's time to advance turn as per timer:
-        if (!isStale) {
+        } else if (!isStale) {
+          // Check if it's time to advance turn as per timer:
           // Pass in updated responses, because they may not
           // have been written to the database.
           await tryAdvanceTurn(lobby, updatedTurn, responses);
