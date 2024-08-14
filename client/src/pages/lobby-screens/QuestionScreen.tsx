@@ -25,7 +25,6 @@ export function QuestionScreen() {
   const { lobby, turn, player, responses, isSpectator, language } =
     useGameContext();
   const response = responses.find((r) => r.player_uid === player.uid);
-  const isPaused = turn.pause === 'paused';
 
   /** Notifies the server that this player is ready for the next phase.
    * @param skip if true, will mark this response as skipped. */
@@ -47,19 +46,20 @@ export function QuestionScreen() {
 
   const showChoices = isChoiceAnswer(turn.answer_mode);
   const showTyping = isTypedAnswer(turn.answer_mode);
-  const isReveal = turn.phase === 'reveal';
+
+  const isReveal = turn.phase === 'reveal' || turn.phase === 'complete';
+  const isPaused = turn.pause === 'paused';
+
   const isCurrent = response?.current_turn_id === turn.id;
   const isSkipped = (isCurrent && response?.skip) || response?.isEmpty();
-  const isCorrect = isCurrent && isCorrectResponse(turn, response);
-  const isIncorrect = isCurrent && !isSkipped && !isCorrect;
+  const isCorrect = isReveal && isCurrent && isCorrectResponse(turn, response);
+  const isIncorrect = isReveal && isCurrent && !isSkipped && !isCorrect;
 
   const rootClasses = ['question-screen'];
   rootClasses.push(`phase-${turn.phase}`);
-  if (isReveal) {
-    if (isSkipped) rootClasses.push('skipped');
-    else if (isCorrect) rootClasses.push('correct');
-    else if (isIncorrect) rootClasses.push('incorrect');
-  }
+  if (isSkipped) rootClasses.push('skipped');
+  else if (isCorrect) rootClasses.push('correct');
+  else if (isIncorrect) rootClasses.push('incorrect');
 
   const isTimerEnabled =
     turn.next_phase_time != null && turn.phase_duration_ms != 0;
@@ -89,8 +89,10 @@ export function QuestionScreen() {
           entry={turn.question}
           questionMode={turn.question_mode}
           answerMode={turn.answer_mode}
-          paused={turn.pause === 'paused'}
-          reveal={turn.phase === 'reveal'}
+          paused={isPaused}
+          // Must use the actual 'reveal' here,
+          // to not show animation during 'skip reveal':
+          reveal={turn.phase === 'reveal'} 
           lang={language}
         />
       </div>
@@ -101,7 +103,7 @@ export function QuestionScreen() {
           ))}
         </div>
       )}
-      {showTyping && <TypedAnswer disabled={isReveal} />}
+      {showTyping && <TypedAnswer disabled={isReveal || isPaused} />}
       <br />
       {!isSpectator && (
         <HorizontalGroup className="control-button-group">
@@ -116,7 +118,10 @@ export function QuestionScreen() {
           )}
           {showContinue ? (
             // TODO: make 'continue' quorum-based
-            <GameButton onClick={() => signalNextPhase(true)}>
+            <GameButton
+              onClick={() => signalNextPhase(true)}
+              disabled={isPaused}
+            >
               Continue
             </GameButton>
           ) : (
