@@ -26,7 +26,16 @@
     text-wrap: wrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    &.short, &.one {
+
+    // Hack to show ellipsis on the last line:
+    // See https://stackoverflow.com/a/7033508/1093712
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
+
+    &.short,
+    &.one {
       font-size: 2rem;
     }
     &.medium {
