@@ -50,7 +50,7 @@ export function TestGroupSelector({ lobby, readOnly }: SelectorProps) {
         onToggle={toggleHandler}
       />
       <GroupSection
-        title="Vocabulary: Japanese Langyage Proficiency Test"
+        title="Vocabulary: Japanese Language Proficiency Test"
         lobby={lobby}
         groups={vocabJlptGroupNames}
         readOnly={readOnly}
