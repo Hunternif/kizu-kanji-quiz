@@ -45,6 +45,7 @@ $lobby-player-list-bg: $gray-0;
 $test-group-bg: $gray-0;
 $test-group-hover-bg: color-mix(in srgb, $accent-blue 10%, $test-group-bg);
 $test-group-selected-bg: color-mix(in srgb, $accent-blue 35%, $test-group-bg);
+$test-group-selected-border: $accent-blue;
 $test-group-selected-hover-bg: color-mix(
   in srgb,
   $test-group-selected-bg 70%,

@@ -104,7 +104,7 @@ function StatsPageThrows() {
         <footer>
           {selectedGroup && (
             <GameButton
-              iconLeft={<IconPlay />}
+              iconLeft={!startingTest ? <IconPlay /> : undefined}
               className="start-button"
               onClick={handleTest}
               loading={startingTest}

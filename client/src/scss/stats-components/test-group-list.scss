@@ -33,8 +33,9 @@
         // min-height: 3.5rem;
 
         &.selected {
-          background-color: colors.$test-group-selected-bg;
+          background-color: colors.$test-group-selected-bg 50%;
           color: colors.$test-group-selected-text;
+          outline: 2px solid colors.$test-group-selected-border;
           .group-label {
             font-weight: 700;
           }
@@ -81,7 +82,7 @@
           top: 0;
           left: 0;
 
-          opacity: 0.3;
+          opacity: 0.4;
           background-color: colors.$accent-pink;
           &.red {
             background-color: colors.$warning;
