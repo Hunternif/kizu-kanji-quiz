@@ -1,5 +1,6 @@
 import { signalEndOfCountdown } from '../../api/lobby/lobby-control-api';
 import { CenteredLayout } from '../../components/layout/CenteredLayout';
+import { LoadingSpinner } from '../../components/LoadingSpinner';
 import { Timer } from '../../components/Timer';
 import { useHandler } from '../../hooks/data-hooks';
 import { useGameContext } from './game-components/GameContext';
@@ -24,6 +25,7 @@ export function CountdownScreen() {
           onClear={handleStart}
         />
       </div>
+      <LoadingSpinner />
     </CenteredLayout>
   );
 }

@@ -60,6 +60,7 @@
 
 .countdown-screen {
   text-align: center;
+  position: relative;
   header {
     margin-bottom: 1rem;
     font-size: 1.2rem;
@@ -77,5 +78,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  .spinner {
+    position: absolute;
+    width: 18rem;
+    height: 18rem;
+    bottom: 1rem;
+    left: 1rem;
+    opacity: 0.2;
   }
 }
