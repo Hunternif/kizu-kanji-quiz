@@ -2,7 +2,7 @@ import {
   parseKanaFile,
   parseKanjiFile,
   parseVocabFile,
-  vocabJlptGroupNames,
+  vocabJlptGroupInfo,
 } from '../shared/kanji-data-api';
 import { GameEntry, VocabJlptGroup } from '../shared/types';
 
@@ -35,7 +35,7 @@ export async function loadAllKanjiData(): Promise<Map<string, GameEntry>> {
 
 /** Separate vocab cache. Maps group to entry ID to entry. */
 const vocabCache: Map<VocabJlptGroup, Map<string, GameEntry>> = new Map(
-  vocabJlptGroupNames.map(([group]) => [group, new Map()]),
+  vocabJlptGroupInfo.map((g) => [g.group, new Map()]),
 );
 
 /** Loads Vocab data for the given group and caches it. */

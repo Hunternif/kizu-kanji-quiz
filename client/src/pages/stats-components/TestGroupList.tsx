@@ -1,8 +1,9 @@
 import {
-  kanaGroupNames,
-  kanjiGradeGroupNames,
-  kanjiJlptGroupNames,
-  vocabJlptGroupNames,
+  kanaGroupInfo,
+  kanjiGradeGroupInfo,
+  kanjiJlptGroupInfo,
+  TestGroupInfo,
+  vocabJlptGroupInfo,
 } from '../../shared/kanji-data-api';
 import { TestGroup } from '../../shared/types';
 
@@ -16,25 +17,25 @@ export function TestGroupList({ selectedGroup, onSelect }: ListProps) {
     <div className="test-group-list">
       <GroupSection
         title="Hiragana & Katakana"
-        groups={kanaGroupNames}
+        groups={kanaGroupInfo}
         selectedGroup={selectedGroup}
         onSelectGroup={onSelect}
       />
       <GroupSection
         title="Kanji: Japanese Language Proficiency Test"
-        groups={kanjiJlptGroupNames}
+        groups={kanjiJlptGroupInfo}
         selectedGroup={selectedGroup}
         onSelectGroup={onSelect}
       />
       <GroupSection
         title="Kanji: Primary school"
-        groups={kanjiGradeGroupNames}
+        groups={kanjiGradeGroupInfo}
         selectedGroup={selectedGroup}
         onSelectGroup={onSelect}
       />
       <GroupSection
         title="Vocabulary: Japanese Language Proficiency Test"
-        groups={vocabJlptGroupNames}
+        groups={vocabJlptGroupInfo}
         selectedGroup={selectedGroup}
         onSelectGroup={onSelect}
       />
@@ -44,7 +45,7 @@ export function TestGroupList({ selectedGroup, onSelect }: ListProps) {
 
 interface SectionProps extends React.HTMLAttributes<HTMLElement> {
   title: string;
-  groups: Array<[value: TestGroup, label: string, sublabel: string]>;
+  groups: Array<TestGroupInfo<TestGroup>>;
   big?: boolean; // Makes the label big
   selectedGroup?: TestGroup;
   onSelectGroup?: (value: TestGroup) => void;
@@ -61,15 +62,15 @@ function GroupSection({
     <div className="group-section">
       <div className="group-section-title">{title}</div>
       <div className="group-container" {...props}>
-        {groups.map(([value, label, sub]) => (
+        {groups.map((g) => (
           <Group
-            key={value}
-            value={value}
-            label={label}
+            key={g.group}
+            value={g.group}
+            label={g.label}
             big={big}
-            sublabel={sub}
-            selected={selectedGroup === value}
-            onClick={() => onSelectGroup && onSelectGroup(value)}
+            sublabel={g.sublabel}
+            selected={selectedGroup === g.group}
+            onClick={() => onSelectGroup && onSelectGroup(g.group)}
           />
         ))}
       </div>

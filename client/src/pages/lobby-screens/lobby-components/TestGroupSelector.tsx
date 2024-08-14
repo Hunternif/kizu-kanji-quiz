@@ -2,10 +2,11 @@ import { User } from 'firebase/auth';
 import { updateLobby } from '../../../api/lobby/lobby-repository';
 import { useHandler2 } from '../../../hooks/data-hooks';
 import {
-  kanaGroupNames,
-  kanjiGradeGroupNames,
-  kanjiJlptGroupNames,
-  vocabJlptGroupNames,
+  kanaGroupInfo,
+  kanjiGradeGroupInfo,
+  kanjiJlptGroupInfo,
+  TestGroupInfo,
+  vocabJlptGroupInfo,
 } from '../../../shared/kanji-data-api';
 import { GameLobby, TestGroup } from '../../../shared/types';
 
@@ -30,7 +31,7 @@ export function TestGroupSelector({ lobby, readOnly }: SelectorProps) {
         big
         title="Hiragana & Katakana"
         lobby={lobby}
-        groups={kanaGroupNames}
+        groups={kanaGroupInfo}
         readOnly={readOnly}
         onToggle={toggleHandler}
       />
@@ -38,21 +39,21 @@ export function TestGroupSelector({ lobby, readOnly }: SelectorProps) {
         big
         title="Kanji: Japanese Language Proficiency Test"
         lobby={lobby}
-        groups={kanjiJlptGroupNames}
+        groups={kanjiJlptGroupInfo}
         readOnly={readOnly}
         onToggle={toggleHandler}
       />
       <GroupSection
         title="Kanji: Primary school"
         lobby={lobby}
-        groups={kanjiGradeGroupNames}
+        groups={kanjiGradeGroupInfo}
         readOnly={readOnly}
         onToggle={toggleHandler}
       />
       <GroupSection
         title="Vocabulary: Japanese Language Proficiency Test"
         lobby={lobby}
-        groups={vocabJlptGroupNames}
+        groups={vocabJlptGroupInfo}
         readOnly={readOnly}
         onToggle={toggleHandler}
       />
@@ -62,7 +63,7 @@ export function TestGroupSelector({ lobby, readOnly }: SelectorProps) {
 
 interface SectionProps extends React.HTMLAttributes<HTMLElement> {
   title: string;
-  groups: Array<[value: TestGroup, label: string, sublabel: string]>;
+  groups: Array<TestGroupInfo<TestGroup>>;
   lobby: GameLobby;
   big?: boolean; // Makes the label big
   readOnly?: boolean;
@@ -81,14 +82,14 @@ function GroupSection({
     <div className="group-section">
       <div className="group-section-title">{title}</div>
       <div className="group-container" {...props}>
-        {groups.map(([value, label, sub]) => (
+        {groups.map((g) => (
           <Group
-            key={value}
-            value={value}
-            label={label}
+            key={g.group}
+            value={g.group}
+            label={g.label}
             big={big}
-            sublabel={sub}
-            selected={lobby.test_groups.has(value)}
+            sublabel={g.sublabel}
+            selected={lobby.test_groups.has(g.group)}
             onToggle={onToggle}
             readonly={readOnly}
           />
