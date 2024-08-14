@@ -70,6 +70,11 @@ export function LobbySettingsPanel(props: Props) {
           control={<RevealTimerControl {...props} />}
         />
         <FormItem
+          label="Skip reveal"
+          hint="Will jump straight to the next question without showing the correct answer."
+          control={<SkipRevealControl {...props} />}
+        />
+        <FormItem
           label="Countdown [sec]"
           hint="Countdown before the first turn (in seconds). 0 to disable."
           control={<StartCountdownTimerControl {...props} />}
@@ -273,6 +278,19 @@ function LobbyControlControl({ settings, readOnly, onChange }: Props) {
         ['players', 'Players'],
         ['anyone', 'Anyone (spectators)'],
       ]}
+    />
+  );
+}
+
+function SkipRevealControl({ settings, readOnly, onChange }: Props) {
+  return (
+    <ToggleInput
+      disabled={readOnly}
+      value={settings.skip_reveal}
+      onChange={async (newValue) => {
+        settings.skip_reveal = newValue;
+        if (onChange) await onChange(settings);
+      }}
     />
   );
 }

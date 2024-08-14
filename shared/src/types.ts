@@ -60,6 +60,8 @@ export interface LobbySettings {
   freeze_stats: boolean;
   /** Who is allowed to change lobby settings and kick players during the game. */
   lobby_control: LobbyControl;
+  /** If true, the 'reveal' phase is skipped. */
+  skip_reveal: boolean;
 }
 
 export function defaultLobbySettings(): LobbySettings {
@@ -75,6 +77,7 @@ export function defaultLobbySettings(): LobbySettings {
     allow_join_mid_game: true,
     freeze_stats: false,
     lobby_control: 'players',
+    skip_reveal: false,
   };
 }
 

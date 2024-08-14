@@ -94,10 +94,21 @@ async function countNonEmptyResponses(
  */
 export async function startTurnReveal(lobby: GameLobby, turn: GameTurn) {
   const shouldCountScores = turn.phase !== 'reveal';
-  turn.setPhase('reveal', new Date(), lobby.settings.reveal_timer_sec * 1000);
+  if (lobby.settings.skip_reveal) {
+    turn.setPhase('complete', new Date(), undefined);
+  } else {
+    turn.setPhase('reveal', new Date(), lobby.settings.reveal_timer_sec * 1000);
+  }
   await updateTurn(lobby.id, turn);
   if (shouldCountScores) {
     await updatePlayerScoresFromTurn(lobby, turn);
+  }
+  if (lobby.settings.skip_reveal) {
+    if (shouldEndLobby(lobby)) {
+      await endLobby(lobby);
+    } else {
+      await createNewTurn(lobby, turn);
+    }
   }
 }
 
@@ -151,6 +162,11 @@ export async function tryAdvanceTurn(
         }
         break;
       case 'complete':
+        if (shouldEndLobby(lobby)) {
+          await endLobby(lobby);
+        } else {
+          await createNewTurn(lobby, turn);
+        }
         break;
       default:
         assertExhaustive(turn.phase);
