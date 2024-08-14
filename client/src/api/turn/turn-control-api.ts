@@ -6,7 +6,6 @@ import { assertExhaustive } from '../../shared/utils';
 import { endLobby, shouldEndLobby } from '../lobby/lobby-control-api';
 import {
   countPlayers,
-  getLobby,
   getPlayerRef,
   updateLobby,
 } from '../lobby/lobby-repository';
@@ -112,7 +111,7 @@ export async function completeTurn(lobby: GameLobby, turn: GameTurn) {
 
 /** Checks if the timer has run out and advances turn to the next phase. */
 export async function tryAdvanceTurn(
-  lobbyID: string,
+  lobby: GameLobby,
   turn: GameTurn,
   responses: PlayerResponse[],
 ) {
@@ -122,7 +121,7 @@ export async function tryAdvanceTurn(
   const now = new Date();
   let shouldAdvance = false;
   // count if all players submitted responses
-  const playerCount = await countPlayers(lobbyID, 'player', 'online');
+  const playerCount = await countPlayers(lobby.id, 'player', 'online');
   const count = await countNonEmptyResponses(turn, responses);
   if (count >= playerCount) {
     // If everyone responded, skip to the next turn.
@@ -138,7 +137,6 @@ export async function tryAdvanceTurn(
     }
   }
   if (shouldAdvance) {
-    const lobby = await getLobby(lobbyID);
     switch (turn.phase) {
       case 'new':
       case 'answering':

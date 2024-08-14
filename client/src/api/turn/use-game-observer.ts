@@ -84,11 +84,11 @@ export function useGameObserver(
         if (!isStale) {
           // Pass in updated responses, because they may not
           // have been written to the database.
-          await tryAdvanceTurn(lobby.id, updatedTurn, responses);
+          await tryAdvanceTurn(lobby, updatedTurn, responses);
         }
       } catch (e: any) {
         setError(e);
       }
     }
-  }, [lobby.id, lobby.creator_uid, turn.id, quizUser.uid]);
+  }, [lobby, turn.id, quizUser.uid]);
 }
