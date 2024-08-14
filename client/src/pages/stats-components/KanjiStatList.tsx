@@ -1,32 +1,22 @@
 import { CSSProperties, useEffect, useState } from 'react';
 import { loadAllKanjiData, loadVocabData } from '../../api/kanji-cache-api';
-import { getUserStats } from '../../api/stats/stats-repository';
 import { useErrorContext } from '../../components/ErrorContext';
 import { Modal } from '../../components/Modal';
-import { useAsyncData } from '../../hooks/data-hooks';
 import { isVocabGroup } from '../../shared/kanji-data-api';
-import { GameEntry, QuizUser, TestGroup } from '../../shared/types';
+import { EntryStats, GameEntry, QuizUser, TestGroup } from '../../shared/types';
 import { JapText } from '../lobby-screens/game-components/JapText';
 import { QuestionCard } from '../lobby-screens/game-components/QuestionCard';
 
 interface Props {
   quizUser: QuizUser;
   selectedGroup?: TestGroup;
+  stats?: Map<string, EntryStats>;
 }
 
-export function KanjiStatList({ quizUser, selectedGroup }: Props) {
+export function KanjiStatList({ selectedGroup, stats }: Props) {
   const { setError } = useErrorContext();
   const [selectedEntry, setSelectedEntry] = useState<GameEntry>();
   const [entries, setEntries] = useState<Array<GameEntry>>([]);
-
-  async function fetchStats() {
-    try {
-      return await getUserStats(quizUser.uid);
-    } catch (e: any) {
-      setError(e);
-    }
-  }
-  const [userStats] = useAsyncData(fetchStats());
 
   async function updateEntries() {
     try {
@@ -71,7 +61,7 @@ export function KanjiStatList({ quizUser, selectedGroup }: Props) {
       </Modal>
 
       {entries.map((e) => {
-        const stat = userStats?.get(e.id);
+        const stat = stats?.get(e.id);
         const style: CSSProperties = {};
         if (stat) {
           const wins =

@@ -1,12 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLoaderData, useNavigate } from 'react-router-dom';
+import { getUserStats } from '../api/stats/stats-repository';
 import { ErrorContext, useErrorContext } from '../components/ErrorContext';
 import { ErrorModal } from '../components/ErrorModal';
 import { LoadingSpinner } from '../components/LoadingSpinner';
 import { ScrollContainer } from '../components/layout/ScrollContainer';
 import { SidebarLayout } from '../components/layout/SidebarLayout';
 import { useQuizUser } from '../hooks/auth-hooks';
-import { TestGroup } from '../shared/types';
+import { EntryStats, TestGroup } from '../shared/types';
 import { KanjiStatList } from './stats-components/KanjiStatList';
 import { TestGroupList } from './stats-components/TestGroupList';
 
@@ -36,6 +37,21 @@ function StatsPageThrows() {
   const navigate = useNavigate();
   const selectedGroup = useLoaderData() as TestGroup;
   const [quizUser, loadingQuizUser] = useQuizUser();
+  const [userStats, setUserStats] = useState<Map<string, EntryStats>>();
+
+  async function fetchStats(userID: string) {
+    try {
+      setUserStats(await getUserStats(userID));
+    } catch (e: any) {
+      setError(e);
+    }
+  }
+
+  useEffect(() => {
+    if (quizUser) {
+      fetchStats(quizUser.uid);
+    }
+  }, [quizUser?.uid]);
 
   if (loadingQuizUser) {
     return <LoadingSpinner delay text="Loading user..." />;
@@ -56,6 +72,7 @@ function StatsPageThrows() {
             <ScrollContainer scrollDark>
               <TestGroupList
                 selectedGroup={selectedGroup}
+                stats={userStats}
                 onSelect={(group) => navigate(`/stats/${group}`)}
               />
             </ScrollContainer>
@@ -64,7 +81,11 @@ function StatsPageThrows() {
       >
         <header>Statistics</header>
         <ScrollContainer scrollDark>
-          <KanjiStatList quizUser={quizUser} selectedGroup={selectedGroup} />
+          <KanjiStatList
+            quizUser={quizUser}
+            selectedGroup={selectedGroup}
+            stats={userStats}
+          />
         </ScrollContainer>
       </SidebarLayout>
     </>

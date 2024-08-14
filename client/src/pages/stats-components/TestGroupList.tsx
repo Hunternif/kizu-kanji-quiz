@@ -5,10 +5,11 @@ import {
   TestGroupInfo,
   vocabJlptGroupInfo,
 } from '../../shared/kanji-data-api';
-import { TestGroup } from '../../shared/types';
+import { EntryStats, TestGroup } from '../../shared/types';
 
 interface ListProps {
   selectedGroup?: TestGroup;
+  stats?: Map<string, EntryStats>;
   onSelect?: (group: TestGroup) => void;
 }
 
