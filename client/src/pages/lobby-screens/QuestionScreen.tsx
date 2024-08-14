@@ -1,3 +1,5 @@
+import { useRef } from 'react';
+import { useOnNewTurnPhase } from '../../api/turn/turn-hooks';
 import { pingResponse, requestPause } from '../../api/turn/turn-response-api';
 import { GameButton } from '../../components/Buttons';
 import { CenteredLayout } from '../../components/layout/CenteredLayout';
@@ -66,6 +68,14 @@ export function QuestionScreen() {
   const showContinue = turn.phase === 'reveal' || response?.isEmpty() === false;
   const showSkip = response == null || response.isEmpty();
 
+  // Auto-focus the 'continue' button on reveal screen:
+  const continueRef = useRef<HTMLButtonElement>(null);
+  useOnNewTurnPhase(() => {
+    if (turn.phase === 'reveal' || turn.phase === 'complete') {
+      continueRef.current?.focus();
+    }
+  }, turn);
+
   return (
     <CenteredLayout innerClassName={rootClasses.join(' ')}>
       <div className="question-group">
@@ -92,7 +102,7 @@ export function QuestionScreen() {
           paused={isPaused}
           // Must use the actual 'reveal' here,
           // to not show animation during 'skip reveal':
-          reveal={turn.phase === 'reveal'} 
+          reveal={turn.phase === 'reveal'}
           lang={language}
         />
       </div>
@@ -119,6 +129,7 @@ export function QuestionScreen() {
           {showContinue ? (
             // TODO: make 'continue' quorum-based
             <GameButton
+              ref={continueRef}
               onClick={() => signalNextPhase(true)}
               disabled={isPaused}
             >

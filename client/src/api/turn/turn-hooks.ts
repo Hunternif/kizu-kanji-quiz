@@ -110,3 +110,16 @@ export function useOnNewTurn(callback: () => void, turn: GameTurn) {
     }
   }, [turn.id, lastTurnID]);
 }
+
+/** Runs the callback when the turn phase changes. */
+export function useOnNewTurnPhase(callback: () => void, turn: GameTurn) {
+  const [lastTurnID, setLastTurnID] = useState(turn.id);
+  const [lastPhase, setLastPhase] = useState(turn.phase);
+  useEffect(() => {
+    if (lastTurnID !== turn.id || lastPhase != turn.phase) {
+      setLastTurnID(turn.id);
+      setLastPhase(turn.phase);
+      callback();
+    }
+  }, [turn.id, turn.phase, lastTurnID]);
+}
