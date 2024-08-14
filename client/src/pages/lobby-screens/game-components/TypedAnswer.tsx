@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { useOnNewTurn } from '../../../api/turn/turn-hooks';
+import { useOnNewTurn, useOnTurnPause } from '../../../api/turn/turn-hooks';
 import { submitPlayerResponse } from '../../../api/turn/turn-response-api';
 import { GameButton } from '../../../components/Buttons';
 import { TextInput } from '../../../components/FormControls';
@@ -57,6 +57,11 @@ export function TypedAnswer({ disabled }: Props) {
   useOnNewTurn(() => {
     setText('');
     inputRef.current?.focus();
+  }, turn);
+  useOnTurnPause(() => {
+    if (turn.pause === 'none') {
+      inputRef.current?.focus();
+    }
   }, turn);
 
   const classes = ['typed-input-form'];

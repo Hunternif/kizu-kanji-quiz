@@ -123,3 +123,14 @@ export function useOnNewTurnPhase(callback: () => void, turn: GameTurn) {
     }
   }, [turn.id, turn.phase, lastTurnID]);
 }
+
+/** Runs the callback when the turn pause status changes. */
+export function useOnTurnPause(callback: () => void, turn: GameTurn) {
+  const [lastPause, setLastPause] = useState(turn.pause);
+  useEffect(() => {
+    if (lastPause !== turn.pause) {
+      setLastPause(turn.pause);
+      callback();
+    }
+  }, [turn.pause]);
+}
