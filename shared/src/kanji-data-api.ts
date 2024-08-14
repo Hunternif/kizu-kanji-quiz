@@ -60,6 +60,16 @@ export const vocabJlptGroupInfo: Array<TestGroupInfo<VocabJlptGroup>> = [
   new TestGroupInfo('vocab_n1', 'N1', 3472, 'words'),
 ];
 
+/** Maps test group to its info. */
+export const testGroupInfo: Map<TestGroup, TestGroupInfo<TestGroup>> = new Map(
+  [
+    ...kanaGroupInfo,
+    ...kanjiJlptGroupInfo,
+    ...kanjiGradeGroupInfo,
+    ...vocabJlptGroupInfo,
+  ].map((info) => [info.group, info]),
+);
+
 export function isKanaGroup(group: TestGroup): group is KanaGroup {
   switch (group) {
     case 'hiragana':

@@ -25,6 +25,10 @@
         align-items: center;
         justify-content: space-between;
 
+        // For the inner progress bar
+        position: relative;
+        overflow: hidden;
+
         // min-width: 7rem;
         // min-height: 3.5rem;
 
@@ -59,6 +63,7 @@
 
         .group-label {
           font-weight: 600;
+          z-index: 1;
         }
         &.big .group-label {
           font-size: 1.4rem;
@@ -66,6 +71,27 @@
         .group-sublabel {
           font-size: 0.9em;
           font-weight: 300;
+          z-index: 1;
+        }
+        .progress-bar {
+          height: 100%;
+
+          position: absolute;
+          z-index: 0;
+          top: 0;
+          left: 0;
+
+          opacity: 0.3;
+          background-color: colors.$accent-pink;
+          &.red {
+            background-color: colors.$warning;
+          }
+          &.yellow {
+            background-color: colors.$gold;
+          }
+          &.green {
+            background-color: colors.$correct-green;
+          }
         }
       }
     }
