@@ -3,7 +3,7 @@ import {
   isCorrectResponse,
   isTypedAnswer,
 } from '../../shared/mode-utils';
-import { GameTurn, PlayerResponse } from '../../shared/types';
+import { EntryStats, GameTurn, PlayerResponse } from '../../shared/types';
 import { assertExhaustive } from '../../shared/utils';
 import { incrementStat, UserStatIncrement } from './stats-repository';
 
@@ -70,4 +70,24 @@ export async function updateUserStats(
       assertExhaustive(turn.answer_mode);
   }
   await incrementStat(response.player_uid, turn.question, statIncrement);
+}
+
+/** Calculates progress for an entry. */
+export function getEntryProgress(stat: EntryStats): {
+  passed: boolean;
+  wins: number;
+  fails: number;
+  attempts: number;
+} {
+  const wins =
+    (stat?.meaning_wins ?? 0) +
+    (stat?.reading_wins ?? 0) +
+    (stat?.writing_wins ?? 0);
+  const fails =
+    (stat?.meaning_fails ?? 0) +
+    (stat?.reading_fails ?? 0) +
+    (stat?.writing_fails ?? 0);
+  const passed = wins > fails;
+  const attempts = wins + fails;
+  return { passed, wins, fails, attempts };
 }

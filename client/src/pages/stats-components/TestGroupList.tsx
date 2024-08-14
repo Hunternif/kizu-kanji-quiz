@@ -1,4 +1,5 @@
 import { CSSProperties, useEffect, useState } from 'react';
+import { getEntryProgress } from '../../api/stats/stats-api';
 import {
   kanaGroupInfo,
   kanjiGradeGroupInfo,
@@ -24,8 +25,11 @@ export function TestGroupList({ selectedGroup, stats, onSelect }: ListProps) {
       // Calculate completion for all groups:
       const rates = new Map<TestGroup, number>();
       for (const entry of [...stats.values()]) {
-        for (const group of entry.groups) {
-          rates.set(group, (rates.get(group) ?? 0) + 1);
+        const { passed } = getEntryProgress(entry);
+        if (passed) {
+          for (const group of entry.groups) {
+            rates.set(group, (rates.get(group) ?? 0) + 1);
+          }
         }
       }
       setGroupProgress(rates);

@@ -1,5 +1,6 @@
 import { CSSProperties, useEffect, useState } from 'react';
 import { loadAllKanjiData, loadVocabData } from '../../api/kanji-cache-api';
+import { getEntryProgress } from '../../api/stats/stats-api';
 import { useErrorContext } from '../../components/ErrorContext';
 import { Modal } from '../../components/Modal';
 import { isVocabGroup } from '../../shared/kanji-data-api';
@@ -64,15 +65,7 @@ export function KanjiStatList({ selectedGroup, stats }: Props) {
         const stat = stats?.get(e.id);
         const style: CSSProperties = {};
         if (stat) {
-          const wins =
-            (stat?.meaning_wins ?? 0) +
-            (stat?.reading_wins ?? 0) +
-            (stat?.writing_wins ?? 0);
-          const fails =
-            (stat?.meaning_fails ?? 0) +
-            (stat?.reading_fails ?? 0) +
-            (stat?.writing_fails ?? 0);
-          const attempts = wins + fails;
+          const { attempts, wins, fails } = getEntryProgress(stat);
           if (attempts > 0) {
             if (wins > fails) {
               style.backgroundColor = `color-mix(in srgb, green ${
