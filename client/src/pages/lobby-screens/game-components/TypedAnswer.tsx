@@ -45,7 +45,7 @@ export function TypedAnswer({ disabled }: Props) {
     async (newText: string) => {
       setText(newText);
       // Don't submit if there is no timer, so that the turn doesn't auto-advance.
-      if (!disabled && isTimerEnabled) {
+      if (!disabled && !isTimerEnabled) {
         await submitResponse(newText);
       }
     },
@@ -77,15 +77,13 @@ export function TypedAnswer({ disabled }: Props) {
           onChange={handleChange}
           disabled={disabled}
         ></TextInput>
-        {!isTimerEnabled && (
-          <GameButton
-            submit
-            onClick={() => submitResponse(text)}
-            disabled={disabled}
-          >
-            Submit
-          </GameButton>
-        )}
+        <GameButton
+          submit
+          onClick={() => submitResponse(text)}
+          disabled={disabled}
+        >
+          Submit
+        </GameButton>
       </div>
     </form>
   );

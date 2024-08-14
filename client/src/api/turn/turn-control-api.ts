@@ -1,9 +1,5 @@
 import { increment, setDoc, updateDoc } from 'firebase/firestore';
-import {
-  isChoiceAnswer,
-  isCorrectResponse,
-  isTypedAnswer,
-} from '../../shared/mode-utils';
+import { isChoiceAnswer, isCorrectResponse } from '../../shared/mode-utils';
 import { selectQuestion } from '../../shared/question-api';
 import { GameLobby, GameTurn, PlayerResponse } from '../../shared/types';
 import { assertExhaustive } from '../../shared/utils';
