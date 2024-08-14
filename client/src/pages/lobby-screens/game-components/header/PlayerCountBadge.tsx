@@ -7,7 +7,7 @@ import { Scoreboard } from '../Scoreboard';
 
 /** Shows player count and a dropdown menu with player list. */
 export function PlayerCountBadge() {
-  const { lobby, user, activePlayers } = useGameContext();
+  const { lobby, turn, user, activePlayers, responses } = useGameContext();
   return (
     <Dropdown
       toggle={
@@ -21,7 +21,13 @@ export function PlayerCountBadge() {
     >
       <DropdownMenu>
         <header className="scoreboard-header">Standings</header>
-        <Scoreboard lobby={lobby} user={user} players={activePlayers} />
+        <Scoreboard
+          lobby={lobby}
+          user={user}
+          players={activePlayers}
+          turn={turn}
+          responses={responses}
+        />
       </DropdownMenu>
     </Dropdown>
   );

@@ -5,7 +5,7 @@ import { ErrorContext } from '../../../components/ErrorContext';
 import { Modal, ModalBody, ModalFooter } from '../../../components/Modal';
 import { Twemoji } from '../../../components/Twemoji';
 import { GameLobby, KickAction, PlayerInLobby } from '../../../shared/types';
-import { IconX } from '../../../components/Icons';
+import { IconXThin } from '../../../components/Icons';
 
 interface PlayerProps {
   lobby: GameLobby;
@@ -90,7 +90,7 @@ export function PlayerCard({
               title="Kick player"
               onClick={() => setShowKickModal(true)}
             >
-              <IconX />
+              <IconXThin />
             </span>
           )}
         </span>

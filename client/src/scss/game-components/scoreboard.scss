@@ -27,3 +27,20 @@
   color: colors.$accent-purple;
   font-weight: 700;
 }
+// Response status is only shown in-game:
+.sb-col-response {
+  font-weight: 200;
+  padding-left: 0.5em;
+  font-style: italic;
+  .icon-check-inline {
+    &.correct {
+      color: colors.$correct-green;
+    }
+    &.submitted {
+      color: colors.$gray-3;
+    }
+  }
+  .icon-x-thick-inline {
+    color: colors.$gray-3;
+  }
+}

@@ -1,11 +1,23 @@
 import { User } from 'firebase/auth';
 import { CSSProperties } from 'react';
-import { GameLobby, PlayerInLobby } from '../../../shared/types';
+import { IconCheckInline, IconXThickInline } from '../../../components/Icons';
+import { isCorrectResponse } from '../../../shared/mode-utils';
+import {
+  GameLobby,
+  GameTurn,
+  Language,
+  PlayerInLobby,
+  PlayerResponse,
+} from '../../../shared/types';
 
 interface Props {
   lobby: GameLobby;
   user: User;
   players: PlayerInLobby[];
+  // Turn and responses are used in-game, to mark response status
+  turn?: GameTurn;
+  responses?: PlayerResponse[];
+  lang?: Language;
 }
 
 const tableContainerStyle: CSSProperties = {
@@ -15,7 +27,7 @@ const tableContainerStyle: CSSProperties = {
 };
 
 /** Reusable scoreboard table component. */
-export function Scoreboard({ lobby, user, players }: Props) {
+export function Scoreboard({ lobby, user, players, turn, responses }: Props) {
   // const players2 = new Array<PlayerInLobby>(20).fill(players[0]);
   const playersByScore = players
     .filter(
@@ -26,6 +38,7 @@ export function Scoreboard({ lobby, user, players }: Props) {
         p.wins > 0,
     )
     .sort((a, b) => b.wins - a.wins);
+  const responseMap = new Map(responses?.map((r) => [r.player_uid, r]));
 
   return (
     <>
@@ -41,6 +54,8 @@ export function Scoreboard({ lobby, user, players }: Props) {
                 lobby={lobby}
                 user={user}
                 player={player}
+                turn={turn}
+                response={responseMap.get(player.uid)}
                 isMe={user.uid === player.uid}
               />
             ))}
@@ -56,9 +71,20 @@ interface RowProps {
   user: User;
   player: PlayerInLobby;
   isMe?: boolean;
+  // Turn and responses are used in-game, to mark response status
+  turn?: GameTurn;
+  response?: PlayerResponse;
 }
-function PlayerRow({ lobby, user, player, isMe }: RowProps) {
-  const isCreator = lobby.creator_uid === user.uid;
+function PlayerRow({ lobby, user, player, isMe, turn, response }: RowProps) {
+  const isFresh = response?.current_phase === turn?.phase;
+  const isSubmitted = response?.isEmpty() === false;
+  const isSkipped = response?.skip === true;
+  const isAnswering = turn?.phase === 'answering';
+  const isReveal = turn?.phase === 'reveal';
+  const isCorrect =
+    isReveal && isSubmitted && isCorrectResponse(turn, response);
+  const isIncorrect = isReveal && isSubmitted && !isCorrect && !isSkipped;
+
   const classes = ['player-row'];
   if (isMe) classes.push('me');
   return (
@@ -72,6 +98,17 @@ function PlayerRow({ lobby, user, player, isMe }: RowProps) {
       <td className="sb-col-score">
         {/* <IconStarInline /> */}
         {player.wins}
+      </td>
+      <td className="sb-col-response">
+        {isSkipped ? (
+          'skipped'
+        ) : isCorrect ? (
+          <IconCheckInline className="correct" />
+        ) : isIncorrect ? (
+          <IconXThickInline />
+        ) : isSubmitted && isFresh && isAnswering ? (
+          <IconCheckInline className="submitted" />
+        ) : null}
       </td>
     </tr>
   );

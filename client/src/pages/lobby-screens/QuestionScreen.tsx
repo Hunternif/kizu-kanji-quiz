@@ -47,7 +47,7 @@ export function QuestionScreen() {
   const showChoices = isChoiceAnswer(turn.answer_mode);
   const showTyping = isTypedAnswer(turn.answer_mode);
   const isReveal = turn.phase === 'reveal';
-  const isSkipped = isReveal && response?.answer_entry_id == null;
+  const isSkipped = isReveal && response?.skip;
   const isCorrect = isReveal && response && isCorrectResponse(turn, response);
   const isIncorrect = isReveal && !isSkipped && !isCorrect;
 

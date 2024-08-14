@@ -166,11 +166,11 @@ export function IconStarInline() {
   );
 }
 
-export function IconX(props: IconSvgProps) {
+export function IconXThin(props: IconSvgProps) {
   // From Google Fonts, Material Icons: https://fonts.google.com/icons
   return (
     <Svg
-      className="icon-x"
+      className={`icon-x ${props.className}`}
       {...props}
       height={props.height ?? 20}
       width={props.width ?? 20}
@@ -178,6 +178,31 @@ export function IconX(props: IconSvgProps) {
     >
       <path d="M480-410.91 325.04-255.96Q310.09-241 291-241.5t-34.04-15.46Q242-271.91 242-291.5t14.96-34.54L410.91-480 255.96-634.96Q241-649.91 241.5-669.5t15.46-34.54Q271.91-719 291.5-719t34.54 14.96L480-549.09l154.96-154.95Q649.91-719 669.5-719t34.54 14.96Q719-689.09 719-669.5t-14.96 34.54L549.09-480l154.95 154.96Q719-310.09 719-291t-14.96 34.04Q689.09-242 669.5-242t-34.54-14.96L480-410.91Z" />
     </Svg>
+  );
+}
+
+/** Same width as the Check icon */
+export function IconXThick(props: IconSvgProps) {
+  // From Google Fonts, Material Icons: https://fonts.google.com/icons
+  return (
+    <Svg
+      className={`icon-x-thick ${props.className}`}
+      {...props}
+      height={props.height ?? 20}
+      width={props.width ?? 20}
+      viewBox="0 -960 960 960"
+    >
+      <path d="m256-168-88-88 224-224-224-224 88-88 224 224 224-224 88 88-224 224 224 224-88 88-224-224-224 224Z" />
+    </Svg>
+  );
+}
+
+export function IconXThickInline(props: IconSvgProps) {
+  return (
+    <IconXThick
+      {...props}
+      className={`icon-x-thick-inline ${props.className}`}
+    />
   );
 }
 
@@ -220,6 +245,12 @@ export function IconCheck(props: IconSvgProps) {
     >
       <path d="M382-208 122-468l90-90 170 170 366-366 90 90-456 456Z" />
     </Svg>
+  );
+}
+
+export function IconCheckInline(props: IconSvgProps) {
+  return (
+    <IconCheck {...props} className={`icon-check-inline ${props.className}`} />
   );
 }
 
