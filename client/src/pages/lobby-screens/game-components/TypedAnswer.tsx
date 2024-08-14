@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
+import { useOnNewTurn } from '../../../api/turn/turn-hooks';
 import { submitPlayerResponse } from '../../../api/turn/turn-response-api';
 import { GameButton } from '../../../components/Buttons';
 import { TextInput } from '../../../components/FormControls';
@@ -16,10 +17,7 @@ interface Props {
 export function TypedAnswer({ disabled }: Props) {
   const { lobby, turn, player, responses, language } = useGameContext();
   const [text, setText] = useState('');
-  const inputRef = useRef<HTMLInputElement>(null);
 
-  // Remember turn ID, to reset input when the turn changes:
-  const [lastTurnID, setLastTurnID] = useState(turn.id);
   const response = responses.find((r) => r.player_uid === player.uid);
 
   const isReveal = turn.phase === 'reveal';
@@ -55,13 +53,11 @@ export function TypedAnswer({ disabled }: Props) {
   );
 
   // Reset and auto-focus input on new turn:
-  useEffect(() => {
-    if (lastTurnID !== turn.id) {
-      setLastTurnID(turn.id);
-      setText('');
-      inputRef.current?.focus();
-    }
-  }, [turn.id, lastTurnID]);
+  const inputRef = useRef<HTMLInputElement>(null);
+  useOnNewTurn(() => {
+    setText('');
+    inputRef.current?.focus();
+  }, turn);
 
   const classes = ['typed-input-form'];
   if (isSkipped) classes.push('skipped');

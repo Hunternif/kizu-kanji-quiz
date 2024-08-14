@@ -1,5 +1,5 @@
 import { collection, doc } from 'firebase/firestore';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   useCollectionData,
   useCollectionDataOnce,
@@ -98,4 +98,15 @@ export function useAllPlayerResponsesOnce(lobby: GameLobby, turn: GameTurn) {
       'player_responses',
     ).withConverter(playerResponseConverter),
   );
+}
+
+/** Runs the callback when the turn changes. */
+export function useOnNewTurn(callback: () => void, turn: GameTurn) {
+  const [lastTurnID, setLastTurnID] = useState(turn.id);
+  useEffect(() => {
+    if (lastTurnID !== turn.id) {
+      setLastTurnID(turn.id);
+      callback();
+    }
+  }, [turn.id, lastTurnID]);
 }
