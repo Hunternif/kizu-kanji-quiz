@@ -27,6 +27,25 @@
     margin-bottom: 1rem;
     background-color: colors.$gray-0;
   }
+
+  > footer {
+    margin: 1rem 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+    gap: 1em;
+    // Mobile:
+    @media (max-width: 25rem) {
+      margin-bottom: 0.5em;
+      margin-top: 1em;
+    }
+    .start-button {
+      width: 8rem;
+      max-width: 40vw;
+    }
+  }
 }
 
 .kanji-stat-list {

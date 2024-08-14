@@ -68,7 +68,7 @@ export async function updateLobbySettings(
 }
 
 /** Should be used only during lobby setup */
-export async function addTestGroups(
+export async function addTestGroup(
   lobby: GameLobby,
   testGroup: TestGroup,
 ): Promise<GameLobby> {
@@ -82,7 +82,7 @@ export async function addTestGroups(
 }
 
 /** Should be used only during lobby setup */
-export async function removeTestGroups(
+export async function removeTestGroup(
   lobby: GameLobby,
   testGroup: TestGroup,
 ): Promise<GameLobby> {

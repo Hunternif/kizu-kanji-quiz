@@ -1,5 +1,8 @@
 import { User } from 'firebase/auth';
-import { updateLobby } from '../../../api/lobby/lobby-repository';
+import {
+  addTestGroup,
+  removeTestGroup,
+} from '../../../api/lobby/lobby-control-api';
 import { useHandler2 } from '../../../hooks/data-hooks';
 import {
   kanaGroupInfo,
@@ -19,9 +22,12 @@ interface SelectorProps {
 export function TestGroupSelector({ lobby, readOnly }: SelectorProps) {
   const [toggleHandler] = useHandler2(
     async (value: TestGroup, selected: boolean) => {
-      if (selected) lobby.test_groups.add(value);
-      else lobby.test_groups.delete(value);
-      await updateLobby(lobby);
+      await addTestGroup(lobby, value);
+      if (selected) {
+        await addTestGroup(lobby, value);
+      } else {
+        await removeTestGroup(lobby, value);
+      }
     },
     [lobby],
   );

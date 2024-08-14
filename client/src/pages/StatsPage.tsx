@@ -1,12 +1,18 @@
 import { useEffect, useState } from 'react';
 import { useLoaderData, useNavigate } from 'react-router-dom';
+import { addTestGroup } from '../api/lobby/lobby-control-api';
+import { createLobbyAndJoin } from '../api/lobby/lobby-join-api';
+import { getLobby } from '../api/lobby/lobby-repository';
 import { getUserStats } from '../api/stats/stats-repository';
+import { GameButton } from '../components/Buttons';
 import { ErrorContext, useErrorContext } from '../components/ErrorContext';
 import { ErrorModal } from '../components/ErrorModal';
+import { IconPlay } from '../components/Icons';
 import { LoadingSpinner } from '../components/LoadingSpinner';
 import { ScrollContainer } from '../components/layout/ScrollContainer';
 import { SidebarLayout } from '../components/layout/SidebarLayout';
 import { useQuizUser } from '../hooks/auth-hooks';
+import { useHandler } from '../hooks/data-hooks';
 import { EntryStats, TestGroup } from '../shared/types';
 import { KanjiStatList } from './stats-components/KanjiStatList';
 import { TestGroupList } from './stats-components/TestGroupList';
@@ -38,6 +44,14 @@ function StatsPageThrows() {
   const selectedGroup = useLoaderData() as TestGroup;
   const [quizUser, loadingQuizUser] = useQuizUser();
   const [userStats, setUserStats] = useState<Map<string, EntryStats>>();
+  const [handleTest, startingTest] = useHandler(async () => {
+    if (selectedGroup) {
+      const lobbyID = await createLobbyAndJoin();
+      const lobby = await getLobby(lobbyID);
+      await addTestGroup(lobby, selectedGroup);
+      navigate(`/${lobbyID}`);
+    }
+  }, [selectedGroup]);
 
   async function fetchStats(userID: string) {
     try {
@@ -87,6 +101,18 @@ function StatsPageThrows() {
             stats={userStats}
           />
         </ScrollContainer>
+        <footer>
+          {selectedGroup && (
+            <GameButton
+              iconLeft={<IconPlay />}
+              className="start-button"
+              onClick={handleTest}
+              loading={startingTest}
+            >
+              Test
+            </GameButton>
+          )}
+        </footer>
       </SidebarLayout>
     </>
   );
