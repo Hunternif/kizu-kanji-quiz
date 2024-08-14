@@ -105,7 +105,7 @@ function PlayerRow({ lobby, user, player, isMe, turn, response }: RowProps) {
         ) : isCorrect ? (
           <IconCheckInline className="correct" />
         ) : isIncorrect ? (
-          <IconXThickInline />
+          <IconXThickInline className="incorrect" />
         ) : isSubmitted && isFresh && isAnswering ? (
           <IconCheckInline className="submitted" />
         ) : null}

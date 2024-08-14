@@ -63,6 +63,12 @@ svg {
 .icon-x-thick-inline {
   margin-bottom: 0.1em;
 }
+.icon-check.correct {
+  color: colors.$correct-green;
+}
+.icon-x-thick.incorrect {
+  color: colors.$error-red;
+}
 .icon-google {
   color: colors.$accent-pink;
 }

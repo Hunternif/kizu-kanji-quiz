@@ -12,6 +12,7 @@ import { throttle4 } from '../../shared/utils';
 import { ChoiceCard } from './game-components/ChoiceCard';
 import { useGameContext } from './game-components/GameContext';
 import { QuestionCard } from './game-components/QuestionCard';
+import { ResultStatusText } from './game-components/ResultStatusText';
 import { TimerBar } from './game-components/TimerBar';
 import { TurnCount } from './game-components/TurnCount';
 import { TypedAnswer } from './game-components/TypedAnswer';
@@ -47,15 +48,18 @@ export function QuestionScreen() {
   const showChoices = isChoiceAnswer(turn.answer_mode);
   const showTyping = isTypedAnswer(turn.answer_mode);
   const isReveal = turn.phase === 'reveal';
-  const isSkipped = isReveal && (response?.skip || response?.isEmpty());
-  const isCorrect = isReveal && response && isCorrectResponse(turn, response);
-  const isIncorrect = isReveal && !isSkipped && !isCorrect;
+  const isCurrent = response?.current_turn_id === turn.id;
+  const isSkipped = (isCurrent && response?.skip) || response?.isEmpty();
+  const isCorrect = isCurrent && isCorrectResponse(turn, response);
+  const isIncorrect = isCurrent && !isSkipped && !isCorrect;
 
   const rootClasses = ['question-screen'];
   rootClasses.push(`phase-${turn.phase}`);
-  if (isSkipped) rootClasses.push('skipped');
-  else if (isCorrect) rootClasses.push('correct');
-  else if (isIncorrect) rootClasses.push('incorrect');
+  if (isReveal) {
+    if (isSkipped) rootClasses.push('skipped');
+    else if (isCorrect) rootClasses.push('correct');
+    else if (isIncorrect) rootClasses.push('incorrect');
+  }
 
   const isTimerEnabled =
     turn.next_phase_time != null && turn.phase_duration_ms != 0;
@@ -66,9 +70,11 @@ export function QuestionScreen() {
     <CenteredLayout innerClassName={rootClasses.join(' ')}>
       <div className="question-group">
         <TurnCount />
-        <div className="result-text">
-          {isCorrect ? 'Correct!' : isIncorrect ? 'Incorrect' : null}
-        </div>
+        <ResultStatusText
+          correct={isCorrect}
+          incorrect={isIncorrect}
+          linger={lobby.settings.skip_reveal}
+        />
         <div className="timebar-container">
           {isTimerEnabled && turn.next_phase_time && (
             <TimerBar

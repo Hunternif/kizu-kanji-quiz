@@ -186,8 +186,8 @@ export function IconXThick(props: IconSvgProps) {
   // From Google Fonts, Material Icons: https://fonts.google.com/icons
   return (
     <Svg
-      className={`icon-x-thick ${props.className}`}
       {...props}
+      className={`icon-x-thick ${props.className}`}
       height={props.height ?? 20}
       width={props.width ?? 20}
       viewBox="0 -960 960 960"
@@ -239,6 +239,7 @@ export function IconCheck(props: IconSvgProps) {
   return (
     <Svg
       {...props}
+      className={`icon-check ${props.className}`}
       height={props.height ?? 24}
       width={props.width ?? 24}
       viewBox="0 -960 960 960"
