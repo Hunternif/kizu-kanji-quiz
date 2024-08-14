@@ -134,9 +134,9 @@ function MaxQuestionsControl({ settings, readOnly, onChange }: Props) {
 function QuestionModeControl({ settings, readOnly, onChange }: Props) {
   const options: Array<[QuestionMode, string]> = [
     ['kanji', '漢字'],
+    ['meaning', 'Meaning'],
     ['hiragana', 'ひらがな'],
     ['romaji', 'Romaji'],
-    ['meaning', 'Meaning'],
   ];
   const validModes = getValidQuestionModes(settings.answer_mode);
   return (
@@ -156,13 +156,13 @@ function QuestionModeControl({ settings, readOnly, onChange }: Props) {
 function AnswerModeControl({ settings, readOnly, onChange }: Props) {
   const options: Array<[AnswerMode, string]> = [
     ['choose_kanji', 'Choose kanji'],
+    ['choose_meaning', 'Choose meaning'],
+    ['type_meaning', 'Type meaning'],
     // ['draw_kanji', 'Draw kanji'], // not supported yet
     ['choose_hiragana', 'Choose hiragana'],
     // ['draw_hiragana', 'Draw hiragana'], // not supported yet
     ['choose_romaji', 'Choose romaji'],
-    ['choose_meaning', 'Choose meaning'],
     ['type_romaji', 'Type romaji'],
-    ['type_meaning', 'Type meaning'],
   ];
   const validModes = getValidAnswerModes(settings.question_mode);
   return (
