@@ -72,7 +72,9 @@ export function useGameObserver(
         // Ensure the responses are not stale:
         const responses = snap.docs.map((d) => d.data());
         const isStale = responses.every(
-          (r) => r.current_phase !== updatedTurn.phase,
+          (r) =>
+            r.current_phase !== updatedTurn.phase ||
+            r.current_turn_id !== updatedTurn.id,
         );
 
         if (shouldPause) {

@@ -95,6 +95,7 @@ function choiceResponse(entryID: string) {
   return new PlayerResponse(
     'player_1',
     'Chooser',
+    'turn_01',
     'answering',
     new Date(),
     'en',
@@ -106,6 +107,7 @@ function typedResponse(text: string) {
   return new PlayerResponse(
     'player_2',
     'Typer',
+    'turn_01',
     'answering',
     new Date(),
     'en',

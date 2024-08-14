@@ -68,6 +68,7 @@ export async function submitPlayerResponse(
   const response = new PlayerResponse(
     player.uid,
     player.name,
+    turn.id,
     turn.phase,
     null,
     language,
@@ -125,6 +126,7 @@ export async function pingResponse(
       const emptyResponse = new PlayerResponse(
         player.uid,
         player.name,
+        turn.id,
         turn.phase,
         null,
       );
@@ -159,6 +161,7 @@ export async function requestPause(
     const emptyResponse = new PlayerResponse(
       player.uid,
       player.name,
+      turn.id,
       turn.phase,
       null,
     );

@@ -29,7 +29,10 @@ async function handleResponseUpdateOrCreate(
       // Check if it's time to advance turn as per timer:
       // (Pause request could have changed next phase time!)
       // Also ensure that the request is not stale:
-      if (turn.phase === response.current_phase) {
+      if (
+        turn.id === response.current_turn_id &&
+        turn.phase === response.current_phase
+      ) {
         await tryAdvanceTurn(lobbyID, turn);
       } else {
         logger.info(

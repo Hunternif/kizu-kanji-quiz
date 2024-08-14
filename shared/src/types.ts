@@ -246,8 +246,9 @@ export class PlayerResponse {
   constructor(
     public player_uid: string,
     public player_name: string, // Copied from 'Players' for convenience.
-    /** Current turn phase. This is so we don't accidentally advance the turn
-     * from stale data. */
+    /** Current turn ID, to prevent stale requests. */
+    public current_turn_id: string,
+    /** Current turn phase, to prevent stale requests. */
     public current_phase: TurnPhase,
     /** Should be populated by the server! */
     public time_submitted: Date | null,
