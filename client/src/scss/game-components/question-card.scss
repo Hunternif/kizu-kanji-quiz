@@ -96,6 +96,11 @@ $animation-function: ease;
         font-size: 2rem;
         line-height: 1.2;
       }
+      &.jp.long,
+      &.jp.medium {
+        // Japanese characters are big, so this is extra long
+        font-size: 1.2rem;
+      }
     }
   }
 }

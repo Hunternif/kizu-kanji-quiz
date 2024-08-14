@@ -42,6 +42,7 @@ export function QuestionCard({
       {paused && <div className="pause">Paused</div>}
       <main className="main-content">
         <JapText
+          splitJapWords
           short={2}
           className="question-text"
           text={reveal ? entry.writing : text}

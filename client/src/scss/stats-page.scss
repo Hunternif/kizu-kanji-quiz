@@ -78,6 +78,10 @@
       margin: 0;
       .main-content {
         background-color: colors.$gray-6;
+        .jap-text.medium.jp, .jap-text.long.jp {
+          // Japanese characters are big, so this is extra long
+          font-size: 2rem;
+        }
       }
     }
   }
