@@ -9,12 +9,14 @@ import {
   IconChevronDownInline,
   IconQuestionInline,
 } from '../../../components/Icons';
+import { Modal, ModalBody } from '../../../components/Modal';
 import { Warning } from '../../../components/Warning';
 import {
   getValidAnswerModes,
   getValidQuestionModes,
 } from '../../../shared/mode-utils';
 import { AnswerMode, LobbySettings, QuestionMode } from '../../../shared/types';
+import { AnswerModeHelp, QuestionModeHelp } from './Help';
 
 interface Props {
   settings: LobbySettings;
@@ -41,12 +43,14 @@ export function LobbySettingsPanel(props: Props) {
         {isInvalidMode && <Warning>Question and Answer are the same</Warning>}
         <FormItem
           label="Question mode"
-          hint="What the question will look like."
+          modalHint
+          hint={<QuestionModeHelp />}
           control={<QuestionModeControl {...props} />}
         />
         <FormItem
           label="Answer mode"
-          hint="What the players' answers will look like."
+          modalHint
+          hint={<AnswerModeHelp />}
           control={<AnswerModeControl {...props} />}
         />
         <FormItem
@@ -313,13 +317,29 @@ interface ItemProps {
   hint?: ReactNode;
   control: ReactNode;
   disabled?: boolean;
+  /** If true, will use a popup instead. */
+  modalHint?: boolean;
 }
 
-function FormItem({ label, hint, control, disabled }: ItemProps) {
+function FormItem({
+  label,
+  hint,
+  control,
+  disabled,
+  modalHint: modal,
+}: ItemProps) {
   const disabledClass = disabled ? 'disabled' : '';
   const [showHint, setShowHint] = useState(false);
   return (
     <div className={`lobby-settings-form-item ${disabledClass}`}>
+      <Modal
+        show={showHint && modal === true}
+        onHide={() => setShowHint(false)}
+      >
+        <ModalBody scroll longFormat>
+          {hint}
+        </ModalBody>
+      </Modal>
       <div className="label-container">
         <div className="label">
           {label}
@@ -333,7 +353,7 @@ function FormItem({ label, hint, control, disabled }: ItemProps) {
             </span>
           )}
         </div>
-        {showHint && <div className="hint">{hint}</div>}
+        {showHint && !modal && <div className="hint">{hint}</div>}
       </div>
       {control}
     </div>

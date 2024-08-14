@@ -1,5 +1,4 @@
 import { ReactNode } from 'react';
-import { Delay } from './Delay';
 
 interface Props {
   children: ReactNode;
@@ -10,7 +9,13 @@ export function Tooltip({ children, tooltip }: Props) {
   return (
     <div className="tooltip-container">
       {children}
-      <div className="tooltip-panel">{tooltip}</div>
+      <TooltipPanel>{tooltip}</TooltipPanel>
     </div>
   );
+}
+
+interface PanelProps extends React.HTMLAttributes<HTMLElement> {}
+
+export function TooltipPanel({ className, ...props }: PanelProps) {
+  return <div {...props} className={`tooltip-panel ${className}`} />;
 }
