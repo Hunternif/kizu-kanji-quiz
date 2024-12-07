@@ -7,7 +7,7 @@ import { getUserStats } from '../api/stats/stats-repository';
 import { GameButton } from '../components/Buttons';
 import { ErrorContext, useErrorContext } from '../components/ErrorContext';
 import { ErrorModal } from '../components/ErrorModal';
-import { IconPlay } from '../components/Icons';
+import { IconHamburger, IconPlay } from '../components/Icons';
 import { LoadingSpinner } from '../components/LoadingSpinner';
 import { ScrollContainer } from '../components/layout/ScrollContainer';
 import { SidebarLayout } from '../components/layout/SidebarLayout';
@@ -93,7 +93,16 @@ function StatsPageThrows() {
           </>
         }
       >
-        <header>Statistics</header>
+        <header>
+          Statistics
+          <GameButton inline light onClick={() => navigate('/')} style={{
+            position: "absolute",
+            right: "2em",
+            top: 0,
+          }}>
+            Home
+          </GameButton>
+        </header>
         <ScrollContainer scrollDark>
           <KanjiStatList
             quizUser={quizUser}
