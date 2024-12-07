@@ -1,13 +1,13 @@
-一	1	N5	イチ, イツ, ひと, ひとつ	ichi, itsu, hito, hitotsu	one
-二	1	N5	ニ, ふた, ふたつ	ni, futa, futatsu	two
-三	1	N5	サン, み, みつ, みっつ	san, mi, mitsu, mittsu	three
-四	1	N5	シ, よ, よつ, よっつ, よん	shi, yo, yotsu, yottsu, yon	four
-五	1	N5	ゴ, いつ, いつつ	go, itsu, itsutsu	five
-六	1	N5	ロク, む, むつ, むっつ, （むい）	roku, mu, mutsu, muttsu, (mui)	six
-七	1	N5	シチ, なな, ななつ, （なの）	shichi, nana, nanatsu, (nano)	seven
-八	1	N5	ハチ, や, やつ, やっつ, （よう）	hachi, ya, yatsu, yattsu, (you)	eight
-九	1	N5	キュウ, ク, ここの, ここのつ	kyuu, ku, kokono, kokonotsu	nine
-十	1	N5	ジュウ, ジッ, とお, と	juu, ji', too, to	ten
+一	1	N5	イチ, イツ, ひと, ひとつ	ichi, itsu, hito, hitotsu	one, 1
+二	1	N5	ニ, ふた, ふたつ	ni, futa, futatsu	two, 2
+三	1	N5	サン, み, みつ, みっつ	san, mi, mitsu, mittsu	three, 3
+四	1	N5	シ, よ, よつ, よっつ, よん	shi, yo, yotsu, yottsu, yon	four, 4
+五	1	N5	ゴ, いつ, いつつ	go, itsu, itsutsu	five, 5
+六	1	N5	ロク, む, むつ, むっつ, （むい）	roku, mu, mutsu, muttsu, (mui)	six, 6
+七	1	N5	シチ, なな, ななつ, （なの）	shichi, nana, nanatsu, (nano)	seven, 7
+八	1	N5	ハチ, や, やつ, やっつ, （よう）	hachi, ya, yatsu, yattsu, (you)	eight, 8
+九	1	N5	キュウ, ク, ここの, ここのつ	kyuu, ku, kokono, kokonotsu	nine, 9
+十	1	N5	ジュウ, ジッ, とお, と	juu, ji', too, to	ten, 10
 人	1	N5	ジン, ニン, ひと	jin, nin, hito	person
 口	1	N4	コウ, ク, くち	kou, ku, kuchi	mouth
 山	1	N5	サン, やま	san, yama	mountain
@@ -52,7 +52,7 @@
 夕	1	N4	セキ, ゆう	seki, yuu	evening
 石	1	N3	セキ, （シャク）, （コク）, いし	seki, (shaku), (koku), ishi	stone
 赤	1	N4	セキ, （シャク）, あか, あかい, あからむ, あからめる	seki, (shaku), aka, akai, akaramu, akarameru	red
-千	1	N5	セン, ち	sen, chi	thousand
+千	1	N5	セン, ち	sen, chi	thousand, 1000
 川	1	N5	セン, かわ	sen, kawa	stream, river
 先	1	N5	セン, さき	sen, saki	before, ahead, previous, future, precedence
 早	1	N4	ソウ, （サッ）, はやい, はやまる, はやめる	sou, (sa'), hayai, hayamaru, hayameru	early, fast
@@ -71,7 +71,7 @@
 入	1	N5	ニュウ, いる, いれる, はいる	nyuu, iru, ireru, hairu	enter, insert
 年	1	N5	ネン, とし	nen, toshi	year
 白	1	N5	ハク, ビャク, しろ, （しら）, しろい	haku, byaku, shiro, (shira), shiroi	white
-百	1	N5	ヒャク	hyaku	hundred
+百	1	N5	ヒャク	hyaku	hundred, 100
 文	1	N4	ブン, モン, ふみ	bun, mon, fumi	sentence, literature, style, art, decoration, figures, plan
 木	1	N5	ボク, モク, き, （こ）	boku, moku, ki, (ko)	tree, wood
 本	1	N5	ホン, もと	hon, moto	book, present, main, true, real, counter for long things
@@ -223,7 +223,7 @@
 北	2	N5	ホク, きた	hoku, kita	north
 毎	2	N5	マイ	mai	every
 妹	2	N4	マイ, いもうと	mai, imouto	younger sister
-万	2	N5	マン, バン	man, ban	ten thousand
+万	2	N5	マン, バン	man, ban	ten thousand, 10000
 明	2	N4	メイ, ミョウ, あかり, あかるい, あかるむ, あからむ, あきらか, あける, あく, あくる, あかす	mei, myou, akari, akarui, akarumu, akaramu, akiraka, akeru, aku, akuru, akasu	bright, light
 鳴	2	N3	メイ, なく, なる, ならす	mei, naku, naru, narasu	chirp, cry, bark, sound, ring, echo, honk
 毛	2	N2	モウ, け	mou, ke	fur, hair, feather, down
@@ -443,7 +443,7 @@
 媛	4	N1	エン	en	beautiful woman, princess
 塩	4	N2	エン, しお	en, shio	salt
 岡	4		（おか）	(oka)	hill
-億	4	N2	オク	oku	hundred million, 10**8
+億	4	N2	オク	oku	hundred million, 10**8, 100000000
 加	4	N3	カ, くわえる, くわわる	ka, kuwaeru, kuwawaru	add, addition, increase, join, include, Canada
 果	4	N3	カ, はたす, はてる, はて	ka, hatasu, hateru, hate	fruit, reward, carry out, achieve, complete, end, finish, succeed
 貨	4	N2	カ	ka	freight, goods, property
@@ -2094,7 +2094,7 @@
 陰	S	N1	イン, かげ, かげる	in, kage, kageru	shade
 隠	S	N1	イン, かくす, かくれる	in, kakusu, kakureru	conceal
 韻	S	N1	イン	in	rhyme
-厘	S	N1	リン	rin	thousandth
+厘	S	N1	リン	rin	thousandth, 1/1000
 倫	S	N1	リン	rin	ethics
 隣	S	N1	リン, となる, となり	rin, tonaru, tonari	neighboring
 瑠	S	N1	ル	ru	lapis lazuli

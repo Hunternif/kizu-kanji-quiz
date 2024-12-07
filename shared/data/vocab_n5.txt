@@ -53,13 +53,13 @@
 	いす	isu	chair
 忙しい	いそがしい	isogashii	busy, irritated
 痛い	いたい	itai	painful
-一	いち	ichi	one
+一	いち	ichi	one, 1
 一日	いちにち	ichinichi	first of the month
 	いちばん	ichiban	best, first
 	いつ	itsu	when
 五日	いつか	itsuka	five days, fifth day
 一緒	いっしょ	issho	together
-五つ	いつつ	itsutsu	five
+五つ	いつつ	itsutsu	five, 5
 	いつも	itsumo	always
 犬	いぬ	inu	dog
 今	いま	ima	now
@@ -143,7 +143,7 @@
 買う	かう	kau	to buy
 返す	かえす	kaesu	to return something
 帰る	かえる	kaeru	to go back
-	かかる	kakaru	to take time or money
+	かかる	kakaru	to take (time or money)
 	かぎ	kagi	key
 書く	かく	kaku	to write
 学生	がくせい	gakusei	student
@@ -184,7 +184,7 @@
 切手	きって	kitte	postage stamp
 切符	きっぷ	kippu	ticket
 昨日	きのう	kinou	yesterday
-九	きゅう, く	kyuu, ku	nine
+九	きゅう, く	kyuu, ku	nine, 9
 牛肉	ぎゅうにく	gyuuniku	beef
 牛乳	ぎゅうにゅう	gyuunyuu	milk
 今日	きょう	kyou	today
@@ -223,7 +223,7 @@
 月曜日	げつようび	getsuyoubi	Monday
 玄関	げんかん	genkan	entry hall
 元気	げんき	genki	health, vitality
-五	ご	go	five
+五	ご	go	five, 5
 公園	こうえん	kouen	park
 交差点	こうさてん	kousaten	intersection
 紅茶	こうちゃ	koucha	black tea
@@ -234,7 +234,7 @@
 	ここ	koko	here
 午後	ごご	gogo	afternoon
 九日	ここのか	kokonoka	nine days, ninth day
-九つ	ここのつ	kokonotsu	nine
+九つ	ここのつ	kokonotsu	nine, 9
 午前	ごぜん	gozen	morning
 答える	こたえる	kotaeru	to answer
 	こちら	kochira	this person or way
@@ -263,9 +263,9 @@
 砂糖	さとう	satou	sugar
 寒い	さむい	samui	cold
 さ来年	さらいねん	sarainen	year after next
-三	さん	san	three
+三	さん	san	three, 3
 散歩	さんぽする	sanposuru	to stroll
-四	し, よん	shi, yon	four
+四	し, よん	shi, yon	four, 4
 塩	しお	shio	salt
 	しかし	shikashi	but, however
 時間	じかん	jikan	time
@@ -273,7 +273,7 @@
 辞書	じしょ	jisho	dictionary
 静か	しずか	shizuka	quiet
 下	した	shita	below
-七	しち, なな	shichi, nana	seven
+七	しち, なな	shichi, nana	seven, 7
 質問	しつもん	shitsumon	question
 自転車	じてんしゃ	jitensha	bicycle
 自動車	じどうしゃ	jidousha	automobile
@@ -287,7 +287,7 @@
 写真	しゃしん	shashin	photograph
 	シャツ	shatsu	shirt
 	シャワー	shawa-	shower
-十	じゅう とお	juu too	ten
+十	じゅう とお	juu too	ten, 10
 授業	じゅぎょう	jugyou	lesson, class work
 宿題	しゅくだい	shukudai	homework
 上手	じょうず	jouzu	skillful
@@ -321,7 +321,7 @@
 背広	せびろ	sebiro	business suit
 狭い	せまい	semai	narrow
 	ゼロ	zero	zero
-千	せん	sen	thousand
+千	せん	sen	thousand, 1000
 先月	せんげつ	sengetsu	last month
 先週	せんしゅう	senshuu	last week
 先生	せんせい	sensei	teacher, doctor
@@ -446,7 +446,7 @@
 夏	なつ	natsu	summer
 夏休み	なつやすみ	natsuyasumi	summer holiday
 	など	nado	et cetera
-七つ	ななつ	nanatsu	seven
+七つ	ななつ	nanatsu	seven, 7
 七日	なのか	nanoka	seven days, the seventh day
 名前	なまえ	namae	name
 習う	ならう	narau	to learn
@@ -454,7 +454,7 @@
 並べる	ならべる	naraberu	to line up, to set up
 	なる	naru	to become
 何	なん, なに	nan, nani	what
-二	に	ni	two
+二	に	ni	two, 2
 賑やか	にぎやか	nigiyaka	bustling, busy
 肉	にく	niku	meat
 西	にし	nishi	west
@@ -490,8 +490,8 @@
 	バター	bata-	butter
 二十歳	はたち	hatachi	20 years old, 20th year
 働く	はたらく	hataraku	to work
-八	はち	hachi	eight
-二十日	はつか	hatsuka	twenty days, twentieth
+八	はち	hachi	eight, 8
+二十日	はつか	hatsuka	twenty days, 20 days, twentieth
 花	はな	hana	flower
 鼻	はな	hana	nose
 話	はなし	hanashi	talk, story
@@ -516,11 +516,11 @@
 飛行機	ひこうき	hikouki	aeroplane
 左	ひだり	hidari	left hand side
 人	ひと	hito	person
-一つ	ひとつ	hitotsu	one
+一つ	ひとつ	hitotsu	one, 1
 一月	ひとつき	hitotsuki	one month
 一人	ひとり	hitori	one person
 暇	ひま	hima	free time
-百	ひゃく	hyaku	hundred
+百	ひゃく	hyaku	hundred, 100
 病院	びょういん	byouin	hospital
 病気	びょうき	byouki	illness
 昼	ひる	hiru	noon, daytime
@@ -532,7 +532,7 @@
 	フォーク	fo-ku	fork
 吹く	ふく	fuku	to blow
 服	ふく	fuku	clothes
-二つ	ふたつ	futatsu	two
+二つ	ふたつ	futatsu	two, 2
 豚肉	ぶたにく	butaniku	pork
 二人	ふたり	futari	two people
 二日	ふつか	futsuka	two days, second day of the month
@@ -580,7 +580,7 @@
 	マッチ	macchi	match
 窓	まど	mado	window
 丸い/円い	まるい	marui	round, circular
-万	まん	man	ten thousand
+万	まん	man	ten thousand, 10000
 万年筆	まんねんひつ	mannenhitsu	fountain pen
 磨く	みがく	migaku	to brush teeth, to polish
 右	みぎ	migi	right side
@@ -590,7 +590,7 @@
 見せる	みせる	miseru	to show
 道	みち	michi	street
 三日	みっか	mikka	three days, third day of the month
-三つ	みっつ	mittsu	three
+三つ	みっつ	mittsu	three, 3
 緑	みどり	midori	green
 皆さん	みなさん	minasan	everyone
 南	みなみ	minami	south
@@ -600,7 +600,7 @@
 六日	むいか	muika	six days, sixth day of the month
 向こう	むこう	mukou	over there
 難しい	むずかしい	muzukashii	difficult
-六つ	むっつ	muttsu	six
+六つ	むっつ	muttsu	six, 6
 村	むら	mura	village
 目	め	me	eye
 	メートル	me-toru	metre
@@ -619,7 +619,7 @@
 安い	やすい	yasui	cheap
 休み	やすみ	yasumi	rest, holiday
 休む	やすむ	yasumu	to rest
-八つ	やっつ	yama	eight
+八つ	やっつ	yama	eight, 8
 山	やま	yattsu	mountain
 	やる	yaru	to do
 夕方	ゆうがた	yuugata	evening
@@ -635,7 +635,7 @@
 	よく	yoku	often, well
 横	よこ	yoko	beside, side, width
 四日	よっか	yokka	four days, fouth day of the month
-四つ	よっつ	yottsu	four
+四つ	よっつ	yottsu	four, 4
 呼ぶ	よぶ	yobu	to call out, to invite
 読む	よむ	yomu	to read
 夜	よる	yoru	evening, night
@@ -656,7 +656,7 @@
 	レストラン	resutoran	restaurant
 練習	れんしゅうする	renshuusuru	to practice
 廊下	ろうか	rouka	corridor
-六	ろく	roku	six
+六	ろく	roku	six, 6
 	ワイシャツ	waishatsu	business shirt
 若い	わかい	wakai	young
 分かる	わかる	wakaru	to understand
