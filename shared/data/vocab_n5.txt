@@ -147,7 +147,7 @@
 	かぎ	kagi	Key
 書く	かく	kaku	to write
 学生	がくせい	gakusei	Student
-	かける	kakeru	to call by phone
+	かける	kakeru	to call (by phone)
 傘	かさ	kasa	Umbrella
 貸す	かす	kasu	to lend
 風	かぜ	kaze	Wind
@@ -401,16 +401,16 @@
 	デパート	depa-to	department store
 	でも	demo	but
 出る	でる	deru	to appear, to leave
-	テレビ	terebi	television
+	テレビ	terebi	television, tv
 天気	てんき	tenki	weather
 電気	でんき	denki	electricity, electric light
 電車	でんしゃ	densha	electric train
-電話	でんわ	denwa	telephone
+電話	でんわ	denwa	telephone, phone
 戸	と	to	Japanese style door
 	ドア	doa	Western style door
 	トイレ	toire	toilet
 	どう	dou	how, in what way
-	どうして	doushite	for what reason
+	どうして	doushite	why, for what reason
 	どうぞ	douzo	please
 動物	どうぶつ	doubutsu	animal
 	どうも	doumo	thanks

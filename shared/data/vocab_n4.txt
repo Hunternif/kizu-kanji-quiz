@@ -484,13 +484,13 @@
 場所	ばしょ	basho	location
 	はず	hazu	it should be so
 恥ずかしい	はずかしい	hazukashii	embarrassed
-	パソコン	pasokon	personal computer
+	パソコン	pasokon	personal computer, PC
 発音	はつおん	hatsuon	pronunciation
 	はっきり	hakkiri	clearly
 花見	はなみ	hanami	cherry-blossom viewing
 林	はやし	hayashi	woods, forester
 払う	はらう	harau	to pay
-番組	ばんぐみ	bangumi	television or radio program
+番組	ばんぐみ	bangumi	television or radio program, tv program
 反対	はんたい	hantai	opposition
 	ハンドバッグ	handobaggu	handbag
 日	ひ	hi	day, sun
