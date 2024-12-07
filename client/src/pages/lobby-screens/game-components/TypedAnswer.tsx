@@ -42,14 +42,8 @@ export function TypedAnswer({ disabled }: Props) {
   );
 
   const [handleChange] = useHandler1(
-    async (newText: string) => {
-      setText(newText);
-      // Don't submit if there is no timer, so that the turn doesn't auto-advance.
-      if (!disabled && !isTimerEnabled) {
-        await submitResponse(newText);
-      }
-    },
-    [lobby, turn, player, language, isTimerEnabled, disabled],
+    async (newText: string) => setText(newText),
+    [],
   );
 
   // Reset and auto-focus input on new turn:
